@@ -1,0 +1,82 @@
+//
+//  TripDetailViewController.swift
+//  MoveEasy
+//
+//  Created by Apple on 13/12/1443 AH.
+//
+
+import UIKit
+import FittedSheets
+
+class TripDetailViewController: UIViewController {
+
+    @IBOutlet weak var orderNumberLabel: UILabel!
+    @IBOutlet weak var viewMapButton: UIButton!
+    @IBOutlet weak var customerNameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var vehicleTypeLabel: UILabel!
+    @IBOutlet weak var moverCountLabel: UILabel!
+    @IBOutlet weak var moveTypeLabel: UILabel!
+    @IBOutlet weak var jobTypeLabel: UILabel!
+    @IBOutlet weak var workTimeLabel: UILabel!
+    @IBOutlet weak var moveSizeLabel: UILabel!
+    @IBOutlet weak var incomeLabel: UILabel!
+    @IBOutlet weak var pickAddressLabel: UILabel!
+    @IBOutlet weak var pickAddressInstructionLabel: UILabel!
+    @IBOutlet weak var dropAddressLabel: UILabel!
+    @IBOutlet weak var dropAddressInstructionLabel: UILabel!
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var startJobButton: UIButton!
+    @IBOutlet weak var connector: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var isFullScreen: Bool = false
+    var onDismiss: (() -> Void)?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadViews()
+    }
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        let tripDetailViewController =  UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
+//        navigationController?.pushViewController(tripDetailViewController, animated: true)
+//    }
+    
+    func loadViews() {
+        viewMapButton.border(color: Constants.themeColor, width: 1.0)
+        acceptButton.round()
+        rejectButton.border(color: Constants.themeColor, width: 1.0)
+        startJobButton.isHidden = true
+        connector.makeDashedBorderLine(color: Constants.themeColor, strokeLength: 7, gapLength: 5, width: 1, orientation: .vertical)
+        
+        self.sheetViewController?.handleScrollView(scrollView)
+        
+        if isFullScreen {
+            startJobButton.isHidden = false
+            startJobButton.round()
+            acceptButton.isHidden = true
+            rejectButton.isHidden = true
+        }
+    }
+    
+    @IBAction func viewMapTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func acceptButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: false) {
+            self.onDismiss?()
+        }
+    }
+    
+    @IBAction func rejectButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func startJobTapped(_ sender: UIButton) {
+        let proofViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ProofViewController") as! ProofViewController
+        self.navigationController?.pushViewController(proofViewController, animated: true)
+    }
+}

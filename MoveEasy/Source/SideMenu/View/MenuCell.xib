@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="68" id="KGk-i7-Jjw" customClass="MenuCell" customModule="MoveEasy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXo-BP-khd">
+                        <rect key="frame" x="20" y="0.0" width="299" height="68"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LKt-VR-w1i">
+                                <rect key="frame" x="0.0" y="20.5" width="25" height="25"/>
+                                <color key="tintColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="AWR-TZ-WZs"/>
+                                    <constraint firstAttribute="height" constant="25" id="iLu-i9-aSS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9l2-Fk-pXF">
+                                <rect key="frame" x="45" y="24.5" width="41.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9l2-Fk-pXF" firstAttribute="centerY" secondItem="LKt-VR-w1i" secondAttribute="centerY" id="QQU-fy-bAo"/>
+                            <constraint firstItem="LKt-VR-w1i" firstAttribute="centerY" secondItem="xXo-BP-khd" secondAttribute="centerY" id="fB9-2j-phA"/>
+                            <constraint firstItem="LKt-VR-w1i" firstAttribute="leading" secondItem="xXo-BP-khd" secondAttribute="leading" id="fea-rG-O8Y"/>
+                            <constraint firstItem="9l2-Fk-pXF" firstAttribute="leading" secondItem="LKt-VR-w1i" secondAttribute="trailing" constant="20" id="zK8-Uq-xA4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="xXo-BP-khd" secondAttribute="trailing" constant="1" id="YiY-e4-0XV"/>
+                    <constraint firstAttribute="bottom" secondItem="xXo-BP-khd" secondAttribute="bottom" id="hv0-Eb-sQj"/>
+                    <constraint firstItem="xXo-BP-khd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sNJ-RF-xME"/>
+                    <constraint firstItem="xXo-BP-khd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="sgF-VI-3Tc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="icon" destination="LKt-VR-w1i" id="yZW-VM-ZOG"/>
+                <outlet property="nameLabel" destination="9l2-Fk-pXF" id="v69-Om-Wfq"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="133.92857142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
