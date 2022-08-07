@@ -33,6 +33,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var connector: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var tripDetailViewModel: TripDetailViewModel!
     var isFullScreen: Bool = false
     var onDismiss: (() -> Void)?
     
@@ -61,6 +62,28 @@ class TripDetailViewController: UIViewController {
             acceptButton.isHidden = true
             rejectButton.isHidden = true
         }
+        updateViews()
+    }
+    
+    func updateViews() {
+        orderNumberLabel.text = "\(tripDetailViewModel.orderNumber ?? 0)"
+        customerNameLabel.text = tripDetailViewModel.customerName
+        phoneLabel.text = tripDetailViewModel.phoneNumber
+        dateLabel.text = tripDetailViewModel.date
+        timeLabel.text = tripDetailViewModel.time
+        vehicleTypeLabel.text = vehicleTypeLabel.text
+        moverCountLabel.text = moverCountLabel.text
+        moveTypeLabel.text = moveTypeLabel.text
+        jobTypeLabel.text = jobTypeLabel.text
+        workTimeLabel.text = workTimeLabel.text
+        moveSizeLabel.text = moveSizeLabel.text
+        incomeLabel.text = incomeLabel.text
+        pickAddressLabel.text = pickAddressLabel.text
+        incomeLabel.text = incomeLabel.text
+        pickAddressLabel.text = pickAddressLabel.text
+        pickAddressInstructionLabel.text = pickAddressInstructionLabel.text
+        dropAddressLabel.text = dropAddressLabel.text
+        dropAddressInstructionLabel.text = dropAddressInstructionLabel.text
     }
     
     @IBAction func viewMapTapped(_ sender: UIButton) {

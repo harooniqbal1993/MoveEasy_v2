@@ -15,6 +15,7 @@
 		1816D25F288430D700F1B6FF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D25E288430D700F1B6FF /* NetworkService.swift */; };
 		181CDD69287C0F4200E955BD /* ManageJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CDD68287C0F4200E955BD /* ManageJobViewController.swift */; };
 		181CDD6D287C26CC00E955BD /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CDD6C287C26CC00E955BD /* PaddingLabel.swift */; };
+		183B8B51289C0F360013DC06 /* TripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B8B50289C0F360013DC06 /* TripDetailViewModel.swift */; };
 		18537E6A2893C13600406229 /* Job.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18537E692893C13600406229 /* Job.storyboard */; };
 		18667D88287C5970000A6F11 /* ForgotMovingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18667D87287C5970000A6F11 /* ForgotMovingViewController.swift */; };
 		1875388B287F174A00DA3FC3 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875388A287F174A00DA3FC3 /* SignatureViewController.swift */; };
@@ -89,6 +90,7 @@
 		1816D25E288430D700F1B6FF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		181CDD68287C0F4200E955BD /* ManageJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageJobViewController.swift; sourceTree = "<group>"; };
 		181CDD6C287C26CC00E955BD /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		183B8B50289C0F360013DC06 /* TripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewModel.swift; sourceTree = "<group>"; };
 		18537E692893C13600406229 /* Job.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Job.storyboard; sourceTree = "<group>"; };
 		18667D87287C5970000A6F11 /* ForgotMovingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotMovingViewController.swift; sourceTree = "<group>"; };
 		1875388A287F174A00DA3FC3 /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		183B8B4F289C0F1D0013DC06 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				183B8B50289C0F360013DC06 /* TripDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		18753888287F172700DA3FC3 /* Signature */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +277,7 @@
 		1894B263287F2D2F005C1924 /* TripDetail */ = {
 			isa = PBXGroup;
 			children = (
+				183B8B4F289C0F1D0013DC06 /* ViewModel */,
 				1894B264287F2D3A005C1924 /* View */,
 			);
 			path = TripDetail;
@@ -907,6 +918,7 @@
 				181CDD6D287C26CC00E955BD /* PaddingLabel.swift in Sources */,
 				1897D478288BF679003976E3 /* OrderCellViewModel.swift in Sources */,
 				18DE6FBB288467630074250D /* Globals.swift in Sources */,
+				183B8B51289C0F360013DC06 /* TripDetailViewModel.swift in Sources */,
 				18C833BA2878C221008C2283 /* HomeViewController.swift in Sources */,
 				18DE6FB928845CF40074250D /* RegisterResponse.swift in Sources */,
 				18667D88287C5970000A6F11 /* ForgotMovingViewController.swift in Sources */,

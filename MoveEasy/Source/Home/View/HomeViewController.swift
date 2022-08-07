@@ -102,18 +102,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //            self?.navigationController?.pushViewController(proofViewController, animated: true)
             
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
+            let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.activeOrders[indexPath.row])!)
+            tripDetailViewController.tripDetailViewModel = tripDetailViewModel
             tripDetailViewController.onDismiss = { [weak self] in
                 let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
                 tripDetailViewController.isFullScreen = true
+                tripDetailViewController.tripDetailViewModel = tripDetailViewModel
                 self?.navigationController?.pushViewController(tripDetailViewController, animated: true)
             }
             let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
             sheetController.cornerRadius = 0
             self?.present(sheetController, animated: true, completion: nil)
-            
-//            let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-//            tripDetailViewController.isFullScreen = true
-//            self?.navigationController?.pushViewController(tripDetailViewController, animated: true)
+
         }
         return cell
     }
