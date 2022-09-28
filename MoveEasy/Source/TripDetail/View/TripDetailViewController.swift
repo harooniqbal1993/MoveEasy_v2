@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FittedSheets
+//import FittedSheets
 
 class TripDetailViewController: UIViewController {
 
@@ -78,11 +78,10 @@ class TripDetailViewController: UIViewController {
         workTimeLabel.text = workTimeLabel.text
         moveSizeLabel.text = moveSizeLabel.text
         incomeLabel.text = incomeLabel.text
-        pickAddressLabel.text = pickAddressLabel.text
+        pickAddressLabel.text = tripDetailViewModel.pickupLocation
         incomeLabel.text = incomeLabel.text
-        pickAddressLabel.text = pickAddressLabel.text
         pickAddressInstructionLabel.text = pickAddressInstructionLabel.text
-        dropAddressLabel.text = dropAddressLabel.text
+        dropAddressLabel.text = tripDetailViewModel.dropoffLocation
         dropAddressInstructionLabel.text = dropAddressInstructionLabel.text
     }
     
@@ -99,6 +98,7 @@ class TripDetailViewController: UIViewController {
     }
     
     @IBAction func startJobTapped(_ sender: UIButton) {
+
         let proofViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ProofViewController") as! ProofViewController
         self.navigationController?.pushViewController(proofViewController, animated: true)
     }

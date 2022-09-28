@@ -110,6 +110,9 @@ mnop city</string>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffv-Ty-xPR">
                                         <rect key="frame" x="0.0" y="67" width="55.5" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55.5" id="Z2G-o0-Czd"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -131,6 +134,9 @@ mnop city</string>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick up:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-Zd-ijZ">
                                         <rect key="frame" x="0.0" y="26.5" width="53" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="53" id="hsR-Ch-nBt"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -151,6 +157,7 @@ mnop city</string>
                                     <constraint firstAttribute="trailing" secondItem="FWg-3y-EgX" secondAttribute="trailing" id="mSB-4W-BUp"/>
                                     <constraint firstItem="FWg-3y-EgX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aEX-Uz-kiF" secondAttribute="top" id="oln-HR-rov"/>
                                     <constraint firstItem="pAq-Ng-bcr" firstAttribute="leading" secondItem="ffv-Ty-xPR" secondAttribute="trailing" constant="7" id="q1b-EE-z67"/>
+                                    <constraint firstItem="FWg-3y-EgX" firstAttribute="leading" secondItem="1rc-Zd-ijZ" secondAttribute="trailing" constant="9.5" id="qFw-dw-weG"/>
                                     <constraint firstItem="pAq-Ng-bcr" firstAttribute="top" secondItem="gbh-mw-SrH" secondAttribute="bottom" constant="5" id="rel-MN-5vW"/>
                                 </constraints>
                             </view>

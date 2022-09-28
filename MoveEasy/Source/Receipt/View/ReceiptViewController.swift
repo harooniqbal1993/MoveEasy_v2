@@ -18,18 +18,37 @@ class ReceiptViewController: UIViewController {
     @IBOutlet weak var chargesLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
+    var receiptViewModel: ReceiptViewModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
         loadViews()
+    }
+    
+    func configure() {
+        receiptViewModel = ReceiptViewModel()
     }
     
     func loadViews() {
         containerView.round(radius: 20.0)
         continueButton.round()
+        
+        updateUI()
+    }
+    
+    func updateUI() {
+        orderNumberLabel.text = receiptViewModel?.orderNumber
+        baseFareValueLabel.text = "\(receiptViewModel?.baseFare ?? 0.0)"
+        distanceValueLabel.text = "\(receiptViewModel?.distance ?? 0.0)"
+        subtotalValueLabel.text = "\(receiptViewModel?.subTotal ?? 0.0)"
+        gstValueLabel.text = "\(receiptViewModel?.gst ?? 0.0)"
+        chargesLabel.text = "\(receiptViewModel?.total ?? 0.0)"
     }
     
     @IBAction func sideMenuTapped(_ sender: UIButton) {
-        self.revealViewController().revealToggle(self)
+//        self.revealViewController().revealToggle(self)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {

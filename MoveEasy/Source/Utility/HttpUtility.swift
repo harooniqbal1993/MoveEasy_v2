@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct ImageStore: Encodable {
+    var bookingId: Int? = nil
+    var image: Data? = nil
+}
+
 class HttpUtility {
     
     func getApiData<T: Decodable>(url: URL, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: String?) -> Void) {
@@ -14,6 +19,15 @@ class HttpUtility {
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: urlRequest) { responseData, httpUrlResponse, error in
+            let str = String(decoding: responseData!, as: UTF8.self)
+            print(str)
+            
+            if let httpResponse = httpUrlResponse as? HTTPURLResponse {
+                print("statusCode: \(httpResponse.statusCode)")
+                if httpResponse.statusCode == 401 {
+                    completionHandler(nil, "Token has expired!")
+                }
+            }
             if error == nil && responseData != nil && responseData?.count != 0 {
                 let decoder = JSONDecoder()
                 do {
@@ -25,7 +39,7 @@ class HttpUtility {
                     completionHandler(nil, error.localizedDescription)
                 }
             } else {
-                debugPrint("something went wrong")
+                debugPrint("something went wrong : ", error?.localizedDescription ?? "")
                 completionHandler(nil, error?.localizedDescription)
             }
         }.resume()
@@ -40,12 +54,18 @@ class HttpUtility {
         urlRequest.addValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: urlRequest) { data, httpUrlResponse, error in
+            let str = String(decoding: data!, as: UTF8.self)
+            print(str)
             if let apiError = error {
                 debugPrint("API ERROR: ", apiError.localizedDescription)
                 return
             }
-            let str = String(decoding: data!, as: UTF8.self)
-            print(str)
+            if let httpResponse = httpUrlResponse as? HTTPURLResponse {
+                print("statusCode: \(httpResponse.statusCode)")
+                if httpResponse.statusCode == 401 {
+                    completionHandler(nil, "Token has expired!")
+                }
+            }
             if data != nil && data?.count != 0 {
                 do {
                     let response = try JSONDecoder().decode(T.self, from: data!)
@@ -58,8 +78,80 @@ class HttpUtility {
         }.resume()
     }
     
+//    func uploadBinaryImage(imageUploadEndpoint: URL?, image: UIImage, bookingId: String) {
+//
+//        guard let url = imageUploadEndpoint else { return }
+//        let boundary = generateBoundary()
+//        var request = URLRequest(url: url)
+//
+//        let parameters = ["bookingId": bookingId] as [String : Any]
+//
+//        guard let mediaImage = Media(withImage: image, forKey: "file") else { return }
+//
+//        request.httpMethod = "POST"
+//
+//        request.allHTTPHeaderFields = [
+//                    "X-User-Agent": "ios",
+//                    "Accept-Language": "en",
+//                    "Accept": "application/json",
+//                    "Content-Type": "multipart/form-data; boundary=<calculated when request is sent>",
+//                    "Authorization": "Bearer "+(Defaults.authToken ?? "")
+//                ]
+//
+//        let dataBody = createDataBody(withParameters: parameters, media: [mediaImage], boundary: boundary)
+//        request.httpBody = dataBody
+//
+//        let session = URLSession.shared
+//        session.dataTask(with: request) { (data, response, error) in
+//            if let response = response {
+//                print(response)
+//            }
+//
+//            if let data = data {
+//                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                    print(json)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//            }.resume()
+//    }
+//
+//
+//    func generateBoundary() -> String {
+//        return "Boundary-\(NSUUID().uuidString)"
+//    }
+//
+//    func createDataBody(withParameters params: [String: Any]?, media: [Media]?, boundary: String) -> Data {
+//
+//        let lineBreak = "\r\n"
+//        var body = Data()
+//
+//        if let parameters = params {
+//            for (key, value) in parameters {
+//                body.append("--\(boundary + lineBreak)")
+//                body.append("Content-Disposition: form-data; name=\"\(key)\"\(lineBreak + lineBreak)")
+//                body.append("\(value as! String + lineBreak)")
+//            }
+//        }
+//
+//        if let media = media {
+//            for photo in media {
+//                body.append("--\(boundary + lineBreak)")
+//                body.append("Content-Disposition: form-data; name=\"\(photo.key)\"; filename=\"\(photo.fileName)\"\(lineBreak)")
+//                body.append("Content-Type: \(photo.mimeType + lineBreak + lineBreak)")
+//                body.append(photo.data)
+//                body.append(lineBreak)
+//            }
+//        }
+//
+//        body.append("--\(boundary)--\(lineBreak)")
+//
+//        return body
+//    }
     
-    func postAttachment (fileName: String, imageData: Data, fileKey: String, url: String, completion: @escaping(String?) -> Void)  {
+    func postAttachment (fileName: String, imageData: Data, fileKey: String, url: String, completion: @escaping(String?, _ error: String?) -> Void)  {
         let boundary = UUID().uuidString
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -75,29 +167,29 @@ class HttpUtility {
         data.append(imageData)
         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
         session.uploadTask(with: request, from: data, completionHandler: { data, response, error in
-            
+
             if let checkResponse = response as? HTTPURLResponse {
                 if checkResponse.statusCode == 200 {
                     if let json = data {
                         let str = String(decoding: json, as: UTF8.self)
                         print("", str)
-                        completion(str)
+                        completion(str, nil)
                     }
                 }
                 else {
                     guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
-                        completion(nil)
+                        completion(nil, "Something went wrong")
                         return
                     }
                     let jsonString = String(data: data, encoding: .utf8)!
-                    completion(nil)
+                    completion(jsonString, nil)
                 }
             } else {
                 guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
-                    completion(nil)
+                    completion(nil, nil)
                     return
                 }
-                completion(nil)
+                completion(nil, nil)
             }
         }).resume()
     }
@@ -125,3 +217,28 @@ class HttpUtility {
         }.resume()
     }
 }
+
+//extension Data {
+//    mutating func append(_ string: String) {
+//        if let data = string.data(using: .utf8) {
+//            append(data)
+//        }
+//    }
+//}
+//
+//
+//struct Media {
+//    let key: String
+//    let fileName: String
+//    let data: Data
+//    let mimeType: String
+//
+//    init?(withImage image: UIImage, forKey key: String) {
+//        self.key = key
+//        self.mimeType = "image/jpg"
+//        self.fileName = "\(arc4random()).jpeg"
+//
+//        guard let data = image.jpegData(compressionQuality: 0.5) else { return nil }
+//        self.data = data
+//    }
+//}

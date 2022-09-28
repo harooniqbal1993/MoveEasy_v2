@@ -44,7 +44,7 @@ class LoginViewModel {
     func authenticate(loginRequest: LoginRequest, completion: @escaping (Bool, String?) -> Void) {
         NetworkService.shared.loginDriver(loginRequest: loginRequest) { result, error  in
             DispatchQueue.main.async {
-                print(result)
+                Defaults.isLoggedIn = true
                 Defaults.authToken = result?.token
                 Defaults.driverStatus = result?.data?.status?.lowercased() == "ACTIVE".lowercased()
                 if result?.token != nil {

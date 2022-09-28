@@ -2,53 +2,111 @@
 //  FileUploader.swift
 //  MoveEasy
 //
-//  Created by Apple on 26/12/1443 AH.
+//  Created by Apple on 06/02/1444 AH.
 //
 
 import Foundation
 
 class FileUploader {
     
-    func postAttachment (fileName: String, imageData: Data, fileKey: String, url: String, completion: @escaping(String?) -> Void)  {
-        let boundary = UUID().uuidString
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        guard let url = URL(string: url) else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        var data = Data()
-        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-        data.append("Content-Disposition: form-data; name=\"\(fileKey)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-        data.append("Content-Type: image/*\r\n\r\n".data(using: .utf8)!)
-        data.append(imageData)
-        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-        session.uploadTask(with: request, from: data, completionHandler: { data, response, error in
+    struct Media {
+        let key: String
+        let fileName: String
+        let data: Data
+        let mimeType: String
+
+        init?(withImage data: Data, filename: String = "\(arc4random()).jpeg", forKey key: String = "file", mimeType: String = "image/*") {
+            self.key = key
+    //        self.fileName = "\(arc4random()).jpeg"
+            self.mimeType = mimeType
+            self.fileName = "\(filename)"
+            self.data = data
             
-            if let checkResponse = response as? HTTPURLResponse {
-                if checkResponse.statusCode == 200 {
-                    if let json = data {
-                        let str = String(decoding: json, as: UTF8.self)
-                        print("", str)
-                        completion(str)
-                    }
-                }
-                else {
-                    guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
-                        completion(nil)
-                        return
-                    }
-                    let jsonString = String(data: data, encoding: .utf8)!
-                    completion(nil)
-                }
-            } else {
-                guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
-                    completion(nil)
-                    return
-                }
-                completion(nil)
+    //        guard let data = image.jpegData(compressionQuality: 0.5) else { return nil }
+    //        self.data = data
+        }
+
+    }
+    
+    // filename: String?, file: [Data]?, fileKey: String? = "file"
+    
+    func formDataUpload<T: Decodable>(url: URL, parameters: [String : Any]? = nil, media: [Media] = [], authToken: String? = nil, resultType: T.Type, completion: @escaping (_ result: T?, _ error: String?) -> Void) {
+        let boundary = generateBoundary()
+        var request = URLRequest(url: url)
+        
+//        guard let mediaImage = Media(withImage: file ?? Data(), filename: filename ?? "", forKey: fileKey ?? "file") else { return }
+        
+        request.httpMethod = "POST"
+        
+        request.allHTTPHeaderFields = [
+            "X-User-Agent": "ios",
+            "Accept-Language": "en",
+            "Accept": "application/json",
+            "Content-Type": "multipart/form-data; boundary=\(boundary)",
+            "Authorization": "Bearer "+(authToken ?? "")
+        ]
+        
+        let dataBody = createDataBody(withParameters: parameters, media: media, boundary: boundary)
+        request.httpBody = dataBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let apiError = error {
+                debugPrint("API ERROR: ", apiError.localizedDescription)
+                completion(nil, apiError.localizedDescription)
+                return
             }
-        }).resume()
+            let str = String(decoding: data!, as: UTF8.self)
+            print(str)
+            if data != nil && data?.count != 0 {
+                do {
+                    let response = try JSONDecoder().decode(T.self, from: data!)
+                    completion(response, nil)
+                } catch let error {
+                    debugPrint("POST api error: ", error)
+                    completion(nil, error.localizedDescription)
+                }
+            }
+        }.resume()
+    }
+
+    private func generateBoundary() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
+
+    private func createDataBody(withParameters params: [String: Any]?, media: [Media]?, boundary: String) -> Data {
+
+        let lineBreak = "\r\n"
+        var body = Data()
+
+        if let parameters = params {
+            for (key, value) in parameters {
+                body.append("--\(boundary + lineBreak)")
+                body.append("Content-Disposition: form-data; name=\"\(key)\"\(lineBreak + lineBreak)")
+                body.append("\(value as! String + lineBreak)")
+            }
+        }
+
+        if let media = media {
+            for photo in media {
+                body.append("--\(boundary + lineBreak)")
+                body.append("Content-Disposition: form-data; name=\"\(photo.key)\"; filename=\"\(photo.fileName)\"\(lineBreak)")
+                body.append("Content-Type: \(photo.mimeType + lineBreak + lineBreak)")
+                body.append(photo.data)
+                body.append(lineBreak)
+            }
+        }
+
+        body.append("--\(boundary)--\(lineBreak)")
+
+        return body
+    }
+}
+
+extension Data {
+    mutating func append(_ string: String) {
+        if let data = string.data(using: .utf8) {
+            append(data)
+        }
     }
 }

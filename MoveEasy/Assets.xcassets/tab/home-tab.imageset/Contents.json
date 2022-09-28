@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Icon awesome-clipboard-list.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "home-tab.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -17,8 +17,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

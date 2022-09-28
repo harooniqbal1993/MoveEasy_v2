@@ -31,6 +31,14 @@ class TripDetailViewModel {
         return order?.orderTime
     }
     
+    var pickupLocation: String? {
+        return order?.pickupLocation
+    }
+    
+    var dropoffLocation: String? {
+        return order?.dropoffLocation
+    }
+    
     init(order: OrderModel) {
         self.order = order
     }

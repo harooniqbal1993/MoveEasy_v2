@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +28,10 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="menu-icon"/>
+                                        <state key="normal" image="arrow-left"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="q9d-Ut-JH5" eventType="touchUpInside" id="7X9-gs-yHB"/>
+                                        </connections>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fsq-KS-Uvt">
                                         <rect key="frame" x="310" y="12" width="51" height="31"/>
@@ -86,7 +89,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="l3m-0u-M1i">
-                                                                <rect key="frame" x="110" y="12.5" width="115" height="20"/>
+                                                                <rect key="frame" x="93.5" y="12.5" width="148" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="QYt-Ln-KGb">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -101,6 +104,9 @@
                                                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qdj-Vw-hXI">
+                                                                        <rect key="frame" x="128" y="0.0" width="20" height="20"/>
+                                                                    </activityIndicatorView>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-Ei-h71">
@@ -127,7 +133,7 @@
                                                         <rect key="frame" x="0.0" y="65" width="335" height="45"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="OVf-z3-jwt">
-                                                                <rect key="frame" x="107.5" y="12.5" width="120" height="20"/>
+                                                                <rect key="frame" x="91" y="12.5" width="153" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video" translatesAutoresizingMaskIntoConstraints="NO" id="PHb-yx-EIG">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -142,6 +148,9 @@
                                                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vCZ-pR-o7C">
+                                                                        <rect key="frame" x="133" y="0.0" width="20" height="20"/>
+                                                                    </activityIndicatorView>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9V-uC-yXX">
@@ -284,10 +293,14 @@
                     <connections>
                         <outlet property="addCommentButton" destination="KGa-of-dvF" id="tqh-Ld-dBa"/>
                         <outlet property="additionalTextView" destination="kWn-Dw-Dvx" id="C5s-eJ-P5p"/>
+                        <outlet property="attachFileButton" destination="ASn-Ei-h71" id="m22-iU-e1d"/>
+                        <outlet property="attachVideoButton" destination="u9V-uC-yXX" id="at4-np-q9N"/>
                         <outlet property="continueButton" destination="v4W-g4-Wp8" id="6zT-Wr-gFo"/>
+                        <outlet property="fileActivityIndicator" destination="qdj-Vw-hXI" id="KAE-Nm-d1l"/>
                         <outlet property="noteTextView" destination="4Fa-Nz-IeF" id="56o-xL-V6l"/>
                         <outlet property="recordVideoView" destination="zxW-xz-gfb" id="a7g-c9-dPM"/>
                         <outlet property="takeImageView" destination="imD-q3-4LQ" id="YkF-zm-Cck"/>
+                        <outlet property="videoActivityIndicator" destination="vCZ-pR-o7C" id="OJz-9V-2G0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvF-XX-eKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -313,7 +326,7 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="menu-icon"/>
+                                        <state key="normal" image="arrow-left"/>
                                         <connections>
                                             <action selector="menuButtonTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="IkD-Q6-0kc"/>
                                         </connections>
@@ -663,7 +676,7 @@ Apartment # 123</string>
                                                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="45"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="DF4-rp-bwr">
-                                                                                <rect key="frame" x="21.5" y="12.5" width="115" height="20"/>
+                                                                                <rect key="frame" x="5" y="12.5" width="148" height="20"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="swg-y5-ZJa">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -678,6 +691,9 @@ Apartment # 123</string>
                                                                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1aK-kW-mtT">
+                                                                                        <rect key="frame" x="128" y="0.0" width="20" height="20"/>
+                                                                                    </activityIndicatorView>
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdf-RV-aaT">
@@ -703,7 +719,7 @@ Apartment # 123</string>
                                                                         <rect key="frame" x="177.5" y="0.0" width="157.5" height="45"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-Da-KpU">
-                                                                                <rect key="frame" x="19" y="12.5" width="120" height="20"/>
+                                                                                <rect key="frame" x="2.5" y="12.5" width="153" height="20"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video" translatesAutoresizingMaskIntoConstraints="NO" id="7iM-8o-1pu">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -718,6 +734,9 @@ Apartment # 123</string>
                                                                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Z5b-xY-Rqp">
+                                                                                        <rect key="frame" x="133" y="0.0" width="20" height="20"/>
+                                                                                    </activityIndicatorView>
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivp-uf-WC3">
@@ -884,18 +903,23 @@ and / or proof of risky deliveries.</string>
                         <outlet property="additionalInfoView" destination="fQP-WU-EUm" id="Y9u-Hz-Xs7"/>
                         <outlet property="addressLabel" destination="okc-VD-r0c" id="3cF-SF-YNj"/>
                         <outlet property="addtionalInfoTextView" destination="fQP-WU-EUm" id="1VA-Sr-qxJ"/>
+                        <outlet property="commentTextView" destination="oAp-Xn-CYF" id="8lb-Q5-Sru"/>
                         <outlet property="continueButton" destination="D7d-ul-7uP" id="9OS-Nu-abC"/>
+                        <outlet property="imageActivityIndicator" destination="1aK-kW-mtT" id="LB7-kM-AS3"/>
                         <outlet property="mediaButtonView" destination="rhj-EY-luw" id="i52-qJ-LNo"/>
                         <outlet property="pauseJobLabel" destination="oPP-tj-Ld4" id="Uhh-iU-VXw"/>
                         <outlet property="pauseView" destination="2ID-XK-fmA" id="GjA-T3-iZf"/>
+                        <outlet property="recordVideoButton" destination="ivp-uf-WC3" id="EcI-Zd-c0N"/>
                         <outlet property="startJobLabel" destination="lX5-8i-gAh" id="LxY-aU-NaG"/>
                         <outlet property="startView" destination="Hdg-Tf-jTl" id="Ky2-Sy-Etz"/>
                         <outlet property="stopJobLabel" destination="Yvv-8E-WFN" id="rqG-dW-12X"/>
                         <outlet property="stopView" destination="UpD-Xt-4qf" id="kTH-bX-ze3"/>
                         <outlet property="switchView" destination="eCM-gG-H8V" id="pkF-VJ-wjp"/>
+                        <outlet property="takeImageButton" destination="Gdf-RV-aaT" id="5u5-21-UTi"/>
                         <outlet property="takeImageView" destination="v6F-wJ-e5y" id="yGu-sS-bvJ"/>
                         <outlet property="takeVideoView" destination="Bzh-Vq-SD6" id="HCe-fM-P82"/>
                         <outlet property="timerLabel" destination="0Vw-R5-QFl" id="wjQ-BW-1nj"/>
+                        <outlet property="videoActivityIndicator" destination="Z5b-xY-Rqp" id="2Dr-eA-9HX"/>
                         <outlet property="viewRouteButton" destination="1wG-JY-h1C" id="0S7-cs-eB0"/>
                     </connections>
                 </viewController>
@@ -1063,10 +1087,9 @@ and / or proof of risky deliveries.</string>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="menu-icon"/>
+                                        <state key="normal" image="arrow-left"/>
                                         <connections>
                                             <action selector="menuButtonTapped:" destination="Awh-eh-m3V" eventType="touchUpInside" id="akD-pQ-Nve"/>
-                                            <action selector="menuButtonTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="g67-BH-FlD"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Moving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ju0-om-FVJ">
@@ -1131,9 +1154,8 @@ and / or proof of risky deliveries.</string>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="menu-icon"/>
+                                        <state key="normal" image="arrow-left"/>
                                         <connections>
-                                            <action selector="menuButtonTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="QTI-g7-ahr"/>
                                             <action selector="sideMenuTapped:" destination="SSz-J5-1SB" eventType="touchUpInside" id="lOS-Pb-XtX"/>
                                         </connections>
                                     </button>
@@ -1403,7 +1425,7 @@ and / or proof of risky deliveries.</string>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="menu-icon"/>
+                                        <state key="normal" image="arrow-left"/>
                                         <connections>
                                             <action selector="menuButtonTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="FI2-bg-QEI"/>
                                             <action selector="sideMenuTapped:" destination="x6S-4p-11H" eventType="touchUpInside" id="86q-Sf-xXL"/>
@@ -1550,11 +1572,14 @@ privacy policy.</string>
         <designable name="okc-VD-r0c">
             <size key="intrinsicContentSize" width="253.5" height="31.5"/>
         </designable>
+        <designable name="v4W-g4-Wp8">
+            <size key="intrinsicContentSize" width="134" height="29"/>
+        </designable>
     </designables>
     <resources>
+        <image name="arrow-left" width="22" height="22"/>
         <image name="camera" width="19.5" height="17"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
-        <image name="menu-icon" width="22" height="15"/>
         <image name="mobile-hand" width="295" height="158"/>
         <image name="pause" width="12.5" height="14.5"/>
         <image name="play" width="12.5" height="14.5"/>

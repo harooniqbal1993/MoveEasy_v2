@@ -34,7 +34,10 @@ class ManageJobViewController: UIViewController {
     @IBOutlet weak var addtionalInfoTextView: UIView!
     @IBOutlet weak var takeImageView: UIView!
     @IBOutlet weak var takeVideoView: UIView!
-    @IBOutlet var addCommentButton: UIButton!
+    @IBOutlet weak var addCommentButton: UIButton!
+    @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var videoActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var commentTextView: UITextView!
     
     var jobStatus: JobStatus? = nil {
         didSet {
@@ -66,9 +69,14 @@ class ManageJobViewController: UIViewController {
     var stopWatch: StopWatch? = StopWatch()
     var timer: Timer? = Timer()
     var mediaPickerManager: MediaPickerManager!
+    var manageJobViewModel: ManageJobViewModel!
+    var proofViewModel: ProofViewModel!
+    
+    lazy var fileUploader: FileUploader? = FileUploader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
         mediaPickerManager = MediaPickerManager()
         loadViews()
     }
@@ -77,6 +85,11 @@ class ManageJobViewController: UIViewController {
         timer?.invalidate()
         timer = nil
         stopWatch = nil
+    }
+    
+    func configure() {
+        manageJobViewModel = ManageJobViewModel()
+        proofViewModel = ProofViewModel()
     }
     
     func startTimer() {
@@ -97,16 +110,85 @@ class ManageJobViewController: UIViewController {
         stopView.round(radius: 15)
         viewRouteButton.round()
         continueButton.round()
-//        takeImageButton.border(color: Constants.themeColor, width: 1.0)
-//        recordVideoButton.border(color: Constants.themeColor, width: 1.0)
         takeImageView.border(color: Constants.themeColor, width: 1.0)
         takeVideoView.border(color: Constants.themeColor, width: 1.0)
         addCommentButton.border(color: Constants.themeColor, width: 1.0)
         mediaButtonView.isHidden = false
         additionalInfoView.isHidden = true
+        imageActivityIndicator.isHidden = true
+        videoActivityIndicator.isHidden = true
+    }
+    
+    func startMoving() {
+        manageJobViewModel.startMoving(bookingID: "")
+    }
+    
+    func pauseMoving() {
+        manageJobViewModel.pauseMoving(bookingID: "")
+    }
+    
+    func stopMoving() {
+        manageJobViewModel.stopMoving(bookingID: "")
+    }
+    
+    private func startAnimation(mediaType: MediaPickerManager.MediaType) {
+        if mediaType == .gallery {
+            takeImageButton.isUserInteractionEnabled = false
+            imageActivityIndicator.isHidden = false
+            imageActivityIndicator.startAnimating()
+        } else {
+            recordVideoButton.isUserInteractionEnabled = false
+            videoActivityIndicator.isHidden = false
+            videoActivityIndicator.startAnimating()
+        }
+    }
+    
+    private func stopAnimation(mediaType: MediaPickerManager.MediaType) {
+        if mediaType == .gallery {
+            takeImageButton.isUserInteractionEnabled = true
+            imageActivityIndicator.isHidden = true
+            imageActivityIndicator.stopAnimating()
+        } else {
+            recordVideoButton.isUserInteractionEnabled = true
+            videoActivityIndicator.isHidden = true
+            videoActivityIndicator.stopAnimating()
+        }
+    }
+    
+    private func saveNotes() {
+        proofViewModel?.saveNotes(bookingID: 1310, notes: commentTextView.text, completion: { [weak self] success, error in
+            DispatchQueue.main.async {
+                if success {
+                    self?.navigateToNextScreen()
+                } else {
+                    self?.showAlert(title: "Notes", message: error ?? "Error occured while saving notes")
+                }
+            }
+        })
+    }
+    
+    private func uploadMedia(data: Data, mediaType: MediaPickerManager.MediaType) {
+        startAnimation(mediaType: mediaType)
+        let media: [FileUploader.Media]? = [FileUploader.Media(withImage: data)] as? [FileUploader.Media]
+        self.fileUploader?.formDataUpload(url: URL(string: "\(NetworkService.shared.baseURL)\(Constants.EndPoints.pickupFiles.rawValue)?id=\(1310)")!, media: media ?? [], resultType: String.self, completion: { [weak self] str, error in
+            DispatchQueue.main.async {
+                self?.stopAnimation(mediaType: mediaType)
+
+                if let error = error {
+                    self?.showAlert(title: "Error", message: error)
+                    return
+                }
+            }
+        })
+    }
+    
+    private func navigateToNextScreen() {
+        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+        navigationController?.pushViewController(receiptViewController, animated: true)
     }
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func startJobTapped(_ sender: UIButton) {
@@ -116,6 +198,7 @@ class ManageJobViewController: UIViewController {
         alertViewController.completion = { [weak self] isYes in
             if isYes {
                 self?.startTimer()
+//                self?.startMoving()
             }
         }
         present(alertViewController, animated: true, completion: nil)
@@ -129,6 +212,7 @@ class ManageJobViewController: UIViewController {
         alertViewController.completion = { [weak self] isYes in
             if isYes {
                 self?.stopTimer()
+                self?.stopMoving()
             }
         }
         present(alertViewController, animated: true, completion: nil)
@@ -143,6 +227,7 @@ class ManageJobViewController: UIViewController {
                 self?.stopTimer()
                 self?.mediaButtonView.isHidden = false
                 self?.additionalInfoView.isHidden = false
+                self?.stopMoving()
             }
         }
         present(alertViewController, animated: true, completion: nil)
@@ -151,24 +236,46 @@ class ManageJobViewController: UIViewController {
     
     @IBAction func forgotTimerTapped(_ sender: UIButton) {
         let forgotViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ForgotMovingViewController") as! ForgotMovingViewController
+        forgotViewController.forgotMovingViewModel = ForgotMovingViewModel()
         navigationController?.pushViewController(forgotViewController, animated: true)
     }
     
     @IBAction func continueTapped(_ sender: UIButton) {
-        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
-        navigationController?.pushViewController(receiptViewController, animated: true)
+        if commentTextView.text != "" || !commentTextView.text.isEmpty {
+            saveNotes()
+            return
+        }
+        navigateToNextScreen()
     }
     
     @IBAction func viewRouteTapped(_ sender: UIButton) {
     }
     
     @IBAction func takeImageTapped(_ sender: UIButton) {
-        mediaPickerManager.pickImage(viewController: self, mediaType: .camera) { [weak self] (image, url) in
+        mediaPickerManager.pickImage(viewController: self, mediaType: .gallery) { [weak self] (image, url, error)  in
+            if error != nil {
+                self?.showAlert(title: "Media Error", message: error ?? "Something went wrong with Camera")
+                return
+            }
+            
+            self?.uploadMedia(data: (image?.pngData())!, mediaType: .gallery)
         }
     }
     
     @IBAction func recordVideoTapped(_ sender: UIButton) {
-        mediaPickerManager.pickImage(viewController: self, mediaType: .video) { [weak self] (image, url) in
+        mediaPickerManager.pickImage(viewController: self, mediaType: .gallery) { [weak self] (image, url, error) in
+            if error != nil {
+                self?.showAlert(title: "Media Error", message: error ?? "Something went wrong with Camera")
+                return
+            }
+            guard let url = url else { return }
+
+            do {
+                let video = try Data(contentsOf: url)
+                self?.uploadMedia(data: video, mediaType: .video)
+            } catch {
+                print("Error : ", error)
+            }
         }
     }
     

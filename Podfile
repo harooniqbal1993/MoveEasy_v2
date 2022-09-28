@@ -9,5 +9,8 @@ target 'MoveEasy' do
   pod 'FittedSheets'
   pod 'SwiftSignatureView'
   pod 'MHLoadingButton'
+  pod 'UIView-Shimmer', '~> 1.0'
+#  pod 'SwiftDate', '~> 5.0'
+  pod 'Fastis', '~> 2.0'
 
 end

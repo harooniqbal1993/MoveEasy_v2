@@ -41,6 +41,11 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func rememberMeButtonTapped(_ sender: UIButton) {
+        if loginViewModel.rememberMe {
+            checkboxImage.image = UIImage(systemName: "checkmark.square.fill")
+        } else {
+            checkboxImage.image = UIImage(systemName: "checkmark.square")
+        }
         loginViewModel.updateRemeberMe()
     }
     
@@ -58,6 +63,7 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func forgetPasswordButtonTapped(_ sender: UIButton) {
+        
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {

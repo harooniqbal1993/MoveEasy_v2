@@ -67,7 +67,20 @@ class HomeViewController: UIViewController {
         homeViewModel.getDashboardData { error in
             DispatchQueue.main.async {
                 if error != nil {
+                    self.showAlert(title: "Error", message: error ?? "Some Error")
                     return
+                }
+                self.updateViews()
+            }
+        }
+    }
+    
+    private func getTodaysBookings() {
+        homeViewModel.getTodaysBookings { error in
+            DispatchQueue.main.async {
+                if error != nil {
+                    self.showAlert(title: "Error", message: error ?? "Some Error")
+//                    return
                 }
                 self.updateViews()
             }
@@ -91,23 +104,32 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homeViewModel.activeOrders.count
+        return !homeViewModel.isLoading ? (homeViewModel.displayedOrders?.count ?? 0) : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if homeViewModel.isLoading  == true {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
+            cell.setTemplateWithSubviews(homeViewModel.isLoading, viewBackgroundColor: .systemBackground)
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
-        cell.configure(viewModel: OrderCellViewModel(order: homeViewModel.activeOrders[indexPath.row]))
+        cell.setTemplateWithSubviews(homeViewModel.isLoading, viewBackgroundColor: .systemBackground)
+        if homeViewModel.isLoading == true { return cell }
+        cell.configure(viewModel: OrderCellViewModel(order: homeViewModel.displayedOrders?[indexPath.row]))
         cell.completion = { [weak self] in
 //            let proofViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProofViewController") as! ProofViewController
 //            self?.navigationController?.pushViewController(proofViewController, animated: true)
             
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-            let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.activeOrders[indexPath.row])!)
+            let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.displayedOrders?[indexPath.row])!)
             tripDetailViewController.tripDetailViewModel = tripDetailViewModel
             tripDetailViewController.onDismiss = { [weak self] in
                 let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
                 tripDetailViewController.isFullScreen = true
                 tripDetailViewController.tripDetailViewModel = tripDetailViewModel
+                OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
                 self?.navigationController?.pushViewController(tripDetailViewController, animated: true)
             }
             let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
@@ -136,7 +158,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         homeViewModel.refreshFilters(selectedFilter: homeViewModel.filterArray[indexPath.row])
+//        homeViewModel.filterOrders()
+//        orderTable.reloadData()
         filterCollectionView.reloadData()
+        indexPath.item == 1 ? getTodaysBookings() : getDashboardData()
+//        if indexPath.item == 1 {
+//            getTodaysBookings()
+//        } else {
+////            if homeViewModel.displayedOrders?.count == 0 {
+//                getDashboardData()
+////            }
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

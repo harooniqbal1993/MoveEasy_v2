@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,9 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="EAp-z0-zdk"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <color key="backgroundColor" red="0.70588235290000001" green="0.69019607839999997" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="headphones" selectedImage="headphones" id="iXi-w5-bfS"/>
+                    <tabBarItem key="tabBarItem" title="" image="headphones" selectedImage="headphones" id="iXi-w5-bfS">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPk-KU-4ug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,8 +136,8 @@
                                                     <constraint firstAttribute="height" constant="50" id="rTv-9V-DOd"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0j7-cx-AA1">
-                                                <rect key="frame" x="10" y="70" width="112" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0j7-cx-AA1">
+                                                <rect key="frame" x="10" y="70" width="116.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -147,7 +149,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="backgroundColor" red="0.61176470588235299" green="0.5607843137254902" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="LgH-fs-zme" firstAttribute="top" secondItem="0j7-cx-AA1" secondAttribute="bottom" constant="10" id="0x4-1R-aJq"/>
                                             <constraint firstItem="0j7-cx-AA1" firstAttribute="leading" secondItem="9XW-PN-HB8" secondAttribute="leading" constant="10" id="1dR-ne-xd3"/>
@@ -270,16 +272,20 @@
             </objects>
             <point key="canvasLocation" x="3615.1999999999998" y="-190.25487256371815"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="ZSc-Cm-2zI">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="PDz-c3-VhO" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="PDz-c3-VhO" customClass="TabViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dBV-3W-yNl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="KRa-M6-j4b" kind="relationship" relationship="viewControllers" id="fWK-i8-7rG"/>
                         <segue destination="ZKo-ny-gxI" kind="relationship" relationship="viewControllers" id="Ycm-Wa-B01"/>
                         <segue destination="0sO-co-bPE" kind="relationship" relationship="viewControllers" id="FFE-TO-FEd"/>
                     </connections>
@@ -401,7 +407,9 @@
         <scene sceneID="UKZ-Ph-SMh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ZKo-ny-gxI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="clipboard-list" selectedImage="clipboard-list" id="WEQ-3a-auA"/>
+                    <tabBarItem key="tabBarItem" title="" image="home-tab" selectedImage="home-tab" id="WEQ-3a-auA">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FYI-PU-00X">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1038,13 +1046,32 @@
             </objects>
             <point key="canvasLocation" x="6349.6000000000004" y="527.58620689655174"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="8Cw-9b-aUJ">
+            <objects>
+                <viewController id="KRa-M6-j4b" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="neI-KV-Vks">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4Ii-Cy-ile"/>
+                        <color key="backgroundColor" red="0.70588235290000001" green="0.69019607839999997" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="clipboard-list" selectedImage="clipboard-list" id="7T5-PA-PV6">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjH-Zc-ecH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786" y="866"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="clipboard-list" width="10.5" height="14"/>
+        <image name="clipboard-list" width="21" height="28"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
-        <image name="headphones" width="17.5" height="15"/>
+        <image name="headphones" width="35" height="30"/>
+        <image name="home-tab" width="25" height="25"/>
         <image name="map-marked-alt" width="10.5" height="9.5"/>
         <image name="map-marker-alt" width="5" height="7"/>
         <image name="menu-icon" width="22" height="15"/>
@@ -1056,9 +1083,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

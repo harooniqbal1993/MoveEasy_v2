@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
-class OrderCell: UITableViewCell {
+class OrderCell: UITableViewCell, ShimmeringViewProtocol {
 
     @IBOutlet weak var orderTypeLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -20,6 +21,13 @@ class OrderCell: UITableViewCell {
     @IBOutlet weak var moreDetailButton: UIButton!
     @IBOutlet weak var greenView: UIView!
     @IBOutlet weak var upperView: UIView!
+    
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            upperView,
+            greenView
+        ]
+    }
     
     var completion: (() -> Void)?
     var orderViewModel: OrderCellViewModel? = nil

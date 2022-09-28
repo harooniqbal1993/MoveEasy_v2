@@ -34,6 +34,9 @@ class JobDetailViewController: UIViewController {
     }
     
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
+        let swRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//        customTabBarController.isFullScreen = true
+        present(swRevealViewController, animated: true, completion: nil)
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {

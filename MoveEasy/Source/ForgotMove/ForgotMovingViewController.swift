@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Fastis
 
 class ForgotMovingViewController: UIViewController {
 
@@ -16,21 +17,60 @@ class ForgotMovingViewController: UIViewController {
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     
+    var forgotMovingViewModel: ForgotMovingViewModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configure()
         loadViews()
+    }
+    
+    func configure() {
+        startTimeTextField.delegate = self
+        endTimeTextField.delegate = self
     }
     
     func loadViews() {
         submitButton.round()
     }
     
+    func openDatePicker() {
+        let fastisController = FastisController(mode: .single)
+        fastisController.title = "Choose range"
+        fastisController.maximumDate = Date.distantFuture
+        fastisController.initialValue = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm:ss" // "dd/MM/yyyy"
+        fastisController.doneHandler = { [weak self] resultDate in
+            if self?.forgotMovingViewModel?.isStartDateTapped == true {
+                self?.startTimeTextField.text = formatter.string(from: resultDate!) // "\(resultDate)"
+            } else {
+                self?.endTimeTextField.text = formatter.string(from: resultDate!)
+            }
+        }
+        fastisController.present(above: self)
+    }
+    
     @IBAction func menuButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
-        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
-        navigationController?.pushViewController(receiptViewController, animated: true)
+        
+        if !(nameTextField.text?.isEmpty ?? false) || !(emailTextField.text?.isEmpty ?? false) || !(startTimeTextField.text?.isEmpty ?? false) || !(endTimeTextField.text?.isEmpty ?? false) {
+            let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+            navigationController?.pushViewController(receiptViewController, animated: true)
+        } else {
+            self.showAlert(title: "Validation", message: "All fields are required!")
+        }
+    }
+}
+
+extension ForgotMovingViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == startTimeTextField || textField == endTimeTextField {
+            forgotMovingViewModel?.isStartDateTapped = textField == startTimeTextField
+            openDatePicker()
+        }
     }
 }

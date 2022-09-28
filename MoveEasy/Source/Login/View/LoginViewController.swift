@@ -32,14 +32,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signinButtonTapped(_ sender: UIButton) {
-//        let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
-//        alertViewController.modalPresentationStyle = .fullScreen
-//        alertViewController.completion = { [weak self] response in
-//            print(response)
-//        }
-//        self.present(alertViewController, animated: true, completion: nil)
-//
-//        return
         
         let signinViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
         navigationController?.pushViewController(signinViewController, animated: true)
