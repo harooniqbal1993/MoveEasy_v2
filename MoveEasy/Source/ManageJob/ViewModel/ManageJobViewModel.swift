@@ -35,6 +35,8 @@ class ManageJobViewModel {
                 if error != nil {
                     return
                 }
+                
+                
             }
         }
     }

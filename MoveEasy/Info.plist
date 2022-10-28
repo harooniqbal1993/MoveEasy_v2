@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>App uses Photo Library</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>App uses microphone with video recording</string>
-	<key>NSCameraUsageDescription</key>
-	<string>App uses camera for proof purpose</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App uses current locaton to get package</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

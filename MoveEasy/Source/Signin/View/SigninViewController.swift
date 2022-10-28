@@ -57,8 +57,9 @@ class SigninViewController: UIViewController {
                 self.showAlert(title: "Validation", message: error ?? "")
                 return
             }
-            let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-            self.navigationController?.pushViewController(mapViewController, animated: true)
+//            let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

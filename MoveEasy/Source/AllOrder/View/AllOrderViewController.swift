@@ -50,6 +50,7 @@ extension AllOrderViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(viewModel: OrderCellViewModel(order: allOrders[indexPath.row]))
         cell.completion = {
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
+            tripDetailViewController.tripDetailViewModel = TripDetailViewModel(order: self.allOrders[indexPath.row])
             let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
             sheetController.cornerRadius = 0
             self.present(sheetController, animated: true, completion: nil)

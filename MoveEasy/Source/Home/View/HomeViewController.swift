@@ -43,6 +43,7 @@ class HomeViewController: UIViewController {
         filterCollectionView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
         
         getDashboardData()
+        getDriverDetail()
     }
     
     private func loadViews() {
@@ -71,6 +72,14 @@ class HomeViewController: UIViewController {
                     return
                 }
                 self.updateViews()
+            }
+        }
+    }
+    
+    private func getDriverDetail() {
+        homeViewModel.getDriverDetail { [weak self] in
+            DispatchQueue.main.async {
+                self?.usernameLabel.text = DriverSession.shared.driver?.firstName
             }
         }
     }
@@ -125,12 +134,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
             let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.displayedOrders?[indexPath.row])!)
             tripDetailViewController.tripDetailViewModel = tripDetailViewModel
-            tripDetailViewController.onDismiss = { [weak self] in
-                let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-                tripDetailViewController.isFullScreen = true
-                tripDetailViewController.tripDetailViewModel = tripDetailViewModel
-                OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-                self?.navigationController?.pushViewController(tripDetailViewController, animated: true)
+            tripDetailViewController.onDismiss = { [weak self] isMap in
+                if !isMap {
+//                    let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
+//                    tripDetailViewController.isFullScreen = true
+//                    tripDetailViewController.tripDetailViewModel = tripDetailViewModel
+//                    OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
+//                    self?.navigationController?.pushViewController(tripDetailViewController, animated: true)
+                    
+                    let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
+                    manageJobViewController.manageJobViewModel = ManageJobViewModel()
+                    OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
+                    self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+                } else {
+                    let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                    mapViewController.modalPresentationStyle = .fullScreen
+                    mapViewController.onAccept = { [weak self] in
+                        let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
+                        manageJobViewController.manageJobViewModel = ManageJobViewModel()
+                        OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
+                        self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+                    }
+                    self?.present(mapViewController, animated: true)
+                }
             }
             let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
             sheetController.cornerRadius = 0

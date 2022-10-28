@@ -117,4 +117,17 @@ class HomeViewModel {
             }
         }
     }
+    
+    func getDriverDetail(completion: @escaping () -> Void) {
+        NetworkService.shared.getDriverDetail { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    debugPrint("getDriverDetail Error", error)
+                    return
+                }
+            }
+            DriverSession.shared.driver = result
+            completion()
+        }
+    }
 }

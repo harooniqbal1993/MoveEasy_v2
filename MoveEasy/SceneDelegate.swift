@@ -54,10 +54,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func setInitialViewController()  {
         
         if Defaults.isLoggedIn == true {
-            let vc = Constants.kMain.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+//            let vc = Constants.kMain.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             let nav = UINavigationController(rootViewController: vc)
             nav.isNavigationBarHidden = true
             window?.rootViewController = nav
+            
+            
         } else {
             let vc = Constants.kMain.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             let nav = UINavigationController(rootViewController: vc)

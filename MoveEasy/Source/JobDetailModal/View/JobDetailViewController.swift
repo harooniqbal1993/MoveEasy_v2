@@ -20,6 +20,9 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var rejectButton: UIButton!
     
+    var onDismiss: (() -> Void)?
+    var onAccept: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,11 +37,18 @@ class JobDetailViewController: UIViewController {
     }
     
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
-        let swRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//        customTabBarController.isFullScreen = true
-        present(swRevealViewController, animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.onAccept?()
+        }
+        
+//        let swRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+////        customTabBarController.isFullScreen = true
+//        present(swRevealViewController, animated: true, completion: nil)
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true) {
+            self.onDismiss?()
+        }
     }
 }

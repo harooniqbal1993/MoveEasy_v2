@@ -42,4 +42,17 @@ class TripDetailViewModel {
     init(order: OrderModel) {
         self.order = order
     }
+    
+    func acceptOrder(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.acceptBooking(bookingID: "1310") { bookingModel, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                
+                completion(nil)
+            }
+        }
+    }
 }

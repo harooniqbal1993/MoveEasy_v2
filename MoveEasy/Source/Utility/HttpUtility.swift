@@ -39,6 +39,7 @@ class HttpUtility {
                     completionHandler(nil, error.localizedDescription)
                 }
             } else {
+                debugPrint("URL: ", url)
                 debugPrint("something went wrong : ", error?.localizedDescription ?? "")
                 completionHandler(nil, error?.localizedDescription)
             }

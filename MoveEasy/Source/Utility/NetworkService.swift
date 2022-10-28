@@ -72,7 +72,7 @@ class NetworkService {
     }
     
     func acceptBooking(bookingID: String, completion: @escaping (_ result: AcceptBookingModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.acceptBooking.rawValue)?driverId=\(Defaults.driverEmail ?? "")&bookingId=\(bookingID)"
+        let url = "\(baseURL+Constants.EndPoints.acceptBooking.rawValue)?driverId=\("1125")&bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: AcceptBookingModel.self) { result, error in
             completion(result, error)
         }

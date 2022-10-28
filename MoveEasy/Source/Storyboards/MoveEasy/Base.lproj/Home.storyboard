@@ -487,7 +487,7 @@
                                 <rect key="frame" x="0.0" y="78" width="375" height="589"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-jj-0iT">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="789"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="989"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="pNp-I9-uVs">
                                                 <rect key="frame" x="20" y="20" width="15" height="20"/>
@@ -954,7 +954,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="TRP-jj-0iT" firstAttribute="top" secondItem="uKr-sM-cVh" secondAttribute="top" id="AMu-dA-8yz"/>
-                                    <constraint firstItem="TRP-jj-0iT" firstAttribute="height" secondItem="uKr-sM-cVh" secondAttribute="height" constant="200" id="HN9-d9-pGA"/>
+                                    <constraint firstItem="TRP-jj-0iT" firstAttribute="height" secondItem="uKr-sM-cVh" secondAttribute="height" constant="400" id="HN9-d9-pGA"/>
                                     <constraint firstItem="TRP-jj-0iT" firstAttribute="width" secondItem="uKr-sM-cVh" secondAttribute="width" id="QZW-4G-cDU"/>
                                     <constraint firstItem="TRP-jj-0iT" firstAttribute="leading" secondItem="uKr-sM-cVh" secondAttribute="leading" id="Utp-a4-BCX"/>
                                     <constraint firstAttribute="bottom" secondItem="TRP-jj-0iT" secondAttribute="bottom" id="fcP-X0-ayA"/>

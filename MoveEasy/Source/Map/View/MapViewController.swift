@@ -14,9 +14,27 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var mapView: GMSMapView!
     
+    var onAccept: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let jobDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JobDetailViewController") as! JobDetailViewController
+        jobDetailViewController.onDismiss = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        
+        jobDetailViewController.onAccept = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.onAccept?()
+            })
+        }
+        let sheetController = SheetViewController(controller: jobDetailViewController, sizes:[.percent(0.6)], options: Constants.fittedSheetOptions)
+        sheetController.cornerRadius = 0
+        self.present(sheetController, animated: true, completion: nil)
     }
     
     func configureMap() {
@@ -45,10 +63,11 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
-        let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
-        let sheetController = SheetViewController(controller: goOnlineViewController, sizes:[.percent(0.6)], options: Constants.fittedSheetOptions)
-        sheetController.cornerRadius = 0
-        self.present(sheetController, animated: true, completion: nil)
+//        let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
+//        let sheetController = SheetViewController(controller: goOnlineViewController, sizes:[.percent(0.6)], options: Constants.fittedSheetOptions)
+//        sheetController.cornerRadius = 0
+//        self.present(sheetController, animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }
 

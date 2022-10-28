@@ -47,6 +47,8 @@ class LoginViewModel {
                 Defaults.isLoggedIn = true
                 Defaults.authToken = result?.token
                 Defaults.driverStatus = result?.data?.status?.lowercased() == "ACTIVE".lowercased()
+                Defaults.driverEmail = result?.data?.email
+                DriverSession.shared.driver = result?.data
                 if result?.token != nil {
                     completion(true, nil)
                 } else {

@@ -35,7 +35,7 @@ class TripDetailViewController: UIViewController {
     
     var tripDetailViewModel: TripDetailViewModel!
     var isFullScreen: Bool = false
-    var onDismiss: (() -> Void)?
+    var onDismiss: ((Bool) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,16 +85,37 @@ class TripDetailViewController: UIViewController {
         dropAddressInstructionLabel.text = dropAddressInstructionLabel.text
     }
     
-    @IBAction func viewMapTapped(_ sender: UIButton) {
-    }
-    
-    @IBAction func acceptButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: false) {
-            self.onDismiss?()
+    func acceptOrder() {
+        tripDetailViewModel.acceptOrder { [weak self] error in
+            if let error = error {
+                self?.showAlert(title: "Booking", message: error)
+                return
+            }
+            
+            self?.dismiss(animated: false) {
+                self?.onDismiss?(false)
+            }
         }
     }
     
+    @IBAction func viewMapTapped(_ sender: UIButton) {
+        self.dismiss(animated: false) {
+            self.onDismiss?(true)
+        }
+//        let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+//        mapViewController.modalPresentationStyle = .fullScreen
+//        present(mapViewController, animated: true)
+    }
+    
+    @IBAction func acceptButtonTapped(_ sender: UIButton) {
+        acceptOrder()
+//        self.dismiss(animated: false) {
+//            self.onDismiss?(false)
+//        }
+    }
+    
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
     }
     
     @IBAction func startJobTapped(_ sender: UIButton) {
