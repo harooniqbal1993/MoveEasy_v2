@@ -12,5 +12,6 @@ target 'MoveEasy' do
   pod 'UIView-Shimmer', '~> 1.0'
 #  pod 'SwiftDate', '~> 5.0'
   pod 'Fastis', '~> 2.0'
+  pod 'IQKeyboardManagerSwift'
 
 end

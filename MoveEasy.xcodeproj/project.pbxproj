@@ -18,6 +18,8 @@
 		181F5EDB28C9C058002C94CA /* FeedbackRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F5EDA28C9C058002C94CA /* FeedbackRequest.swift */; };
 		181F5EDE28C9C205002C94CA /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F5EDD28C9C205002C94CA /* FeedbackViewModel.swift */; };
 		181F5EE028C9C64E002C94CA /* OrderSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F5EDF28C9C64E002C94CA /* OrderSession.swift */; };
+		182BEA522914FA9A00DF3B7A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182BEA512914FA9A00DF3B7A /* ForgotPasswordViewController.swift */; };
+		182BEA552914FF2C00DF3B7A /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182BEA542914FF2C00DF3B7A /* ForgotPasswordViewModel.swift */; };
 		1837C08328C9026700D93A58 /* ForgotMovingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837C08228C9026700D93A58 /* ForgotMovingViewModel.swift */; };
 		183ACE3C289FA1C600291E22 /* ManageJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ACE3B289FA1C600291E22 /* ManageJobViewModel.swift */; };
 		183B8B51289C0F360013DC06 /* TripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B8B50289C0F360013DC06 /* TripDetailViewModel.swift */; };
@@ -37,6 +39,7 @@
 		1897D478288BF679003976E3 /* OrderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897D477288BF679003976E3 /* OrderCellViewModel.swift */; };
 		1899F1CA288323C4002855CA /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F1C8288323C4002855CA /* FilterCell.swift */; };
 		1899F1CB288323C4002855CA /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899F1C9288323C4002855CA /* FilterCell.xib */; };
+		189DABAB290F9B2100965BDE /* FinishJobModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189DABAA290F9B2100965BDE /* FinishJobModel.swift */; };
 		18B758E528B69E7900E7FE96 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B758E428B69E7900E7FE96 /* ReceiptModel.swift */; };
 		18BD3790287988790034D7FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD378F287988790034D7FA /* MapViewController.swift */; };
 		18BD3794287992190034D7FA /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD3793287992190034D7FA /* JobDetailViewController.swift */; };
@@ -101,6 +104,8 @@
 		181F5EDA28C9C058002C94CA /* FeedbackRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRequest.swift; sourceTree = "<group>"; };
 		181F5EDD28C9C205002C94CA /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
 		181F5EDF28C9C64E002C94CA /* OrderSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSession.swift; sourceTree = "<group>"; };
+		182BEA512914FA9A00DF3B7A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		182BEA542914FF2C00DF3B7A /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		1837C08228C9026700D93A58 /* ForgotMovingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotMovingViewModel.swift; sourceTree = "<group>"; };
 		183ACE3B289FA1C600291E22 /* ManageJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageJobViewModel.swift; sourceTree = "<group>"; };
 		183B8B50289C0F360013DC06 /* TripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +125,7 @@
 		1897D477288BF679003976E3 /* OrderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellViewModel.swift; sourceTree = "<group>"; };
 		1899F1C8288323C4002855CA /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		1899F1C9288323C4002855CA /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
+		189DABAA290F9B2100965BDE /* FinishJobModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishJobModel.swift; sourceTree = "<group>"; };
 		18B758E428B69E7900E7FE96 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
 		18BD378F287988790034D7FA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		18BD3793287992190034D7FA /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +244,7 @@
 		181CDD66287C0F1B00E955BD /* ManageJob */ = {
 			isa = PBXGroup;
 			children = (
+				189DABA9290F9B0500965BDE /* Model */,
 				183ACE3A289FA1A500291E22 /* ViewModel */,
 				181CDD67287C0F2600E955BD /* View */,
 			);
@@ -264,6 +271,31 @@
 			isa = PBXGroup;
 			children = (
 				181F5EDD28C9C205002C94CA /* FeedbackViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		182BEA4F2914F9D700DF3B7A /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				182BEA532914FF0900DF3B7A /* ViewModel */,
+				182BEA502914F9E900DF3B7A /* View */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		182BEA502914F9E900DF3B7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				182BEA512914FA9A00DF3B7A /* ForgotPasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		182BEA532914FF0900DF3B7A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				182BEA542914FF2C00DF3B7A /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -386,6 +418,14 @@
 			path = FilterCell;
 			sourceTree = "<group>";
 		};
+		189DABA9290F9B0500965BDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				189DABAA290F9B2100965BDE /* FinishJobModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		18B758E328B69E6300E7FE96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +534,7 @@
 		18C833A82878BB01008C2283 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				182BEA4F2914F9D700DF3B7A /* ForgotPassword */,
 				1848267E28A81A9E00B405C3 /* TabBar */,
 				1816D2572884229A00F1B6FF /* ForgotMove */,
 				1894B267287F3C2A005C1924 /* Feedback */,
@@ -962,6 +1003,7 @@
 				18F86232289071FC00A3F7A0 /* ProofViewModel.swift in Sources */,
 				181F5EDE28C9C205002C94CA /* FeedbackViewModel.swift in Sources */,
 				18CE66D028795790002AE9D1 /* UIColor.swift in Sources */,
+				182BEA522914FA9A00DF3B7A /* ForgotPasswordViewController.swift in Sources */,
 				18DE6FB728845C7A0074250D /* RegisterRequest.swift in Sources */,
 				18863FBA287F3EB100A6F752 /* RatingStar.swift in Sources */,
 				18CE66E228797A6D002AE9D1 /* SignupViewController.swift in Sources */,
@@ -978,6 +1020,7 @@
 				187636F3288B21E700D90B1E /* DriverSession.swift in Sources */,
 				18C833C22878D46F008C2283 /* MenuCell.swift in Sources */,
 				1816D25F288430D700F1B6FF /* NetworkService.swift in Sources */,
+				182BEA552914FF2C00DF3B7A /* ForgotPasswordViewModel.swift in Sources */,
 				18BD3790287988790034D7FA /* MapViewController.swift in Sources */,
 				18C833972878BAED008C2283 /* SceneDelegate.swift in Sources */,
 				18D188C2287AEAAE003E8CD1 /* ProofViewController.swift in Sources */,
@@ -985,6 +1028,7 @@
 				1875388B287F174A00DA3FC3 /* SignatureViewController.swift in Sources */,
 				18D188BE287AD867003E8CD1 /* AllOrderViewController.swift in Sources */,
 				18BD379C2879B3CA0034D7FA /* AlertViewController.swift in Sources */,
+				189DABAB290F9B2100965BDE /* FinishJobModel.swift in Sources */,
 				18CE66D328795790002AE9D1 /* UIViewController.swift in Sources */,
 				18D188B9287AC58C003E8CD1 /* OrderCell.swift in Sources */,
 				18CE66DA287964A9002AE9D1 /* UILabel.swift in Sources */,

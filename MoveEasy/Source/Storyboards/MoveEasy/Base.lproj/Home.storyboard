@@ -284,6 +284,11 @@
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="KRa-M6-j4b" kind="relationship" relationship="viewControllers" id="fWK-i8-7rG"/>
                         <segue destination="ZKo-ny-gxI" kind="relationship" relationship="viewControllers" id="Ycm-Wa-B01"/>

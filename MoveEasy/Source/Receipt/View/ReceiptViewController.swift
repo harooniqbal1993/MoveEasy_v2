@@ -22,12 +22,12 @@ class ReceiptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+//        configure()
         loadViews()
     }
     
     func configure() {
-        receiptViewModel = ReceiptViewModel()
+//        receiptViewModel = ReceiptViewModel()
     }
     
     func loadViews() {

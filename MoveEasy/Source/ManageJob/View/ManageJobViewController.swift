@@ -128,7 +128,13 @@ class ManageJobViewController: UIViewController {
     }
     
     func stopMoving() {
-        manageJobViewModel.stopMoving(bookingID: "")
+        manageJobViewModel.stopMoving(bookingID: "") { [weak self] error in
+            if let error = error {
+                self?.showAlert(title: "Error", message: error)
+                return
+            }
+            
+        }
     }
     
     private func startAnimation(mediaType: MediaPickerManager.MediaType) {
@@ -184,6 +190,7 @@ class ManageJobViewController: UIViewController {
     
     private func navigateToNextScreen() {
         let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+        receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
         navigationController?.pushViewController(receiptViewController, animated: true)
     }
     
@@ -202,7 +209,6 @@ class ManageJobViewController: UIViewController {
             }
         }
         present(alertViewController, animated: true, completion: nil)
-        
     }
     
     @IBAction func pauseJobTapped(_ sender: UIButton) {

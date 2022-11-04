@@ -105,9 +105,9 @@ class NetworkService {
         }
     }
     
-    func finishMoving(bookingID: String, completion: @escaping (_ result: Bool?, _ error: String?) -> Void) {
+    func finishMoving(bookingID: String, completion: @escaping (_ result: FinishJobModel?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.finishMoving.rawValue)?driverId=\(Defaults.driverEmail ?? "")&bookingId=\(bookingID)"
-        httpUtility.getApiData(url: URL(string: url)!, resultType: Bool.self) { result, error in
+        httpUtility.getApiData(url: URL(string: url)!, resultType: FinishJobModel.self) { result, error in
             completion(result, error)
         }
     }

@@ -64,7 +64,8 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func forgetPasswordButtonTapped(_ sender: UIButton) {
-        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {

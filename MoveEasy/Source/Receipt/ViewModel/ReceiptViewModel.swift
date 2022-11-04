@@ -9,6 +9,12 @@ import Foundation
 
 class ReceiptViewModel {
     
+    var receiptModel: BookingTotalModel? = nil
+    
+    init(receiptModel: BookingTotalModel?) {
+        self.receiptModel = receiptModel
+    }
+    
     var orderNumber: String {
         return "112"
     }

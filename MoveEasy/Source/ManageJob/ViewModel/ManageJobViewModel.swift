@@ -9,6 +9,8 @@ import Foundation
 
 class ManageJobViewModel {
     
+    var receipt: BookingTotalModel? = nil
+    
     func startMoving(bookingID: String) {
         NetworkService.shared.startMoving(bookingID: bookingID) { result, error in
             DispatchQueue.main.async {
@@ -29,14 +31,18 @@ class ManageJobViewModel {
         }
     }
     
-    func stopMoving(bookingID: String) {
+    func stopMoving(bookingID: String, completion: @escaping (_ error: String?) -> Void) {
         NetworkService.shared.finishMoving(bookingID: bookingID) { result, error in
             DispatchQueue.main.async {
                 if error != nil {
+                    completion(error)
                     return
                 }
                 
-                
+                if let result = result {
+                    self.receipt = result.bookingTotalModel
+                }
+                completion(nil)
             }
         }
     }
