@@ -1410,8 +1410,8 @@ and start earning</string>
                                     <constraint firstAttribute="height" constant="2" id="QCm-j6-EOI"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IQ-9T-WwK">
-                                <rect key="frame" x="141.5" y="132" width="92" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IQ-9T-WwK">
+                                <rect key="frame" x="169" y="132" width="37.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1653,7 +1653,9 @@ and start earning</string>
                     </view>
                     <connections>
                         <outlet property="addCommentButton" destination="Pf1-nV-egd" id="Ttc-ck-F1p"/>
+                        <outlet property="appreciatiionLabel" destination="4IQ-9T-WwK" id="xjL-x7-r9w"/>
                         <outlet property="commentTextView" destination="pNr-RF-wsq" id="YEv-wB-n71"/>
+                        <outlet property="ratingView" destination="cfd-Jk-wuP" id="wDb-VL-utf"/>
                         <outlet property="submitButton" destination="z2N-De-mmn" id="elg-0o-iII"/>
                         <outletCollection property="filterButton" destination="xM9-04-acq" collectionClass="NSMutableArray" id="QqA-G5-7uY"/>
                         <outletCollection property="filterButton" destination="Ulb-F9-Eob" collectionClass="NSMutableArray" id="8Oa-pw-Ywx"/>

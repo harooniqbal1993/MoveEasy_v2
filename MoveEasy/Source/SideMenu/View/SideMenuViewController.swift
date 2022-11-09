@@ -51,6 +51,24 @@ class SideMenuViewController: UIViewController {
         yearStackView.addLeftBorderWithColor(color: .systemGray4, width: 1.0)
     }
     
+    func navigate(screen: String) {
+        switch screen {
+        case "Logout":
+            let loginViewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let nav = UINavigationController(rootViewController: loginViewController)
+    //        UIApplication.shared.keyWindow?.rootViewController = nav
+            
+            let scenes = UIApplication.shared.connectedScenes
+            let windowScene = scenes.first as? UIWindowScene
+            let window = windowScene?.windows.first
+    //        let rootVC = window?.rootViewController
+            window?.rootViewController = nav
+            break
+        default:
+            print("default")
+        }
+    }
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
         //        self.revealViewController().revealToggle(self)
         performSegue(withIdentifier: "profile_segue", sender: nil)
@@ -71,15 +89,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let loginViewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        let nav = UINavigationController(rootViewController: loginViewController)
-//        UIApplication.shared.keyWindow?.rootViewController = nav
-        
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-        let window = windowScene?.windows.first
-//        let rootVC = window?.rootViewController
-        window?.rootViewController = nav
+        navigate(screen: menuItems[indexPath.row].name ?? "Logout")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

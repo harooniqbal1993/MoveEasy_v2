@@ -14,6 +14,9 @@ class FeedBackViewController: UIViewController {
     @IBOutlet weak var addCommentButton: UIButton!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var appreciatiionLabel: UILabel!
+    @IBOutlet weak var ratingView: CosmosView!
+    
     
     let textColor: UIColor = UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1.0)
     
@@ -33,6 +36,33 @@ class FeedBackViewController: UIViewController {
         addCommentButton.border(color: Constants.themeColor, radius: 6, width: 1.0)
         commentTextView.border(color: textColor, radius: 0.0, width: 1.0)
         submitButton.round()
+        ratingStarListeners()
+    }
+    
+    func ratingStarListeners() {
+        ratingView.didFinishTouchingCosmos = { rating in
+            self.appreciatiionLabel.text = self.appreciationValue(rating: rating)
+        }
+
+        ratingView.didTouchCosmos = { rating in
+            self.appreciatiionLabel.text = self.appreciationValue(rating: rating)
+        }
+    }
+    
+    func appreciationValue(rating: Double) -> String {
+        feedbackViewModel?.rating = rating
+        switch rating {
+        case 5:
+            return "Excellent"
+        case 4:
+            return "Very good"
+        case 3:
+            return "Good"
+        case 2:
+            return "Fair"
+        default:
+            return "Poor"
+        }
     }
     
     @objc func filterButtonTapped(_sender: UIButton) {
@@ -57,7 +87,7 @@ class FeedBackViewController: UIViewController {
     }
     
     @IBAction func submitTapped(_ sender: UIButton) {
-        feedbackViewModel?.submitFeedback(rating: 0, comments: commentTextView.text, userID: 0, completion: { [weak self] result, error in
+        feedbackViewModel?.submitFeedback(rating: Int(feedbackViewModel?.rating ?? 3), comments: commentTextView.text, userID: 0, completion: { [weak self] result, error in
             if let error = error {
                 self?.showAlert(title: "Error", message: error)
                 return
