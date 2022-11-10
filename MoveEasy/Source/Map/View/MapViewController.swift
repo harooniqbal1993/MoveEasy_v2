@@ -22,6 +22,9 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+//        fetchRoute(from: CLLocationCoordinate2D(latitude: 33.621584, longitude: 72.937200), to: CLLocationCoordinate2D(latitude: 33.598281, longitude: 73.152463))
+        return
+        
         let jobDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JobDetailViewController") as! JobDetailViewController
         jobDetailViewController.onDismiss = { [weak self] in
             self?.dismiss(animated: true)
@@ -60,6 +63,54 @@ class MapViewController: UIViewController {
         if toLocation != nil {
             mapView.camera = GMSCameraPosition.camera(withTarget: toLocation!, zoom: 15)
         }
+    }
+    
+    func fetchRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
+        
+        let session = URLSession.shared
+        
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving&key=AIzaSyB4NBNYT0Lj_wlG0SXNubJsQE16OthSOFg")!
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] else {
+                print("error in JSONSerialization")
+                return
+            }
+            
+            guard let routes = jsonResult["routes"] as? [Any] else {
+                return
+            }
+            
+            guard let route = routes[0] as? [String: Any] else {
+                return
+            }
+
+            guard let overview_polyline = route["overview_polyline"] as? [String: Any] else {
+                return
+            }
+            
+            guard let polyLineString = overview_polyline["points"] as? String else {
+                return
+            }
+            
+            //Call this method to draw path on map
+            self.drawPath(from: polyLineString)
+        })
+        task.resume()
+    }
+    
+    func drawPath(from polyStr: String){
+        let path = GMSPath(fromEncodedPath: polyStr)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 3.0
+        polyline.map = mapView // Google MapView
     }
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {

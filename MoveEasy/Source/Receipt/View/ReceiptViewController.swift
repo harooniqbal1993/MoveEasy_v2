@@ -16,7 +16,8 @@ class ReceiptViewController: UIViewController {
     @IBOutlet weak var subtotalValueLabel: UILabel!
     @IBOutlet weak var gstValueLabel: UILabel!
     @IBOutlet weak var chargesLabel: UILabel!
-    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
     
     var receiptViewModel: ReceiptViewModel? = nil
     
@@ -32,7 +33,8 @@ class ReceiptViewController: UIViewController {
     
     func loadViews() {
         containerView.round(radius: 20.0)
-        continueButton.round()
+        acceptButton.round()
+        rejectButton.border(color: Constants.themeColor, width: 1.0)
         
         updateUI()
     }
@@ -51,8 +53,14 @@ class ReceiptViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func continueButtonTapped(_ sender: UIButton) {
-        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "SignatureViewController") as! SignatureViewController
+    @IBAction func acceptButtonTapped(_ sender: UIButton) {
+//        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "SignatureViewController") as! SignatureViewController
+        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+        navigationController?.pushViewController(signatureViewController, animated: true)
+    }
+    
+    @IBAction func rejectButtonTapped(_ sender: UIButton) {
+        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "OopsViewController") as! OopsViewController
         navigationController?.pushViewController(signatureViewController, animated: true)
     }
 }

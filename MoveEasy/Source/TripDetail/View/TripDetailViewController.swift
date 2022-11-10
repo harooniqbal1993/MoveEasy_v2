@@ -27,7 +27,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var pickAddressInstructionLabel: UILabel!
     @IBOutlet weak var dropAddressLabel: UILabel!
     @IBOutlet weak var dropAddressInstructionLabel: UILabel!
-    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var acceptButton: SpinnerButton!
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var startJobButton: UIButton!
     @IBOutlet weak var connector: UIView!
@@ -86,14 +86,19 @@ class TripDetailViewController: UIViewController {
     }
     
     func acceptOrder() {
+        acceptButton.setTitle("")
+        acceptButton.startLoading()
         tripDetailViewModel.acceptOrder { [weak self] error in
-            if let error = error {
-                self?.showAlert(title: "Booking", message: error)
-                return
-            }
-            
-            self?.dismiss(animated: false) {
-                self?.onDismiss?(false)
+            DispatchQueue.main.async {
+                self?.acceptButton.stopLoading()
+                if let error = error {
+                    self?.showAlert(title: "Booking", message: error)
+                    return
+                }
+                
+                self?.dismiss(animated: false) {
+                    self?.onDismiss?(false)
+                }
             }
         }
     }
@@ -107,7 +112,7 @@ class TripDetailViewController: UIViewController {
 //        present(mapViewController, animated: true)
     }
     
-    @IBAction func acceptButtonTapped(_ sender: UIButton) {
+    @IBAction func acceptButtonTapped(_ sender: SpinnerButton) {
         acceptOrder()
 //        self.dismiss(animated: false) {
 //            self.onDismiss?(false)

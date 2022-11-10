@@ -26,6 +26,8 @@
 		1848268028A81B3E00B405C3 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848267F28A81B3E00B405C3 /* CustomTabBarController.swift */; };
 		184E56BA28C35C740079F1E4 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E56B928C35C740079F1E4 /* FileUploader.swift */; };
 		18537E6A2893C13600406229 /* Job.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18537E692893C13600406229 /* Job.storyboard */; };
+		18599D2F291BB50C0078DEDB /* WelldoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18599D2E291BB50C0078DEDB /* WelldoneViewController.swift */; };
+		18599D33291BC3920078DEDB /* OopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18599D32291BC3920078DEDB /* OopsViewController.swift */; };
 		18667D88287C5970000A6F11 /* ForgotMovingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18667D87287C5970000A6F11 /* ForgotMovingViewController.swift */; };
 		1875388B287F174A00DA3FC3 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875388A287F174A00DA3FC3 /* SignatureViewController.swift */; };
 		187636F0288B1F2000D90B1E /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187636EF288B1F2000D90B1E /* HomeModel.swift */; };
@@ -112,6 +114,8 @@
 		1848267F28A81B3E00B405C3 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		184E56B928C35C740079F1E4 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
 		18537E692893C13600406229 /* Job.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Job.storyboard; sourceTree = "<group>"; };
+		18599D2E291BB50C0078DEDB /* WelldoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelldoneViewController.swift; sourceTree = "<group>"; };
+		18599D32291BC3920078DEDB /* OopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OopsViewController.swift; sourceTree = "<group>"; };
 		18667D87287C5970000A6F11 /* ForgotMovingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotMovingViewController.swift; sourceTree = "<group>"; };
 		1875388A287F174A00DA3FC3 /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		187636EF288B1F2000D90B1E /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		1816D2572884229A00F1B6FF /* ForgotMove */ = {
 			isa = PBXGroup;
 			children = (
+				1893B0D1291B98D20021C157 /* Model */,
 				1837C08128C9022E00D93A58 /* ViewModel */,
 				18667D87287C5970000A6F11 /* ForgotMovingViewController.swift */,
 			);
@@ -332,6 +337,38 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		18599D2C291BB4950078DEDB /* Welldone */ = {
+			isa = PBXGroup;
+			children = (
+				18599D2D291BB4B30078DEDB /* View */,
+			);
+			path = Welldone;
+			sourceTree = "<group>";
+		};
+		18599D2D291BB4B30078DEDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18599D2E291BB50C0078DEDB /* WelldoneViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18599D30291BC3630078DEDB /* Oops */ = {
+			isa = PBXGroup;
+			children = (
+				18599D31291BC3780078DEDB /* View */,
+			);
+			path = Oops;
+			sourceTree = "<group>";
+		};
+		18599D31291BC3780078DEDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18599D32291BC3920078DEDB /* OopsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18753888287F172700DA3FC3 /* Signature */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +398,13 @@
 			isa = PBXGroup;
 			children = (
 				187636F5288B331500D90B1E /* AcceptBookingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1893B0D1291B98D20021C157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -534,6 +578,8 @@
 		18C833A82878BB01008C2283 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				18599D30291BC3630078DEDB /* Oops */,
+				18599D2C291BB4950078DEDB /* Welldone */,
 				182BEA4F2914F9D700DF3B7A /* ForgotPassword */,
 				1848267E28A81A9E00B405C3 /* TabBar */,
 				1816D2572884229A00F1B6FF /* ForgotMove */,
@@ -1013,9 +1059,11 @@
 				18F862372890747D00A3F7A0 /* NotesResponse.swift in Sources */,
 				18CE66D828795F2F002AE9D1 /* LoginViewController.swift in Sources */,
 				1816D25A288422FA00F1B6FF /* LoginViewModel.swift in Sources */,
+				18599D33291BC3920078DEDB /* OopsViewController.swift in Sources */,
 				1816D25D2884252200F1B6FF /* LoginRequest.swift in Sources */,
 				18C833992878BAED008C2283 /* ViewController.swift in Sources */,
 				18C833952878BAED008C2283 /* AppDelegate.swift in Sources */,
+				18599D2F291BB50C0078DEDB /* WelldoneViewController.swift in Sources */,
 				187636F0288B1F2000D90B1E /* HomeModel.swift in Sources */,
 				187636F3288B21E700D90B1E /* DriverSession.swift in Sources */,
 				18C833C22878D46F008C2283 /* MenuCell.swift in Sources */,
@@ -1249,7 +1297,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MoveEasy/Source/SideMenu/MoveEasy-Bridging-Header.h";
@@ -1287,7 +1335,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MoveEasy/Source/SideMenu/MoveEasy-Bridging-Header.h";

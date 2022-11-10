@@ -42,6 +42,7 @@ class ForgotMovingViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm:ss" // "dd/MM/yyyy"
         fastisController.doneHandler = { [weak self] resultDate in
+            debugPrint("Selected Date : ", resultDate)
             if self?.forgotMovingViewModel?.isStartDateTapped == true {
                 self?.startTimeTextField.text = formatter.string(from: resultDate!) // "\(resultDate)"
             } else {
@@ -58,8 +59,17 @@ class ForgotMovingViewController: UIViewController {
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         
         if !(nameTextField.text?.isEmpty ?? false) || !(emailTextField.text?.isEmpty ?? false) || !(startTimeTextField.text?.isEmpty ?? false) || !(endTimeTextField.text?.isEmpty ?? false) {
-            let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
-            navigationController?.pushViewController(receiptViewController, animated: true)
+            forgotMovingViewModel?.forgotTimer(bookingID: 1310, startTime: startTimeTextField.text ?? "", endTime: endTimeTextField.text ?? "", completion: { error in
+                DispatchQueue.main.async { [weak self] in
+                    if let error = error {
+                        self?.showAlert(title: "Forgot moving", message: error)
+                        return
+                    }
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            })
+//            let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+//            navigationController?.pushViewController(receiptViewController, animated: true)
         } else {
             self.showAlert(title: "Validation", message: "All fields are required!")
         }

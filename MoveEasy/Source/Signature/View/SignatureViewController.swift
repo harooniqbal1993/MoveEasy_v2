@@ -32,14 +32,16 @@ class SignatureViewController: UIViewController {
     }
     
     @IBAction func moveCompletedTapped(_ sender: UIButton) {
-//        let feedBackViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
-//        present(feedBackViewController, animated: true, completion: nil)
+        let oopsViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "OopsViewController") as! OopsViewController
+        navigationController?.pushViewController(oopsViewController, animated: true)
+//        let welldoneViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+//        navigationController?.pushViewController(welldoneViewController, animated: true)
         
-        let feedBackViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
-        feedBackViewController.feedbackViewModel = FeedbackViewModel()
-        let sheetController = SheetViewController(controller: feedBackViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
-        sheetController.cornerRadius = 0
-        self.present(sheetController, animated: true, completion: nil)
+//        let feedBackViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
+//        feedBackViewController.feedbackViewModel = FeedbackViewModel()
+//        let sheetController = SheetViewController(controller: feedBackViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
+//        sheetController.cornerRadius = 0
+//        self.present(sheetController, animated: true, completion: nil)
     }
     
     @IBAction func termsConditionTapped(_ sender: UIButton) {

@@ -663,7 +663,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="CEu-gK-KF5">
                                                 <rect key="frame" x="40" y="745.5" width="295" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY4-m3-7Qg">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY4-m3-7Qg" customClass="SpinnerButton" customModule="MoveEasy" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="122.5" height="40"/>
                                                         <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -675,7 +675,7 @@
                                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="acceptButtonTapped:" destination="wQU-7u-zsz" eventType="touchUpInside" id="CPN-tZ-ymM"/>
+                                                            <action selector="acceptButtonTapped:" destination="wQU-7u-zsz" eventType="touchUpInside" id="V3W-D2-6pn"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7N-iI-b42">
@@ -983,7 +983,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="acceptButton" destination="SY4-m3-7Qg" id="LCH-Ue-25r"/>
+                        <outlet property="acceptButton" destination="SY4-m3-7Qg" id="UFR-aj-4hY"/>
                         <outlet property="connector" destination="N89-hT-gjc" id="mn7-SR-VNY"/>
                         <outlet property="customerNameLabel" destination="MIi-oQ-jf3" id="25v-Tt-3bj"/>
                         <outlet property="dateLabel" destination="Pk9-nn-SrC" id="jMv-nL-aAT"/>
@@ -1070,6 +1070,11 @@
             <point key="canvasLocation" x="1786" y="866"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="SY4-m3-7Qg">
+            <size key="intrinsicContentSize" width="47" height="29"/>
+        </designable>
+    </designables>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="clipboard-list" width="21" height="28"/>

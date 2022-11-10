@@ -124,4 +124,11 @@ class NetworkService {
             completion(nil, error.localizedDescription)
         }
     }
+    
+    func forgotTimer(bookingID: Int, startTime: String, endTime: String, completion: @escaping (_ result: FinishJobModel?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.forgotTimer.rawValue)?startTime=\(startTime)&bookingId=\(bookingID)&endTime=\(endTime)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: FinishJobModel.self) { result, error in
+            completion(result, error)
+        }
+    }
 }

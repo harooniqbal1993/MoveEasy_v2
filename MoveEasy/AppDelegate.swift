@@ -13,7 +13,7 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyDvaEXGVPkolxV-0WZ1w4xQAIsz6CT2iGU")
+        GMSServices.provideAPIKey("AIzaSyB4NBNYT0Lj_wlG0SXNubJsQE16OthSOFg")
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
         return true

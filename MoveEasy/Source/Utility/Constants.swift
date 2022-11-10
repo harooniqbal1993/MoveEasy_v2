@@ -59,6 +59,7 @@ class Constants {
         case finishMoving = "DriverBookingsAPI/finishMoving"
         case pickupFiles = "BookingsAPI/PickupFiles"
         case feedback = "Feedback/FeedbackFromDriver"
+        case forgotTimer = "ManualStartBookingAPI/ManualStartBooking"
     }
     
     enum NotificationObserver: String {
