@@ -12,10 +12,17 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var submitButton: SpinnerButton!
     
+    var forgotPasswordViewModel: ForgotPasswordViewModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configure()
         loadViews()
+    }
+    
+    func configure() {
+        forgotPasswordViewModel = ForgotPasswordViewModel()
     }
     
     func loadViews() {
@@ -27,8 +34,18 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func submitButtonTapped(_ sender: SpinnerButton) {
+        
         if !(emailTextField.text?.isEmpty ?? true) {
-            print("not empty")
+            forgotPasswordViewModel?.forgotPassword(email: emailTextField.text ?? "") { [weak self] error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self?.showAlert(title: "Forgot Password", message: error)
+                        return
+                    }
+                    
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }
         }
     }
 }

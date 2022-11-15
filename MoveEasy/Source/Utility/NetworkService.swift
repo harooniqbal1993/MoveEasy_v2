@@ -43,6 +43,13 @@ class NetworkService {
         }
     }
     
+    func forgotPassword(email: String, completion: @escaping (_ result: ForgotPasswordModel?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.forgotPassword.rawValue)?email=\(email)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: ForgotPasswordModel.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
     func dashboard(completion: @escaping (_ result: HomeModel?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: HomeModel.self) { result, error in

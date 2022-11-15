@@ -47,6 +47,7 @@ class Constants {
     enum EndPoints: String {
         case login = "Auth/loginDriver"
         case registerDriver = "Auth/signupDriver"
+        case forgotPassword = "Auth/forgotPassword"
         case getDriverStatus = "DriverDashboardAPI/getDriverStatus"
         case setDriverStatus = "DriverDashboardAPI/setDriverStatus"
         case dashboard = "DriverDashboardAPI/dashboard"

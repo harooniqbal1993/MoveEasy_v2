@@ -16,6 +16,10 @@ class FeedBackViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var appreciatiionLabel: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var customButtonView: UIView!
+    @IBOutlet weak var Cad3ButtonView: UIView!
+    @IBOutlet weak var cad1ButtonView: UIView!
+    @IBOutlet weak var notThisTimeButtonView: UIView!
     
     
     let textColor: UIColor = UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1.0)
@@ -33,6 +37,10 @@ class FeedBackViewController: UIViewController {
             button.border(color: .systemGray4, radius: 5, width: 2.0)
             button.addTarget(self, action: #selector(filterButtonTapped(_sender:)), for: .touchUpInside)
         }
+        customButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         addCommentButton.border(color: Constants.themeColor, radius: 6, width: 1.0)
         commentTextView.border(color: textColor, radius: 0.0, width: 1.0)
         submitButton.round()
@@ -94,5 +102,41 @@ class FeedBackViewController: UIViewController {
             }
         })
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func customButtonTapped(_ sender: UIButton) {
+        customButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        
+        customButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
+    }
+    
+    @IBAction func cad1Tapped(_ sender: UIButton) {
+        customButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        
+        cad1ButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
+    }
+    
+    @IBAction func cad3Tapped(_ sender: UIButton) {
+        customButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        
+        Cad3ButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
+    }
+    
+    @IBAction func notThisTimeTapped(_ sender: UIButton) {
+        customButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
+        
+        notThisTimeButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
     }
 }
