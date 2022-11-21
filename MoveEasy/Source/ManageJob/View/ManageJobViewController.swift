@@ -133,7 +133,6 @@ class ManageJobViewController: UIViewController {
                 self?.showAlert(title: "Error", message: error)
                 return
             }
-            
         }
     }
     

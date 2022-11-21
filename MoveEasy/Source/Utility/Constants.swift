@@ -55,6 +55,7 @@ class Constants {
         case getDriverDetail = "DriverDetailAPI"
         case acceptBooking = "BookingAssignmentsAPI/AcceptBooking"
         case saveNotes = "DriverBookingsAPI/saveNotes"
+        case getBooking = "BookingsAPI"
         case startMoving = "DriverBookingsAPI/startMoving"
         case pauseMoving = "DriverBookingsAPI/pauseMoving"
         case finishMoving = "DriverBookingsAPI/finishMoving"

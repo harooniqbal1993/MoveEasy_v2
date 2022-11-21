@@ -1,4 +1,5 @@
 PODS:
+  - DateTimePicker (2.5.3)
   - Fastis (2.0.0):
     - JTAppleCalendar (~> 8.0.0)
     - PrettyCards (~> 1.0.0)
@@ -18,6 +19,7 @@ PODS:
   - UIView-Shimmer (1.0.4)
 
 DEPENDENCIES:
+  - DateTimePicker
   - Fastis (~> 2.0)
   - FittedSheets
   - GoogleMaps (= 7.0.0)
@@ -28,6 +30,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - DateTimePicker
     - Fastis
     - FittedSheets
     - GoogleMaps
@@ -40,6 +43,7 @@ SPEC REPOS:
     - UIView-Shimmer
 
 SPEC CHECKSUMS:
+  DateTimePicker: 52701ddf656a50856d3510955933f767cd2c947c
   Fastis: 83190c355fcbc06e92e568b7293d9f324eb91a71
   FittedSheets: 661408776eb4ff514a31da75b3600bd7222b2b3d
   GoogleMaps: 6e9c923ca035989709fcb5771544fda4cc5fa2a4
@@ -51,6 +55,6 @@ SPEC CHECKSUMS:
   SwiftSignatureView: cd8cca297cc2ca6a6c174da22fb908c33d03d3c0
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: c2304b6e09d56e894b1ccbc224597c4a57478cfd
+PODFILE CHECKSUM: 4ef0059d82c6e2993a908f790b2414eb55210f96
 
 COCOAPODS: 1.11.3

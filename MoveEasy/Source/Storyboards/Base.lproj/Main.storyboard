@@ -1109,7 +1109,7 @@ and start earning</string>
                                 <constraints>
                                     <constraint firstItem="1GC-AA-sl3" firstAttribute="leading" secondItem="HzZ-HA-tY3" secondAttribute="leading" id="4rW-pK-vPj"/>
                                     <constraint firstAttribute="bottom" secondItem="1GC-AA-sl3" secondAttribute="bottom" id="5O8-KQ-aEO"/>
-                                    <constraint firstItem="1GC-AA-sl3" firstAttribute="height" secondItem="HzZ-HA-tY3" secondAttribute="height" constant="200" id="MxI-Rq-Zl3"/>
+                                    <constraint firstItem="1GC-AA-sl3" firstAttribute="height" secondItem="HzZ-HA-tY3" secondAttribute="height" priority="250" constant="200" id="MxI-Rq-Zl3"/>
                                     <constraint firstItem="1GC-AA-sl3" firstAttribute="width" secondItem="HzZ-HA-tY3" secondAttribute="width" id="cOh-5f-Tvv"/>
                                     <constraint firstItem="1GC-AA-sl3" firstAttribute="top" secondItem="HzZ-HA-tY3" secondAttribute="top" id="fia-wF-9gY"/>
                                     <constraint firstAttribute="trailing" secondItem="1GC-AA-sl3" secondAttribute="trailing" id="tkh-hW-laj"/>

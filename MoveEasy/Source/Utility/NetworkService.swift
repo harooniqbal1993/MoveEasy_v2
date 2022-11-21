@@ -138,4 +138,11 @@ class NetworkService {
             completion(result, error)
         }
     }
+    
+    func getBooking(bookingID: String, completion: @escaping (_ result: FinishJobModel?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.finishMoving.rawValue)/\(bookingID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: FinishJobModel.self) { result, error in
+            completion(result, error)
+        }
+    }
 }

@@ -13,5 +13,6 @@ target 'MoveEasy' do
 #  pod 'SwiftDate', '~> 5.0'
   pod 'Fastis', '~> 2.0'
   pod 'IQKeyboardManagerSwift'
+  pod 'DateTimePicker'
 
 end
