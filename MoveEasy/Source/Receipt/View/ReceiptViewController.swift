@@ -37,15 +37,41 @@ class ReceiptViewController: UIViewController {
         rejectButton.border(color: Constants.themeColor, width: 1.0)
         
         updateUI()
+        
+        getOrderSummary()
     }
     
     func updateUI() {
         orderNumberLabel.text = receiptViewModel?.orderNumber
-        baseFareValueLabel.text = "\(receiptViewModel?.baseFare ?? 0.0)"
-        distanceValueLabel.text = "\(receiptViewModel?.distance ?? 0.0)"
-        subtotalValueLabel.text = "\(receiptViewModel?.subTotal ?? 0.0)"
-        gstValueLabel.text = "\(receiptViewModel?.gst ?? 0.0)"
-        chargesLabel.text = "\(receiptViewModel?.total ?? 0.0)"
+        baseFareValueLabel.text = "\(receiptViewModel?.baseFare ?? "0.0")"
+        distanceValueLabel.text = "\(receiptViewModel?.distance ?? "0.0")"
+        subtotalValueLabel.text = "\(receiptViewModel?.subTotal ?? "0.0")"
+        gstValueLabel.text = "\(receiptViewModel?.gst ?? "0.0")"
+        chargesLabel.text = "\(receiptViewModel?.total ?? "0.0")"
+    }
+    
+    func getOrderSummary() {
+//        receiptViewModel?.getOrderSummary(completion: { [weak self] error in
+//            DispatchQueue.main.async {
+//                if let error = error {
+//                    self?.showAlert(title: "Error", message: error)
+//                    return
+//                }
+//
+//                self?.updateUI()
+//            }
+//        })
+        
+        receiptViewModel?.getBooking(bookingID: "1845", completion: { [weak self] error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self?.showAlert(title: "Error", message: error)
+                    return
+                }
+
+                self?.updateUI()
+            }
+        })
     }
     
     @IBAction func sideMenuTapped(_ sender: UIButton) {

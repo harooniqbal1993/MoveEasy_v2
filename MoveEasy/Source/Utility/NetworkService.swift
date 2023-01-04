@@ -8,7 +8,10 @@
 import Foundation
 
 class NetworkService {
+//    https://neighbour.anadeemus.ca/swagger/index.html
     let baseURL: String = "https://moveasydriver.anadeemus.ca/api/"
+    let customerURL: String = "https://neighbour.anadeemus.ca/api/"
+    
     var httpUtility: HttpUtility!
     
     static let shared = NetworkService(httpUtility: HttpUtility())
@@ -142,6 +145,20 @@ class NetworkService {
     func getBooking(bookingID: String, completion: @escaping (_ result: FinishJobModel?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.finishMoving.rawValue)/\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: FinishJobModel.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func getOrderSummary(userID: String, bookingID: String, completion: @escaping (_ result: FinishJobModel?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.getOrderSummary.rawValue)?userId=\(userID)&bookingID=\(bookingID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: FinishJobModel.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func getBookingSummary(bookingID: String, completion: @escaping (_ result: OrderSummaryModel?, _ error: String?) -> Void) {
+        let url = "\(customerURL+Constants.EndPoints.getBooking.rawValue)/\(bookingID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: OrderSummaryModel.self) { result, error in
             completion(result, error)
         }
     }

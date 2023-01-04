@@ -30,106 +30,106 @@ struct ReceiptModel: Decodable {
     var totalDuration: Float? = nil
 }
 
-//
-//{
-//  "": 200,
-//  "": "Success",
-//  "data": {
-//    "id": 1310,
-//    "userId": null,
-//    "pickupLocation": "Calgary, AB, Canada",
-//    "dropoffLocation": "Calgary International Airport (YYC), Airport Road Northeast, Calgary, AB, Canada",
-//    "vehicleTypeId": 1000,
-//    "deliveryDate": "7/22/2022 7:00:00 PM",
-//    "type": "Mooving",
-//    "deliverySlotId": null,
-//    "labourNeeded": 2,
-//    "pickupTotalFloors": null,
-//    "dropoffTotalFloors": null,
-//    "perFloorRate": null,
-//    "pickupMedium": null,
-//    "dropoffMedium": null,
-//    "distanceInKm": 17,
-//    "durationInMins": 20,
-//    "dropOffPersonName": null,
-//    "dropOffPersonPhone": null,
-//    "pickUpPersonName": null,
-//    "pickUpPersonPhone": null,
-//    "dropOffInstructions": null,
-//    "pickUpInstructions": null,
-//    "status": "Confirmation",
-//    "exactTime": "7:00 AM",
-//    "moveTypeId": 1,
-//    "startTime": "00:54:49.9953915",
-//    "endTime": "10:48:11.5055700",
-//    "moveSizeId": 1,
-//    "bookingTotalModel": {
-//      "coupon": null,
-//      "discount": null,
-//      "baseFare": "5",
-//      "totalDistance": "17.00",
-//      "gstandPst": null,
-//      "subtotal": "20.30",
-//      "totalChargeBTax": "44.88",
-//      "transferFee": "1.83",
-//      "totalServiceFee": "4.58",
-//      "totalCharge": null,
-//      "serviceFee": "2.50",
-//      "labourSurcharge": "20",
-//      "totalTaxGstpstrate": "5",
-//      "totalDuration": null
-//    },
-//    "bookingFiles": [
-//      {
-//        "id": 1247,
-//        "bookingId": 1310,
-//        "type": "image/*",
-//        "fileUrl": "1310_proof_file"
-//      },
-//      {
-//        "id": 1248,
-//        "bookingId": 1310,
-//        "type": "image/*",
-//        "fileUrl": "1310_proof_file"
-//      },
-//      {
-//        "id": 1249,
-//        "bookingId": 1310,
-//        "type": "image/*",
-//        "fileUrl": "1310_proof_file"
-//      },
-//      {
-//        "id": 1250,
-//        "bookingId": 1310,
-//        "type": "image/*",
-//        "fileUrl": "1310_proof_file"
-//      }
-//    ],
-//    "vehicle": {
-//      "id": 1000,
-//      "title": "Car",
-//      "pictureUrl": "Car_car.png",
-//      "description": "Car",
-//      "baseFare": 5,
-//      "serviceFee": 2.5,
-//      "perKmrate": 0.9,
-//      "labourCost": 10,
-//      "minimumFare": 7.5,
-//      "cancellationFee": 5,
-//      "width": "2.9",
-//      "height": "2.9",
-//      "length": "3.9",
-//      "detailPictureUrl": "Car_Front side view.png",
-//      "availableForMove": true,
-//      "availableForDelivery": true,
-//      "availableForEnterprise": false,
-//      "halfLoadPrice": null,
-//      "isHalfLoadAvailable": true,
-//      "cargoSpace": null,
-//      "recommendedUse": null
-//    },
-//    "user": null,
-//    "deliverySlot": null,
-//    "stops": []
-//  }
-//}
+struct OrderSummaryModel: Decodable {
+    var id: Int? = nil
+    var userId: Int? = nil
+    var pickupLocation: String? = nil
+    var dropoffLocation: String? = nil
+    var vehicleTypeId: Int? = nil
+    var deliveryDate: String? = nil
+    var type: String? = nil
+    var deliverySlotId: Int? = nil
+    var labourNeeded: Int? = nil
+    var pickupTotalFloors: Int? = nil
+    var dropoffTotalFloors: Int? = nil
+    var perFloorRate: Float? = nil
+    var pickupMedium: String? = nil
+    var dropoffMedium: String? = nil
+    var distanceInKm: Float? = nil
+    var durationInMins: Float? = nil
+    var dropOffPersonName: String? = nil
+    var dropOffPersonPhone: String? = nil
+    var pickUpPersonName: String? = nil
+    var pickUpPersonPhone: String? = nil
+    var dropOffInstructions: String? = nil
+    var pickUpInstructions: String? = nil
+    var status: String? = nil
+    var exactTime: String? = nil
+    var moveTypeId: Int? = nil
+    var moveSizeId: Int? = nil
+    var startTime: String? = nil
+    var endTime: String? = nil
+    var numberOfHours: Float? = nil
+    var resumingTime: String? = nil
+    var pauseTime: String? = nil
+    var bookingTotalModel: BookingTotalModel? = nil
+//    var bookingFiles: []
+    var vehicle: VehicleModel? = nil
+    var user: User? = nil
+    var deliverySlot: DeliverySlot? = nil
+//    var stops: [Stop]? = nil
+}
+
+struct VehicleModel: Decodable {
+    var id: Int? = nil
+    var title: String? = nil
+    var pictureUrl: String? = nil
+    var description: String? = nil
+    var baseFare: Float? = nil
+    var serviceFee: Float? = nil
+    var perKmrate: Float? = nil
+    var labourCost: Float? = nil
+    var minimumFare: Float? = nil
+    var cancellationFee: Float? = nil
+    var width: String? = nil
+    var height: String? = nil
+    var length: String? = nil
+    var detailPictureUrl: String? = nil
+    var availableForMove: Bool? = false
+    var availableForDelivery: Bool? = false
+    var availableForEnterprise: Bool? = false
+    var halfLoadPrice: Float? = nil
+    var isHalfLoadAvailable: Bool? = false
+    var cargoSpace: String? = nil
+    var recommendedUse: String? = nil
+}
+
+struct User: Decodable {
+    var id: Int? = nil
+    var email: String? = nil
+    var firstName: String? = nil
+    var lastName: String? = nil
+    var secondaryEmail: String? = nil
+    var profileDisplayImageUrl: String? = nil
+    var streetAddress: String? = nil
+    var city: String? = nil
+    var province: String? = nil
+    var gender: String? = nil
+    var country: String? = nil
+    var birthDate: String? = nil
+    var phone: String? = nil
+    var credit: Float? = nil
+    var isFromReferral: Bool? = false
+    var hasCard: Bool? = false
+    var userRatings: Float? = nil
+    var userCards: [UserCard]? = []
+}
+
+struct UserCard: Decodable {
+    var id: Int? = nil
+    var userId: Int? = nil
+    var stripeCardId: String? = nil
+    var stripeCardCustomer: String? = nil
+    var stripeTokenId: String? = nil
+    var stripeCardLastFourDigits: String? = nil
+    var isDefault: Bool? = nil
+}
+
+struct DeliverySlot: Decodable {
+    var id: Int? = nil
+    var rate: Float? = nil
+    var startTime: String? = nil
+    var endTime: String? = nil
+    var exactTimeRange: String? = nil
+    var isASAP: Bool? = nil
+}

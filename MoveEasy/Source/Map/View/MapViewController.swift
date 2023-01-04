@@ -22,7 +22,7 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        fetchRoute(from: CLLocationCoordinate2D(latitude: 33.621584, longitude: 72.937200), to: CLLocationCoordinate2D(latitude: 33.598281, longitude: 73.152463))
+        fetchRoute(from: CLLocationCoordinate2D(latitude: 33.621584, longitude: 72.937200), to: CLLocationCoordinate2D(latitude: 33.598281, longitude: 73.152463))
         return
         
         let jobDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JobDetailViewController") as! JobDetailViewController
@@ -69,7 +69,7 @@ class MapViewController: UIViewController {
         
         let session = URLSession.shared
         
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving&key=AIzaSyB4NBNYT0Lj_wlG0SXNubJsQE16OthSOFg")!
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving&key=AIzaSyDiLSRSAuqG7uV5vF_lkkMs5ORScLB8HYw")!
         
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
@@ -100,8 +100,46 @@ class MapViewController: UIViewController {
                 return
             }
             
+            guard let bounds = route["bounds"] as? [String: Any] else {
+                return
+            }
+            
+            guard let northeast = bounds["northeast"] as? [String: Any] else {
+                return
+            }
+            
+            guard let startLat = northeast["lat"] as? Double else {
+                return
+            }
+            
+            guard let startLng = northeast["lng"] as? Double else {
+                return
+            }
+            
+            guard let southwest = bounds["southwest"] as? [String: Any] else {
+                return
+            }
+            
+            guard let endLat = southwest["lat"] as? Double else {
+                return
+            }
+            
+            guard let endLng = southwest["lng"] as? Double else {
+                return
+            }
+            
             //Call this method to draw path on map
-            self.drawPath(from: polyLineString)
+            DispatchQueue.main.async {
+                let startPoint = CLLocationCoordinate2D(latitude: startLat, longitude: startLng)
+                let endPoint = CLLocationCoordinate2D(latitude: endLat,longitude: endLng)
+                let bounds = GMSCoordinateBounds(coordinate: startPoint, coordinate: endPoint)
+                let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())!
+                self.mapView.camera = camera
+                self.drawPath(from: polyLineString)
+//                let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())!
+//                self.mapView.camera = camera
+                
+            }
         })
         task.resume()
     }
