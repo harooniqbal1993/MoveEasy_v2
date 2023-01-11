@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
     }
     
     func configure() {
+        self.navigationController?.isNavigationBarHidden = true
+        
         homeViewModel = HomeViewModel()
         
         orderTable.register(UINib(nibName: "OrderCell", bundle: nil), forCellReuseIdentifier: "OrderCell")

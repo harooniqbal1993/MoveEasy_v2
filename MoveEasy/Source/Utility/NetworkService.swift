@@ -103,21 +103,21 @@ class NetworkService {
     }
     
     func startMoving(bookingID: String, completion: @escaping (_ result: Bool?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.startMoving.rawValue)?driverId=\(Defaults.driverEmail ?? "")&bookingId=\(bookingID)"
+        let url = "\(baseURL+Constants.EndPoints.startMoving.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)&bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: Bool.self) { result, error in
             completion(result, error)
         }
     }
     
     func pauseMoving(bookingID: String, completion: @escaping (_ result: Bool?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.pauseMoving.rawValue)?driverId=\(Defaults.driverEmail ?? "")&bookingId=\(bookingID)"
+        let url = "\(baseURL+Constants.EndPoints.pauseMoving.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)&bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: Bool.self) { result, error in
             completion(result, error)
         }
     }
     
     func finishMoving(bookingID: String, completion: @escaping (_ result: FinishJobModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.finishMoving.rawValue)?driverId=\(Defaults.driverEmail ?? "")&bookingId=\(bookingID)"
+        let url = "\(baseURL+Constants.EndPoints.finishMoving.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)&bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: FinishJobModel.self) { result, error in
             completion(result, error)
         }

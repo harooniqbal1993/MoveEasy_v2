@@ -104,7 +104,6 @@ class FeedBackViewController: UIViewController {
                 
                 let homeViewController: HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 let nav = UINavigationController(rootViewController: homeViewController)
-                
                 let scenes = UIApplication.shared.connectedScenes
                 let windowScene = scenes.first as? UIWindowScene
                 let window = windowScene?.windows.first
