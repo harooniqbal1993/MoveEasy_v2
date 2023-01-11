@@ -40,7 +40,7 @@ class ReceiptViewModel {
     }
     
     func getOrderSummary(completion: @escaping (_ error: String?) -> Void) {
-        NetworkService.shared.getOrderSummary(userID: "123", bookingID: "1310") { result, error in
+        NetworkService.shared.getOrderSummary(userID: "123", bookingID: "\(OrderSession.shared.order?.id ?? 0)") { result, error in
             if let error = error {
                 completion(error)
                 return
@@ -58,7 +58,6 @@ class ReceiptViewModel {
             }
             
             self.receiptModel = result?.bookingTotalModel
-            
             completion(nil)
         }
     }

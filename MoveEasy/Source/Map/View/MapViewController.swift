@@ -22,7 +22,15 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        fetchRoute(from: CLLocationCoordinate2D(latitude: 33.621584, longitude: 72.937200), to: CLLocationCoordinate2D(latitude: 33.598281, longitude: 73.152463))
+        if OrderSession.shared.bookingModel?.pickupLatitude == nil || OrderSession.shared.bookingModel?.pickupLongitude == nil || OrderSession.shared.bookingModel?.dropoffLatitude == nil || OrderSession.shared.bookingModel?.dropoffLongitude == nil {
+            return
+        }
+        let pickupLat: Double = Double(OrderSession.shared.bookingModel?.pickupLatitude ?? "0.0") ?? 0.0
+        let pickupLng: Double = Double(OrderSession.shared.bookingModel?.pickupLongitude ?? "0.0") ?? 0.0
+        let dropoffLat: Double = Double(OrderSession.shared.bookingModel?.dropoffLatitude ?? "0.0") ?? 0.0
+        let dropoffLng: Double = Double(OrderSession.shared.bookingModel?.dropoffLongitude ?? "0.0") ?? 0.0
+        
+        fetchRoute(from: CLLocationCoordinate2D(latitude: pickupLat, longitude: pickupLng), to: CLLocationCoordinate2D(latitude:dropoffLat, longitude: dropoffLng))
         return
         
         let jobDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JobDetailViewController") as! JobDetailViewController

@@ -30,6 +30,8 @@ struct ReceiptModel: Decodable {
     var totalDuration: Float? = nil
 }
 
+//{"id":1013,"userId":0,"pickupLocation":"Karachi, Pakistan","dropoffLocation":"Sukkur, Pakistan","vehicleTypeId":1004,"deliveryDate":"12/6/2021 7:00:00 PM","type":"Mooving","deliverySlotId":1003,"labourNeeded":3,"pickupTotalFloors":1,"dropoffTotalFloors":3,"perFloorRate":null,"pickupMedium":"stairs","dropoffMedium":"elevator","distanceInKm":474.0,"durationInMins":410,"dropOffPersonName":"bb","dropOffPersonPhone":"234","pickUpPersonName":"aa","pickUpPersonPhone":"123","dropOffInstructions":"","pickUpInstructions":"","status":"InProgress","exactTime":null,"moveTypeId":null,"moveSizeId":null,"startTime":null,"endTime":null,"numberOfHours":null,"resumingTime":null,"pauseTime":null,"bookingTotalModel":{"coupon":null,"discount":null,"baseFare":"8","totalDistance":"474.00","gstandPst":"26.83","subtotal":"434.60","totalChargeBTax":"536.68","transferFee":"2.83","totalServiceFee":"7.08","totalCharge":"563.51","serviceFee":"2.50","labourSurcharge":"90","totalTaxGstpstrate":"5","totalDuration":null},"bookingFiles":[],"vehicle":{"id":1004,"title":"Trailer (4''x8'')","pictureUrl":"Trailer (4''x8'')_semi_truck.png","description":"Trailer (4''x8'')","baseFare":8.0,"serviceFee":2.5,"perKmrate":0.9,"labourCost":30.0,"minimumFare":10.5,"cancellationFee":5.0,"width":"-","height":"8","length":"4","detailPictureUrl":null,"availableForMove":true,"availableForDelivery":true,"availableForEnterprise":true,"halfLoadPrice":null,"isHalfLoadAvailable":false,"cargoSpace":null,"recommendedUse":null},"user":null,"deliverySlot":{"id":1003,"rate":"0","startTime":"13:00:00","endTime":"15:00:00","exactTimeRange":null,"isASAP":null},"stops":[]}
+
 struct OrderSummaryModel: Decodable {
     var id: Int? = nil
     var userId: Int? = nil
@@ -53,6 +55,10 @@ struct OrderSummaryModel: Decodable {
     var pickUpPersonPhone: String? = nil
     var dropOffInstructions: String? = nil
     var pickUpInstructions: String? = nil
+    var pickupLatitude: String? = nil
+    var pickupLongitude: String? = nil
+    var dropoffLatitude: String? = nil
+    var dropoffLongitude: String? = nil
     var status: String? = nil
     var exactTime: String? = nil
     var moveTypeId: Int? = nil
@@ -67,7 +73,7 @@ struct OrderSummaryModel: Decodable {
     var vehicle: VehicleModel? = nil
     var user: User? = nil
     var deliverySlot: DeliverySlot? = nil
-//    var stops: [Stop]? = nil
+    var stops: [Stop]? = nil
 }
 
 struct VehicleModel: Decodable {
@@ -127,9 +133,20 @@ struct UserCard: Decodable {
 
 struct DeliverySlot: Decodable {
     var id: Int? = nil
-    var rate: Float? = nil
+    var rate: String? = nil
     var startTime: String? = nil
     var endTime: String? = nil
     var exactTimeRange: String? = nil
     var isASAP: Bool? = nil
+}
+
+struct Stop: Decodable {
+    var id: Int? = nil
+    var stop: String? = nil
+    var personName: String? = nil
+    var personPhone: String? = nil
+    var instructions: String? = nil
+    var bookingId: Int? = nil
+    var lat: String? = nil
+    var long: String? = nil
 }

@@ -588,8 +588,8 @@
                                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOv-lh-EfD">
-                                                <rect key="frame" x="45" y="480.5" width="81.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOv-lh-EfD">
+                                                <rect key="frame" x="45" y="480.5" width="310" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -627,8 +627,8 @@
                                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWM-EZ-g60">
-                                                <rect key="frame" x="45" y="614" width="81.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWM-EZ-g60">
+                                                <rect key="frame" x="45" y="614" width="310" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -905,6 +905,7 @@
                                             <constraint firstItem="Mgi-6Z-2XY" firstAttribute="centerY" secondItem="IID-1J-7B0" secondAttribute="centerY" id="Yvn-5d-p61"/>
                                             <constraint firstItem="Wwn-67-NfW" firstAttribute="leading" secondItem="Xr2-Gf-fXM" secondAttribute="leading" id="ZLI-by-Dfq"/>
                                             <constraint firstAttribute="trailing" secondItem="8o4-D8-CBg" secondAttribute="trailing" constant="20" id="ZRp-9i-xlP"/>
+                                            <constraint firstAttribute="trailing" secondItem="oWM-EZ-g60" secondAttribute="trailing" constant="20" id="ZhG-zZ-nUb"/>
                                             <constraint firstItem="MIi-oQ-jf3" firstAttribute="top" secondItem="pNp-I9-uVs" secondAttribute="bottom" constant="10" id="ZpU-ic-v3V"/>
                                             <constraint firstItem="yEc-2L-8Dt" firstAttribute="leading" secondItem="ZFm-tt-Lp8" secondAttribute="trailing" constant="10" id="aIV-l4-qGR"/>
                                             <constraint firstItem="nES-Io-25e" firstAttribute="centerY" secondItem="gtI-TJ-P1W" secondAttribute="centerY" id="aMs-Ht-Wks"/>
@@ -914,6 +915,7 @@
                                             <constraint firstItem="IHc-Sg-jCR" firstAttribute="leading" secondItem="TRP-jj-0iT" secondAttribute="leading" constant="20" id="dLr-3B-rLh"/>
                                             <constraint firstItem="rKA-Fk-88t" firstAttribute="leading" secondItem="Xr2-Gf-fXM" secondAttribute="trailing" constant="10" id="dPW-o3-fz1"/>
                                             <constraint firstItem="yZV-tL-ORz" firstAttribute="leading" secondItem="TRP-jj-0iT" secondAttribute="leading" constant="20" id="dmL-8v-qkE"/>
+                                            <constraint firstAttribute="trailing" secondItem="HOv-lh-EfD" secondAttribute="trailing" constant="20" id="e3u-Bf-fO8"/>
                                             <constraint firstItem="zr8-5i-gjo" firstAttribute="top" secondItem="Vqx-JG-NUn" secondAttribute="bottom" constant="20" id="eCa-4k-Ic7"/>
                                             <constraint firstItem="p07-PX-Y8S" firstAttribute="leading" secondItem="mA6-bn-ETQ" secondAttribute="leading" id="fAG-P8-gBv"/>
                                             <constraint firstItem="SgC-ek-bp9" firstAttribute="top" secondItem="IHc-Sg-jCR" secondAttribute="bottom" constant="10" id="fBx-iL-M11"/>

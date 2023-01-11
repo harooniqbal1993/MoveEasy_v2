@@ -16,9 +16,11 @@ class HttpUtility {
     
     func getApiData<T: Decodable>(url: URL, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: String?) -> Void) {
         var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: urlRequest) { responseData, httpUrlResponse, error in
+            print("URL : ", url)
             let str = String(decoding: responseData!, as: UTF8.self)
             print(str)
             

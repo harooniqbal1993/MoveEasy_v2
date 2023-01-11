@@ -34,3 +34,28 @@ struct DriverModel: Decodable {
     var isApproved: Bool? = false
     var isVerified: Bool? = nil
 }
+
+//{
+//    "statusCode":200,
+//    "message":"Success",
+//    "data":{
+//        "id":1133,
+//        "email":"codak11495@3mkz.com",
+//        "firstName":"Hamza",
+//        "lastName":"Hamid",
+//        "secondaryEmail":null,
+//        "profileDisplayImageUrl":null,
+//        "streetAddress":null,
+//        "city":null,
+//        "province":null,
+//        "gender":null,
+//        "country":null,
+//        "birthDate":null,
+//        "phone":"03214535667",
+//        "status":"INACTIVE",
+//        "mooverType":null,
+//        "allDocsUploaded":false,
+//        "isApproved":true,
+//        "isVerified":true
+//        
+//    }}

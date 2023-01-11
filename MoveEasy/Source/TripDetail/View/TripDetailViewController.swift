@@ -6,7 +6,10 @@
 //
 
 import UIKit
+import UIView_Shimmer
 //import FittedSheets
+
+extension UILabel: ShimmeringViewProtocol { }
 
 class TripDetailViewController: UIViewController {
 
@@ -37,9 +40,17 @@ class TripDetailViewController: UIViewController {
     var isFullScreen: Bool = false
     var onDismiss: ((Bool) -> Void)?
     
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            orderNumberLabel,
+            customerNameLabel
+        ]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadViews()
+        getOrderSummary()
     }
     
 //    override func viewDidDisappear(_ animated: Bool) {
@@ -48,6 +59,7 @@ class TripDetailViewController: UIViewController {
 //    }
     
     func loadViews() {
+        view.setTemplateWithSubviews(true, viewBackgroundColor: .systemBackground)
         viewMapButton.border(color: Constants.themeColor, width: 1.0)
         acceptButton.round()
         rejectButton.border(color: Constants.themeColor, width: 1.0)
@@ -71,18 +83,35 @@ class TripDetailViewController: UIViewController {
         phoneLabel.text = tripDetailViewModel.phoneNumber
         dateLabel.text = tripDetailViewModel.date
         timeLabel.text = tripDetailViewModel.time
-        vehicleTypeLabel.text = vehicleTypeLabel.text
-        moverCountLabel.text = moverCountLabel.text
-        moveTypeLabel.text = moveTypeLabel.text
-        jobTypeLabel.text = jobTypeLabel.text
+        vehicleTypeLabel.text = tripDetailViewModel.vehicleType
+        moverCountLabel.text = tripDetailViewModel.numberOfMoovers
+        moveTypeLabel.text = tripDetailViewModel.moveType
+        jobTypeLabel.text = tripDetailViewModel.jobType
         workTimeLabel.text = workTimeLabel.text
-        moveSizeLabel.text = moveSizeLabel.text
+        moveSizeLabel.text = tripDetailViewModel.moveSize
         incomeLabel.text = incomeLabel.text
         pickAddressLabel.text = tripDetailViewModel.pickupLocation
         incomeLabel.text = incomeLabel.text
-        pickAddressInstructionLabel.text = pickAddressInstructionLabel.text
+        pickAddressInstructionLabel.text = tripDetailViewModel.pickupInstructions
         dropAddressLabel.text = tripDetailViewModel.dropoffLocation
-        dropAddressInstructionLabel.text = dropAddressInstructionLabel.text
+        dropAddressInstructionLabel.text = tripDetailViewModel.dropoffInstructions
+        viewMapButton.isHidden = tripDetailViewModel.mapButtonHidden
+        
+        self.view.setTemplateWithSubviews(false)
+    }
+    
+    func getOrderSummary() {
+        tripDetailViewModel?.getBooking(bookingID: "\(OrderSession.shared.order?.id ?? 0)", completion: { [weak self] error in
+//        tripDetailViewModel?.getBooking(bookingID: "2269", completion: { [weak self] error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self?.showAlert(title: "Error", message: error)
+                    return
+                }
+
+                self?.updateViews()
+            }
+        })
     }
     
     func acceptOrder() {

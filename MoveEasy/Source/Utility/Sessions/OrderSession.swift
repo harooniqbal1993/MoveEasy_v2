@@ -10,6 +10,7 @@ import Foundation
 class OrderSession {
     static let shared: OrderSession = OrderSession()
     var order: OrderModel? = nil
+    var bookingModel: OrderSummaryModel? = nil
     
     private init() {}
     

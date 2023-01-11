@@ -117,18 +117,19 @@ class ManageJobViewController: UIViewController {
         additionalInfoView.isHidden = true
         imageActivityIndicator.isHidden = true
         videoActivityIndicator.isHidden = true
+        addressLabel.text = OrderSession.shared.order?.dropoffLocation
     }
     
     func startMoving() {
-        manageJobViewModel.startMoving(bookingID: "")
+        manageJobViewModel.startMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)")
     }
     
     func pauseMoving() {
-        manageJobViewModel.pauseMoving(bookingID: "")
+        manageJobViewModel.pauseMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)")
     }
     
     func stopMoving() {
-        manageJobViewModel.stopMoving(bookingID: "") { [weak self] error in
+        manageJobViewModel.stopMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)") { [weak self] error in
             if let error = error {
                 self?.showAlert(title: "Error", message: error)
                 return
@@ -161,7 +162,7 @@ class ManageJobViewController: UIViewController {
     }
     
     private func saveNotes() {
-        proofViewModel?.saveNotes(bookingID: 1310, notes: commentTextView.text, completion: { [weak self] success, error in
+        proofViewModel?.saveNotes(bookingID: (OrderSession.shared.order?.id ?? 0), notes: commentTextView.text, completion: { [weak self] success, error in
             DispatchQueue.main.async {
                 if success {
                     self?.navigateToNextScreen()
@@ -175,7 +176,7 @@ class ManageJobViewController: UIViewController {
     private func uploadMedia(data: Data, mediaType: MediaPickerManager.MediaType) {
         startAnimation(mediaType: mediaType)
         let media: [FileUploader.Media]? = [FileUploader.Media(withImage: data)] as? [FileUploader.Media]
-        self.fileUploader?.formDataUpload(url: URL(string: "\(NetworkService.shared.baseURL)\(Constants.EndPoints.pickupFiles.rawValue)?id=\(1310)")!, media: media ?? [], resultType: String.self, completion: { [weak self] str, error in
+        self.fileUploader?.formDataUpload(url: URL(string: "\(NetworkService.shared.baseURL)\(Constants.EndPoints.pickupFiles.rawValue)?id=\(OrderSession.shared.order?.id ?? 0)")!, media: media ?? [], resultType: String.self, completion: { [weak self] str, error in
             DispatchQueue.main.async {
                 self?.stopAnimation(mediaType: mediaType)
 

@@ -85,7 +85,7 @@ class ProofViewController: UIViewController {
     }
     
     private func saveNotes() {
-        proofViewModel?.saveNotes(bookingID: 1310, notes: noteTextView.text, completion: { [weak self] success, error in
+        proofViewModel?.saveNotes(bookingID: (OrderSession.shared.order?.id ?? 0), notes: noteTextView.text, completion: { [weak self] success, error in
             DispatchQueue.main.async {
                 if success {
                     self?.navigateToNextScreen()
@@ -99,7 +99,7 @@ class ProofViewController: UIViewController {
     private func uploadMedia(data: Data, mediaType: MediaPickerManager.MediaType) {
         startAnimation(mediaType: mediaType)
         let media: [FileUploader.Media]? = [FileUploader.Media(withImage: data)] as? [FileUploader.Media]
-        self.fileUploader?.formDataUpload(url: URL(string: "\(NetworkService.shared.baseURL)\(Constants.EndPoints.pickupFiles.rawValue)?id=\(1310)")!, media: media ?? [], resultType: String.self, completion: { [weak self] str, error in
+        self.fileUploader?.formDataUpload(url: URL(string: "\(NetworkService.shared.baseURL)\(Constants.EndPoints.pickupFiles.rawValue)?id=\(OrderSession.shared.order?.id ?? 0)")!, media: media ?? [], resultType: String.self, completion: { [weak self] str, error in
             DispatchQueue.main.async {
                 self?.stopAnimation(mediaType: mediaType)
 

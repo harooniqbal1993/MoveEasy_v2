@@ -54,7 +54,8 @@ class NetworkService {
     }
     
     func dashboard(completion: @escaping (_ result: HomeModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)"
+        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=1000"
+//        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: HomeModel.self) { result, error in
             completion(result, error)
         }
@@ -74,15 +75,15 @@ class NetworkService {
         }
     }
     
-    func getDriverDetail(completion: @escaping (_ result: DriverModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.getDriverDetail.rawValue)?email=\(Defaults.driverEmail ?? "")"
-        httpUtility.getApiData(url: URL(string: url)!, resultType: DriverModel.self) { result, error in
+    func getDriverDetail(completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.getDriverDetail.rawValue)/\(Defaults.driverEmail ?? "")"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             completion(result, error)
         }
     }
     
     func acceptBooking(bookingID: String, completion: @escaping (_ result: AcceptBookingModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.acceptBooking.rawValue)?driverId=\("1125")&bookingId=\(bookingID)"
+        let url = "\(baseURL+Constants.EndPoints.acceptBooking.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)&bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: AcceptBookingModel.self) { result, error in
             completion(result, error)
         }

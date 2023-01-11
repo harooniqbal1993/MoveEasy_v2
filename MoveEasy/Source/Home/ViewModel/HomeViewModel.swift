@@ -29,12 +29,12 @@ class HomeViewModel {
     init() {
         appliedFilter = filterArray[0]
         
-        orders = [
-            OrderModel(id: 0000, type: "Delivery", status: "Inprogress", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 10, riderName: "Haroon", riderPhone: "03359799769"),
-            OrderModel(id: 1111, type: "Moovers", status: "Pending", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 8, riderName: "Haroon", riderPhone: "03359799769"),
-            OrderModel(id: 2222, type: "Business", status: "Inprogress", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 5, riderName: "Ibbi", riderPhone: "03359799769"),
-            OrderModel(id: 3333, type: "Delivery", status: "Moving", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 22, riderName: "Ali", riderPhone: "03359799769")
-        ]
+//        orders = [
+//            OrderModel(id: 0000, type: "Delivery", status: "Inprogress", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 10, riderName: "Haroon", riderPhone: "03359799769"),
+//            OrderModel(id: 1111, type: "Moovers", status: "Pending", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 8, riderName: "Haroon", riderPhone: "03359799769"),
+//            OrderModel(id: 2222, type: "Business", status: "Inprogress", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 5, riderName: "Ibbi", riderPhone: "03359799769"),
+//            OrderModel(id: 3333, type: "Delivery", status: "Moving", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 22, riderName: "Ali", riderPhone: "03359799769")
+//        ]
     }
     
     func refreshFilters(selectedFilter: FilterModel) {
@@ -119,6 +119,7 @@ class HomeViewModel {
     }
     
     func getDriverDetail(completion: @escaping () -> Void) {
+        isLoading = true
         NetworkService.shared.getDriverDetail { result, error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -126,7 +127,8 @@ class HomeViewModel {
                     return
                 }
             }
-            DriverSession.shared.driver = result
+            DriverSession.shared.driver = result?.data
+            self.driverName = result?.data?.firstName
             completion()
         }
     }

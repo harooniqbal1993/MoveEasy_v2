@@ -62,7 +62,8 @@ class ReceiptViewController: UIViewController {
 //            }
 //        })
         
-        receiptViewModel?.getBooking(bookingID: "1845", completion: { [weak self] error in
+        receiptViewModel?.getBooking(bookingID: "\(OrderSession.shared.order?.id ?? 0)", completion: { [weak self] error in
+//        receiptViewModel?.getBooking(bookingID: "1306", completion: { [weak self] error in
             DispatchQueue.main.async {
                 if let error = error {
                     self?.showAlert(title: "Error", message: error)

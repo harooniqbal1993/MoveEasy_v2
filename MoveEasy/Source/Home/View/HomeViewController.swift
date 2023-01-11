@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
         orderTable.register(UINib(nibName: "OrderCell", bundle: nil), forCellReuseIdentifier: "OrderCell")
         filterCollectionView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
         
-        getDashboardData()
+//        getDashboardData()
         getDriverDetail()
     }
     
@@ -80,6 +80,7 @@ class HomeViewController: UIViewController {
         homeViewModel.getDriverDetail { [weak self] in
             DispatchQueue.main.async {
                 self?.usernameLabel.text = DriverSession.shared.driver?.firstName
+                self?.getDashboardData()
             }
         }
     }
@@ -133,6 +134,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
             let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.displayedOrders?[indexPath.row])!)
+            OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
             tripDetailViewController.tripDetailViewModel = tripDetailViewModel
             tripDetailViewController.onDismiss = { [weak self] isMap in
                 if !isMap {

@@ -91,6 +91,7 @@
 		18F86232289071FC00A3F7A0 /* ProofViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86231289071FC00A3F7A0 /* ProofViewModel.swift */; };
 		18F86235289072D600A3F7A0 /* NotesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86234289072D600A3F7A0 /* NotesRequest.swift */; };
 		18F862372890747D00A3F7A0 /* NotesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F862362890747D00A3F7A0 /* NotesResponse.swift */; };
+		AF81CCDD296DD0B6007B1ADB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81CCDC296DD0B6007B1ADB /* Enums.swift */; };
 		EBE57E5A30D49E80232ECF71 /* Pods_MoveEasy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764921BA2560B7766EB3937E /* Pods_MoveEasy.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +186,7 @@
 		18F862362890747D00A3F7A0 /* NotesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesResponse.swift; sourceTree = "<group>"; };
 		2F28583BAA4324543A683846 /* Pods-MoveEasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveEasy.release.xcconfig"; path = "Target Support Files/Pods-MoveEasy/Pods-MoveEasy.release.xcconfig"; sourceTree = "<group>"; };
 		764921BA2560B7766EB3937E /* Pods_MoveEasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveEasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF81CCDC296DD0B6007B1ADB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		F717F208AD75D06182AA29E1 /* Pods-MoveEasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveEasy.debug.xcconfig"; path = "Target Support Files/Pods-MoveEasy/Pods-MoveEasy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -692,6 +694,7 @@
 				18CE66CB28795790002AE9D1 /* Defaults.swift */,
 				1816D25E288430D700F1B6FF /* NetworkService.swift */,
 				18DE6FBA288467630074250D /* Globals.swift */,
+				AF81CCDC296DD0B6007B1ADB /* Enums.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				1875388B287F174A00DA3FC3 /* SignatureViewController.swift in Sources */,
 				18D188BE287AD867003E8CD1 /* AllOrderViewController.swift in Sources */,
 				18BD379C2879B3CA0034D7FA /* AlertViewController.swift in Sources */,
+				AF81CCDD296DD0B6007B1ADB /* Enums.swift in Sources */,
 				189DABAB290F9B2100965BDE /* FinishJobModel.swift in Sources */,
 				18CE66D328795790002AE9D1 /* UIViewController.swift in Sources */,
 				18D188B9287AC58C003E8CD1 /* OrderCell.swift in Sources */,

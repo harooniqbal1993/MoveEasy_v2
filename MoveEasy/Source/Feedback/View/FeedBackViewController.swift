@@ -96,12 +96,22 @@ class FeedBackViewController: UIViewController {
     
     @IBAction func submitTapped(_ sender: UIButton) {
         feedbackViewModel?.submitFeedback(rating: Int(feedbackViewModel?.rating ?? 3), comments: commentTextView.text, userID: 0, completion: { [weak self] result, error in
-            if let error = error {
-                self?.showAlert(title: "Error", message: error)
-                return
+            DispatchQueue.main.async {
+                if let error = error {
+                    self?.showAlert(title: "Error", message: error)
+                    return
+                }
+                
+                let homeViewController: HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                let nav = UINavigationController(rootViewController: homeViewController)
+                
+                let scenes = UIApplication.shared.connectedScenes
+                let windowScene = scenes.first as? UIWindowScene
+                let window = windowScene?.windows.first
+                window?.rootViewController = nav
             }
         })
-        navigationController?.popToRootViewController(animated: true)
+//        navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func customButtonTapped(_ sender: UIButton) {
