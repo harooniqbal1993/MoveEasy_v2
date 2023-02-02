@@ -13,5 +13,11 @@ class OrderViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("")
     }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

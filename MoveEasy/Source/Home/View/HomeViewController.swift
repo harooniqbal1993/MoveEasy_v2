@@ -28,7 +28,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configure()
     }
     
@@ -37,7 +36,6 @@ class HomeViewController: UIViewController {
     }
     
     func configure() {
-        self.navigationController?.isNavigationBarHidden = true
         
         homeViewModel = HomeViewModel()
         
@@ -46,9 +44,17 @@ class HomeViewController: UIViewController {
         
 //        getDashboardData()
         getDriverDetail()
+        
+//        let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
+//        goOnlineViewController.modalPresentationStyle = .fullScreen
+//        present(goOnlineViewController, animated: false)
     }
     
     private func loadViews() {
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         profileImage.round()
         leftCardView.round(radius: 15.0)
         rightCardView.round(radius: 15.0)
@@ -82,6 +88,17 @@ class HomeViewController: UIViewController {
         homeViewModel.getDriverDetail { [weak self] in
             DispatchQueue.main.async {
                 self?.usernameLabel.text = DriverSession.shared.driver?.firstName
+                if DriverSession.shared.driver?.status == "INACTIVE" {
+                    let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
+//                    goOnlineViewController.modalPresentationStyle = .fullScreen
+//                    self?.present(goOnlineViewController, animated: false)
+                    self?.navigationController?.pushViewController(goOnlineViewController, animated: false)
+                    
+//                    let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
+//                    goOnlineViewController.modalPresentationStyle = .fullScreen
+//                    let navController = UINavigationController(rootViewController: goOnlineViewController) // Creating a navigation controller with VC1 at the root of the navigation stack.
+//                    self?.present(navController, animated:true, completion: nil)
+                }
                 self?.getDashboardData()
             }
         }
@@ -110,7 +127,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func statusChanged(_ sender: UISwitch) {
-        DriverSession.shared.setDriverStatus(status: sender.isOn)
+        DriverSession.shared.setDriverStatus(status: Defaults.driverStatus == true ? false : true)
     }
 }
 
@@ -188,10 +205,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         homeViewModel.refreshFilters(selectedFilter: homeViewModel.filterArray[indexPath.row])
-//        homeViewModel.filterOrders()
-//        orderTable.reloadData()
+        homeViewModel.filterOrders()
+        orderTable.reloadData()
         filterCollectionView.reloadData()
-        indexPath.item == 1 ? getTodaysBookings() : getDashboardData()
+//        indexPath.item == 1 ? getTodaysBookings() : getDashboardData()
 //        if indexPath.item == 1 {
 //            getTodaysBookings()
 //        } else {

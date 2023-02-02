@@ -12,7 +12,7 @@
         <!--Proof View Controller-->
         <scene sceneID="Xgc-WF-Fg5">
             <objects>
-                <viewController storyboardIdentifier="ProofViewController" id="q9d-Ut-JH5" customClass="ProofViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProofViewController" id="q9d-Ut-JH5" customClass="ProofViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dTa-Ss-e4z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,7 +229,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4W-g4-Wp8" customClass="SpinnerButton" customModule="MoveEasy" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4W-g4-Wp8" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="523" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313725490196" green="0.89803921568627454" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -310,7 +310,7 @@
         <!--Manage Job View Controller-->
         <scene sceneID="owG-S3-u1T">
             <objects>
-                <viewController storyboardIdentifier="ManageJobViewController" id="uYg-ly-g9V" customClass="ManageJobViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManageJobViewController" id="uYg-ly-g9V" customClass="ManageJobViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="itu-EZ-1Lz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,6 +333,9 @@
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCM-gG-H8V">
                                         <rect key="frame" x="310" y="12" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="changeDriverStatus:" destination="uYg-ly-g9V" eventType="valueChanged" id="LX9-RG-l5Q"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysV-yT-PKE">
                                         <rect key="frame" x="266.5" y="20.5" width="35.5" height="14.5"/>
@@ -359,14 +362,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1012"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7d-ul-7uP">
-                                                <rect key="frame" x="20" y="783.5" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="762" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="8Oo-Ad-hfD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Continue to drop off">
+                                                <state key="normal" title="Navigate to drop off">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -588,7 +591,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82J-wr-Mga">
-                                                <rect key="frame" x="20" y="632" width="335" height="35"/>
+                                                <rect key="frame" x="20" y="610.5" width="335" height="35"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop off Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Vx-7hm">
                                                         <rect key="frame" x="15" y="7.5" width="305" height="19.5"/>
@@ -606,7 +609,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-8n-o9D">
-                                                <rect key="frame" x="20" y="667" width="335" height="35"/>
+                                                <rect key="frame" x="20" y="645.5" width="335" height="35"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-Eh-LLD">
                                                         <rect key="frame" x="15" y="10" width="53" height="17"/>
@@ -640,8 +643,8 @@
                                                     <constraint firstItem="RpM-Eh-LLD" firstAttribute="top" secondItem="I7Z-8n-o9D" secondAttribute="top" constant="10" id="q56-5J-5vH"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okc-VD-r0c" customClass="PaddingLabel" customModule="MoveEasy" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="702" width="335" height="61.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okc-VD-r0c" customClass="PaddingLabel" customModule="Moovez_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="680.5" width="335" height="61.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Stop 1, Full location address...Block # 123, 
 Apartment # 123</string>
@@ -664,7 +667,7 @@ Apartment # 123</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="afF-AT-SRg">
-                                                <rect key="frame" x="20" y="479" width="335" height="125"/>
+                                                <rect key="frame" x="20" y="457.5" width="335" height="125"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-EY-luw">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="125"/>
@@ -795,7 +798,7 @@ Apartment # 123</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bAt-ZA-kU1">
-                                                <rect key="frame" x="20" y="612" width="335" height="0.0"/>
+                                                <rect key="frame" x="20" y="590.5" width="335" height="0.0"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQP-WU-EUm">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="133"/>
@@ -828,20 +831,23 @@ Apartment # 123</string>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="um1-0q-CTM">
-                                                <rect key="frame" x="20" y="384.5" width="335" height="64.5"/>
-                                                <string key="text">Upload photos/videos of the items including any noticeable damage) 
-and / or proof of risky deliveries.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oAh-Wm-ra6">
+                                                <rect key="frame" x="30" y="384.5" width="315" height="64.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload photos/videos of the items including any noticeable damage) and / or proof of risky deliveries." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="um1-0q-CTM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="64.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94509803920000002" green="0.96078431369999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="riV-9n-iSr" secondAttribute="trailing" constant="20" id="1kq-nA-Mew"/>
+                                            <constraint firstItem="oAh-Wm-ra6" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="30" id="2TA-Do-STo"/>
                                             <constraint firstItem="riV-9n-iSr" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" id="6ow-AS-aTu"/>
-                                            <constraint firstItem="afF-AT-SRg" firstAttribute="top" secondItem="um1-0q-CTM" secondAttribute="bottom" constant="30" id="70c-La-bRD"/>
                                             <constraint firstItem="WEk-r1-6aM" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" id="9I7-MK-srm"/>
                                             <constraint firstItem="Dau-CD-xQq" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" id="9h1-Sk-rrS"/>
                                             <constraint firstItem="afF-AT-SRg" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" id="CTy-Xa-G3j"/>
@@ -850,20 +856,20 @@ and / or proof of risky deliveries.</string>
                                             <constraint firstItem="I7Z-8n-o9D" firstAttribute="leading" secondItem="82J-wr-Mga" secondAttribute="leading" id="FWP-M9-NcK"/>
                                             <constraint firstItem="WEk-r1-6aM" firstAttribute="top" secondItem="iYS-Xp-PTj" secondAttribute="top" constant="20" id="Gda-NI-rl8"/>
                                             <constraint firstAttribute="trailing" secondItem="82J-wr-Mga" secondAttribute="trailing" constant="20" id="Gyz-yN-gn7"/>
-                                            <constraint firstItem="um1-0q-CTM" firstAttribute="top" secondItem="Dau-CD-xQq" secondAttribute="bottom" constant="30" id="InL-9V-9Ya"/>
+                                            <constraint firstItem="afF-AT-SRg" firstAttribute="top" secondItem="oAh-Wm-ra6" secondAttribute="bottom" constant="8.5" id="IkI-Ce-5XE"/>
                                             <constraint firstAttribute="trailing" secondItem="afF-AT-SRg" secondAttribute="trailing" constant="20" id="KVQ-uB-OTl"/>
                                             <constraint firstItem="D7d-ul-7uP" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" id="MGT-Dw-Jha"/>
                                             <constraint firstItem="82J-wr-Mga" firstAttribute="top" secondItem="bAt-ZA-kU1" secondAttribute="bottom" constant="20" id="Mym-IW-kn7"/>
                                             <constraint firstAttribute="trailing" secondItem="D7d-ul-7uP" secondAttribute="trailing" constant="20" id="O1p-Jt-YKR"/>
                                             <constraint firstItem="okc-VD-r0c" firstAttribute="leading" secondItem="I7Z-8n-o9D" secondAttribute="leading" id="P3q-pc-J7S"/>
+                                            <constraint firstAttribute="trailing" secondItem="oAh-Wm-ra6" secondAttribute="trailing" constant="30" id="QGG-FO-dg4"/>
                                             <constraint firstItem="jRE-If-wID" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" id="R0V-2m-cBm"/>
-                                            <constraint firstAttribute="trailing" secondItem="um1-0q-CTM" secondAttribute="trailing" constant="20" symbolic="YES" id="Sew-SE-W1c"/>
                                             <constraint firstItem="bAt-ZA-kU1" firstAttribute="top" secondItem="afF-AT-SRg" secondAttribute="bottom" constant="8" id="WwX-tL-pUA"/>
-                                            <constraint firstItem="um1-0q-CTM" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" symbolic="YES" id="fAX-lE-izE"/>
                                             <constraint firstItem="bAt-ZA-kU1" firstAttribute="leading" secondItem="iYS-Xp-PTj" secondAttribute="leading" constant="20" id="gs3-7g-5kU"/>
                                             <constraint firstItem="jRE-If-wID" firstAttribute="top" secondItem="riV-9n-iSr" secondAttribute="bottom" constant="16" id="jvb-K9-MCS"/>
                                             <constraint firstAttribute="trailing" secondItem="bAt-ZA-kU1" secondAttribute="trailing" constant="20" id="kgZ-aL-d64"/>
                                             <constraint firstItem="D7d-ul-7uP" firstAttribute="top" secondItem="okc-VD-r0c" secondAttribute="bottom" constant="20" id="lhE-JS-u3C"/>
+                                            <constraint firstItem="oAh-Wm-ra6" firstAttribute="top" secondItem="Dau-CD-xQq" secondAttribute="bottom" constant="30" id="nnj-jK-SPa"/>
                                             <constraint firstItem="riV-9n-iSr" firstAttribute="top" secondItem="WEk-r1-6aM" secondAttribute="bottom" constant="20" id="qKL-Ac-ako"/>
                                             <constraint firstAttribute="trailing" secondItem="Dau-CD-xQq" secondAttribute="trailing" constant="20" id="riR-yZ-zcj"/>
                                             <constraint firstItem="I7Z-8n-o9D" firstAttribute="top" secondItem="82J-wr-Mga" secondAttribute="bottom" id="sYO-WI-62M"/>
@@ -903,6 +909,7 @@ and / or proof of risky deliveries.</string>
                         <outlet property="additionalInfoView" destination="fQP-WU-EUm" id="Y9u-Hz-Xs7"/>
                         <outlet property="addressLabel" destination="okc-VD-r0c" id="3cF-SF-YNj"/>
                         <outlet property="addtionalInfoTextView" destination="fQP-WU-EUm" id="1VA-Sr-qxJ"/>
+                        <outlet property="attachmentNoteLabel" destination="um1-0q-CTM" id="lbr-2l-58Q"/>
                         <outlet property="commentTextView" destination="oAp-Xn-CYF" id="8lb-Q5-Sru"/>
                         <outlet property="continueButton" destination="D7d-ul-7uP" id="9OS-Nu-abC"/>
                         <outlet property="imageActivityIndicator" destination="1aK-kW-mtT" id="LB7-kM-AS3"/>
@@ -930,7 +937,7 @@ and / or proof of risky deliveries.</string>
         <!--Forgot Moving View Controller-->
         <scene sceneID="R3x-Ap-dzn">
             <objects>
-                <viewController storyboardIdentifier="ForgotMovingViewController" id="Awh-eh-m3V" customClass="ForgotMovingViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotMovingViewController" id="Awh-eh-m3V" customClass="ForgotMovingViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="21O-Zt-oW7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -974,7 +981,7 @@ and / or proof of risky deliveries.</string>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email or phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GKP-3c-swC">
                                                                 <rect key="frame" x="10" y="0.0" width="325" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1138,7 +1145,7 @@ and / or proof of risky deliveries.</string>
         <!--Receipt View Controller-->
         <scene sceneID="1ys-7h-DIV">
             <objects>
-                <viewController storyboardIdentifier="ReceiptViewController" id="SSz-J5-1SB" customClass="ReceiptViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReceiptViewController" id="SSz-J5-1SB" customClass="ReceiptViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qr5-XY-R4w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1430,7 +1437,7 @@ and / or proof of risky deliveries.</string>
         <!--Signature View Controller-->
         <scene sceneID="vfO-sz-JQ5">
             <objects>
-                <viewController storyboardIdentifier="SignatureViewController" id="x6S-4p-11H" customClass="SignatureViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignatureViewController" id="x6S-4p-11H" customClass="SignatureViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b4J-9G-tEk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1591,7 +1598,7 @@ privacy policy.</string>
         <!--Welldone View Controller-->
         <scene sceneID="f8O-cT-aYD">
             <objects>
-                <viewController storyboardIdentifier="WelldoneViewController" id="r8a-34-uX1" customClass="WelldoneViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelldoneViewController" id="r8a-34-uX1" customClass="WelldoneViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0v-VM-mEB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1721,7 +1728,7 @@ privacy policy.</string>
         <!--Oops View Controller-->
         <scene sceneID="zHC-4j-MpP">
             <objects>
-                <viewController storyboardIdentifier="OopsViewController" id="plU-oM-7Nt" customClass="OopsViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OopsViewController" id="plU-oM-7Nt" customClass="OopsViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7tS-VY-4O1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

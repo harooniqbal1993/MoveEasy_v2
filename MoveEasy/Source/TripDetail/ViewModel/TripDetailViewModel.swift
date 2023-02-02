@@ -100,6 +100,19 @@ class TripDetailViewModel {
         }
     }
     
+    func cancelBooking(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.cancelBooking(bookingID: "\(OrderSession.shared.order?.id ?? 0)") { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                
+                completion(nil)
+            }
+        }
+    }
+    
     func vehicleType(id: Int) -> String {
         switch id {
         case 1001:

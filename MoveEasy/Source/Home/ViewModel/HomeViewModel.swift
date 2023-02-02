@@ -20,6 +20,7 @@ class HomeViewModel {
     var completedOrders: [OrderModel] = []
     var cancelledOrders: [OrderModel] = []
     var allOrders: [OrderModel] = []
+    var todayOrders: [OrderModel] = []
     var isLoading: Bool = false
     
     var filterArray: [FilterModel] = [FilterModel(name: "All", isSelected: true), FilterModel(name: "Today's", isSelected: false), FilterModel(name: "Upcoming", isSelected: false), FilterModel(name: "Completed", isSelected: false)]
@@ -28,13 +29,6 @@ class HomeViewModel {
     
     init() {
         appliedFilter = filterArray[0]
-        
-//        orders = [
-//            OrderModel(id: 0000, type: "Delivery", status: "Inprogress", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 10, riderName: "Haroon", riderPhone: "03359799769"),
-//            OrderModel(id: 1111, type: "Moovers", status: "Pending", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 8, riderName: "Haroon", riderPhone: "03359799769"),
-//            OrderModel(id: 2222, type: "Business", status: "Inprogress", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 5, riderName: "Ibbi", riderPhone: "03359799769"),
-//            OrderModel(id: 3333, type: "Delivery", status: "Moving", pickupLocation: "Calgary, AB, Canada", dropoffLocation: "Calgary, Islamabad, Pakistan", orderTime: "2022-07-23T02:12:49.1564328-07:00", orderDate: "2022-07-23T02:12:49.1564328-07:00", stops: 22, riderName: "Ali", riderPhone: "03359799769")
-//        ]
     }
     
     func refreshFilters(selectedFilter: FilterModel) {
@@ -55,7 +49,7 @@ class HomeViewModel {
             break
             
         case "Today's":
-            displayedOrders = []
+            displayedOrders = todayOrders
             break
             
         case "Completed":
@@ -86,6 +80,7 @@ class HomeViewModel {
                 self.pendingOrders = result?.data?.pending ?? []
                 self.completedOrders = result?.data?.completed ?? []
                 self.cancelledOrders = result?.data?.cancelled ?? []
+                self.todayOrders = result?.data?.today ?? []
                 self.allOrders = self.activeOrders + self.pendingOrders + self.completedOrders + self.cancelledOrders
                 self.isLoading = false
                 self.filterOrders()

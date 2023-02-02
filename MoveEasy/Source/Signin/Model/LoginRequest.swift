@@ -22,3 +22,8 @@ struct LoginRequest: Encodable {
         self.rememberMe = rememberMe
     }
 }
+
+struct DeviceIDRequest: Encodable {
+    var id: Int? = nil
+    var devicetoken: String? = nil
+}

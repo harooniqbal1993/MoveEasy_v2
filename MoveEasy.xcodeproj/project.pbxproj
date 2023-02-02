@@ -91,7 +91,12 @@
 		18F86232289071FC00A3F7A0 /* ProofViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86231289071FC00A3F7A0 /* ProofViewModel.swift */; };
 		18F86235289072D600A3F7A0 /* NotesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86234289072D600A3F7A0 /* NotesRequest.swift */; };
 		18F862372890747D00A3F7A0 /* NotesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F862362890747D00A3F7A0 /* NotesResponse.swift */; };
+		AF6C1A6B297EFE84007234EE /* ForgotTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6C1A6A297EFE84007234EE /* ForgotTimer.swift */; };
+		AF7C08512970818500099E77 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08502970818500099E77 /* FirebaseAnalytics */; };
+		AF7C08532970818500099E77 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08522970818500099E77 /* FirebaseCrashlytics */; };
+		AF7C08552970818500099E77 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08542970818500099E77 /* FirebaseMessaging */; };
 		AF81CCDD296DD0B6007B1ADB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81CCDC296DD0B6007B1ADB /* Enums.swift */; };
+		AFF25B3A2976694600348BB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFF25B392976694600348BB0 /* GoogleService-Info.plist */; };
 		EBE57E5A30D49E80232ECF71 /* Pods_MoveEasy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764921BA2560B7766EB3937E /* Pods_MoveEasy.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,7 +141,7 @@
 		18BD3793287992190034D7FA /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		18BD37972879AF2C0034D7FA /* GoOnlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoOnlineViewController.swift; sourceTree = "<group>"; };
 		18BD379B2879B3CA0034D7FA /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		18C833912878BAED008C2283 /* MoveEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C833912878BAED008C2283 /* Moovez Driver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Moovez Driver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C833942878BAED008C2283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C833962878BAED008C2283 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		18C833982878BAED008C2283 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +191,10 @@
 		18F862362890747D00A3F7A0 /* NotesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesResponse.swift; sourceTree = "<group>"; };
 		2F28583BAA4324543A683846 /* Pods-MoveEasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveEasy.release.xcconfig"; path = "Target Support Files/Pods-MoveEasy/Pods-MoveEasy.release.xcconfig"; sourceTree = "<group>"; };
 		764921BA2560B7766EB3937E /* Pods_MoveEasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveEasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF104473297535B800779688 /* MoveEasy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoveEasy.entitlements; sourceTree = "<group>"; };
+		AF6C1A6A297EFE84007234EE /* ForgotTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotTimer.swift; sourceTree = "<group>"; };
 		AF81CCDC296DD0B6007B1ADB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		AFF25B392976694600348BB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F717F208AD75D06182AA29E1 /* Pods-MoveEasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveEasy.debug.xcconfig"; path = "Target Support Files/Pods-MoveEasy/Pods-MoveEasy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +203,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF7C08552970818500099E77 /* FirebaseMessaging in Frameworks */,
+				AF7C08532970818500099E77 /* FirebaseCrashlytics in Frameworks */,
+				AF7C08512970818500099E77 /* FirebaseAnalytics in Frameworks */,
 				EBE57E5A30D49E80232ECF71 /* Pods_MoveEasy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +235,7 @@
 		1816D2572884229A00F1B6FF /* ForgotMove */ = {
 			isa = PBXGroup;
 			children = (
-				1893B0D1291B98D20021C157 /* Model */,
+				AF6C1A69297EFE75007234EE /* Model */,
 				1837C08128C9022E00D93A58 /* ViewModel */,
 				18667D87287C5970000A6F11 /* ForgotMovingViewController.swift */,
 			);
@@ -404,13 +415,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1893B0D1291B98D20021C157 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		1894B263287F2D2F005C1924 /* TripDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,7 +562,7 @@
 		18C833922878BAED008C2283 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18C833912878BAED008C2283 /* MoveEasy.app */,
+				18C833912878BAED008C2283 /* Moovez Driver.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -566,6 +570,7 @@
 		18C833932878BAED008C2283 /* MoveEasy */ = {
 			isa = PBXGroup;
 			children = (
+				AF104473297535B800779688 /* MoveEasy.entitlements */,
 				18C833A82878BB01008C2283 /* Source */,
 				18C833942878BAED008C2283 /* AppDelegate.swift */,
 				18C833962878BAED008C2283 /* SceneDelegate.swift */,
@@ -573,6 +578,7 @@
 				18C8339D2878BAEE008C2283 /* Assets.xcassets */,
 				18C8339F2878BAEE008C2283 /* LaunchScreen.storyboard */,
 				18C833A22878BAEE008C2283 /* Info.plist */,
+				AFF25B392976694600348BB0 /* GoogleService-Info.plist */,
 			);
 			path = MoveEasy;
 			sourceTree = "<group>";
@@ -908,6 +914,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF6C1A69297EFE75007234EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF6C1A6A297EFE84007234EE /* ForgotTimer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -927,8 +941,13 @@
 			dependencies = (
 			);
 			name = MoveEasy;
+			packageProductDependencies = (
+				AF7C08502970818500099E77 /* FirebaseAnalytics */,
+				AF7C08522970818500099E77 /* FirebaseCrashlytics */,
+				AF7C08542970818500099E77 /* FirebaseMessaging */,
+			);
 			productName = MoveEasy;
-			productReference = 18C833912878BAED008C2283 /* MoveEasy.app */;
+			productReference = 18C833912878BAED008C2283 /* Moovez Driver.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -956,6 +975,9 @@
 				Base,
 			);
 			mainGroup = 18C833882878BAED008C2283;
+			packageReferences = (
+				AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 18C833922878BAED008C2283 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -972,6 +994,7 @@
 			files = (
 				18537E6A2893C13600406229 /* Job.storyboard in Resources */,
 				18C833A12878BAEE008C2283 /* LaunchScreen.storyboard in Resources */,
+				AFF25B3A2976694600348BB0 /* GoogleService-Info.plist in Resources */,
 				18C8339E2878BAEE008C2283 /* Assets.xcassets in Resources */,
 				18D188BA287AC58C003E8CD1 /* OrderCell.xib in Resources */,
 				18C833C32878D46F008C2283 /* MenuCell.xib in Resources */,
@@ -1089,6 +1112,7 @@
 				18D188C5287AEF41003E8CD1 /* MediaPickerManager.swift in Sources */,
 				18BD37982879AF2C0034D7FA /* GoOnlineViewController.swift in Sources */,
 				18CE66D428795790002AE9D1 /* Defaults.swift in Sources */,
+				AF6C1A6B297EFE84007234EE /* ForgotTimer.swift in Sources */,
 				183ACE3C289FA1C600291E22 /* ManageJobViewModel.swift in Sources */,
 				18E427C4287EA87D00EDD0D9 /* ReceiptViewController.swift in Sources */,
 				188C6DA02885C4D300673841 /* String.swift in Sources */,
@@ -1280,11 +1304,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FD2M3KJHAZ;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 2W6J7HD9TS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Moovez Driver";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera for proof purpose";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App uses current locaton to get package";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App uses microphone with video recording";
@@ -1301,8 +1327,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
+				PRODUCT_NAME = "Moovez Driver";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MoveEasy/Source/SideMenu/MoveEasy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1318,11 +1344,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FD2M3KJHAZ;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 2W6J7HD9TS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Moovez Driver";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera for proof purpose";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App uses current locaton to get package";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App uses microphone with video recording";
@@ -1339,8 +1367,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
+				PRODUCT_NAME = "Moovez Driver";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MoveEasy/Source/SideMenu/MoveEasy-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1370,6 +1398,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AF7C08502970818500099E77 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		AF7C08522970818500099E77 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		AF7C08542970818500099E77 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18C833892878BAED008C2283 /* Project object */;
 }

@@ -30,6 +30,9 @@ class WelldoneViewController: UIViewController {
         feedBackViewController.feedbackViewModel = FeedbackViewModel()
         let sheetController = SheetViewController(controller: feedBackViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
         sheetController.cornerRadius = 0
+        feedBackViewController.onDismiss = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
         self.present(sheetController, animated: true, completion: nil)
     }
     

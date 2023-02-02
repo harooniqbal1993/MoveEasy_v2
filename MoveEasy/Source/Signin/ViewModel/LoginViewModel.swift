@@ -50,10 +50,19 @@ class LoginViewModel {
                 Defaults.driverEmail = result?.data?.email
                 DriverSession.shared.driver = result?.data
                 if result?.token != nil {
+                    self.sendDeviceToken()
                     completion(true, nil)
                 } else {
                     completion(false, result?.message)
                 }
+            }
+        }
+    }
+    
+    func sendDeviceToken() {
+        NetworkService.shared.sendDeviceToken(driverID: DriverSession.shared.driver?.id ?? 0, deviceToken: Defaults.deviceToken ?? "") { result, error in
+            DispatchQueue.main.async {
+                print("")
             }
         }
     }

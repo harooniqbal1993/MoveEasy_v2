@@ -132,6 +132,19 @@ class TripDetailViewController: UIViewController {
         }
     }
     
+    func cancelBooking() {
+        tripDetailViewModel.cancelBooking { [weak self] error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self?.showAlert(title: "Booking", message: error)
+                    return
+                }
+                
+                self?.dismiss(animated: false)
+            }
+        }
+    }
+    
     @IBAction func viewMapTapped(_ sender: UIButton) {
         self.dismiss(animated: false) {
             self.onDismiss?(true)
@@ -149,7 +162,7 @@ class TripDetailViewController: UIViewController {
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
+        cancelBooking()
     }
     
     @IBAction func startJobTapped(_ sender: UIButton) {

@@ -64,9 +64,9 @@ class ForgotMovingViewController: UIViewController {
         picker.dateFormat = "hh:mm:ss aa dd/MM/YYYY"
         picker.includesMonth = true
         picker.includesSecond = true
-        picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+        picker.highlightColor = Constants.themeColor // UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
         picker.doneButtonTitle = "DONE"
-        picker.doneBackgroundColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+        picker.doneBackgroundColor = Constants.themeColor // UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
         picker.customFontSetting = DateTimePicker.CustomFontSetting(selectedDateLabelFont: .boldSystemFont(ofSize: 20))
         //        if #available(iOS 13.0, *) {
         //            picker.normalColor = UIColor.secondarySystemGroupedBackground
@@ -81,13 +81,15 @@ class ForgotMovingViewController: UIViewController {
         //        }
         picker.completionHandler = { [weak self] date in
             let formatter = DateFormatter()
-            formatter.dateFormat = "hh:mm:ss aa dd/MM/YYYY"
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" // 2023-01-31T16:44:58.807Z // "hh:mm:ss aa dd/MM/YYYY"
 //            self?.title = formatter.string(from: date)
             
             if self?.forgotMovingViewModel?.isStartDateTapped == true {
                 self?.startTimeTextField.text = formatter.string(from: date) // "\(resultDate)"
+                self?.forgotMovingViewModel?.startTime = formatter.string(from: date)
             } else {
                 self?.endTimeTextField.text = formatter.string(from: date)
+                self?.forgotMovingViewModel?.endTime = formatter.string(from: date)
             }
         }
         picker.delegate = self
@@ -112,8 +114,10 @@ class ForgotMovingViewController: UIViewController {
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         
-        if !(nameTextField.text?.isEmpty ?? false) || !(emailTextField.text?.isEmpty ?? false) || !(startTimeTextField.text?.isEmpty ?? false) || !(endTimeTextField.text?.isEmpty ?? false) {
-            forgotMovingViewModel?.forgotTimer(bookingID: (OrderSession.shared.order?.id ?? 0), startTime: startTimeTextField.text ?? "", endTime: endTimeTextField.text ?? "", completion: { error in
+        if !(nameTextField.text?.isEmpty ?? false) && !(emailTextField.text?.isEmpty ?? false) && !(startTimeTextField.text?.isEmpty ?? false) && !(endTimeTextField.text?.isEmpty ?? false) {
+            forgotMovingViewModel?.name = nameTextField.text
+            forgotMovingViewModel?.email = emailTextField.text
+            forgotMovingViewModel?.forgotTimer(completion: { error in
                 DispatchQueue.main.async { [weak self] in
                     if let error = error {
                         self?.showAlert(title: "Forgot moving", message: error)

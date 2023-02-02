@@ -38,6 +38,7 @@ class ManageJobViewController: UIViewController {
     @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var videoActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var commentTextView: UITextView!
+    @IBOutlet weak var attachmentNoteLabel: UILabel!
     
     var jobStatus: JobStatus? = nil {
         didSet {
@@ -97,6 +98,8 @@ class ManageJobViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
             self.timerLabel.text = self.stopWatch?.inString
         }
+        mediaButtonView.isHidden = true
+        attachmentNoteLabel.isHidden = true
     }
     
     func stopTimer() {
@@ -118,6 +121,7 @@ class ManageJobViewController: UIViewController {
         imageActivityIndicator.isHidden = true
         videoActivityIndicator.isHidden = true
         addressLabel.text = OrderSession.shared.order?.dropoffLocation
+        switchView.isOn = Defaults.driverStatus ?? false
     }
     
     func startMoving() {
@@ -189,9 +193,26 @@ class ManageJobViewController: UIViewController {
     }
     
     private func navigateToNextScreen() {
-        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
-        receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
-        navigationController?.pushViewController(receiptViewController, animated: true)
+        //        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+        //        receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
+        //        navigationController?.pushViewController(receiptViewController, animated: true)
+        
+//        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+//            UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=37.7,-122.4&directionsmode=driving")!)
+//
+//        } else {
+//            NSLog("Can't use comgooglemaps://");
+//        }
+        
+//        let url = "https://www.google.com/maps/dir/?api=1&destination=33.5996372406277%2C73.1508795214011" // "comgooglemaps://?saddr=&daddr=33.5996372406277,73.1508795214011&directionsmode=driving" //
+//        guard let googleUrl = URL.init(string: url) else {
+//            // handle error
+//            return
+//        }
+//        UIApplication.shared.open(googleUrl)
+        
+        let welldoneViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+        navigationController?.pushViewController(welldoneViewController, animated: true)
     }
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -255,6 +276,10 @@ class ManageJobViewController: UIViewController {
     }
     
     @IBAction func viewRouteTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func changeDriverStatus(_ sender: UISwitch) {
+        DriverSession.shared.setDriverStatus(status: sender.isOn ? false : true)
     }
     
     @IBAction func takeImageTapped(_ sender: UIButton) {

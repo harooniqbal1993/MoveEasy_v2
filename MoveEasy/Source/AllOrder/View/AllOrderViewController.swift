@@ -30,6 +30,7 @@ class AllOrderViewController: UIViewController {
     
     func loadViews() {
         profileImage.round()
+        usernameLabel.text = "Hi, \(DriverSession.shared.driver?.firstName ?? "")"
     }
     
     @IBAction func sideMenuTapped(_ sender: UIButton) {

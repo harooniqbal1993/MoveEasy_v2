@@ -30,7 +30,7 @@
         <!--Home View Controller-->
         <scene sceneID="epV-JC-Rs8">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="nV6-s6-g7u" customClass="HomeViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="nV6-s6-g7u" customClass="HomeViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9tD-fv-XiB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,7 +275,7 @@
         <!--Tab View Controller-->
         <scene sceneID="ZSc-Cm-2zI">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="PDz-c3-VhO" customClass="TabViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="PDz-c3-VhO" customClass="TabViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dBV-3W-yNl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -302,7 +302,7 @@
         <!--Item 1-->
         <scene sceneID="Xe8-EU-gky">
             <objects>
-                <viewController storyboardIdentifier="AllOrderViewController" id="GN5-zK-wX9" customClass="AllOrderViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AllOrderViewController" id="GN5-zK-wX9" customClass="AllOrderViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dWu-6G-CNU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,7 +431,7 @@
         <!--Trip Detail View Controller-->
         <scene sceneID="d6O-0I-PVl">
             <objects>
-                <viewController storyboardIdentifier="TripDetailViewController" modalPresentationStyle="fullScreen" id="wQU-7u-zsz" customClass="TripDetailViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TripDetailViewController" modalPresentationStyle="fullScreen" id="wQU-7u-zsz" customClass="TripDetailViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mNp-b1-d3u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -663,7 +663,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="CEu-gK-KF5">
                                                 <rect key="frame" x="40" y="745.5" width="295" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY4-m3-7Qg" customClass="SpinnerButton" customModule="MoveEasy" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY4-m3-7Qg" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="122.5" height="40"/>
                                                         <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>

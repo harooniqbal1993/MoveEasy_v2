@@ -49,6 +49,7 @@ class SideMenuViewController: UIViewController {
         ratingStackView.addLeftBorderWithColor(color: .systemGray4, width: 1.0)
         ratingStackView.addRightBorderWithColor(color: .systemGray4, width: 1.0)
         yearStackView.addLeftBorderWithColor(color: .systemGray4, width: 1.0)
+        usernameLabel.text = "\(DriverSession.shared.driver?.firstName ?? "") \(DriverSession.shared.driver?.lastName ?? "")"
     }
     
     func navigate(screen: String) {

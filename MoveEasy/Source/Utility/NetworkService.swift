@@ -54,7 +54,7 @@ class NetworkService {
     }
     
     func dashboard(completion: @escaping (_ result: HomeModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=1000"
+        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)"
 //        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: HomeModel.self) { result, error in
             completion(result, error)
@@ -136,10 +136,19 @@ class NetworkService {
         }
     }
     
-    func forgotTimer(bookingID: Int, startTime: String, endTime: String, completion: @escaping (_ result: FinishJobModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.forgotTimer.rawValue)?startTime=\(startTime)&bookingId=\(bookingID)&endTime=\(endTime)"
-        httpUtility.getApiData(url: URL(string: url)!, resultType: FinishJobModel.self) { result, error in
-            completion(result, error)
+    func forgotTimer(forgotTimerRequest: ForgotTimerRequest, completion: @escaping (_ result: ForgotTimerResponse?, _ error: String?) -> Void) {
+        let url = "\(customerURL+Constants.EndPoints.forgotTimer.rawValue)"
+        let encodedURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        if let encodedURL = encodedURL {
+            do {
+                let encodedRequest = try JSONEncoder().encode(forgotTimerRequest)
+                httpUtility.postApiData(url: URL(string: encodedURL)!, requestBody: encodedRequest, resultType: ForgotTimerResponse.self) { result, error  in
+                    completion(result, nil)
+                }
+            } catch let error {
+                debugPrint("forgotTimer Request Encoding error : ", error)
+                completion(nil, error.localizedDescription)
+            }
         }
     }
     
@@ -160,6 +169,20 @@ class NetworkService {
     func getBookingSummary(bookingID: String, completion: @escaping (_ result: OrderSummaryModel?, _ error: String?) -> Void) {
         let url = "\(customerURL+Constants.EndPoints.getBooking.rawValue)/\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: OrderSummaryModel.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func sendDeviceToken(driverID: Int, deviceToken: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.addDriverDeviceID.rawValue)?id=\(driverID)&devicetoken=\(deviceToken)" // baseURL + Constants.EndPoints.addDriverDeviceID.rawValue
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
+            print("")
+        }
+    }
+    
+    func cancelBooking(bookingID: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(customerURL+Constants.EndPoints.cancelBooking.rawValue)?bookingId=\(bookingID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             completion(result, error)
         }
     }

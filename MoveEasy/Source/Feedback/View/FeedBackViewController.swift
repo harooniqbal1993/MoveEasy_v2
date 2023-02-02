@@ -25,6 +25,7 @@ class FeedBackViewController: UIViewController {
     let textColor: UIColor = UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1.0)
     
     var feedbackViewModel: FeedbackViewModel? = nil
+    var onDismiss: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,13 +102,18 @@ class FeedBackViewController: UIViewController {
                     self?.showAlert(title: "Error", message: error)
                     return
                 }
+                self?.dismiss(animated: true, completion: {
+                    self?.onDismiss?()
+                })
                 
-                let homeViewController: HomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                let nav = UINavigationController(rootViewController: homeViewController)
-                let scenes = UIApplication.shared.connectedScenes
-                let windowScene = scenes.first as? UIWindowScene
-                let window = windowScene?.windows.first
-                window?.rootViewController = nav
+//                self?.dismiss(animated: true, completion: {
+//                    let homeViewController: SWRevealViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//                    let nav = UINavigationController(rootViewController: homeViewController)
+//                    let scenes = UIApplication.shared.connectedScenes
+//                    let windowScene = scenes.first as? UIWindowScene
+//                    let window = windowScene?.windows.first
+//                    window?.rootViewController = nav
+//                })
             }
         })
 //        navigationController?.popToRootViewController(animated: true)

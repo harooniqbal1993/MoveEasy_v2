@@ -15,6 +15,7 @@ class Defaults {
     private static let DRIVER_EMAIL: String = "driver_email"
     private static let USER_IMAGE: String = "user_image"
     private static let DRIVER_STATUS: String = "driver_status"
+    private static let DEVICE_TOKEN: String = "device_token"
     
     fileprivate static var userDefault: UserDefaults {
         get {
@@ -100,6 +101,19 @@ class Defaults {
                 Defaults.userDefault.set(newValue, forKey: DRIVER_STATUS)
             } else {
                 Defaults.userDefault.removeObject(forKey: DRIVER_STATUS)
+            }
+        }
+    }
+    
+    static var deviceToken: String? {
+        get {
+            return Defaults.userDefault.string(forKey: DEVICE_TOKEN)
+        }
+        set {
+            if let newValue = newValue {
+                Defaults.userDefault.set(newValue, forKey: DEVICE_TOKEN)
+            } else {
+                Defaults.userDefault.removeObject(forKey: DEVICE_TOKEN)
             }
         }
     }

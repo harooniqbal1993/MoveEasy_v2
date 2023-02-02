@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="UgC-Hn-UiD">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="YWB-qW-bxO" customClass="LoginViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="YWB-qW-bxO" customClass="LoginViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nHV-zE-7ga">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@ and start earning</string>
         <!--Map View Controller-->
         <scene sceneID="dmh-cF-hE0">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="Wqm-kR-VdM" customClass="MapViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="Wqm-kR-VdM" customClass="MapViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gSH-5y-h2z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,7 +119,7 @@ and start earning</string>
         <!--Alert View Controller-->
         <scene sceneID="dmQ-CN-wQ7">
             <objects>
-                <viewController storyboardIdentifier="AlertViewController" id="m6L-Lz-lHF" customClass="AlertViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlertViewController" id="m6L-Lz-lHF" customClass="AlertViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MtH-5a-Kyi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,13 +222,120 @@ and start earning</string>
         <!--Go Online View Controller-->
         <scene sceneID="nzl-iP-bew">
             <objects>
-                <viewController storyboardIdentifier="GoOnlineViewController" modalPresentationStyle="fullScreen" id="N5S-yK-HB5" customClass="GoOnlineViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoOnlineViewController" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="N5S-yK-HB5" customClass="GoOnlineViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J4g-rg-00c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-F5-o5M">
+                                <rect key="frame" x="20" y="365" width="335" height="2"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="wNd-2M-hoO"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afd-Ib-euB">
+                                <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="GYS-ec-IRU">
+                                        <rect key="frame" x="112.5" y="215" width="150" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-1L-Crc">
+                                                <rect key="frame" x="0.0" y="5" width="150" height="40"/>
+                                                <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Nqw-GU-eKf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Go online">
+                                                    <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goOnlineButtonTapped:" destination="N5S-yK-HB5" eventType="touchUpInside" id="43d-Jb-HJz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="3dv-Ch-uQZ"/>
+                                            <constraint firstAttribute="height" constant="50" id="byy-0a-MXn"/>
+                                        </constraints>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="HAU-cZ-wbS">
+                                        <rect key="frame" x="40" y="35" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="g6n-6x-3hy"/>
+                                            <constraint firstAttribute="width" constant="15" id="vnD-Ik-cb3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYo-gs-BEQ">
+                                        <rect key="frame" x="65" y="35.5" width="87" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-Iy-p47">
+                                        <rect key="frame" x="65" y="58" width="290" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="GpN-ZC-xbp">
+                                        <rect key="frame" x="40" y="142" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="hNa-ns-RNy"/>
+                                            <constraint firstAttribute="height" constant="15" id="rpm-Mb-P82"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gG1-Ek-oyv">
+                                        <rect key="frame" x="65" y="142" width="92" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2357 Stevensons Rd." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB8-nM-UBt">
+                                        <rect key="frame" x="65" y="164.5" width="290" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HAU-cZ-wbS" firstAttribute="leading" secondItem="afd-Ib-euB" secondAttribute="leading" constant="40" id="37c-CM-gNs"/>
+                                    <constraint firstItem="GpN-ZC-xbp" firstAttribute="leading" secondItem="HAU-cZ-wbS" secondAttribute="leading" id="7tC-TB-L46"/>
+                                    <constraint firstItem="PB8-nM-UBt" firstAttribute="top" secondItem="gG1-Ek-oyv" secondAttribute="bottom" constant="8" id="9uD-dA-uGl"/>
+                                    <constraint firstItem="GYS-ec-IRU" firstAttribute="centerX" secondItem="afd-Ib-euB" secondAttribute="centerX" id="B6c-8h-Erw"/>
+                                    <constraint firstItem="EYo-gs-BEQ" firstAttribute="centerY" secondItem="HAU-cZ-wbS" secondAttribute="centerY" id="FY4-ms-zQd"/>
+                                    <constraint firstItem="EYo-gs-BEQ" firstAttribute="leading" secondItem="HAU-cZ-wbS" secondAttribute="trailing" constant="10" id="K7Q-Vb-BeW"/>
+                                    <constraint firstAttribute="height" constant="300" id="Njp-pn-7h5"/>
+                                    <constraint firstItem="gG1-Ek-oyv" firstAttribute="leading" secondItem="GpN-ZC-xbp" secondAttribute="trailing" constant="10" id="P97-EH-ITt"/>
+                                    <constraint firstAttribute="bottom" secondItem="GYS-ec-IRU" secondAttribute="bottom" constant="35" id="Sfs-OB-m7k"/>
+                                    <constraint firstItem="GpN-ZC-xbp" firstAttribute="top" secondItem="yUn-Iy-p47" secondAttribute="bottom" constant="66" id="YWF-Hu-TQf"/>
+                                    <constraint firstItem="yUn-Iy-p47" firstAttribute="top" secondItem="EYo-gs-BEQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Ydg-mY-HdP"/>
+                                    <constraint firstAttribute="trailing" secondItem="yUn-Iy-p47" secondAttribute="trailing" constant="20" id="ZgF-hb-sfx"/>
+                                    <constraint firstItem="HAU-cZ-wbS" firstAttribute="top" secondItem="afd-Ib-euB" secondAttribute="top" constant="35" id="jZS-yV-1Rf"/>
+                                    <constraint firstItem="gG1-Ek-oyv" firstAttribute="centerY" secondItem="GpN-ZC-xbp" secondAttribute="centerY" id="o4O-a6-mgL"/>
+                                    <constraint firstItem="yUn-Iy-p47" firstAttribute="leading" secondItem="EYo-gs-BEQ" secondAttribute="leading" id="ocP-XW-dZZ"/>
+                                    <constraint firstItem="PB8-nM-UBt" firstAttribute="leading" secondItem="gG1-Ek-oyv" secondAttribute="leading" id="rX9-Z6-mAj"/>
+                                    <constraint firstAttribute="trailing" secondItem="PB8-nM-UBt" secondAttribute="trailing" constant="20" id="xQF-0V-e88"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vF-WF-x6M">
+                                <rect key="frame" x="16" y="20" width="45" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="jkI-8j-ohF"/>
+                                    <constraint firstAttribute="width" constant="45" id="jkp-TE-FcS"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="side-menu-blue"/>
+                                <connections>
+                                    <action selector="menuButtonTapped:" destination="N5S-yK-HB5" eventType="touchUpInside" id="GYJ-Qy-Lha"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0h-QT-czg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="267" width="375" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3J9-Eg-Lie">
                                         <rect key="frame" x="75.5" y="25.5" width="224" height="49"/>
@@ -255,122 +362,45 @@ and start earning</string>
                                     <constraint firstAttribute="height" constant="100" id="WCc-f1-cZL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-F5-o5M">
-                                <rect key="frame" x="20" y="100" width="375" height="2"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="6x2-dS-4zm"/>
-                                </constraints>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="7Pi-YU-Nfd">
-                                <rect key="frame" x="40" y="132" width="15" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="7rf-4E-T0r"/>
-                                    <constraint firstAttribute="height" constant="15" id="qng-fI-K0r"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhj-0i-JM8">
-                                <rect key="frame" x="65" y="132.5" width="87" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNU-NH-fj7">
-                                <rect key="frame" x="65" y="155" width="290" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="8Vb-a0-NOh">
-                                <rect key="frame" x="40" y="239" width="15" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="979-rc-gXK"/>
-                                    <constraint firstAttribute="width" constant="15" id="BYc-VP-fQe"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-RK-7p0">
-                                <rect key="frame" x="65" y="239" width="92" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2357 Stevensons Rd." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBt-gN-1uf">
-                                <rect key="frame" x="65" y="261" width="290" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dA-xs-JFc">
-                                <rect key="frame" x="47" y="151" width="1" height="84"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1" id="AsJ-X8-Mec"/>
-                                </constraints>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="GYS-ec-IRU">
-                                <rect key="frame" x="60" y="319" width="255" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-1L-Crc">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="40"/>
-                                        <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Nqw-GU-eKf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Go online">
-                                            <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="goOnlineButtonTapped:" destination="N5S-yK-HB5" eventType="touchUpInside" id="43d-Jb-HJz"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yeG-pA-coa"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.91764705882352937" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0dA-xs-JFc" firstAttribute="centerX" secondItem="7Pi-YU-Nfd" secondAttribute="centerX" id="85a-Wy-xCX"/>
-                            <constraint firstItem="yeG-pA-coa" firstAttribute="trailing" secondItem="GYS-ec-IRU" secondAttribute="trailing" constant="60" id="9DK-dD-5oA"/>
-                            <constraint firstItem="8Vb-a0-NOh" firstAttribute="top" secondItem="gNU-NH-fj7" secondAttribute="bottom" constant="66" id="9oA-Gf-EVv"/>
-                            <constraint firstItem="GYS-ec-IRU" firstAttribute="leading" secondItem="yeG-pA-coa" secondAttribute="leading" constant="60" id="Dr7-c6-FQf"/>
-                            <constraint firstItem="FBt-gN-1uf" firstAttribute="leading" secondItem="0UO-RK-7p0" secondAttribute="leading" id="EJH-5T-n3t"/>
-                            <constraint firstItem="jhj-0i-JM8" firstAttribute="leading" secondItem="7Pi-YU-Nfd" secondAttribute="trailing" constant="10" id="GfN-Eg-obl"/>
-                            <constraint firstItem="0UO-RK-7p0" firstAttribute="leading" secondItem="8Vb-a0-NOh" secondAttribute="trailing" constant="10" id="Lis-43-xjJ"/>
-                            <constraint firstItem="gNU-NH-fj7" firstAttribute="leading" secondItem="jhj-0i-JM8" secondAttribute="leading" id="Qo0-T2-mWd"/>
-                            <constraint firstItem="N1g-F5-o5M" firstAttribute="leading" secondItem="yeG-pA-coa" secondAttribute="leading" constant="20" id="VK9-tm-8up"/>
-                            <constraint firstItem="7Pi-YU-Nfd" firstAttribute="leading" secondItem="yeG-pA-coa" secondAttribute="leading" constant="40" id="WrE-tp-zYh"/>
-                            <constraint firstItem="Q0h-QT-czg" firstAttribute="top" secondItem="yeG-pA-coa" secondAttribute="top" id="Wrw-Em-DPJ"/>
-                            <constraint firstItem="8Vb-a0-NOh" firstAttribute="top" secondItem="0dA-xs-JFc" secondAttribute="bottom" constant="4" id="YVz-Ct-EHQ"/>
-                            <constraint firstItem="yeG-pA-coa" firstAttribute="trailing" secondItem="gNU-NH-fj7" secondAttribute="trailing" constant="20" id="YXe-S6-6cg"/>
-                            <constraint firstItem="gNU-NH-fj7" firstAttribute="top" secondItem="jhj-0i-JM8" secondAttribute="bottom" constant="8" symbolic="YES" id="cCX-y6-xra"/>
-                            <constraint firstItem="FBt-gN-1uf" firstAttribute="top" secondItem="0UO-RK-7p0" secondAttribute="bottom" constant="7.5" id="f0E-iC-g1t"/>
-                            <constraint firstItem="GYS-ec-IRU" firstAttribute="top" secondItem="FBt-gN-1uf" secondAttribute="bottom" constant="40" id="hfM-tH-x1c"/>
-                            <constraint firstItem="0dA-xs-JFc" firstAttribute="top" secondItem="7Pi-YU-Nfd" secondAttribute="bottom" constant="4" id="iE9-dn-vWG"/>
+                            <constraint firstItem="7vF-WF-x6M" firstAttribute="top" secondItem="yeG-pA-coa" secondAttribute="top" constant="20" id="3hD-R6-dOf"/>
+                            <constraint firstItem="7vF-WF-x6M" firstAttribute="leading" secondItem="yeG-pA-coa" secondAttribute="leading" constant="16" id="IsX-H3-xKf"/>
+                            <constraint firstItem="afd-Ib-euB" firstAttribute="top" secondItem="Q0h-QT-czg" secondAttribute="bottom" id="MXT-9a-Uj4"/>
+                            <constraint firstItem="Q0h-QT-czg" firstAttribute="trailing" secondItem="yeG-pA-coa" secondAttribute="trailing" id="WBx-XP-T8Z"/>
+                            <constraint firstItem="afd-Ib-euB" firstAttribute="leading" secondItem="yeG-pA-coa" secondAttribute="leading" id="Wea-IW-iHm"/>
+                            <constraint firstItem="N1g-F5-o5M" firstAttribute="leading" secondItem="J4g-rg-00c" secondAttribute="leading" constant="20" id="bzn-xT-olV"/>
+                            <constraint firstItem="afd-Ib-euB" firstAttribute="bottom" secondItem="J4g-rg-00c" secondAttribute="bottom" id="ghK-rK-s4T"/>
+                            <constraint firstItem="afd-Ib-euB" firstAttribute="top" secondItem="N1g-F5-o5M" secondAttribute="bottom" id="hGA-g4-AEI"/>
+                            <constraint firstItem="Q0h-QT-czg" firstAttribute="leading" secondItem="yeG-pA-coa" secondAttribute="leading" id="hUR-Pf-RVj"/>
+                            <constraint firstAttribute="trailing" secondItem="N1g-F5-o5M" secondAttribute="trailing" constant="20" id="i7f-h9-1RI"/>
                             <constraint firstItem="Q0h-QT-czg" firstAttribute="trailing" secondItem="yeG-pA-coa" secondAttribute="trailing" id="kft-1a-xN5"/>
-                            <constraint firstItem="yeG-pA-coa" firstAttribute="trailing" secondItem="FBt-gN-1uf" secondAttribute="trailing" constant="20" id="m3H-ma-dxd"/>
-                            <constraint firstItem="jhj-0i-JM8" firstAttribute="centerY" secondItem="7Pi-YU-Nfd" secondAttribute="centerY" id="m9U-9N-zGk"/>
-                            <constraint firstItem="8Vb-a0-NOh" firstAttribute="centerX" secondItem="7Pi-YU-Nfd" secondAttribute="centerX" id="pT1-Y5-wHL"/>
-                            <constraint firstItem="0UO-RK-7p0" firstAttribute="centerY" secondItem="8Vb-a0-NOh" secondAttribute="centerY" id="uJ9-vI-AnC"/>
                             <constraint firstItem="Q0h-QT-czg" firstAttribute="leading" secondItem="yeG-pA-coa" secondAttribute="leading" id="uRK-gW-FgZ"/>
-                            <constraint firstItem="N1g-F5-o5M" firstAttribute="trailing" secondItem="yeG-pA-coa" secondAttribute="trailing" constant="20" id="ucH-p4-4j9"/>
-                            <constraint firstItem="N1g-F5-o5M" firstAttribute="top" secondItem="Q0h-QT-czg" secondAttribute="bottom" id="ui7-eK-x77"/>
-                            <constraint firstItem="7Pi-YU-Nfd" firstAttribute="top" secondItem="N1g-F5-o5M" secondAttribute="bottom" constant="30" id="vkP-Rh-B0I"/>
+                            <constraint firstItem="afd-Ib-euB" firstAttribute="trailing" secondItem="yeG-pA-coa" secondAttribute="trailing" id="z5W-10-xYc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressView" destination="afd-Ib-euB" id="hXu-d0-8sM"/>
+                        <outlet property="dropoffAddressLabel" destination="PB8-nM-UBt" id="uts-gn-wej"/>
+                        <outlet property="dropoffLabel" destination="gG1-Ek-oyv" id="z2t-zu-1lk"/>
+                        <outlet property="dropoffMapIcon" destination="GpN-ZC-xbp" id="lYo-kF-lYe"/>
                         <outlet property="goOnlineButton" destination="Li7-1L-Crc" id="fTh-pq-Hed"/>
+                        <outlet property="pickupAddressLabel" destination="yUn-Iy-p47" id="JIE-Ee-S8p"/>
+                        <outlet property="pickupLabel" destination="EYo-gs-BEQ" id="9b1-VE-bFg"/>
+                        <outlet property="pickupMapIcon" destination="HAU-cZ-wbS" id="ORC-Mk-BcJ"/>
+                        <outlet property="sideMenuButton" destination="7vF-WF-x6M" id="56P-H7-E1O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKh-5d-WCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1399" y="788"/>
+            <point key="canvasLocation" x="-1399.2" y="787.55622188905556"/>
         </scene>
         <!--Signin View Controller-->
         <scene sceneID="VsG-Ka-JyV">
             <objects>
-                <viewController storyboardIdentifier="SigninViewController" id="me4-ZF-Bfc" customClass="SigninViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SigninViewController" id="me4-ZF-Bfc" customClass="SigninViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DZj-x6-FLf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -511,7 +541,7 @@ and start earning</string>
                                                     <constraint firstAttribute="trailing" secondItem="9ay-Kj-SVP" secondAttribute="trailing" id="q1k-YE-Xzp"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErS-Gw-mMS" customClass="SpinnerButton" customModule="MoveEasy" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErS-Gw-mMS" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="529" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -614,7 +644,7 @@ and start earning</string>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -661,7 +691,7 @@ and start earning</string>
         <!--Side Menu View Controller-->
         <scene sceneID="9Yf-PE-LZt">
             <objects>
-                <viewController storyboardIdentifier="SideMenuViewController" id="4hD-td-o62" customClass="SideMenuViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SideMenuViewController" id="4hD-td-o62" customClass="SideMenuViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rot-bG-TL4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -816,12 +846,31 @@ and start earning</string>
         <!--Order View Controller-->
         <scene sceneID="JRd-ol-0yU">
             <objects>
-                <viewController storyboardIdentifier="OrderViewController" id="Isj-jr-R2x" customClass="OrderViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderViewController" id="Isj-jr-R2x" customClass="OrderViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uKm-0A-cc4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHe-7c-hv2">
+                                <rect key="frame" x="22" y="29" width="70" height="31"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="K17-so-3CW"/>
+                                    <constraint firstAttribute="width" constant="70" id="hTK-Nh-GlH"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="Isj-jr-R2x" eventType="touchUpInside" id="NYR-S3-JcA"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xh9-Um-MfU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <constraints>
+                            <constraint firstItem="iHe-7c-hv2" firstAttribute="leading" secondItem="xh9-Um-MfU" secondAttribute="leading" constant="22" id="WZt-m5-RmF"/>
+                            <constraint firstItem="iHe-7c-hv2" firstAttribute="top" secondItem="uKm-0A-cc4" secondAttribute="top" constant="29" id="wYa-sL-ihK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lew-Bw-zVy"/>
                 </viewController>
@@ -901,7 +950,7 @@ and start earning</string>
         <!--Signup View Controller-->
         <scene sceneID="n41-RI-xM9">
             <objects>
-                <viewController storyboardIdentifier="SignupViewController" id="LYx-Ii-c8n" customClass="SignupViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupViewController" id="LYx-Ii-c8n" customClass="SignupViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cwd-9P-9qU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1050,7 +1099,7 @@ and start earning</string>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ua7-vE-W82" customClass="SpinnerButton" customModule="MoveEasy" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ua7-vE-W82" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="714" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -1142,7 +1191,7 @@ and start earning</string>
         <!--Job Detail View Controller-->
         <scene sceneID="P9m-B4-KOz">
             <objects>
-                <viewController storyboardIdentifier="JobDetailViewController" modalPresentationStyle="fullScreen" id="7Cx-9w-E10" customClass="JobDetailViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JobDetailViewController" modalPresentationStyle="fullScreen" id="7Cx-9w-E10" customClass="JobDetailViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mtc-CG-xmx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1368,7 +1417,7 @@ and start earning</string>
         <!--Feed Back View Controller-->
         <scene sceneID="QD0-O4-a5f">
             <objects>
-                <viewController storyboardIdentifier="FeedBackViewController" modalPresentationStyle="fullScreen" id="ivK-Xa-O10" customClass="FeedBackViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedBackViewController" modalPresentationStyle="fullScreen" id="ivK-Xa-O10" customClass="FeedBackViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7or-Ry-Dae">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1423,7 +1472,7 @@ and start earning</string>
                                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfd-Jk-wuP" customClass="CosmosView" customModule="MoveEasy" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfd-Jk-wuP" customClass="CosmosView" customModule="Moovez_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="57.5" y="170" width="260" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -1880,7 +1929,7 @@ and start earning</string>
         <!--Forgot Password View Controller-->
         <scene sceneID="kLm-eJ-eTp">
             <objects>
-                <viewController storyboardIdentifier="ForgotPasswordViewController" id="nfY-G8-M03" customClass="ForgotPasswordViewController" customModule="MoveEasy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPasswordViewController" id="nfY-G8-M03" customClass="ForgotPasswordViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gg-Kc-5hU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1954,7 +2003,7 @@ and start earning</string>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18h-22-hzG" customClass="SpinnerButton" customModule="MoveEasy" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18h-22-hzG" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="449.5" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -2036,15 +2085,6 @@ and start earning</string>
         </scene>
     </scenes>
     <designables>
-        <designable name="18h-22-hzG">
-            <size key="intrinsicContentSize" width="57" height="34"/>
-        </designable>
-        <designable name="ErS-Gw-mMS">
-            <size key="intrinsicContentSize" width="55" height="34"/>
-        </designable>
-        <designable name="Ua7-vE-W82">
-            <size key="intrinsicContentSize" width="61" height="34"/>
-        </designable>
         <designable name="cfd-Jk-wuP">
             <size key="intrinsicContentSize" width="260" height="40"/>
         </designable>
@@ -2059,12 +2099,13 @@ and start earning</string>
         <image name="lock" width="8" height="9"/>
         <image name="map-marker-alt" width="5" height="7"/>
         <image name="profile" width="33" height="33"/>
+        <image name="side-menu-blue" width="24" height="24"/>
         <image name="star_active" width="39" height="37"/>
         <image name="truck" width="307.5" height="178"/>
         <image name="user-alt" width="9" height="9"/>
         <image name="warning" width="34.5" height="30"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2072,8 +2113,14 @@ and start earning</string>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
