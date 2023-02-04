@@ -39,6 +39,7 @@ class ManageJobViewController: UIViewController {
     @IBOutlet weak var videoActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var attachmentNoteLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     var jobStatus: JobStatus? = nil {
         didSet {
@@ -98,6 +99,7 @@ class ManageJobViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
             self.timerLabel.text = self.stopWatch?.inString
         }
+        backButton.isHidden = true
         mediaButtonView.isHidden = true
         attachmentNoteLabel.isHidden = true
     }
@@ -254,6 +256,7 @@ class ManageJobViewController: UIViewController {
                 self?.stopTimer()
                 self?.mediaButtonView.isHidden = false
                 self?.additionalInfoView.isHidden = false
+                self?.backButton.isHidden = false
                 self?.stopMoving()
             }
         }

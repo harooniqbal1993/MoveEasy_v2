@@ -82,6 +82,9 @@ class HomeViewModel {
                 self.cancelledOrders = result?.data?.cancelled ?? []
                 self.todayOrders = result?.data?.today ?? []
                 self.allOrders = self.activeOrders + self.pendingOrders + self.completedOrders + self.cancelledOrders
+                if let activeTrip = self.activeTrip {
+                    self.allOrders.append(activeTrip)
+                }
                 self.isLoading = false
                 self.filterOrders()
                 completion(nil)

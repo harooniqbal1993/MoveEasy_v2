@@ -1506,13 +1506,13 @@ and start earning</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4L-PM-8py">
-                                                <rect key="frame" x="138.5" y="432" width="98" height="18"/>
+                                                <rect key="frame" x="138.5" y="466" width="98" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2N-De-mmn">
-                                                <rect key="frame" x="20" y="763" width="335" height="40"/>
+                                                <rect key="frame" x="20" y="797" width="335" height="40"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="IbM-Zr-mzS"/>
@@ -1528,7 +1528,7 @@ and start earning</string>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FId-MV-2dg">
-                                                <rect key="frame" x="20" y="480" width="335" height="110"/>
+                                                <rect key="frame" x="20" y="514" width="335" height="110"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="auU-V7-zqM">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -1648,7 +1648,7 @@ and start earning</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="OSz-U8-AwQ">
-                                                <rect key="frame" x="20" y="610" width="335" height="40"/>
+                                                <rect key="frame" x="20" y="644" width="335" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf1-nV-egd">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
@@ -1836,8 +1836,21 @@ and start earning</string>
                                                     </view>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VJ0-q0-7Iu">
+                                                <rect key="frame" x="20" y="390" width="335" height="34"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbd-lK-6TB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="34" id="4Hb-F4-I6M"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-xt-0oH">
-                                                <rect key="frame" x="20" y="400" width="335" height="2"/>
+                                                <rect key="frame" x="20" y="434" width="335" height="2"/>
                                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="FhC-fA-DBS"/>
@@ -1858,7 +1871,11 @@ and start earning</string>
                                             <constraint firstItem="x4L-PM-8py" firstAttribute="centerX" secondItem="CZT-Hy-s36" secondAttribute="centerX" id="Axj-xA-J0B"/>
                                             <constraint firstAttribute="trailing" secondItem="FId-MV-2dg" secondAttribute="trailing" constant="20" symbolic="YES" id="Ek6-Ld-6JM"/>
                                             <constraint firstItem="cOt-ro-km2" firstAttribute="top" secondItem="CZT-Hy-s36" secondAttribute="top" id="FYo-nN-T78"/>
+                                            <constraint firstItem="VJ0-q0-7Iu" firstAttribute="top" secondItem="Rhk-Co-FuS" secondAttribute="bottom" constant="15" id="ILJ-Uu-GMw"/>
+                                            <constraint firstItem="ibf-xt-0oH" firstAttribute="top" secondItem="VJ0-q0-7Iu" secondAttribute="bottom" constant="10" id="Ibf-ad-Dwe"/>
                                             <constraint firstItem="x4L-PM-8py" firstAttribute="top" secondItem="ibf-xt-0oH" secondAttribute="bottom" constant="30" id="LMF-u3-np2"/>
+                                            <constraint firstAttribute="trailing" secondItem="VJ0-q0-7Iu" secondAttribute="trailing" constant="20" id="Lnx-8j-XMD"/>
+                                            <constraint firstItem="VJ0-q0-7Iu" firstAttribute="leading" secondItem="CZT-Hy-s36" secondAttribute="leading" constant="20" id="Pgt-4Z-5tf"/>
                                             <constraint firstItem="4IQ-9T-WwK" firstAttribute="centerX" secondItem="CZT-Hy-s36" secondAttribute="centerX" id="UkZ-cJ-y11"/>
                                             <constraint firstItem="OSz-U8-AwQ" firstAttribute="top" secondItem="FId-MV-2dg" secondAttribute="bottom" constant="20" id="WJw-RF-UK2"/>
                                             <constraint firstAttribute="height" constant="900" id="WKp-fO-rn7"/>
@@ -1870,7 +1887,6 @@ and start earning</string>
                                             <constraint firstItem="FId-MV-2dg" firstAttribute="leading" secondItem="CZT-Hy-s36" secondAttribute="leading" constant="20" symbolic="YES" id="mKO-BD-JSJ"/>
                                             <constraint firstAttribute="trailing" secondItem="z2N-De-mmn" secondAttribute="trailing" constant="20" symbolic="YES" id="oZY-qk-mHt"/>
                                             <constraint firstItem="OSz-U8-AwQ" firstAttribute="leading" secondItem="CZT-Hy-s36" secondAttribute="leading" constant="20" symbolic="YES" id="qkh-CP-MH0"/>
-                                            <constraint firstItem="ibf-xt-0oH" firstAttribute="top" secondItem="Rhk-Co-FuS" secondAttribute="bottom" constant="25" id="rD3-Q7-7ks"/>
                                             <constraint firstItem="4IQ-9T-WwK" firstAttribute="top" secondItem="ngr-CO-KOM" secondAttribute="bottom" constant="30" id="tRM-Qd-0DI"/>
                                             <constraint firstItem="EpL-rH-nKt" firstAttribute="top" secondItem="yyo-Pu-oLV" secondAttribute="bottom" constant="30" id="tbn-Qd-5vR"/>
                                             <constraint firstItem="cfd-Jk-wuP" firstAttribute="centerX" secondItem="CZT-Hy-s36" secondAttribute="centerX" id="vUV-Qh-lj6"/>
@@ -1908,6 +1924,7 @@ and start earning</string>
                         <outlet property="cad1ButtonView" destination="XGi-xy-Gnw" id="kAt-vD-pRm"/>
                         <outlet property="commentTextView" destination="pNr-RF-wsq" id="YEv-wB-n71"/>
                         <outlet property="customButtonView" destination="uUR-7K-lH5" id="fJI-kd-zBf"/>
+                        <outlet property="customDonationTextField" destination="Rbd-lK-6TB" id="Ou0-sr-gKr"/>
                         <outlet property="notThisTimeButtonView" destination="2aX-8U-ysm" id="Gad-ie-x0S"/>
                         <outlet property="ratingView" destination="cfd-Jk-wuP" id="wDb-VL-utf"/>
                         <outlet property="submitButton" destination="z2N-De-mmn" id="elg-0o-iII"/>
@@ -2085,6 +2102,15 @@ and start earning</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="18h-22-hzG">
+            <size key="intrinsicContentSize" width="57" height="34"/>
+        </designable>
+        <designable name="ErS-Gw-mMS">
+            <size key="intrinsicContentSize" width="55" height="34"/>
+        </designable>
+        <designable name="Ua7-vE-W82">
+            <size key="intrinsicContentSize" width="61" height="34"/>
+        </designable>
         <designable name="cfd-Jk-wuP">
             <size key="intrinsicContentSize" width="260" height="40"/>
         </designable>

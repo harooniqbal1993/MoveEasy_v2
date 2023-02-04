@@ -910,6 +910,7 @@ Apartment # 123</string>
                         <outlet property="addressLabel" destination="okc-VD-r0c" id="3cF-SF-YNj"/>
                         <outlet property="addtionalInfoTextView" destination="fQP-WU-EUm" id="1VA-Sr-qxJ"/>
                         <outlet property="attachmentNoteLabel" destination="um1-0q-CTM" id="lbr-2l-58Q"/>
+                        <outlet property="backButton" destination="4Kj-45-lpD" id="q8o-h9-wYq"/>
                         <outlet property="commentTextView" destination="oAp-Xn-CYF" id="8lb-Q5-Sru"/>
                         <outlet property="continueButton" destination="D7d-ul-7uP" id="9OS-Nu-abC"/>
                         <outlet property="imageActivityIndicator" destination="1aK-kW-mtT" id="LB7-kM-AS3"/>

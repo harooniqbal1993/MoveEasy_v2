@@ -20,7 +20,7 @@ class FeedBackViewController: UIViewController {
     @IBOutlet weak var Cad3ButtonView: UIView!
     @IBOutlet weak var cad1ButtonView: UIView!
     @IBOutlet weak var notThisTimeButtonView: UIView!
-    
+    @IBOutlet weak var customDonationTextField: UITextField!
     
     let textColor: UIColor = UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1.0)
     
@@ -44,6 +44,7 @@ class FeedBackViewController: UIViewController {
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         addCommentButton.border(color: Constants.themeColor, radius: 6, width: 1.0)
         commentTextView.border(color: textColor, radius: 0.0, width: 1.0)
+        customDonationTextField.isHidden = true
         submitButton.round()
         ratingStarListeners()
     }
@@ -124,7 +125,7 @@ class FeedBackViewController: UIViewController {
         cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
-        
+        customDonationTextField.isHidden = false
         customButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
     }
     
@@ -133,7 +134,7 @@ class FeedBackViewController: UIViewController {
         cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
-        
+        customDonationTextField.isHidden = true
         cad1ButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
     }
     
@@ -142,7 +143,7 @@ class FeedBackViewController: UIViewController {
         cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
-        
+        customDonationTextField.isHidden = true
         Cad3ButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
     }
     
@@ -151,7 +152,7 @@ class FeedBackViewController: UIViewController {
         cad1ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         Cad3ButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
-        
+        customDonationTextField.isHidden = true
         notThisTimeButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
     }
 }

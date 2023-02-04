@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var activeOrderView: UIView!
     @IBOutlet weak var filterCollectionView: UICollectionView!
     
+    let refreshControl = UIRefreshControl()
+    
     var homeViewModel: HomeViewModel!
     
     override func viewDidLoad() {
@@ -45,6 +47,8 @@ class HomeViewController: UIViewController {
 //        getDashboardData()
         getDriverDetail()
         
+        refreshControl.addTarget(self, action: #selector(onRefreshTable), for: .valueChanged)
+        orderTable.addSubview(refreshControl)
 //        let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
 //        goOnlineViewController.modalPresentationStyle = .fullScreen
 //        present(goOnlineViewController, animated: false)
@@ -80,6 +84,7 @@ class HomeViewController: UIViewController {
                     return
                 }
                 self.updateViews()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -127,7 +132,15 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func statusChanged(_ sender: UISwitch) {
+        if sender.isOn == false {
+            let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
+            self.navigationController?.pushViewController(goOnlineViewController, animated: false)
+        }
         DriverSession.shared.setDriverStatus(status: Defaults.driverStatus == true ? false : true)
+    }
+    
+    @objc func onRefreshTable(refreshControl: UIRefreshControl) {
+        getDashboardData()
     }
 }
 
