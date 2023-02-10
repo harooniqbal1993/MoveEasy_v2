@@ -16,6 +16,7 @@ class Defaults {
     private static let USER_IMAGE: String = "user_image"
     private static let DRIVER_STATUS: String = "driver_status"
     private static let DEVICE_TOKEN: String = "device_token"
+    private static let FROM_BACKGROUND_NOTIFICATION: String = "from_background_notification"
     
     fileprivate static var userDefault: UserDefaults {
         get {
@@ -114,6 +115,36 @@ class Defaults {
                 Defaults.userDefault.set(newValue, forKey: DEVICE_TOKEN)
             } else {
                 Defaults.userDefault.removeObject(forKey: DEVICE_TOKEN)
+            }
+        }
+    }
+    
+//    static var isFromBackgroundNotification: Bool? {
+//        get {
+//            let defaults = Defaults.userDefault
+//            if defaults.object(forKey: IS_FROM_BACKGROUND_NOTIFICATION) == nil {
+//                return false
+//            }
+//            return defaults.integer(forKey: IS_FROM_BACKGROUND_NOTIFICATION) == 0 ? false : true
+//        }
+//        set {
+//            if let newValue = newValue {
+//                Defaults.userDefault.set(newValue, forKey: IS_FROM_BACKGROUND_NOTIFICATION)
+//            } else {
+//                Defaults.userDefault.removeObject(forKey: IS_FROM_BACKGROUND_NOTIFICATION)
+//            }
+//        }
+//    }
+    
+    static var fromBackgroundNotificationBookingID: String? {
+        get {
+            return Defaults.userDefault.string(forKey: FROM_BACKGROUND_NOTIFICATION)
+        }
+        set {
+            if let newValue = newValue {
+                Defaults.userDefault.set(newValue, forKey: FROM_BACKGROUND_NOTIFICATION)
+            } else {
+                Defaults.userDefault.removeObject(forKey: FROM_BACKGROUND_NOTIFICATION)
             }
         }
     }

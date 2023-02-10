@@ -9,6 +9,7 @@ import Foundation
 
 struct FinishJobModel: Decodable {
     var bookingTotalModel: BookingTotalModel? = nil
+    var stops: [Stop]? = nil
 }
 
 struct BookingTotalModel: Decodable {
@@ -27,3 +28,14 @@ struct BookingTotalModel: Decodable {
     var totalTaxGstpstrate: String? = nil
     var totalDuration: String? = nil
 }
+
+//struct Stop: Decodable {
+//    var id: Int? = nil
+//    var stop: String? = nil
+//    var personName: String? = nil
+//    var personPhone: String? = nil
+//    var instructions: String? = nil
+//    var bookingId: Int? = nil
+//    var lat: String? = nil
+//    var long: String? = nil
+//}

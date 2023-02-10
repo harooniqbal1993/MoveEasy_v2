@@ -38,6 +38,11 @@ class AllOrderViewController: UIViewController {
     }
     
     @IBAction func onlineStatusChanged(_ sender: UISwitch) {
+        if sender.isOn == false {
+            let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
+            self.navigationController?.pushViewController(goOnlineViewController, animated: false)
+        }
+        DriverSession.shared.setDriverStatus(status: Defaults.driverStatus == true ? false : true)
     }
 }
 

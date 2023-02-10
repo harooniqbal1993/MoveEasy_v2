@@ -122,8 +122,9 @@ class ManageJobViewController: UIViewController {
         additionalInfoView.isHidden = true
         imageActivityIndicator.isHidden = true
         videoActivityIndicator.isHidden = true
-        addressLabel.text = OrderSession.shared.order?.dropoffLocation
+        addressLabel.text = OrderSession.shared.bookingModel?.pickupLocation
         switchView.isOn = Defaults.driverStatus ?? false
+        continueButton.isHidden = true
     }
     
     func startMoving() {
@@ -228,7 +229,9 @@ class ManageJobViewController: UIViewController {
         alertViewController.completion = { [weak self] isYes in
             if isYes {
                 self?.startTimer()
-//                self?.startMoving()
+//                self?.manageJobViewModel.timerStarted = true
+                self?.continueButton.isHidden = false
+                self?.startMoving()
             }
         }
         present(alertViewController, animated: true, completion: nil)
@@ -275,7 +278,23 @@ class ManageJobViewController: UIViewController {
             saveNotes()
             return
         }
-        navigateToNextScreen()
+        
+        if manageJobViewModel.isLastDestination {
+            stopMoving()
+            navigateToNextScreen()
+        }
+        
+        print("\((manageJobViewModel.stops?.count ?? 0) + 1) == \(manageJobViewModel.stopCounter)")
+        if (manageJobViewModel.stops?.count ?? 0) + 1 == manageJobViewModel.stopCounter {
+            addressLabel.text = OrderSession.shared.bookingModel?.dropoffLocation
+            continueButton.setTitle("Continue")
+            manageJobViewModel.isLastDestination = true
+            return
+//            navigateToNextScreen()
+        } else {
+            addressLabel.text = manageJobViewModel.stopCounter < (manageJobViewModel.stops?.count ?? 0) ? manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop : OrderSession.shared.bookingModel?.dropoffLocation
+            manageJobViewModel.stopCounter += 1
+        }
     }
     
     @IBAction func viewRouteTapped(_ sender: UIButton) {

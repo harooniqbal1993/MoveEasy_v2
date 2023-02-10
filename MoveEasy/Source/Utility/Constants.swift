@@ -69,7 +69,7 @@ class Constants {
     }
     
     enum NotificationObserver: String {
-        case UPDATE_SWIMLANE = "UPDATE_SWIMLANE"
+        case OPEN_TRIPVIEW = "OPEN_TRIPVIEW"
         
         var value: Notification.Name {
             return Notification.Name(rawValue: self.rawValue)

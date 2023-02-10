@@ -1925,6 +1925,7 @@ and start earning</string>
                         <outlet property="commentTextView" destination="pNr-RF-wsq" id="YEv-wB-n71"/>
                         <outlet property="customButtonView" destination="uUR-7K-lH5" id="fJI-kd-zBf"/>
                         <outlet property="customDonationTextField" destination="Rbd-lK-6TB" id="Ou0-sr-gKr"/>
+                        <outlet property="howTripLabel" destination="zqC-ni-71S" id="hl9-mk-o49"/>
                         <outlet property="notThisTimeButtonView" destination="2aX-8U-ysm" id="Gad-ie-x0S"/>
                         <outlet property="ratingView" destination="cfd-Jk-wuP" id="wDb-VL-utf"/>
                         <outlet property="submitButton" destination="z2N-De-mmn" id="elg-0o-iII"/>

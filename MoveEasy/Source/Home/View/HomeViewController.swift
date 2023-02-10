@@ -34,12 +34,20 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        registerNotificationCenter()
         loadViews()
+        
+        fromBackgroundPushNotification()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeNotificationCenter()
     }
     
     func configure() {
         
         homeViewModel = HomeViewModel()
+//        registerNotificationCenter()
         
         orderTable.register(UINib(nibName: "OrderCell", bundle: nil), forCellReuseIdentifier: "OrderCell")
         filterCollectionView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
@@ -52,6 +60,23 @@ class HomeViewController: UIViewController {
 //        let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
 //        goOnlineViewController.modalPresentationStyle = .fullScreen
 //        present(goOnlineViewController, animated: false)
+    }
+    
+    func registerNotificationCenter() {
+        NotificationCenter.default
+            .addObserver(self,
+                         selector:#selector(openTripView(_:)),
+                         name: Constants.NotificationObserver.OPEN_TRIPVIEW.value, object: nil)
+    }
+    
+    func fromBackgroundPushNotification() {
+        if Defaults.fromBackgroundNotificationBookingID != nil {
+            openTripDetailVC(bookingID: Defaults.fromBackgroundNotificationBookingID ?? "0")
+        }
+    }
+    
+    func removeNotificationCenter() {
+        NotificationCenter.default.removeObserver(self, name: Constants.NotificationObserver.OPEN_TRIPVIEW.value, object: nil)
     }
     
     private func loadViews() {
@@ -142,6 +167,49 @@ class HomeViewController: UIViewController {
     @objc func onRefreshTable(refreshControl: UIRefreshControl) {
         getDashboardData()
     }
+    
+    @objc func openTripView(_ notification: Notification) {
+        
+        if let dict = notification.userInfo?["bookingID"] as? String {
+//            if let bookingID = dict["bookingID"] as? String {
+//                openTripDetailVC(bookingID: bookingID)
+//            }
+            openTripDetailVC(bookingID: dict)
+        }
+    }
+    
+    func openTripDetailVC(bookingID: String) {
+        DispatchQueue.main.async {
+//                self.showAlert(title: "Notification", message: "Tapped \(Defaults.fromBackgroundNotificationBookingID ?? "")")
+            let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
+            let order = OrderModel(id: Int(bookingID ), type: "Mooving", status: "In Progress", pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil)
+            OrderSession.shared.order = order
+            let tripDetailViewModel = TripDetailViewModel(order: order)
+            tripDetailViewController.tripDetailViewModel = tripDetailViewModel
+            tripDetailViewController.onDismiss = { [weak self] isMap in
+                if !isMap {
+                    let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
+                    manageJobViewController.manageJobViewModel = ManageJobViewModel()
+                    OrderSession.shared.order = order
+                    self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+                } else {
+                    let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                    mapViewController.modalPresentationStyle = .fullScreen
+                    mapViewController.onAccept = { [weak self] in
+                        let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
+                        manageJobViewController.manageJobViewModel = ManageJobViewModel()
+                        OrderSession.shared.order = order
+                        self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+                    }
+                    self?.present(mapViewController, animated: true)
+                }
+            }
+            let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
+            sheetController.cornerRadius = 0
+            self.present(sheetController, animated: true, completion: nil)
+            Defaults.fromBackgroundNotificationBookingID = nil
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -161,40 +229,33 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if homeViewModel.isLoading == true { return cell }
         cell.configure(viewModel: OrderCellViewModel(order: homeViewModel.displayedOrders?[indexPath.row]))
         cell.completion = { [weak self] in
-//            let proofViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProofViewController") as! ProofViewController
-//            self?.navigationController?.pushViewController(proofViewController, animated: true)
             
-            let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-            let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.displayedOrders?[indexPath.row])!)
-            OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-            tripDetailViewController.tripDetailViewModel = tripDetailViewModel
-            tripDetailViewController.onDismiss = { [weak self] isMap in
-                if !isMap {
-//                    let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-//                    tripDetailViewController.isFullScreen = true
-//                    tripDetailViewController.tripDetailViewModel = tripDetailViewModel
+            self?.openTripDetailVC(bookingID: "\(self?.homeViewModel.displayedOrders?[indexPath.row].id ?? 0)")
+//            let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
+//            let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.displayedOrders?[indexPath.row])!)
+//            OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
+//            tripDetailViewController.tripDetailViewModel = tripDetailViewModel
+//            tripDetailViewController.onDismiss = { [weak self] isMap in
+//                if !isMap {
+//                    let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
+//                    manageJobViewController.manageJobViewModel = ManageJobViewModel()
 //                    OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-//                    self?.navigationController?.pushViewController(tripDetailViewController, animated: true)
-                    
-                    let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
-                    manageJobViewController.manageJobViewModel = ManageJobViewModel()
-                    OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-                    self?.navigationController?.pushViewController(manageJobViewController, animated: true)
-                } else {
-                    let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                    mapViewController.modalPresentationStyle = .fullScreen
-                    mapViewController.onAccept = { [weak self] in
-                        let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
-                        manageJobViewController.manageJobViewModel = ManageJobViewModel()
-                        OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-                        self?.navigationController?.pushViewController(manageJobViewController, animated: true)
-                    }
-                    self?.present(mapViewController, animated: true)
-                }
-            }
-            let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
-            sheetController.cornerRadius = 0
-            self?.present(sheetController, animated: true, completion: nil)
+//                    self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+//                } else {
+//                    let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+//                    mapViewController.modalPresentationStyle = .fullScreen
+//                    mapViewController.onAccept = { [weak self] in
+//                        let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
+//                        manageJobViewController.manageJobViewModel = ManageJobViewModel()
+//                        OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
+//                        self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+//                    }
+//                    self?.present(mapViewController, animated: true)
+//                }
+//            }
+//            let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
+//            sheetController.cornerRadius = 0
+//            self?.present(sheetController, animated: true, completion: nil)
 
         }
         return cell

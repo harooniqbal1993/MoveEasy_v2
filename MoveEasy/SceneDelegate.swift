@@ -52,13 +52,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func setInitialViewController()  {
-        
+        print("SceneDelegate")
         if Defaults.isLoggedIn == true {
 //            let vc = Constants.kMain.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             let nav = UINavigationController(rootViewController: vc)
             nav.isNavigationBarHidden = true
+            
             window?.rootViewController = nav
+            
+            let destinationController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
+            destinationController.tripDetailViewModel = TripDetailViewModel(order: OrderModel(id: 1030, type: "Mooving", status: "In Progress", pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil))
+//            vc.pushFrontViewController(destinationController, animated: true)
+            nav.present(destinationController, animated: true)
             
             
         } else {

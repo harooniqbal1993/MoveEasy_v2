@@ -10,6 +10,9 @@ import Foundation
 class ManageJobViewModel {
     
     var receipt: BookingTotalModel? = nil
+    var stops: [Stop]? = OrderSession.shared.bookingModel?.stops
+    var stopCounter: Int = 0
+    var isLastDestination: Bool = false
     
     func startMoving(bookingID: String) {
         NetworkService.shared.startMoving(bookingID: bookingID) { result, error in

@@ -15,4 +15,5 @@ struct FeedbackRequest: Encodable {
     var comments: String? = nil
     var driverId: Int? = nil
     var userIdD: Int? = nil
+    var tip: String? = nil
 }

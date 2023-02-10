@@ -21,10 +21,12 @@ class FeedBackViewController: UIViewController {
     @IBOutlet weak var cad1ButtonView: UIView!
     @IBOutlet weak var notThisTimeButtonView: UIView!
     @IBOutlet weak var customDonationTextField: UITextField!
+    @IBOutlet weak var howTripLabel: UILabel!
     
     let textColor: UIColor = UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1.0)
     
     var feedbackViewModel: FeedbackViewModel? = nil
+    var tip: String? = nil
     var onDismiss: (() -> Void)?
     
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class FeedBackViewController: UIViewController {
     }
     
     func loadViews() {
+        howTripLabel.text = "How was your trip with \(OrderSession.shared.bookingModel?.user?.firstName ?? "")?"
         filterButton.forEach { button in
             button.border(color: .systemGray4, radius: 5, width: 2.0)
             button.addTarget(self, action: #selector(filterButtonTapped(_sender:)), for: .touchUpInside)
@@ -97,7 +100,10 @@ class FeedBackViewController: UIViewController {
     }
     
     @IBAction func submitTapped(_ sender: UIButton) {
-        feedbackViewModel?.submitFeedback(rating: Int(feedbackViewModel?.rating ?? 3), comments: commentTextView.text, userID: 0, completion: { [weak self] result, error in
+        if customDonationTextField.isHidden == false {
+            tip = customDonationTextField.text
+        }
+        feedbackViewModel?.submitFeedback(rating: Int(feedbackViewModel?.rating ?? 3), comments: commentTextView.text, userID: 0, tip: tip, completion: { [weak self] result, error in
             DispatchQueue.main.async {
                 if let error = error {
                     self?.showAlert(title: "Error", message: error)
@@ -136,6 +142,7 @@ class FeedBackViewController: UIViewController {
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         customDonationTextField.isHidden = true
         cad1ButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
+        tip = "1"
     }
     
     @IBAction func cad3Tapped(_ sender: UIButton) {
@@ -145,6 +152,7 @@ class FeedBackViewController: UIViewController {
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         customDonationTextField.isHidden = true
         Cad3ButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
+        tip = "3"
     }
     
     @IBAction func notThisTimeTapped(_ sender: UIButton) {
@@ -154,5 +162,6 @@ class FeedBackViewController: UIViewController {
         notThisTimeButtonView.border(color: .systemGray4, radius: 5, width: 2.0)
         customDonationTextField.isHidden = true
         notThisTimeButtonView.border(color: Constants.themeColor, radius: 5, width: 2.0)
+        tip = "0"
     }
 }
