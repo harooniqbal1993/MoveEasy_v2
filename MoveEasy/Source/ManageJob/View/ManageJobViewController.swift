@@ -13,6 +13,7 @@ class ManageJobViewController: UIViewController {
         case start
         case pause
         case stop
+        case back
     }
     
     @IBOutlet weak var activeLabel: UILabel!
@@ -99,7 +100,7 @@ class ManageJobViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
             self.timerLabel.text = self.stopWatch?.inString
         }
-        backButton.isHidden = true
+        //        backButton.isHidden = true
         mediaButtonView.isHidden = true
         attachmentNoteLabel.isHidden = true
     }
@@ -186,7 +187,7 @@ class ManageJobViewController: UIViewController {
         self.fileUploader?.formDataUpload(url: URL(string: "\(NetworkService.shared.baseURL)\(Constants.EndPoints.pickupFiles.rawValue)?id=\(OrderSession.shared.order?.id ?? 0)")!, media: media ?? [], resultType: String.self, completion: { [weak self] str, error in
             DispatchQueue.main.async {
                 self?.stopAnimation(mediaType: mediaType)
-
+                
                 if let error = error {
                     self?.showAlert(title: "Error", message: error)
                     return
@@ -196,29 +197,41 @@ class ManageJobViewController: UIViewController {
     }
     
     private func navigateToNextScreen() {
-        //        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
-        //        receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
-        //        navigationController?.pushViewController(receiptViewController, animated: true)
+        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+        receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
+        navigationController?.pushViewController(receiptViewController, animated: true)
         
-//        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-//            UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=37.7,-122.4&directionsmode=driving")!)
-//
-//        } else {
-//            NSLog("Can't use comgooglemaps://");
-//        }
+        //        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+        //            UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=37.7,-122.4&directionsmode=driving")!)
+        //
+        //        } else {
+        //            NSLog("Can't use comgooglemaps://");
+        //        }
         
-//        let url = "https://www.google.com/maps/dir/?api=1&destination=33.5996372406277%2C73.1508795214011" // "comgooglemaps://?saddr=&daddr=33.5996372406277,73.1508795214011&directionsmode=driving" //
-//        guard let googleUrl = URL.init(string: url) else {
-//            // handle error
-//            return
-//        }
-//        UIApplication.shared.open(googleUrl)
+        //        let url = "https://www.google.com/maps/dir/?api=1&destination=33.5996372406277%2C73.1508795214011" // "comgooglemaps://?saddr=&daddr=33.5996372406277,73.1508795214011&directionsmode=driving" //
+        //        guard let googleUrl = URL.init(string: url) else {
+        //            // handle error
+        //            return
+        //        }
+        //        UIApplication.shared.open(googleUrl)
         
-        let welldoneViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
-        navigationController?.pushViewController(welldoneViewController, animated: true)
+        //        let welldoneViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+        //        navigationController?.pushViewController(welldoneViewController, animated: true)
     }
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
+        if jobStatus != nil {
+            jobStatus = .back
+            let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+            alertViewController.statusType = .back
+            alertViewController.completion = { [weak self] isYes in
+                if isYes {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }
+            present(alertViewController, animated: true, completion: nil)
+            return
+        }
         navigationController?.popViewController(animated: true)
     }
     
@@ -229,7 +242,7 @@ class ManageJobViewController: UIViewController {
         alertViewController.completion = { [weak self] isYes in
             if isYes {
                 self?.startTimer()
-//                self?.manageJobViewModel.timerStarted = true
+                //                self?.manageJobViewModel.timerStarted = true
                 self?.continueButton.isHidden = false
                 self?.startMoving()
             }
@@ -259,7 +272,7 @@ class ManageJobViewController: UIViewController {
                 self?.stopTimer()
                 self?.mediaButtonView.isHidden = false
                 self?.additionalInfoView.isHidden = false
-                self?.backButton.isHidden = false
+                //                self?.backButton.isHidden = false
                 self?.stopMoving()
             }
         }
@@ -290,7 +303,7 @@ class ManageJobViewController: UIViewController {
             continueButton.setTitle("Continue")
             manageJobViewModel.isLastDestination = true
             return
-//            navigateToNextScreen()
+            //            navigateToNextScreen()
         } else {
             addressLabel.text = manageJobViewModel.stopCounter < (manageJobViewModel.stops?.count ?? 0) ? manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop : OrderSession.shared.bookingModel?.dropoffLocation
             manageJobViewModel.stopCounter += 1
@@ -322,7 +335,7 @@ class ManageJobViewController: UIViewController {
                 return
             }
             guard let url = url else { return }
-
+            
             do {
                 let video = try Data(contentsOf: url)
                 self?.uploadMedia(data: video, mediaType: .video)

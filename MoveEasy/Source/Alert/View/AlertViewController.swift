@@ -13,6 +13,7 @@ class AlertViewController: UIViewController {
         case start
         case paused
         case stopped
+        case back
     }
 
     @IBOutlet weak var warningImageView: UIImageView!
@@ -59,6 +60,10 @@ class AlertViewController: UIViewController {
             warningImageView.image = UIImage(named: "pause")
             titleLabel.text = "Did you mean to pause?"
             messageLabel.text = "This is meant for lunch breaks or any other breaks during the move."
+        } else if statusType == .back {
+            warningImageView.image = UIImage(named: "warning")
+            titleLabel.text = "Are you sure you want exit?"
+            messageLabel.text = "If you exit clock will stop."
         } else {
             warningImageView.image = UIImage(named: "stop")
             titleLabel.text = "Did you finish the job?"
