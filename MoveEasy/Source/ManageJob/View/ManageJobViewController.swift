@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ManageJobViewController: UIViewController {
     
@@ -197,6 +198,13 @@ class ManageJobViewController: UIViewController {
     }
     
     private func navigateToNextScreen() {
+        let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
+        let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
+        
+        let appleMap = AppleMap(source: source, destination: destination)
+        appleMap.present(in: self, sourceView: backButton)
+        return
+        
         let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
         receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
         navigationController?.pushViewController(receiptViewController, animated: true)

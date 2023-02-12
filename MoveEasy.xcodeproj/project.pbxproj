@@ -97,6 +97,7 @@
 		AF7C08552970818500099E77 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08542970818500099E77 /* FirebaseMessaging */; };
 		AF81CCDD296DD0B6007B1ADB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81CCDC296DD0B6007B1ADB /* Enums.swift */; };
 		AFF25B3A2976694600348BB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFF25B392976694600348BB0 /* GoogleService-Info.plist */; };
+		AFFF9AD029995FE000F1582C /* AppleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF9ACF29995FE000F1582C /* AppleMap.swift */; };
 		EBE57E5A30D49E80232ECF71 /* Pods_MoveEasy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764921BA2560B7766EB3937E /* Pods_MoveEasy.framework */; };
 /* End PBXBuildFile section */
 
@@ -195,6 +196,7 @@
 		AF6C1A6A297EFE84007234EE /* ForgotTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotTimer.swift; sourceTree = "<group>"; };
 		AF81CCDC296DD0B6007B1ADB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		AFF25B392976694600348BB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AFFF9ACF29995FE000F1582C /* AppleMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMap.swift; sourceTree = "<group>"; };
 		F717F208AD75D06182AA29E1 /* Pods-MoveEasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveEasy.debug.xcconfig"; path = "Target Support Files/Pods-MoveEasy/Pods-MoveEasy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -833,6 +835,7 @@
 				18863FB9287F3EB100A6F752 /* RatingStar.swift */,
 				18DE6FBC28846DED0074250D /* SpinnerButton.swift */,
 				184E56B928C35C740079F1E4 /* FileUploader.swift */,
+				AFFF9ACF29995FE000F1582C /* AppleMap.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1104,6 +1107,7 @@
 				18BD379C2879B3CA0034D7FA /* AlertViewController.swift in Sources */,
 				AF81CCDD296DD0B6007B1ADB /* Enums.swift in Sources */,
 				189DABAB290F9B2100965BDE /* FinishJobModel.swift in Sources */,
+				AFFF9AD029995FE000F1582C /* AppleMap.swift in Sources */,
 				18CE66D328795790002AE9D1 /* UIViewController.swift in Sources */,
 				18D188B9287AC58C003E8CD1 /* OrderCell.swift in Sources */,
 				18CE66DA287964A9002AE9D1 /* UILabel.swift in Sources */,
