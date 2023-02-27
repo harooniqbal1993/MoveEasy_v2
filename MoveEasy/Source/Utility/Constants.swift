@@ -14,6 +14,7 @@ class Constants {
     static let buttonGreen = UIColor.init(red: 104/255, green: 229/255, blue: 47/255, alpha: 1.0)
     static let kLogin: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
     static let kMain: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    static let kJob: UIStoryboard = UIStoryboard(name: "Job", bundle: nil)
     
     static let fittedSheetOptions = SheetOptions(
         // The full height of the pull bar. The presented view controller will treat this area as a safearea inset on the top
@@ -70,6 +71,7 @@ class Constants {
     
     enum NotificationObserver: String {
         case OPEN_TRIPVIEW = "OPEN_TRIPVIEW"
+        case OPEN_RECEIPT_VIEW = "OPEN_RECEIPT_VIEW"
         
         var value: Notification.Name {
             return Notification.Name(rawValue: self.rawValue)

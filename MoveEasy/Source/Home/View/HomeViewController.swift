@@ -70,6 +70,20 @@ class HomeViewController: UIViewController {
     }
     
     func fromBackgroundPushNotification() {
+        if Defaults.forgotTimerResponse != nil {
+            DispatchQueue.main.async {
+                if Defaults.forgotTimerResponse == "YES" {
+                    let welldoneViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+                    self.navigationController?.pushViewController(welldoneViewController, animated: true)
+                } else {
+                    let oopsViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "OopsViewController") as! OopsViewController
+                    self.navigationController?.pushViewController(oopsViewController, animated: true)
+                }
+            }
+            Defaults.forgotTimerResponse = nil
+            return
+        }
+        
         if Defaults.fromBackgroundNotificationBookingID != nil {
             openTripDetailVC(bookingID: Defaults.fromBackgroundNotificationBookingID ?? "0")
         }
@@ -105,6 +119,10 @@ class HomeViewController: UIViewController {
         homeViewModel.getDashboardData { error in
             DispatchQueue.main.async {
                 if error != nil {
+                    if ((error?.contains("expired")) != nil) {
+                        self.logout()
+                        return
+                    }
                     self.showAlert(title: "Error", message: error ?? "Some Error")
                     return
                 }
@@ -180,7 +198,6 @@ class HomeViewController: UIViewController {
     
     func openTripDetailVC(bookingID: String) {
         DispatchQueue.main.async {
-//                self.showAlert(title: "Notification", message: "Tapped \(Defaults.fromBackgroundNotificationBookingID ?? "")")
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
             let order = OrderModel(id: Int(bookingID ), type: "Mooving", status: "In Progress", pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil)
             OrderSession.shared.order = order
@@ -210,6 +227,18 @@ class HomeViewController: UIViewController {
             Defaults.fromBackgroundNotificationBookingID = nil
         }
     }
+    
+    func logout() {
+        let loginViewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let nav = UINavigationController(rootViewController: loginViewController)
+//        UIApplication.shared.keyWindow?.rootViewController = nav
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+//        let rootVC = window?.rootViewController
+        window?.rootViewController = nav
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -229,34 +258,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if homeViewModel.isLoading == true { return cell }
         cell.configure(viewModel: OrderCellViewModel(order: homeViewModel.displayedOrders?[indexPath.row]))
         cell.completion = { [weak self] in
-            
             self?.openTripDetailVC(bookingID: "\(self?.homeViewModel.displayedOrders?[indexPath.row].id ?? 0)")
-//            let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-//            let tripDetailViewModel = TripDetailViewModel(order: (self?.homeViewModel.displayedOrders?[indexPath.row])!)
-//            OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-//            tripDetailViewController.tripDetailViewModel = tripDetailViewModel
-//            tripDetailViewController.onDismiss = { [weak self] isMap in
-//                if !isMap {
-//                    let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
-//                    manageJobViewController.manageJobViewModel = ManageJobViewModel()
-//                    OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-//                    self?.navigationController?.pushViewController(manageJobViewController, animated: true)
-//                } else {
-//                    let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-//                    mapViewController.modalPresentationStyle = .fullScreen
-//                    mapViewController.onAccept = { [weak self] in
-//                        let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
-//                        manageJobViewController.manageJobViewModel = ManageJobViewModel()
-//                        OrderSession.shared.order = self?.homeViewModel.displayedOrders?[indexPath.row]
-//                        self?.navigationController?.pushViewController(manageJobViewController, animated: true)
-//                    }
-//                    self?.present(mapViewController, animated: true)
-//                }
-//            }
-//            let sheetController = SheetViewController(controller: tripDetailViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
-//            sheetController.cornerRadius = 0
-//            self?.present(sheetController, animated: true, completion: nil)
-
         }
         return cell
     }
@@ -282,14 +284,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         homeViewModel.filterOrders()
         orderTable.reloadData()
         filterCollectionView.reloadData()
-//        indexPath.item == 1 ? getTodaysBookings() : getDashboardData()
-//        if indexPath.item == 1 {
-//            getTodaysBookings()
-//        } else {
-////            if homeViewModel.displayedOrders?.count == 0 {
-//                getDashboardData()
-////            }
-//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -54,6 +54,10 @@ class SideMenuViewController: UIViewController {
     
     func navigate(screen: String) {
         switch screen {
+        case "Home":
+            performSegue(withIdentifier: "home_segue", sender: nil)
+        case "My trips":
+            performSegue(withIdentifier: "profile_segue", sender: nil)
         case "Logout":
             let loginViewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             let nav = UINavigationController(rootViewController: loginViewController)

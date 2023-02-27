@@ -94,6 +94,7 @@ class ManageJobViewController: UIViewController {
     func configure() {
         manageJobViewModel = ManageJobViewModel()
         proofViewModel = ProofViewModel()
+        
     }
     
     func startTimer() {
@@ -198,14 +199,14 @@ class ManageJobViewController: UIViewController {
     }
     
     private func navigateToNextScreen() {
-        let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
-        let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
+//        let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
+//        let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
+//
+//        let appleMap = AppleMap(source: source, destination: destination)
+//        appleMap.present(in: self, sourceView: backButton)
+//        return
         
-        let appleMap = AppleMap(source: source, destination: destination)
-        appleMap.present(in: self, sourceView: backButton)
-        return
-        
-        let receiptViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+        let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
         receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
         navigationController?.pushViewController(receiptViewController, animated: true)
         
@@ -300,21 +301,57 @@ class ManageJobViewController: UIViewController {
             return
         }
         
+        manageJobViewModel.stopCounter += 1
+        
         if manageJobViewModel.isLastDestination {
             stopMoving()
             navigateToNextScreen()
         }
         
-        print("\((manageJobViewModel.stops?.count ?? 0) + 1) == \(manageJobViewModel.stopCounter)")
-        if (manageJobViewModel.stops?.count ?? 0) + 1 == manageJobViewModel.stopCounter {
+        print("\((manageJobViewModel.stops?.count ?? 0)) == \(manageJobViewModel.stopCounter)")
+//        if (manageJobViewModel.stops?.count ?? 0) + 1 == manageJobViewModel.stopCounter {
+        if (manageJobViewModel.stops?.count ?? 0) - 1 == manageJobViewModel.stopCounter {
             addressLabel.text = OrderSession.shared.bookingModel?.dropoffLocation
             continueButton.setTitle("Continue")
             manageJobViewModel.isLastDestination = true
             return
             //            navigateToNextScreen()
         } else {
-            addressLabel.text = manageJobViewModel.stopCounter < (manageJobViewModel.stops?.count ?? 0) ? manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop : OrderSession.shared.bookingModel?.dropoffLocation
-            manageJobViewModel.stopCounter += 1
+//            addressLabel.text = manageJobViewModel.stopCounter < (manageJobViewModel.stops?.count ?? 0) ? manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop : OrderSession.shared.bookingModel?.dropoffLocation
+            
+//            let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
+//            let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
+//
+////            let sourceLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].lat ?? "0.0")
+////            let sourceLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].long ?? "0.0")
+////            let source1 = CLLocationCoordinate2D(latitude: sourceLat ?? 0.0, longitude: sourceLng ?? 0.0)
+////
+////            let destLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].lat ?? "0.0")
+////            let destLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].long ?? "0.0")
+////            let dest1 = CLLocationCoordinate2D(latitude: destLat ?? 0.0, longitude: destLng ?? 0.0)
+//
+//            let appleMap = AppleMap(source: source, destination: destination)
+//            appleMap.present(in: self, sourceView: backButton)
+            
+//            manageJobViewModel.stopCounter += 1
+            
+            if manageJobViewModel.stopCounter < manageJobViewModel.stops?.count ?? 0 {
+                addressLabel.text = manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop
+                
+                let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
+                let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
+                
+    //            let sourceLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].lat ?? "0.0")
+    //            let sourceLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].long ?? "0.0")
+    //            let source1 = CLLocationCoordinate2D(latitude: sourceLat ?? 0.0, longitude: sourceLng ?? 0.0)
+    //
+    //            let destLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].lat ?? "0.0")
+    //            let destLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].long ?? "0.0")
+    //            let dest1 = CLLocationCoordinate2D(latitude: destLat ?? 0.0, longitude: destLng ?? 0.0)
+                
+                let appleMap = AppleMap(source: source, destination: destination)
+                appleMap.present(in: self, sourceView: backButton)
+            }
         }
     }
     

@@ -331,13 +331,13 @@
                                             <action selector="menuButtonTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="IkD-Q6-0kc"/>
                                         </connections>
                                     </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCM-gG-H8V">
+                                    <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCM-gG-H8V">
                                         <rect key="frame" x="310" y="12" width="51" height="31"/>
                                         <connections>
                                             <action selector="changeDriverStatus:" destination="uYg-ly-g9V" eventType="valueChanged" id="LX9-RG-l5Q"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysV-yT-PKE">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysV-yT-PKE">
                                         <rect key="frame" x="266.5" y="20.5" width="35.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -362,7 +362,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1012"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7d-ul-7uP">
-                                                <rect key="frame" x="20" y="762" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="732" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="8Oo-Ad-hfD"/>
@@ -644,7 +644,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okc-VD-r0c" customClass="PaddingLabel" customModule="Moovez_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="680.5" width="335" height="61.5"/>
+                                                <rect key="frame" x="20" y="680.5" width="335" height="31.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Stop 1, Full location address...Block # 123, 
 Apartment # 123</string>
@@ -1620,7 +1620,7 @@ privacy policy.</string>
                                             <action selector="backButtonTapped:" destination="r8a-34-uX1" eventType="touchUpInside" id="ycY-46-nhd"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Another job well done!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkf-MB-Emv">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Another job well done!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkf-MB-Emv">
                                         <rect key="frame" x="106.5" y="18" width="162" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1750,7 +1750,7 @@ privacy policy.</string>
                                             <action selector="backButtonTapped:" destination="plU-oM-7Nt" eventType="touchUpInside" id="wra-py-ZOA"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAx-bn-OUp">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAx-bn-OUp">
                                         <rect key="frame" x="167.5" y="18" width="40.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1789,7 +1789,7 @@ privacy policy.</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd7-Rg-oxY">
-                                                        <rect key="frame" x="55" y="256" width="225" height="40"/>
+                                                        <rect key="frame" x="55" y="276" width="225" height="40"/>
                                                         <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="huk-SU-LKt"/>
@@ -1805,13 +1805,13 @@ privacy policy.</string>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBH-4o-a3C">
                                                         <rect key="frame" x="50" y="126" width="235" height="90"/>
-                                                        <string key="text">We couldn't compklete your move. Please speak to our movers if there is an issue with the order summary or make sure your payment method is correct.</string>
+                                                        <string key="text">If there’s an issue with your job summary, please speak to our movers and they will resubmit the invoice details. They can’t leave until payment is confirmed.</string>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeV-zA-CqH">
-                                                        <rect key="frame" x="55" y="311" width="225" height="40"/>
+                                                        <rect key="frame" x="55" y="331" width="225" height="40"/>
                                                         <color key="backgroundColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="jgk-P6-476"/>
@@ -1825,20 +1825,28 @@ privacy policy.</string>
                                                             <action selector="homepageTapped:" destination="plU-oM-7Nt" eventType="touchUpInside" id="dSb-Wr-Iec"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zM-bE-YdB">
+                                                        <rect key="frame" x="129.5" y="236" width="76" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="Nd7-Rg-oxY" firstAttribute="top" secondItem="BBH-4o-a3C" secondAttribute="bottom" constant="40" id="1yc-mJ-Nv7"/>
                                                     <constraint firstItem="BBH-4o-a3C" firstAttribute="top" secondItem="A3v-p0-sID" secondAttribute="bottom" constant="30" id="4i4-MC-FBG"/>
                                                     <constraint firstAttribute="trailing" secondItem="BBH-4o-a3C" secondAttribute="trailing" constant="50" id="AGO-Vh-8so"/>
                                                     <constraint firstItem="0TO-1T-Szx" firstAttribute="centerX" secondItem="wla-YK-QvP" secondAttribute="centerX" id="Ca9-il-W5x"/>
                                                     <constraint firstAttribute="height" constant="410" id="DSK-3B-UPM"/>
                                                     <constraint firstItem="MeV-zA-CqH" firstAttribute="top" secondItem="Nd7-Rg-oxY" secondAttribute="bottom" constant="15" id="LlR-KF-I1O"/>
+                                                    <constraint firstItem="1zM-bE-YdB" firstAttribute="centerX" secondItem="wla-YK-QvP" secondAttribute="centerX" id="Ltd-dG-Pqb"/>
                                                     <constraint firstItem="A3v-p0-sID" firstAttribute="top" secondItem="0TO-1T-Szx" secondAttribute="bottom" constant="8" symbolic="YES" id="Pnh-ml-vD6"/>
+                                                    <constraint firstItem="Nd7-Rg-oxY" firstAttribute="top" secondItem="1zM-bE-YdB" secondAttribute="bottom" constant="22" id="RDb-2F-Sym"/>
                                                     <constraint firstItem="A3v-p0-sID" firstAttribute="centerX" secondItem="wla-YK-QvP" secondAttribute="centerX" id="SRr-Te-Rul"/>
                                                     <constraint firstAttribute="trailing" secondItem="Nd7-Rg-oxY" secondAttribute="trailing" constant="55" id="abE-Y6-q1y"/>
                                                     <constraint firstItem="0TO-1T-Szx" firstAttribute="top" secondItem="wla-YK-QvP" secondAttribute="top" constant="40" id="cFw-cE-aDY"/>
                                                     <constraint firstItem="MeV-zA-CqH" firstAttribute="leading" secondItem="wla-YK-QvP" secondAttribute="leading" constant="55" id="f78-6E-bmA"/>
+                                                    <constraint firstItem="1zM-bE-YdB" firstAttribute="top" secondItem="BBH-4o-a3C" secondAttribute="bottom" constant="20" id="ljI-jA-94v"/>
                                                     <constraint firstItem="Nd7-Rg-oxY" firstAttribute="leading" secondItem="wla-YK-QvP" secondAttribute="leading" constant="55" id="poh-SV-6KO"/>
                                                     <constraint firstAttribute="trailing" secondItem="MeV-zA-CqH" secondAttribute="trailing" constant="55" id="uE8-HP-hPf"/>
                                                     <constraint firstItem="BBH-4o-a3C" firstAttribute="leading" secondItem="wla-YK-QvP" secondAttribute="leading" constant="50" id="xtq-Kd-0dl"/>

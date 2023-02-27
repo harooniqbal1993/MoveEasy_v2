@@ -793,7 +793,7 @@ and start earning</string>
                                     <outlet property="delegate" destination="4hD-td-o62" id="8Ap-eP-YI2"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xkc-xA-PUk">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xkc-xA-PUk">
                                 <rect key="frame" x="216" y="20" width="67" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -852,31 +852,47 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHe-7c-hv2">
-                                <rect key="frame" x="22" y="29" width="70" height="31"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <rect key="frame" x="22" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="K17-so-3CW"/>
-                                    <constraint firstAttribute="width" constant="70" id="hTK-Nh-GlH"/>
+                                    <constraint firstAttribute="height" constant="50" id="K17-so-3CW"/>
+                                    <constraint firstAttribute="width" constant="50" id="hTK-Nh-GlH"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <state key="normal" image="side-menu-blue">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="Isj-jr-R2x" eventType="touchUpInside" id="NYR-S3-JcA"/>
                                 </connections>
                             </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-30-YWS">
+                                <rect key="frame" x="0.0" y="78" width="375" height="589"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xh9-Um-MfU"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Igm-30-YWS" firstAttribute="leading" secondItem="xh9-Um-MfU" secondAttribute="leading" id="35n-vy-sht"/>
+                            <constraint firstItem="Igm-30-YWS" firstAttribute="top" secondItem="iHe-7c-hv2" secondAttribute="bottom" constant="8" symbolic="YES" id="GG2-7T-Mml"/>
                             <constraint firstItem="iHe-7c-hv2" firstAttribute="leading" secondItem="xh9-Um-MfU" secondAttribute="leading" constant="22" id="WZt-m5-RmF"/>
-                            <constraint firstItem="iHe-7c-hv2" firstAttribute="top" secondItem="uKm-0A-cc4" secondAttribute="top" constant="29" id="wYa-sL-ihK"/>
+                            <constraint firstItem="Igm-30-YWS" firstAttribute="bottom" secondItem="xh9-Um-MfU" secondAttribute="bottom" id="elI-zH-9Cu"/>
+                            <constraint firstItem="Igm-30-YWS" firstAttribute="trailing" secondItem="xh9-Um-MfU" secondAttribute="trailing" id="h8J-xL-9TR"/>
+                            <constraint firstItem="iHe-7c-hv2" firstAttribute="top" secondItem="xh9-Um-MfU" secondAttribute="top" constant="20" id="wYa-sL-ihK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lew-Bw-zVy"/>
+                    <connections>
+                        <outlet property="webView" destination="Igm-30-YWS" id="CWB-Uy-UnQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P58-hv-H4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2697" y="818"/>
+            <point key="canvasLocation" x="2696.8000000000002" y="817.24137931034488"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IGv-Oi-sfJ">
@@ -898,10 +914,9 @@ and start earning</string>
         <!--Navigation Controller-->
         <scene sceneID="jET-nT-pRw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F37-4V-IC6" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="F37-4V-IC6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="INU-y6-l86">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -919,7 +934,7 @@ and start earning</string>
                 <viewControllerPlaceholder storyboardIdentifier="TabViewController" storyboardName="Home" referencedIdentifier="TabViewController" id="HiG-In-2PC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgl-bD-fnM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2724.8000000000002" y="112.44377811094454"/>
+            <point key="canvasLocation" x="2725" y="97"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="3vX-Uo-laO">
@@ -927,7 +942,7 @@ and start earning</string>
                 <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="Home" referencedIdentifier="HomeViewController" id="Pd1-MN-k9l" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqt-mL-vR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2735.1999999999998" y="59.370314842578715"/>
+            <point key="canvasLocation" x="2726" y="-8"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tfz-Da-J9B">
@@ -1506,13 +1521,13 @@ and start earning</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4L-PM-8py">
-                                                <rect key="frame" x="138.5" y="466" width="98" height="18"/>
+                                                <rect key="frame" x="138.5" y="287" width="98" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2N-De-mmn">
-                                                <rect key="frame" x="20" y="797" width="335" height="40"/>
+                                                <rect key="frame" x="20" y="618" width="335" height="40"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="IbM-Zr-mzS"/>
@@ -1528,7 +1543,7 @@ and start earning</string>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FId-MV-2dg">
-                                                <rect key="frame" x="20" y="514" width="335" height="110"/>
+                                                <rect key="frame" x="20" y="335" width="335" height="110"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="auU-V7-zqM">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -1648,7 +1663,7 @@ and start earning</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="OSz-U8-AwQ">
-                                                <rect key="frame" x="20" y="644" width="335" height="40"/>
+                                                <rect key="frame" x="20" y="465" width="335" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf1-nV-egd">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
@@ -1679,23 +1694,23 @@ and start earning</string>
                                                     <constraint firstAttribute="height" constant="40" id="krw-sL-Rwb"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpL-rH-nKt">
-                                                <rect key="frame" x="176.5" y="282" width="22" height="18"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpL-rH-nKt">
+                                                <rect key="frame" x="176.5" y="252" width="22" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Rhk-Co-FuS">
-                                                <rect key="frame" x="20" y="315" width="335" height="60"/>
+                                                <rect key="frame" x="20" y="270" width="335" height="0.0"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUR-7K-lH5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75.5" height="60"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUR-7K-lH5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="C3I-o8-Uzc">
-                                                                <rect key="frame" x="11" y="21" width="53.5" height="18"/>
+                                                                <rect key="frame" x="-27" y="21" width="54" height="18"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6o-XW-VSX">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="53.5" height="18"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="18"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -1703,7 +1718,7 @@ and start earning</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcG-ca-ZsF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="75.5" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <connections>
@@ -1722,11 +1737,11 @@ and start earning</string>
                                                             <constraint firstItem="xcG-ca-ZsF" firstAttribute="top" secondItem="uUR-7K-lH5" secondAttribute="top" id="uwP-pd-kwB"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8o-G2-PpZ">
-                                                        <rect key="frame" x="86.5" y="0.0" width="75.5" height="60"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8o-G2-PpZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="sck-Ns-clt">
-                                                                <rect key="frame" x="23.5" y="12.5" width="29" height="35"/>
+                                                                <rect key="frame" x="-14.5" y="12.5" width="29" height="35"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qV-E1-w1F">
                                                                         <rect key="frame" x="0.0" y="0.0" width="29" height="17"/>
@@ -1743,7 +1758,7 @@ and start earning</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEU-9x-T2x">
-                                                                <rect key="frame" x="0.0" y="0.0" width="75.5" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <connections>
                                                                     <action selector="cad3Tapped:" destination="ivK-Xa-O10" eventType="touchUpInside" id="jlT-2I-hlF"/>
@@ -1761,11 +1776,11 @@ and start earning</string>
                                                             <constraint firstItem="sck-Ns-clt" firstAttribute="centerX" secondItem="g8o-G2-PpZ" secondAttribute="centerX" id="n7j-O7-wFz"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGi-xy-Gnw">
-                                                        <rect key="frame" x="173" y="0.0" width="75.5" height="60"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGi-xy-Gnw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qwn-bF-BY3">
-                                                                <rect key="frame" x="23.5" y="12.5" width="29" height="35"/>
+                                                                <rect key="frame" x="-14.5" y="12.5" width="29" height="35"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sw-Ke-0qJ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="29" height="17"/>
@@ -1782,7 +1797,7 @@ and start earning</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhT-Xq-haa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="75.5" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <connections>
                                                                     <action selector="cad1Tapped:" destination="ivK-Xa-O10" eventType="touchUpInside" id="2JN-h1-gok"/>
@@ -1800,14 +1815,14 @@ and start earning</string>
                                                             <constraint firstItem="fhT-Xq-haa" firstAttribute="top" secondItem="XGi-xy-Gnw" secondAttribute="top" id="uEz-2a-izF"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aX-8U-ysm">
-                                                        <rect key="frame" x="259.5" y="0.0" width="75.5" height="60"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aX-8U-ysm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-0w-eDj">
-                                                                <rect key="frame" x="0.0" y="13.5" width="75.5" height="33.5"/>
+                                                                <rect key="frame" x="0.0" y="21.5" width="0.0" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not this time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-X7-5b3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="75.5" height="33.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -1815,7 +1830,7 @@ and start earning</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50R-R8-lja">
-                                                                <rect key="frame" x="0.0" y="0.0" width="75.5" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <connections>
                                                                     <action selector="notThisTimeTapped:" destination="ivK-Xa-O10" eventType="touchUpInside" id="XBd-oM-hyU"/>
@@ -1837,10 +1852,10 @@ and start earning</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VJ0-q0-7Iu">
-                                                <rect key="frame" x="20" y="390" width="335" height="34"/>
+                                                <rect key="frame" x="20" y="285" width="335" height="0.0"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbd-lK-6TB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
+                                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbd-lK-6TB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="4Hb-F4-I6M"/>
                                                         </constraints>
@@ -1849,8 +1864,8 @@ and start earning</string>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-xt-0oH">
-                                                <rect key="frame" x="20" y="434" width="335" height="2"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-xt-0oH">
+                                                <rect key="frame" x="20" y="285" width="335" height="2"/>
                                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="FhC-fA-DBS"/>
@@ -1867,13 +1882,13 @@ and start earning</string>
                                             <constraint firstItem="z2N-De-mmn" firstAttribute="top" secondItem="OSz-U8-AwQ" secondAttribute="bottom" constant="113" id="4lw-Q6-Yoe"/>
                                             <constraint firstItem="cfd-Jk-wuP" firstAttribute="top" secondItem="4IQ-9T-WwK" secondAttribute="bottom" constant="20" id="5FJ-Nx-oFh"/>
                                             <constraint firstAttribute="trailing" secondItem="ngr-CO-KOM" secondAttribute="trailing" constant="20" symbolic="YES" id="7Tb-JR-ce0"/>
-                                            <constraint firstItem="Rhk-Co-FuS" firstAttribute="top" secondItem="EpL-rH-nKt" secondAttribute="bottom" constant="15" id="9zR-O7-kiS"/>
+                                            <constraint firstItem="Rhk-Co-FuS" firstAttribute="top" secondItem="EpL-rH-nKt" secondAttribute="bottom" id="9zR-O7-kiS"/>
                                             <constraint firstItem="x4L-PM-8py" firstAttribute="centerX" secondItem="CZT-Hy-s36" secondAttribute="centerX" id="Axj-xA-J0B"/>
                                             <constraint firstAttribute="trailing" secondItem="FId-MV-2dg" secondAttribute="trailing" constant="20" symbolic="YES" id="Ek6-Ld-6JM"/>
                                             <constraint firstItem="cOt-ro-km2" firstAttribute="top" secondItem="CZT-Hy-s36" secondAttribute="top" id="FYo-nN-T78"/>
                                             <constraint firstItem="VJ0-q0-7Iu" firstAttribute="top" secondItem="Rhk-Co-FuS" secondAttribute="bottom" constant="15" id="ILJ-Uu-GMw"/>
-                                            <constraint firstItem="ibf-xt-0oH" firstAttribute="top" secondItem="VJ0-q0-7Iu" secondAttribute="bottom" constant="10" id="Ibf-ad-Dwe"/>
-                                            <constraint firstItem="x4L-PM-8py" firstAttribute="top" secondItem="ibf-xt-0oH" secondAttribute="bottom" constant="30" id="LMF-u3-np2"/>
+                                            <constraint firstItem="ibf-xt-0oH" firstAttribute="top" secondItem="VJ0-q0-7Iu" secondAttribute="bottom" id="Ibf-ad-Dwe"/>
+                                            <constraint firstItem="x4L-PM-8py" firstAttribute="top" secondItem="ibf-xt-0oH" secondAttribute="bottom" id="LMF-u3-np2"/>
                                             <constraint firstAttribute="trailing" secondItem="VJ0-q0-7Iu" secondAttribute="trailing" constant="20" id="Lnx-8j-XMD"/>
                                             <constraint firstItem="VJ0-q0-7Iu" firstAttribute="leading" secondItem="CZT-Hy-s36" secondAttribute="leading" constant="20" id="Pgt-4Z-5tf"/>
                                             <constraint firstItem="4IQ-9T-WwK" firstAttribute="centerX" secondItem="CZT-Hy-s36" secondAttribute="centerX" id="UkZ-cJ-y11"/>
@@ -1888,7 +1903,7 @@ and start earning</string>
                                             <constraint firstAttribute="trailing" secondItem="z2N-De-mmn" secondAttribute="trailing" constant="20" symbolic="YES" id="oZY-qk-mHt"/>
                                             <constraint firstItem="OSz-U8-AwQ" firstAttribute="leading" secondItem="CZT-Hy-s36" secondAttribute="leading" constant="20" symbolic="YES" id="qkh-CP-MH0"/>
                                             <constraint firstItem="4IQ-9T-WwK" firstAttribute="top" secondItem="ngr-CO-KOM" secondAttribute="bottom" constant="30" id="tRM-Qd-0DI"/>
-                                            <constraint firstItem="EpL-rH-nKt" firstAttribute="top" secondItem="yyo-Pu-oLV" secondAttribute="bottom" constant="30" id="tbn-Qd-5vR"/>
+                                            <constraint firstItem="EpL-rH-nKt" firstAttribute="top" secondItem="yyo-Pu-oLV" secondAttribute="bottom" id="tbn-Qd-5vR"/>
                                             <constraint firstItem="cfd-Jk-wuP" firstAttribute="centerX" secondItem="CZT-Hy-s36" secondAttribute="centerX" id="vUV-Qh-lj6"/>
                                             <constraint firstItem="Rhk-Co-FuS" firstAttribute="leading" secondItem="CZT-Hy-s36" secondAttribute="leading" constant="20" symbolic="YES" id="wmz-4T-Bxv"/>
                                             <constraint firstAttribute="trailing" secondItem="OSz-U8-AwQ" secondAttribute="trailing" constant="20" symbolic="YES" id="xru-dw-8nt"/>
@@ -2117,7 +2132,7 @@ and start earning</string>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="yL6-IY-pme"/>
+        <segue reference="HLb-0g-CiN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow-left" width="22" height="22"/>
@@ -2140,14 +2155,11 @@ and start earning</string>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

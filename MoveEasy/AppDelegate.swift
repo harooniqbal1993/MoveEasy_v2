@@ -118,6 +118,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Print full message.
         print("userInfo : ", userInfo)
         DispatchQueue.main.async {
+            
+            if let response = userInfo["response"] as? Bool {
+                print(response)
+                
+                if let orderID = userInfo["orderid"] as? String {
+                    let dic = ["bookingID": orderID, "response": response] as [String : Any]
+                    NotificationCenter.default.post(name: Constants.NotificationObserver.OPEN_RECEIPT_VIEW.value,
+                                                    object: nil,
+                                                    userInfo: dic)
+                }
+                return
+            }
+            
             if let orderID = userInfo["orderid"] as? String {
                 let dic = ["bookingID": orderID]
                 NotificationCenter.default.post(name: Constants.NotificationObserver.OPEN_TRIPVIEW.value,
@@ -132,7 +145,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse) async {
-        Defaults.fromBackgroundNotificationBookingID = "2388"
+//        Defaults.fromBackgroundNotificationBookingID = "2388"
         let userInfo = response.notification.request.content.userInfo
         
         // [START_EXCLUDE]
@@ -145,13 +158,21 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print full message.
         print(userInfo)
+        if let response = userInfo["response"] as? Bool {
+            print(response)
+            Defaults.forgotTimerResponse = response ? "YES" : "NO"
+            if let orderID = userInfo["orderid"] as? String {
+                NetworkService.shared.getBookingSummary(bookingID: orderID) { result, error in
+                    debugPrint(error ?? "")
+                    OrderSession.shared.bookingModel = result
+                }
+            }
+            return
+        }
         
-//        DispatchQueue.main.async {
-//            NotificationCenter.default.post(name: Constants.NotificationObserver.OPEN_TRIPVIEW.value,
-//                                            object: nil,
-//                                            userInfo: nil)
-//        }
-        
+        if let orderID = userInfo["orderid"] as? String {
+            Defaults.fromBackgroundNotificationBookingID = orderID
+        }
     }
 }
 

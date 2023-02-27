@@ -17,6 +17,7 @@ class Defaults {
     private static let DRIVER_STATUS: String = "driver_status"
     private static let DEVICE_TOKEN: String = "device_token"
     private static let FROM_BACKGROUND_NOTIFICATION: String = "from_background_notification"
+    private static let FORGOT_TIMER_RESPONSE: String = "forgot_timer_response"
     
     fileprivate static var userDefault: UserDefaults {
         get {
@@ -145,6 +146,19 @@ class Defaults {
                 Defaults.userDefault.set(newValue, forKey: FROM_BACKGROUND_NOTIFICATION)
             } else {
                 Defaults.userDefault.removeObject(forKey: FROM_BACKGROUND_NOTIFICATION)
+            }
+        }
+    }
+    
+    static var forgotTimerResponse: String? {
+        get {
+            return Defaults.userDefault.string(forKey: FORGOT_TIMER_RESPONSE)
+        }
+        set {
+            if let newValue = newValue {
+                Defaults.userDefault.set(newValue, forKey: FORGOT_TIMER_RESPONSE)
+            } else {
+                Defaults.userDefault.removeObject(forKey: FORGOT_TIMER_RESPONSE)
             }
         }
     }

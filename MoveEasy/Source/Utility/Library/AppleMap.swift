@@ -30,8 +30,11 @@ class AppleMap {
             let destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
             destination.name = "Destination"
             
+            let okotoks = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 50.725494, longitude: -113.974947)))
+            okotoks.name = "okotoks"
+            
             MKMapItem.openMaps(
-              with: [source, destination],
+              with: [source, okotoks, destination],
               launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             )
         }

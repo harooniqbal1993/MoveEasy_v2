@@ -23,12 +23,28 @@ class ReceiptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configure()
+        configure()
         loadViews()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        removeNotificationCenter()
+    }
+    
     func configure() {
-//        receiptViewModel = ReceiptViewModel()
+        registerNotificationCenter()
+        receiptViewModel = ReceiptViewModel(receiptModel: nil)
+    }
+    
+    func registerNotificationCenter() {
+        NotificationCenter.default
+            .addObserver(self,
+                         selector:#selector(openReceiptView(_:)),
+                         name: Constants.NotificationObserver.OPEN_RECEIPT_VIEW.value, object: nil)
+    }
+    
+    func removeNotificationCenter() {
+        NotificationCenter.default.removeObserver(self, name: Constants.NotificationObserver.OPEN_TRIPVIEW.value, object: nil)
     }
     
     func loadViews() {
@@ -82,12 +98,24 @@ class ReceiptViewController: UIViewController {
     
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
 //        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "SignatureViewController") as! SignatureViewController
-        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+        let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
         navigationController?.pushViewController(signatureViewController, animated: true)
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
-        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "OopsViewController") as! OopsViewController
+        let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "OopsViewController") as! OopsViewController
         navigationController?.pushViewController(signatureViewController, animated: true)
+    }
+    
+    @objc func openReceiptView(_ notification: Notification) {
+        if let response = notification.userInfo?["response"] as? Bool {
+            if response == true {
+                let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+                navigationController?.pushViewController(signatureViewController, animated: true)
+            } else {
+                let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "OopsViewController") as! OopsViewController
+                navigationController?.pushViewController(signatureViewController, animated: true)
+            }
+        }
     }
 }

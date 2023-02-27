@@ -21,8 +21,11 @@ class HttpUtility {
         urlRequest.addValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: urlRequest) { responseData, httpUrlResponse, error in
             print("URL : ", url)
-            let str = String(decoding: responseData!, as: UTF8.self)
-            print(str)
+            
+            if let responseData = responseData {
+                let str = String(decoding: responseData, as: UTF8.self)
+                print(str)
+            }
             
             if let httpResponse = httpUrlResponse as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
@@ -30,6 +33,7 @@ class HttpUtility {
                     completionHandler(nil, "Token has expired!")
                 }
             }
+            
             if error == nil && responseData != nil && responseData?.count != 0 {
                 let decoder = JSONDecoder()
                 do {
@@ -57,18 +61,24 @@ class HttpUtility {
         urlRequest.addValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: urlRequest) { data, httpUrlResponse, error in
-            let str = String(decoding: data!, as: UTF8.self)
-            print(str)
+            if let data = data {
+                let str = String(decoding: data, as: UTF8.self)
+                print(str)
+            }
+
             if let apiError = error {
                 debugPrint("API ERROR: ", apiError.localizedDescription)
+                completionHandler(nil, apiError.localizedDescription)
                 return
             }
+            
             if let httpResponse = httpUrlResponse as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
                 if httpResponse.statusCode == 401 {
                     completionHandler(nil, "Token has expired!")
                 }
             }
+            
             if data != nil && data?.count != 0 {
                 do {
                     let response = try JSONDecoder().decode(T.self, from: data!)

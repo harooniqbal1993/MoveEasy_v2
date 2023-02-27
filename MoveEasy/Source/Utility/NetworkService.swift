@@ -9,8 +9,8 @@ import Foundation
 
 class NetworkService {
 //    https://neighbour.anadeemus.ca/swagger/index.html
-    let baseURL: String = "https://moveasydriver.anadeemus.ca/api/"
-    let customerURL: String = "https://neighbour.anadeemus.ca/api/"
+    let baseURL: String = "https://driversapi.moovez.ca/api/" // "https://moveasydriver.anadeemus.ca/api/" // https://mov.anadeemus.ca/api/" // "https://moveasydriver.anadeemus.ca/api/"
+    let customerURL: String = "https://admin.moovez.ca/api/" // "https://neighbour.anadeemus.ca/api/"
     
     var httpUtility: HttpUtility!
     
@@ -25,7 +25,7 @@ class NetworkService {
         do {
             let encodedRequest = try JSONEncoder().encode(loginRequest)
             httpUtility.postApiData(url: URL(string: url)!, requestBody: encodedRequest, resultType: LoginResponse.self) { result, error  in
-                completion(result, nil)
+                completion(result, error)
             }
         } catch let error {
             debugPrint("Login Request Encoding error : ", error)
@@ -83,7 +83,7 @@ class NetworkService {
     }
     
     func acceptBooking(bookingID: String, completion: @escaping (_ result: AcceptBookingModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.acceptBooking.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)&bookingId=\(bookingID)"
+        let url = "\(customerURL+Constants.EndPoints.acceptBooking.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)&bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: AcceptBookingModel.self) { result, error in
             completion(result, error)
         }
