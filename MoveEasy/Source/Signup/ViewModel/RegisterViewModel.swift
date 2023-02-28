@@ -59,6 +59,7 @@ class RegisterViewModel {
         NetworkService.shared.registerDriver(loginRequest: registerRequest) { result, error  in
             DispatchQueue.main.async {
                 if result?.statusCode == 201 {
+                    Defaults.driverEmail = registerRequest.email
                     completion(true, nil)
                 } else {
                     completion(false, result?.message)

@@ -13,4 +13,5 @@ struct RegisterRequest: Encodable {
     var lastName: String? = nil
     var password: String? = nil
     var phone: String? = nil
+    var deviceToken: String? = nil
 }
