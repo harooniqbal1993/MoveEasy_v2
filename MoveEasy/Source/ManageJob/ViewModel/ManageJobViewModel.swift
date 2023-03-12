@@ -13,6 +13,7 @@ class ManageJobViewModel {
     var stops: [Stop]? = OrderSession.shared.bookingModel?.stops
     var stopCounter: Int = 0
     var isLastDestination: Bool = false
+    var pausedTime: TimeInterval? = 0
     
     init() {
         let pickupLocation = Stop(id: nil, stop: OrderSession.shared.bookingModel?.pickupLocation, personName: OrderSession.shared.bookingModel?.user?.firstName, personPhone: OrderSession.shared.bookingModel?.user?.phone, instructions: OrderSession.shared.bookingModel?.pickUpInstructions, bookingId: OrderSession.shared.bookingModel?.id, lat: OrderSession.shared.bookingModel?.pickupLatitude, long: OrderSession.shared.bookingModel?.pickupLongitude)
@@ -53,6 +54,45 @@ class ManageJobViewModel {
                 if let result = result {
                     self.receipt = result.bookingTotalModel
                 }
+                completion(nil)
+            }
+        }
+    }
+    
+    func timerLog(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.timerLog(driverID: DriverSession.shared.driver?.id ?? 1125, bookingId: "\(OrderSession.shared.bookingModel?.id ?? 0)", userId: "\(0)") { result, error in
+            
+            DispatchQueue.main.async {
+                if error != nil {
+                    completion(error)
+                    return
+                }
+                
+                if let result = result {
+                }
+                completion(nil)
+            }
+        }
+    }
+    
+    func updateBookingTimer(seconds: Int) {
+        NetworkService.shared.updateBookingTime(driverID: DriverSession.shared.driver?.id ?? 1125, bookingId: "\(OrderSession.shared.bookingModel?.id ?? 0)", seconds: seconds) { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func getUpdateBookingTime(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.getUpdatedBookingTime(driverID: DriverSession.shared.driver?.id ?? 1125, bookingId: "\(OrderSession.shared.bookingModel?.id ?? 0)") { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                self.pausedTime = result?.data
                 completion(nil)
             }
         }

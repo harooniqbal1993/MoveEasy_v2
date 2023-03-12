@@ -63,6 +63,7 @@ class TripDetailViewController: UIViewController {
         viewMapButton.border(color: Constants.themeColor, width: 1.0)
         acceptButton.round()
         rejectButton.border(color: Constants.themeColor, width: 1.0)
+        startJobButton.round()
         startJobButton.isHidden = true
         connector.makeDashedBorderLine(color: Constants.themeColor, strokeLength: 7, gapLength: 5, width: 1, orientation: .vertical)
         
@@ -96,6 +97,15 @@ class TripDetailViewController: UIViewController {
         dropAddressLabel.text = tripDetailViewModel.dropoffLocation
         dropAddressInstructionLabel.text = tripDetailViewModel.dropoffInstructions
         viewMapButton.isHidden = tripDetailViewModel.mapButtonHidden
+        if OrderSession.shared.bookingModel?.driverId == nil {
+            startJobButton.isHidden = true
+            rejectButton.isHidden = false
+            acceptButton.isHidden = false
+        } else {
+            startJobButton.isHidden = false
+            rejectButton.isHidden = true
+            acceptButton.isHidden = true
+        }
         
         self.view.setTemplateWithSubviews(false)
     }
@@ -167,7 +177,8 @@ class TripDetailViewController: UIViewController {
     
     @IBAction func startJobTapped(_ sender: UIButton) {
 
-        let proofViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ProofViewController") as! ProofViewController
-        self.navigationController?.pushViewController(proofViewController, animated: true)
+        self.dismiss(animated: false) {
+            self.onDismiss?(false)
+        }
     }
 }

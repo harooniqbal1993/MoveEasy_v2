@@ -91,6 +91,8 @@
 		18F86232289071FC00A3F7A0 /* ProofViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86231289071FC00A3F7A0 /* ProofViewModel.swift */; };
 		18F86235289072D600A3F7A0 /* NotesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86234289072D600A3F7A0 /* NotesRequest.swift */; };
 		18F862372890747D00A3F7A0 /* NotesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F862362890747D00A3F7A0 /* NotesResponse.swift */; };
+		AF17F67B29B1082A000A31A6 /* AdjustTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF17F67A29B10829000A31A6 /* AdjustTimeViewController.swift */; };
+		AF17F67E29B109D6000A31A6 /* AdjustTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF17F67D29B109D6000A31A6 /* AdjustTimeViewModel.swift */; };
 		AF6C1A6B297EFE84007234EE /* ForgotTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6C1A6A297EFE84007234EE /* ForgotTimer.swift */; };
 		AF7C08512970818500099E77 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08502970818500099E77 /* FirebaseAnalytics */; };
 		AF7C08532970818500099E77 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08522970818500099E77 /* FirebaseCrashlytics */; };
@@ -193,6 +195,8 @@
 		2F28583BAA4324543A683846 /* Pods-MoveEasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveEasy.release.xcconfig"; path = "Target Support Files/Pods-MoveEasy/Pods-MoveEasy.release.xcconfig"; sourceTree = "<group>"; };
 		764921BA2560B7766EB3937E /* Pods_MoveEasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveEasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF104473297535B800779688 /* MoveEasy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoveEasy.entitlements; sourceTree = "<group>"; };
+		AF17F67A29B10829000A31A6 /* AdjustTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustTimeViewController.swift; sourceTree = "<group>"; };
+		AF17F67D29B109D6000A31A6 /* AdjustTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustTimeViewModel.swift; sourceTree = "<group>"; };
 		AF6C1A6A297EFE84007234EE /* ForgotTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotTimer.swift; sourceTree = "<group>"; };
 		AF81CCDC296DD0B6007B1ADB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		AFF25B392976694600348BB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -588,6 +592,7 @@
 		18C833A82878BB01008C2283 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AF17F67829B10733000A31A6 /* AdjustTime */,
 				18599D30291BC3630078DEDB /* Oops */,
 				18599D2C291BB4950078DEDB /* Welldone */,
 				182BEA4F2914F9D700DF3B7A /* ForgotPassword */,
@@ -917,6 +922,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF17F67829B10733000A31A6 /* AdjustTime */ = {
+			isa = PBXGroup;
+			children = (
+				AF17F67C29B109BD000A31A6 /* ViewModel */,
+				AF17F67929B10747000A31A6 /* View */,
+			);
+			path = AdjustTime;
+			sourceTree = "<group>";
+		};
+		AF17F67929B10747000A31A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF17F67A29B10829000A31A6 /* AdjustTimeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF17F67C29B109BD000A31A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF17F67D29B109D6000A31A6 /* AdjustTimeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AF6C1A69297EFE75007234EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1080,6 +1110,7 @@
 				18CE66D028795790002AE9D1 /* UIColor.swift in Sources */,
 				182BEA522914FA9A00DF3B7A /* ForgotPasswordViewController.swift in Sources */,
 				18DE6FB728845C7A0074250D /* RegisterRequest.swift in Sources */,
+				AF17F67E29B109D6000A31A6 /* AdjustTimeViewModel.swift in Sources */,
 				18863FBA287F3EB100A6F752 /* RatingStar.swift in Sources */,
 				18CE66E228797A6D002AE9D1 /* SignupViewController.swift in Sources */,
 				18CE66D128795790002AE9D1 /* UITableView.swift in Sources */,
@@ -1139,6 +1170,7 @@
 				181F5EDB28C9C058002C94CA /* FeedbackRequest.swift in Sources */,
 				18DE6FB1288457AB0074250D /* LoginResponse.swift in Sources */,
 				1899F1CA288323C4002855CA /* FilterCell.swift in Sources */,
+				AF17F67B29B1082A000A31A6 /* AdjustTimeViewController.swift in Sources */,
 				18C833B02878BD26008C2283 /* TabViewController.swift in Sources */,
 				181CDD69287C0F4200E955BD /* ManageJobViewController.swift in Sources */,
 				18D188C7287AFC78003E8CD1 /* VideoRecorder.swift in Sources */,

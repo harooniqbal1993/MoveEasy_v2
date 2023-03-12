@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import NVActivityIndicatorView
 
 class ManageJobViewController: UIViewController {
     
@@ -70,13 +71,22 @@ class ManageJobViewController: UIViewController {
         }
     }
     
+    var activityIndicatorView: NVActivityIndicatorView!
+    
     var stopWatch: StopWatch? = StopWatch()
     var timer: Timer? = Timer()
+    var everyMinuteTimer: Timer? = Timer()
     var mediaPickerManager: MediaPickerManager!
     var manageJobViewModel: ManageJobViewModel!
     var proofViewModel: ProofViewModel!
+    var timerPaused: Bool = false
     
     lazy var fileUploader: FileUploader? = FileUploader()
+    
+    var source: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var destination: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    
+    var locationManager: CLLocationManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +97,8 @@ class ManageJobViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         timer?.invalidate()
+        everyMinuteTimer?.invalidate()
+        everyMinuteTimer = nil
         timer = nil
         stopWatch = nil
     }
@@ -95,24 +107,48 @@ class ManageJobViewController: UIViewController {
         manageJobViewModel = ManageJobViewModel()
         proofViewModel = ProofViewModel()
         
+        source = CLLocationCoordinate2D(latitude: Double(manageJobViewModel.stops?[0].lat ?? "0.0") ?? 0.0, longitude: Double(manageJobViewModel.stops?[0].long ?? "0.0") ?? 0.0)
+        destination = CLLocationCoordinate2D(latitude: Double(manageJobViewModel.stops?[1].lat ?? "0.0") ?? 0.0, longitude: Double(manageJobViewModel.stops?[1].long ?? "0.0") ?? 0.0)
+        getUpdatedTime()
+    }
+    
+    func getUpdatedTime() {
+        manageJobViewModel.getUpdateBookingTime { error in
+            if let error = error {
+                self.showAlert(title: "Error", message: error)
+                return
+            }
+            self.stopWatch?.start(from: self.manageJobViewModel.pausedTime)
+            self.timerLabel.text = self.stopWatch?.inString
+        }
     }
     
     func startTimer() {
-        stopWatch?.start()
+        if timerPaused {
+            stopWatch?.start(from: 0.0)
+            timerPaused = false
+        } else {
+            stopWatch?.start(from: self.manageJobViewModel.pausedTime)
+        }
+        
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+//            print(self.stopWatch?.elapsedTime)
             self.timerLabel.text = self.stopWatch?.inString
         }
-        //        backButton.isHidden = true
-        mediaButtonView.isHidden = true
-        attachmentNoteLabel.isHidden = true
     }
     
     func stopTimer() {
         stopWatch?.pause()
+        everyMinuteTimer?.invalidate()
         timer?.invalidate()
+        timer = nil
+        everyMinuteTimer = nil
     }
     
     func loadViews() {
+        activityIndicatorView = NVActivityIndicatorView(frame: self.view.frame, type: .ballRotateChase, color: .black, padding: 170)
+        self.view.addSubview(activityIndicatorView)
+        
         startView.round(radius: 15)
         pauseView.round(radius: 15)
         stopView.round(radius: 15)
@@ -128,6 +164,7 @@ class ManageJobViewController: UIViewController {
         addressLabel.text = OrderSession.shared.bookingModel?.pickupLocation
         switchView.isOn = Defaults.driverStatus ?? false
         continueButton.isHidden = true
+        viewRouteButton.isHidden = true
     }
     
     func startMoving() {
@@ -198,6 +235,29 @@ class ManageJobViewController: UIViewController {
         })
     }
     
+    func everyMinuteCall() {
+        everyMinuteTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
+            self.updateTimer()
+        }
+    }
+    
+    func timerLog() {
+        print("timerLog()")
+        manageJobViewModel.timerLog { [weak self] error in
+            DispatchQueue.main.async {
+                
+                if let error = error {
+                    self?.showAlert(title: "Error", message: error)
+                    return
+                }
+            }
+        }
+    }
+    
+    func updateTimer() {
+        manageJobViewModel.updateBookingTimer(seconds: Int(stopWatch?.elapsedTime ?? 0.0))
+    }
+    
     private func navigateToNextScreen() {
 //        let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
 //        let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
@@ -205,7 +265,7 @@ class ManageJobViewController: UIViewController {
 //        let appleMap = AppleMap(source: source, destination: destination)
 //        appleMap.present(in: self, sourceView: backButton)
 //        return
-        
+        OrderSession.shared.bookingModel?.completionTime = stopWatch?.elapsedTime
         let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
         receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
         navigationController?.pushViewController(receiptViewController, animated: true)
@@ -251,8 +311,9 @@ class ManageJobViewController: UIViewController {
         alertViewController.completion = { [weak self] isYes in
             if isYes {
                 self?.startTimer()
-                //                self?.manageJobViewModel.timerStarted = true
+                self?.everyMinuteCall()
                 self?.continueButton.isHidden = false
+                self?.viewRouteButton.isHidden = false
                 self?.startMoving()
             }
         }
@@ -261,6 +322,7 @@ class ManageJobViewController: UIViewController {
     
     @IBAction func pauseJobTapped(_ sender: UIButton) {
         jobStatus = .pause
+        timerPaused = true
         let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
         alertViewController.statusType = .paused
         alertViewController.completion = { [weak self] isYes in
@@ -338,24 +400,27 @@ class ManageJobViewController: UIViewController {
             if manageJobViewModel.stopCounter < manageJobViewModel.stops?.count ?? 0 {
                 addressLabel.text = manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop
                 
-                let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
-                let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
+//                let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
+//                let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
                 
-    //            let sourceLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].lat ?? "0.0")
-    //            let sourceLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].long ?? "0.0")
-    //            let source1 = CLLocationCoordinate2D(latitude: sourceLat ?? 0.0, longitude: sourceLng ?? 0.0)
-    //
-    //            let destLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].lat ?? "0.0")
-    //            let destLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].long ?? "0.0")
-    //            let dest1 = CLLocationCoordinate2D(latitude: destLat ?? 0.0, longitude: destLng ?? 0.0)
-                
-                let appleMap = AppleMap(source: source, destination: destination)
-                appleMap.present(in: self, sourceView: backButton)
+                let sourceLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].lat ?? "0.0")
+                let sourceLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].long ?? "0.0")
+                source = CLLocationCoordinate2D(latitude: sourceLat ?? 0.0, longitude: sourceLng ?? 0.0)
+//
+                let destLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].lat ?? "0.0")
+                let destLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].long ?? "0.0")
+                destination = CLLocationCoordinate2D(latitude: destLat ?? 0.0, longitude: destLng ?? 0.0)
+//
+//                let appleMap = AppleMap(source: source1, destination: dest1)
+//                appleMap.present(in: self, sourceView: backButton)
             }
         }
     }
     
     @IBAction func viewRouteTapped(_ sender: UIButton) {
+        print("route : ", source, destination)
+        let appleMap = AppleMap(source: source, destination: destination)
+        appleMap.present(in: self, sourceView: backButton)
     }
     
     @IBAction func changeDriverStatus(_ sender: UISwitch) {

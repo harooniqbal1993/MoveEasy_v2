@@ -216,6 +216,7 @@ class HttpUtility {
         urlRequest.addValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: urlRequest) { data, httpUrlResponse, error in
+            print("URL : ", url)
             let str = String(decoding: data!, as: UTF8.self)
             print(str)
             if data != nil && data?.count != 0 {

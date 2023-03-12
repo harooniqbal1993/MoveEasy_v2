@@ -14,5 +14,6 @@ target 'MoveEasy' do
   pod 'Fastis', '~> 2.0'
   pod 'IQKeyboardManagerSwift'
   pod 'DateTimePicker'
+  pod 'NVActivityIndicatorView'
 
 end

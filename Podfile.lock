@@ -13,6 +13,9 @@ PODS:
   - IQKeyboardManagerSwift (6.5.10)
   - JTAppleCalendar (8.0.4)
   - MHLoadingButton (0.1.3)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - PrettyCards (1.0.5)
   - SnapKit (5.0.1)
   - SwiftSignatureView (3.2.0)
@@ -25,6 +28,7 @@ DEPENDENCIES:
   - GoogleMaps (= 7.0.0)
   - IQKeyboardManagerSwift
   - MHLoadingButton
+  - NVActivityIndicatorView
   - SwiftSignatureView
   - UIView-Shimmer (~> 1.0)
 
@@ -37,6 +41,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - JTAppleCalendar
     - MHLoadingButton
+    - NVActivityIndicatorView
     - PrettyCards
     - SnapKit
     - SwiftSignatureView
@@ -50,11 +55,12 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   JTAppleCalendar: f95b02c64f56d6f938fbf6582a04dcab9d709ebd
   MHLoadingButton: 13bab47a3ce9d88df15638b7a5b73a8ac9f21077
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PrettyCards: 2b078f2396a42f7f0c4d6624b875149dcb49d3ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftSignatureView: cd8cca297cc2ca6a6c174da22fb908c33d03d3c0
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: 4ef0059d82c6e2993a908f790b2414eb55210f96
+PODFILE CHECKSUM: 9eb7083e62f46b9b1fe4a747928edb3cac5791ab
 
 COCOAPODS: 1.11.3

@@ -12,6 +12,7 @@ class WelldoneViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moveCompleteButton: UIButton!
+    @IBOutlet weak var adjustTimeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class WelldoneViewController: UIViewController {
         contentView.round(radius: 30.0)
         contentView.addShadow()
         moveCompleteButton.round()
+        adjustTimeButton.round()
     }
     
     @IBAction func moveCompleteButtonTapped(_ sender: UIButton) {
@@ -34,6 +36,11 @@ class WelldoneViewController: UIViewController {
             self?.navigationController?.popToRootViewController(animated: true)
         }
         self.present(sheetController, animated: true, completion: nil)
+    }
+    
+    @IBAction func adjustTimeButtonTapped(_ sender: UIButton) {
+        let adjustTimeVC = Constants.kJob.instantiateViewController(withIdentifier: "AdjustTimeViewController") as! AdjustTimeViewController
+        present(adjustTimeVC, animated: true)
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {

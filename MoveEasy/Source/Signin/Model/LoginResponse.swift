@@ -33,6 +33,8 @@ struct DriverModel: Decodable {
     var allDocsUploaded: Bool? = false
     var isApproved: Bool? = false
     var isVerified: Bool? = nil
+    var averageRating: Int? = 0
+    var completedBookingCount: Int? = 0
 }
 
 //{

@@ -158,6 +158,24 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print full message.
         print(userInfo)
+//        if let notificationData = userInfo as? [String: Any?] {
+//            print(notificationData)
+//            print(notificationData["response"] as Any)
+//            print(notificationData["response"] as! Bool)
+//        }
+        
+//        if let response = userInfo["response"] as? NSNumber,
+//           response === kCFBooleanTrue || response === kCFBooleanFalse {
+//            if response === kCFBooleanTrue {
+//                print("TRUE")
+//            } else {
+//                print("FALSE")
+//            }
+//            print("it's bool")
+//        } else {
+//            print("it's not bool")
+//        }
+        
         if let response = userInfo["response"] as? Bool {
             print(response)
             Defaults.forgotTimerResponse = response ? "YES" : "NO"

@@ -34,7 +34,7 @@ class AppleMap {
             okotoks.name = "okotoks"
             
             MKMapItem.openMaps(
-              with: [source, okotoks, destination],
+              with: [source, destination],
               launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             )
         }

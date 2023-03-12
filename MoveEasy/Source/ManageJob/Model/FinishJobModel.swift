@@ -29,6 +29,12 @@ struct BookingTotalModel: Decodable {
     var totalDuration: String? = nil
 }
 
+struct TimeResponse: Decodable {
+    var statusCode: Int? = nil
+    var message: String? = nil
+    var data: TimeInterval? = 0
+}
+
 //struct Stop: Decodable {
 //    var id: Int? = nil
 //    var stop: String? = nil

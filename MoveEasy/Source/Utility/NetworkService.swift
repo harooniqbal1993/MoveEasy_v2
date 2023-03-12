@@ -54,7 +54,7 @@ class NetworkService {
     }
     
     func dashboard(completion: @escaping (_ result: HomeModel?, _ error: String?) -> Void) {
-        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)"
+        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)"
 //        let url = "\(baseURL+Constants.EndPoints.dashboard.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 1125)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: HomeModel.self) { result, error in
             completion(result, error)
@@ -183,6 +183,34 @@ class NetworkService {
     func cancelBooking(bookingID: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
         let url = "\(customerURL+Constants.EndPoints.cancelBooking.rawValue)?bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func timerLog(driverID: Int, bookingId: String, userId: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.timerLog.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&userId=\(userId)"
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
+            print("")
+        }
+    }
+    
+    func decreaseTimer(driverID: Int, bookingId: String, seconds: Int, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.decreaseTimer.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&seconds=\(seconds)"
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
+            print("")
+        }
+    }
+    
+    func updateBookingTime(driverID: Int, bookingId: String, seconds: Int, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.updateBookingTime.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&seconds=\(seconds)"
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
+            print("")
+        }
+    }
+    
+    func getUpdatedBookingTime(driverID: Int, bookingId: String, completion: @escaping (_ result: TimeResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.getUpdatedBookingTime.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: TimeResponse.self) { result, error in
             completion(result, error)
         }
     }
