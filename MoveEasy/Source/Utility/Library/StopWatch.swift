@@ -62,6 +62,15 @@ class StopWatch {
         return string
     }
     
+    var inSeparateString: (String, String, String) {
+        let time = elapsedTime
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        let fraction = Int(time * 100) % 100
+        let string = String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds) + ":" + String(format: "%02d", fraction)
+        return (String(format: "%02d", minutes), String(format: "%02d", seconds), String(format: "%02d", fraction))
+    }
+    
     func start(from seconds: TimeInterval? = nil) {
         if let seconds = seconds {
             startTime = currentTime - seconds

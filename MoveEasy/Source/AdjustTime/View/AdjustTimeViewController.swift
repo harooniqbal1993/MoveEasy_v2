@@ -49,6 +49,10 @@ class AdjustTimeViewController: UIViewController {
             self.dismiss(animated: true)
         })
     }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension AdjustTimeViewController: UITextFieldDelegate {

@@ -119,9 +119,21 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print("userInfo : ", userInfo)
         DispatchQueue.main.async {
             
+//            if let response = userInfo["response"] as? NSNumber,
+//               response === kCFBooleanTrue || response === kCFBooleanFalse {
+//                if response === kCFBooleanTrue {
+//                    print("TRUE")
+//                } else {
+//                    print("FALSE")
+//                }
+//                print("it's bool")
+//            } else {
+//                print("it's not bool")
+//            }
+            
             if let response = userInfo["response"] as? Bool {
                 print(response)
-                
+
                 if let orderID = userInfo["orderid"] as? String {
                     let dic = ["bookingID": orderID, "response": response] as [String : Any]
                     NotificationCenter.default.post(name: Constants.NotificationObserver.OPEN_RECEIPT_VIEW.value,

@@ -217,8 +217,10 @@ class HttpUtility {
         
         URLSession.shared.dataTask(with: urlRequest) { data, httpUrlResponse, error in
             print("URL : ", url)
-            let str = String(decoding: data!, as: UTF8.self)
-            print(str)
+            if let json = data {
+                let str = String(decoding: json, as: UTF8.self)
+                print("", str)
+            }
             if data != nil && data?.count != 0 {
                 do {
                     let response = try JSONDecoder().decode(T.self, from: data!)

@@ -43,6 +43,9 @@ class ManageJobViewController: UIViewController {
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var attachmentNoteLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var minuteLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var milliSecLabel: UILabel!
     
     var jobStatus: JobStatus? = nil {
         didSet {
@@ -134,6 +137,17 @@ class ManageJobViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
 //            print(self.stopWatch?.elapsedTime)
             self.timerLabel.text = self.stopWatch?.inString
+//            let timeArr = self.stopWatch?.inString.components(separatedBy: ":")
+//            self.minuteLabel.text = timeArr?[0] // self.stopWatch?.inSeparateString.0
+//            self.secondLabel.text = timeArr?[1] // self.stopWatch?.inSeparateString.1
+//            self.milliSecLabel.text = timeArr?[2]
+//            DispatchQueue.main.async {
+//                self.minuteLabel.text =  self.stopWatch?.inSeparateString.0
+//                self.secondLabel.text = self.stopWatch?.inSeparateString.1
+//                self.milliSecLabel.text = self.stopWatch?.inSeparateString.2
+//            }
+            
+//            print("\(self.stopWatch?.inSeparateString.0 ?? "") \(self.stopWatch?.inSeparateString.1 ?? "") \(self.stopWatch?.inSeparateString.2 ?? "")")
         }
     }
     

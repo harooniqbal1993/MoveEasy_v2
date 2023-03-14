@@ -9,8 +9,8 @@ import Foundation
 
 class AdjustTimeViewModel {
     
-    var actualTime: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0) // 20
-    var time: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0)
+    var actualTime: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0) / 60 // 20
+    var time: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0) / 60
     
     func decreaseTime() {
         time = time > 0 ? time - 1 : 0
@@ -21,7 +21,7 @@ class AdjustTimeViewModel {
     }
     
     func adjustTime(completion: @escaping (_ error: String?) -> Void) {
-        NetworkService.shared.decreaseTimer(driverID: DriverSession.shared.driver?.id ?? 1125, bookingId: "\(OrderSession.shared.bookingModel?.id ?? 0)", seconds: time) { result, error in
+        NetworkService.shared.decreaseTimer(driverID: DriverSession.shared.driver?.id ?? 1125, bookingId: "\(OrderSession.shared.bookingModel?.id ?? 0)", seconds: time*60) { result, error in
             DispatchQueue.main.async {
                 if error != nil {
                     completion(error)

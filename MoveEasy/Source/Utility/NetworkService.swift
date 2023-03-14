@@ -197,7 +197,7 @@ class NetworkService {
     func decreaseTimer(driverID: Int, bookingId: String, seconds: Int, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.decreaseTimer.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&seconds=\(seconds)"
         httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
-            print("")
+            completion(result, nil)
         }
     }
     
