@@ -10,6 +10,8 @@ import Foundation
 class ReceiptViewModel {
     
     var receiptModel: BookingTotalModel? = nil
+    var actualTime: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0) / 60 // 20
+    var time: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0) / 60
     
     init(receiptModel: BookingTotalModel?) {
         self.receiptModel = receiptModel
@@ -39,6 +41,14 @@ class ReceiptViewModel {
         return receiptModel?.totalCharge ?? "0.00"
     }
     
+    var isAdjustNeeded: Bool {
+        return time < actualTime
+    }
+    
+    func decreaseTime() {
+        time = time > 0 ? time - 1 : 0
+    }
+    
     func getOrderSummary(completion: @escaping (_ error: String?) -> Void) {
         NetworkService.shared.getOrderSummary(userID: "123", bookingID: "\(OrderSession.shared.order?.id ?? 0)") { result, error in
             if let error = error {
@@ -61,7 +71,24 @@ class ReceiptViewModel {
             completion(nil)
         }
     }
+    
+    func adjustTime(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.decreaseTimer(driverID: DriverSession.shared.driver?.id ?? 1125, bookingId: "\(OrderSession.shared.bookingModel?.id ?? 0)", seconds: time*60) { result, error in
+            DispatchQueue.main.async {
+                if error != nil {
+                    completion(error)
+                    return
+                }
+                
+//                if let result = result {
+//                }
+                completion(nil)
+            }
+        }
+    }
 }
+
+
 //
 //"bookingTotalModel": {
 //    "coupon": null,

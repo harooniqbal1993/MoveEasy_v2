@@ -150,9 +150,22 @@ class Defaults {
         }
     }
     
-    static var forgotTimerResponse: String? {
+//    static var forgotTimerResponse: Bool? {
+//        get {
+//            return Defaults.userDefault.bool(forKey: FORGOT_TIMER_RESPONSE)
+//        }
+//        set {
+//            if let newValue = newValue {
+//                Defaults.userDefault.set(newValue, forKey: FORGOT_TIMER_RESPONSE)
+//            } else {
+//                Defaults.userDefault.removeObject(forKey: FORGOT_TIMER_RESPONSE)
+//            }
+//        }
+//    }
+    
+    static var forgotTimerResponse: Int? {
         get {
-            return Defaults.userDefault.string(forKey: FORGOT_TIMER_RESPONSE)
+            return Defaults.userDefault.object(forKey: FORGOT_TIMER_RESPONSE) as? Int
         }
         set {
             if let newValue = newValue {

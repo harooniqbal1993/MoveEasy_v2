@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         registerNotificationCenter()
         loadViews()
         
@@ -57,9 +58,6 @@ class HomeViewController: UIViewController {
         
         refreshControl.addTarget(self, action: #selector(onRefreshTable), for: .valueChanged)
         orderTable.addSubview(refreshControl)
-//        let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
-//        goOnlineViewController.modalPresentationStyle = .fullScreen
-//        present(goOnlineViewController, animated: false)
     }
     
     func registerNotificationCenter() {
@@ -67,12 +65,17 @@ class HomeViewController: UIViewController {
             .addObserver(self,
                          selector:#selector(openTripView(_:)),
                          name: Constants.NotificationObserver.OPEN_TRIPVIEW.value, object: nil)
+        
+        NotificationCenter.default
+            .addObserver(self,
+                         selector:#selector(openReceiptView(_:)),
+                         name: Constants.NotificationObserver.OPEN_RECEIPT_VIEW.value, object: nil)
     }
     
     func fromBackgroundPushNotification() {
         if Defaults.forgotTimerResponse != nil {
             DispatchQueue.main.async {
-                if Defaults.forgotTimerResponse == "YES" {
+                if Defaults.forgotTimerResponse == 1 {
                     let welldoneViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
                     self.navigationController?.pushViewController(welldoneViewController, animated: true)
                 } else {
@@ -89,8 +92,24 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @objc func openReceiptView(_ notification: Notification) {
+        DispatchQueue.main.async {
+            if let response = notification.userInfo?["response"] as? Int {
+                if response == 1 {
+                    let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+                    self.navigationController?.pushViewController(signatureViewController, animated: true)
+                } else {
+                    let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "OopsViewController") as! OopsViewController
+                    self.navigationController?.pushViewController(signatureViewController, animated: true)
+                }
+            }
+            Defaults.forgotTimerResponse = nil
+        }
+    }
+    
     func removeNotificationCenter() {
         NotificationCenter.default.removeObserver(self, name: Constants.NotificationObserver.OPEN_TRIPVIEW.value, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Constants.NotificationObserver.OPEN_RECEIPT_VIEW.value, object: nil)
     }
     
     private func loadViews() {
@@ -243,7 +262,16 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return !homeViewModel.isLoading ? (homeViewModel.displayedOrders?.count ?? 0) : 3
+        if !homeViewModel.isLoading {
+            if homeViewModel.displayedOrders?.count == 0 {
+                tableView.setEmptyMessage("No bookings found")
+            } else {
+                tableView.restore()
+            }
+            return (homeViewModel.displayedOrders?.count ?? 0)
+        } else {
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -18,6 +18,8 @@ class ReceiptViewController: UIViewController {
     @IBOutlet weak var chargesLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var timeValueLabel: UILabel!
+    @IBOutlet weak var minusTimeButton: UIButton!
     
     var receiptViewModel: ReceiptViewModel? = nil
     
@@ -51,13 +53,14 @@ class ReceiptViewController: UIViewController {
         containerView.round(radius: 20.0)
         acceptButton.round()
         rejectButton.border(color: Constants.themeColor, width: 1.0)
-        
+        minusTimeButton.border(color: Constants.themeColor, radius: 5.0, width: 1.0)
         updateUI()
         
         getOrderSummary()
     }
     
     func updateUI() {
+        timeValueLabel.text = "\(receiptViewModel?.actualTime ?? 0) min"
         orderNumberLabel.text = receiptViewModel?.orderNumber
         baseFareValueLabel.text = "\(receiptViewModel?.baseFare ?? "0.0")"
         distanceValueLabel.text = "\(receiptViewModel?.distance ?? "0.0")"
@@ -97,9 +100,21 @@ class ReceiptViewController: UIViewController {
     }
     
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
+        if acceptButton.currentTitle == "Adjust time" {
+            receiptViewModel?.adjustTime(completion: { error in
+                if let error = error {
+                    self.showAlert(title: "Error", message: error)
+                }
+                self.acceptButton.setTitle("Continue")
+            })
+        } else {
+            let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+            navigationController?.pushViewController(signatureViewController, animated: true)
+        }
+        
 //        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "SignatureViewController") as! SignatureViewController
-        let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
-        navigationController?.pushViewController(signatureViewController, animated: true)
+//        let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+//        navigationController?.pushViewController(signatureViewController, animated: true)
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
@@ -107,9 +122,17 @@ class ReceiptViewController: UIViewController {
         navigationController?.pushViewController(signatureViewController, animated: true)
     }
     
+    @IBAction func minusTimeButtonTapped(_ sender: UIButton) {
+        receiptViewModel?.decreaseTime()
+        timeValueLabel.text = "\(receiptViewModel?.time ?? 0) min"
+        if receiptViewModel?.isAdjustNeeded == true {
+            acceptButton.setTitle("Adjust time")
+        }
+    }
+    
     @objc func openReceiptView(_ notification: Notification) {
-        if let response = notification.userInfo?["response"] as? Bool {
-            if response == true {
+        if let response = notification.userInfo?["response"] as? Int {
+            if response == 1 {
                 let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
                 navigationController?.pushViewController(signatureViewController, animated: true)
             } else {

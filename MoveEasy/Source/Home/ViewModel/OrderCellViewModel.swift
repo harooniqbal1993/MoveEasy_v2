@@ -20,7 +20,7 @@ class OrderCellViewModel {
     }
     
     var icon: String {
-        return "empty-box"
+        return order?.type?.lowercased() == "Delivery".lowercased() ? "empty-box" : "booking-truck"
     }
     
     var pickupLocation: String {

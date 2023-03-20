@@ -25,12 +25,12 @@ class HomeViewModel {
     var newOrders: [OrderModel] = []
     var isLoading: Bool = false
     
-    var filterArray: [FilterModel] = [FilterModel(name: "New Bookings", isSelected: true), FilterModel(name: "My Bookings", isSelected: false), FilterModel(name: "Today's", isSelected: false), FilterModel(name: "Upcoming", isSelected: false), FilterModel(name: "Completed", isSelected: false)]
+    var filterArray: [FilterModel] = [FilterModel(name: "New Bookings", isSelected: false), FilterModel(name: "My Bookings", isSelected: true), FilterModel(name: "Today's", isSelected: false), FilterModel(name: "Upcoming", isSelected: false), FilterModel(name: "Completed", isSelected: false)]
     
     var appliedFilter: FilterModel!
     
     init() {
-        appliedFilter = filterArray[0]
+        appliedFilter = filterArray[1]
     }
     
     func refreshFilters(selectedFilter: FilterModel) {
