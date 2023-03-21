@@ -24,6 +24,7 @@ class OopsViewController: UIViewController {
         contentView.addShadow()
         paymentButton.round()
         homepageButton.round()
+        Defaults.forgotTimerResponse = nil
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
