@@ -46,6 +46,13 @@ class ManageJobViewController: UIViewController {
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var milliSecLabel: UILabel!
+    @IBOutlet weak var timerViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var forgotStartTimeLabel: UIButton!
+    @IBOutlet weak var timerTop: NSLayoutConstraint!
+    @IBOutlet weak var jobButtonViewTop: NSLayoutConstraint!
+    @IBOutlet weak var forgotTimerLabelTop: NSLayoutConstraint!
+    @IBOutlet weak var attachmentTimerLabelTop: NSLayoutConstraint!
+    @IBOutlet weak var typeLabel: UILabel!
     
     var jobStatus: JobStatus? = nil {
         didSet {
@@ -126,6 +133,21 @@ class ManageJobViewController: UIViewController {
         }
     }
     
+    func hideTimerView() {
+        timerViewHeight.constant = 0
+        startView.isHidden = true
+        pauseView.isHidden = true
+        stopView.isHidden = true
+        forgotStartTimeLabel.isHidden = true
+        attachmentNoteLabel.isHidden = true
+        mediaButtonView.isHidden = true
+        continueButton.isHidden = false
+        timerTop.constant = 0
+        jobButtonViewTop.constant = 0
+        forgotTimerLabelTop.constant = 0
+        attachmentTimerLabelTop.constant = 0
+    }
+    
     func startTimer() {
         if timerPaused {
             stopWatch?.start(from: 0.0)
@@ -179,6 +201,11 @@ class ManageJobViewController: UIViewController {
         switchView.isOn = Defaults.driverStatus ?? false
         continueButton.isHidden = true
         viewRouteButton.isHidden = true
+        typeLabel.text = OrderSession.shared.bookingModel?.type
+        
+        if (OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased() || OrderSession.shared.bookingModel?.type?.lowercased() == "Moovers".lowercased()) {
+            hideTimerView()
+        }
     }
     
     func startMoving() {

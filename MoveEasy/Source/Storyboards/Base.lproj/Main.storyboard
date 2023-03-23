@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aBI-XH-06L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aBI-XH-06L">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1242,7 +1242,7 @@ and start earning</string>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.78" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ii-0y-cEN">
-                                                        <rect key="frame" x="127.5" y="3.5" width="30.5" height="18"/>
+                                                        <rect key="frame" x="127.50000000000001" y="3.5" width="30.499999999999986" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.43921568630000002" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -2127,9 +2127,6 @@ and start earning</string>
         <designable name="Ua7-vE-W82">
             <size key="intrinsicContentSize" width="61" height="34"/>
         </designable>
-        <designable name="cfd-Jk-wuP">
-            <size key="intrinsicContentSize" width="260" height="40"/>
-        </designable>
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="HLb-0g-CiN"/>
@@ -2137,7 +2134,7 @@ and start earning</string>
     <resources>
         <image name="arrow-left" width="22" height="22"/>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="lock" width="8" height="9"/>
         <image name="map-marker-alt" width="5" height="7"/>
         <image name="profile" width="33" height="33"/>
@@ -2150,7 +2147,7 @@ and start earning</string>
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

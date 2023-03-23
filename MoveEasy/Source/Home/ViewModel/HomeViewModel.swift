@@ -25,7 +25,7 @@ class HomeViewModel {
     var newOrders: [OrderModel] = []
     var isLoading: Bool = false
     
-    var filterArray: [FilterModel] = [FilterModel(name: "New Bookings", isSelected: false), FilterModel(name: "My Bookings", isSelected: true), FilterModel(name: "Today's", isSelected: false), FilterModel(name: "Upcoming", isSelected: false), FilterModel(name: "Completed", isSelected: false)]
+    var filterArray: [FilterModel] = [FilterModel(name: "New Bookings", isSelected: false), FilterModel(name: "All Bookings", isSelected: true), FilterModel(name: "Today's", isSelected: false), FilterModel(name: "Upcoming", isSelected: false), FilterModel(name: "Completed", isSelected: false)]
     
     var appliedFilter: FilterModel!
     
@@ -54,7 +54,7 @@ class HomeViewModel {
             displayedOrders = newOrders
             break
             
-        case "My Bookings":
+        case "All Bookings":
             displayedOrders = myOrders
             break
             

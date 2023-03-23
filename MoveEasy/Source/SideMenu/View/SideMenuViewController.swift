@@ -52,6 +52,7 @@ class SideMenuViewController: UIViewController {
         ratingStackView.addRightBorderWithColor(color: .systemGray4, width: 1.0)
         yearStackView.addLeftBorderWithColor(color: .systemGray4, width: 1.0)
         usernameLabel.text = "\(DriverSession.shared.driver?.firstName ?? "") \(DriverSession.shared.driver?.lastName ?? "")"
+        profileImage.sd_setImage(with: URL(string: DriverSession.shared.driver?.profileDisplayImageUrl ?? ""), placeholderImage: UIImage(named: "user.png"))
     }
     
     func navigate(screen: String) {

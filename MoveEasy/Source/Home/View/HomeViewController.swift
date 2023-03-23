@@ -7,6 +7,7 @@
 
 import UIKit
 import FittedSheets
+import SDWebImage
 
 class HomeViewController: UIViewController {
     
@@ -131,6 +132,17 @@ class HomeViewController: UIViewController {
         usernameLabel.text = "Hi, \(homeViewModel.driverName ?? "")"
         upcomingOrderCountLabel.text = "\(homeViewModel.upcomingOrders)"
 //        completedOrderCountLabel.text  = "\(homeViewModel.completedOrder)"
+        if let activeTrip = homeViewModel.activeTrip {
+            activeOrderLabel.text = "Order# \(activeTrip.id ?? 0)"
+            viewAllOrderButton.isHidden = false
+        } else {
+            activeOrderLabel.text = "No active order"
+            viewAllOrderButton.isHidden = true
+        }
+//        if let dp = DriverSession.shared.driver?.profileDisplayImageUrl {
+        profileImage.sd_setImage(with: URL(string: DriverSession.shared.driver?.profileDisplayImageUrl ?? ""), placeholderImage: UIImage(named: "user.png"))
+//        }
+        
         orderTable.reloadData()
     }
     
@@ -188,9 +200,12 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func allOrderTapped(_ sender: UIButton) {
-        let allOrderViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "AllOrderViewController") as! AllOrderViewController
-        allOrderViewController.allOrders = homeViewModel.allOrders
-        navigationController?.pushViewController(allOrderViewController, animated: true)
+        openTripDetailVC(bookingID: "\(homeViewModel.activeTrip?.id ?? 0)")
+        
+//        return
+//        let allOrderViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "AllOrderViewController") as! AllOrderViewController
+//        allOrderViewController.allOrders = homeViewModel.allOrders
+//        navigationController?.pushViewController(allOrderViewController, animated: true)
     }
     
     @IBAction func statusChanged(_ sender: UISwitch) {

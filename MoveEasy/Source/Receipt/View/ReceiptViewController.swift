@@ -20,6 +20,15 @@ class ReceiptViewController: UIViewController {
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var timeValueLabel: UILabel!
     @IBOutlet weak var minusTimeButton: UIButton!
+    @IBOutlet weak var hourlyValueLabel: UILabel!
+    @IBOutlet weak var workTimeValueLabel: UILabel!
+    @IBOutlet weak var travelTimeValueLabel: UILabel!
+    @IBOutlet weak var hourlyRateView: UIView!
+    @IBOutlet weak var workTimeView: UIView!
+    @IBOutlet weak var travelTimeView: UIView!
+    @IBOutlet weak var distanceView: UIView!
+    @IBOutlet weak var baseFareView: UIView!
+    @IBOutlet weak var timeView: UIView!
     
     var receiptViewModel: ReceiptViewModel? = nil
     
@@ -36,6 +45,7 @@ class ReceiptViewController: UIViewController {
     func configure() {
         registerNotificationCenter()
         receiptViewModel = ReceiptViewModel(receiptModel: nil)
+        
     }
     
     func registerNotificationCenter() {
@@ -54,6 +64,7 @@ class ReceiptViewController: UIViewController {
         acceptButton.round()
         rejectButton.border(color: Constants.themeColor, width: 1.0)
         minusTimeButton.border(color: Constants.themeColor, radius: 5.0, width: 1.0)
+        
         updateUI()
         
         getOrderSummary()
@@ -64,9 +75,23 @@ class ReceiptViewController: UIViewController {
         orderNumberLabel.text = receiptViewModel?.orderNumber
         baseFareValueLabel.text = "\(receiptViewModel?.baseFare ?? "0.0")"
         distanceValueLabel.text = "\(receiptViewModel?.distance ?? "0.0")"
+        hourlyValueLabel.text = "\(receiptViewModel?.hourlyRate ?? "0.0")"
+        workTimeValueLabel.text = "\(receiptViewModel?.workTime ?? "0.0")"
+        travelTimeValueLabel.text = "\(receiptViewModel?.travelTime ?? "0.0")"
         subtotalValueLabel.text = "\(receiptViewModel?.subTotal ?? "0.0")"
         gstValueLabel.text = "\(receiptViewModel?.gst ?? "0.0")"
         chargesLabel.text = "\(receiptViewModel?.total ?? "0.0")"
+        
+        if (OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased() || OrderSession.shared.bookingModel?.type?.lowercased() == "Moovers".lowercased()) {
+            minusTimeButton.isHidden = true
+            timeView.isHidden = true
+            baseFareView.isHidden = true
+            distanceView.isHidden = true
+        } else {
+            hourlyRateView.isHidden = true
+            workTimeView.isHidden = true
+            travelTimeView.isHidden = true
+        }
     }
     
     func getOrderSummary() {
@@ -101,12 +126,21 @@ class ReceiptViewController: UIViewController {
     
     @IBAction func acceptButtonTapped(_ sender: UIButton) {
         if acceptButton.currentTitle == "Adjust time" {
-            receiptViewModel?.adjustTime(completion: { error in
-                if let error = error {
-                    self.showAlert(title: "Error", message: error)
+            let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+            alertViewController.statusType = .adjustTimer
+            alertViewController.completion = { [weak self] isYes in
+                if isYes {
+                    self?.receiptViewModel?.adjustTime(completion: { error in
+                        if let error = error {
+                            self?.showAlert(title: "Error", message: error)
+                        }
+                        self?.acceptButton.setTitle("Continue")
+                    })
+                } else {
+                    self?.acceptButton.setTitle("Continue")
                 }
-                self.acceptButton.setTitle("Continue")
-            })
+            }
+            present(alertViewController, animated: true, completion: nil)
         } else {
             let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
             navigationController?.pushViewController(signatureViewController, animated: true)

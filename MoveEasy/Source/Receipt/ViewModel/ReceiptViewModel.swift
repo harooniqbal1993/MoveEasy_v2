@@ -29,6 +29,18 @@ class ReceiptViewModel {
         return receiptModel?.totalDistance ?? "0.00"
     }
     
+    var hourlyRate: String {
+        return "0.00"
+    }
+    
+    var workTime: String {
+        return "0.00"
+    }
+    
+    var travelTime: String {
+        return "0.00"
+    }
+    
     var subTotal: String {
         return receiptModel?.subtotal ?? "0.00"
     }

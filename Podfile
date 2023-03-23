@@ -15,5 +15,6 @@ target 'MoveEasy' do
   pod 'IQKeyboardManagerSwift'
   pod 'DateTimePicker'
   pod 'NVActivityIndicatorView'
+  pod 'SDWebImage', '~> 5.0'
 
 end

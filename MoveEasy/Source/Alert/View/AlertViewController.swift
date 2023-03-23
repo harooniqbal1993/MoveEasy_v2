@@ -14,6 +14,7 @@ class AlertViewController: UIViewController {
         case paused
         case stopped
         case back
+        case adjustTimer
     }
 
     @IBOutlet weak var warningImageView: UIImageView!
@@ -64,6 +65,10 @@ class AlertViewController: UIViewController {
             warningImageView.image = UIImage(named: "warning")
             titleLabel.text = "Are you sure you want exit?"
             messageLabel.text = "If you exit clock will stop."
+        } else if statusType == .adjustTimer {
+            warningImageView.image = UIImage(named: "warning")
+            titleLabel.text = "Adjust time"
+            messageLabel.text = "Are you sure you want to adjust time"
         } else {
             warningImageView.image = UIImage(named: "stop")
             titleLabel.text = "Did you finish the job?"
