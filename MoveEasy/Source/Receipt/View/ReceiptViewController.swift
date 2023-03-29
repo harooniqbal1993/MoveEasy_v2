@@ -71,7 +71,7 @@ class ReceiptViewController: UIViewController {
     }
     
     func updateUI() {
-        timeValueLabel.text = "\(receiptViewModel?.actualTime ?? 0) min"
+        timeValueLabel.text = "\(receiptViewModel?.time ?? 0) min"
         orderNumberLabel.text = receiptViewModel?.orderNumber
         baseFareValueLabel.text = "\(receiptViewModel?.baseFare ?? "0.0")"
         distanceValueLabel.text = "\(receiptViewModel?.distance ?? "0.0")"
@@ -134,6 +134,7 @@ class ReceiptViewController: UIViewController {
                         if let error = error {
                             self?.showAlert(title: "Error", message: error)
                         }
+                        self?.updateUI()
                         self?.acceptButton.setTitle("Continue")
                     })
                 } else {

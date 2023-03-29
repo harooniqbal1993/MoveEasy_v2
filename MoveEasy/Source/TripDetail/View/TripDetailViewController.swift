@@ -49,8 +49,12 @@ class TripDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadViews()
+//        loadViews()
         getOrderSummary()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadViews()
     }
     
 //    override func viewDidDisappear(_ animated: Bool) {

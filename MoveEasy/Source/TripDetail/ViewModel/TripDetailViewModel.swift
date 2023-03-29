@@ -28,6 +28,10 @@ class TripDetailViewModel {
     }
     
     var time: String? {
+        let split = OrderSession.shared.bookingModel?.deliveryDate?.components(separatedBy: " ")
+        if let t = split?[1], let m = split?[2] {
+            return t + " " + m
+        }
         return OrderSession.shared.bookingModel?.exactTime
     }
     

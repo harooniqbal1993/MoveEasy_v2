@@ -18,7 +18,7 @@ class ReceiptViewModel {
     }
     
     var orderNumber: String {
-        return "112"
+        return ""
     }
     
     var baseFare: String {
@@ -30,15 +30,15 @@ class ReceiptViewModel {
     }
     
     var hourlyRate: String {
-        return "0.00"
+        return receiptModel?.hourlyRate ?? "0.00" // "0.00"
     }
     
     var workTime: String {
-        return "0.00"
+        return "\(receiptModel?.workTime ?? 0.00)" // "0.00"
     }
     
     var travelTime: String {
-        return "0.00"
+        return receiptModel?.traveltime ?? "0.00" // "0.00"
     }
     
     var subTotal: String {
@@ -91,7 +91,7 @@ class ReceiptViewModel {
                     completion(error)
                     return
                 }
-                
+                self.receiptModel = result?.data?.bookingTotalModel
 //                if let result = result {
 //                }
                 completion(nil)
