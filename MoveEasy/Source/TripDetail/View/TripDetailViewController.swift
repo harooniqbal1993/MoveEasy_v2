@@ -83,7 +83,7 @@ class TripDetailViewController: UIViewController {
     }
     
     func updateViews() {
-        orderNumberLabel.text = "\(tripDetailViewModel.orderNumber ?? 0)"
+        orderNumberLabel.text = "Order # \(tripDetailViewModel.orderNumber ?? 0)"
         customerNameLabel.text = tripDetailViewModel.customerName
         phoneLabel.text = tripDetailViewModel.phoneNumber
         dateLabel.text = tripDetailViewModel.date

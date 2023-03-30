@@ -16,11 +16,11 @@ class TripDetailViewModel {
     }
     
     var customerName: String? {
-        return OrderSession.shared.bookingModel?.pickUpPersonName // order?.riderName ?? ""
+        return (OrderSession.shared.bookingModel?.user?.firstName ?? "") + " " + (OrderSession.shared.bookingModel?.user?.lastName ?? "") // order?.riderName ?? ""
     }
     
     var phoneNumber: String? {
-        return OrderSession.shared.bookingModel?.pickUpPersonPhone // order?.riderPhone
+        return OrderSession.shared.bookingModel?.user?.phone // order?.riderPhone
     }
     
     var date: String? {
@@ -36,11 +36,11 @@ class TripDetailViewModel {
     }
     
     var pickupLocation: String? {
-        return order?.pickupLocation
+        return OrderSession.shared.bookingModel?.pickupLocation
     }
     
     var dropoffLocation: String? {
-        return order?.dropoffLocation
+        return OrderSession.shared.bookingModel?.dropoffLocation
     }
     
     var pickupInstructions: String? {
