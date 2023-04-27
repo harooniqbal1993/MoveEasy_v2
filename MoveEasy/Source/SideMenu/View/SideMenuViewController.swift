@@ -25,7 +25,7 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var ratingStackView: UIStackView!
     @IBOutlet weak var yearStackView: UIStackView!
     
-    var menuItems: [SideMenuModel] = [SideMenuModel(icon: "home", name: "Home"), SideMenuModel(icon: "map-marked-alt", name: "My trips"), SideMenuModel(icon: "bell", name: "Notification"), SideMenuModel(icon: "calendar-day", name: "Schedule pickup"), SideMenuModel(icon: "user-plus", name: "Refer a driver"), SideMenuModel(icon: "comment-alt", name: "Feedback"), SideMenuModel(icon: "cog", name: "Setting"), SideMenuModel(icon: "sign-in-alt", name: "Logout")]
+    var menuItems: [SideMenuModel] = [SideMenuModel(icon: "home", name: "Home"), SideMenuModel(icon: "map-marked-alt", name: "My trips"), SideMenuModel(icon: "earnings", name: "Earnings"), SideMenuModel(icon: "bell", name: "Notification"), SideMenuModel(icon: "calendar-day", name: "Schedule pickup"), SideMenuModel(icon: "user-plus", name: "Refer a driver"), SideMenuModel(icon: "comment-alt", name: "Feedback"), SideMenuModel(icon: "cog", name: "Setting"), SideMenuModel(icon: "sign-in-alt", name: "Logout")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,7 @@ class SideMenuViewController: UIViewController {
         switch screen {
         case "Home":
             performSegue(withIdentifier: "home_segue", sender: nil)
-        case "My trips":
+        case "Earnings":
             performSegue(withIdentifier: "profile_segue", sender: nil)
         case "Logout":
             let loginViewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

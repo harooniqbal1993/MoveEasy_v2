@@ -34,6 +34,10 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func submitButtonTapped(_ sender: SpinnerButton) {
+        if !(emailTextField.text?.isValidEmail ?? false) {
+            self.showAlert(title: "Email", message: "Enter valid email address")
+            return
+        }
         
         if !(emailTextField.text?.isEmpty ?? true) {
             forgotPasswordViewModel?.forgotPassword(email: emailTextField.text ?? "") { [weak self] error in
@@ -43,7 +47,10 @@ class ForgotPasswordViewController: UIViewController {
                         return
                     }
                     
-                    self?.navigationController?.popViewController(animated: true)
+//                    self?.navigationController?.popViewController(animated: true)
+                    let verificationCodeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VerificationCodeVC") as! VerificationCodeVC
+                    verificationCodeVC.email = self?.emailTextField.text
+                    self?.navigationController?.pushViewController(verificationCodeVC, animated: true)
                 }
             }
         }

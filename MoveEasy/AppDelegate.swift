@@ -119,21 +119,21 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print("userInfo : ", userInfo)
         DispatchQueue.main.async {
             
-            if let responseType = userInfo["response"] as? String {
-                print(responseType)
-                Defaults.forgotTimerResponse = responseType == "1" ? 1 : 0
-                if let orderID = userInfo["orderid"] as? String {
-                    NetworkService.shared.getBookingSummary(bookingID: orderID) { result, error in
-                        DispatchQueue.main.async {
-                            debugPrint(error ?? "")
-                            OrderSession.shared.bookingModel = result
-                            let dic = ["response": Defaults.forgotTimerResponse ?? 2] as [String : Any]
-                            NotificationCenter.default.post(name: Constants.NotificationObserver.OPEN_RECEIPT_VIEW.value, object: nil, userInfo: dic)
-                        }
-                    }
-                }
-                return
-            }
+//            if let responseType = userInfo["response"] as? String {
+//                print(responseType)
+//                Defaults.forgotTimerResponse = responseType == "1" ? 1 : 0
+//                if let orderID = userInfo["orderid"] as? String {
+//                    NetworkService.shared.getBookingSummary(bookingID: orderID) { result, error in
+//                        DispatchQueue.main.async {
+//                            debugPrint(error ?? "")
+//                            OrderSession.shared.bookingModel = result
+//                            let dic = ["response": Defaults.forgotTimerResponse ?? 2] as [String : Any]
+//                            NotificationCenter.default.post(name: Constants.NotificationObserver.OPEN_RECEIPT_VIEW.value, object: nil, userInfo: dic)
+//                        }
+//                    }
+//                }
+//                return
+//            }
             
             if let orderID = userInfo["orderid"] as? String {
                 let dic = ["bookingID": orderID]
@@ -162,6 +162,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print full message.
         print(userInfo)
+        
+        if let notificationType = userInfo["notificationType"] as? String {
+            if notificationType == "New_Booking_Created" {
+                if let orderID = userInfo["orderid"] as? String {
+                    Defaults.fromBackgroundNotificationBookingID = orderID
+                }
+            }
+            return
+        }
         
         if let responseType = userInfo["response"] as? String {
             print(responseType)

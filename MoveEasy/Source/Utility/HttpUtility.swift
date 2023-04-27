@@ -208,7 +208,7 @@ class HttpUtility {
     }
     
     
-    func postWithQueryStringApiData<T: Decodable>(url: URL, resultType: T.Type, completionHandler: @escaping(_ result: T?) -> Void) {
+    func postWithQueryStringApiData<T: Decodable>(url: URL, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: String?) -> Void) {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         //        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
@@ -224,10 +224,10 @@ class HttpUtility {
             if data != nil && data?.count != 0 {
                 do {
                     let response = try JSONDecoder().decode(T.self, from: data!)
-                    completionHandler(response)
+                    completionHandler(response, nil)
                 } catch let error {
                     debugPrint("POST api error: ", error)
-                    completionHandler(nil)
+                    completionHandler(nil, error.localizedDescription)
                 }
             }
         }.resume()

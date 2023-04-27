@@ -82,13 +82,14 @@ class ReceiptViewController: UIViewController {
         gstValueLabel.text = "\(receiptViewModel?.gst ?? "0.0")"
         chargesLabel.text = "\(receiptViewModel?.total ?? "0.0")"
         
-        if (OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased() || OrderSession.shared.bookingModel?.type?.lowercased() == "Moovers".lowercased()) {
+        if (OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased()) {
             minusTimeButton.isHidden = true
             timeView.isHidden = true
             baseFareView.isHidden = true
             distanceView.isHidden = true
-        } else {
             hourlyRateView.isHidden = true
+        } else {
+            hourlyRateView.isHidden = false
             workTimeView.isHidden = true
             travelTimeView.isHidden = true
         }

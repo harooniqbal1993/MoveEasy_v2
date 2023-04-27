@@ -175,7 +175,7 @@ class NetworkService {
     
     func sendDeviceToken(driverID: Int, deviceToken: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.addDriverDeviceID.rawValue)?id=\(driverID)&devicetoken=\(deviceToken)" // baseURL + Constants.EndPoints.addDriverDeviceID.rawValue
-        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             print("")
         }
     }
@@ -189,21 +189,21 @@ class NetworkService {
     
     func timerLog(driverID: Int, bookingId: String, userId: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.timerLog.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&userId=\(userId)"
-        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             print("")
         }
     }
     
     func decreaseTimer(driverID: Int, bookingId: String, seconds: Int, completion: @escaping (_ result: FinalJobResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.decreaseTimer.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&seconds=\(seconds)"
-        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: FinalJobResponse.self) { result in
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: FinalJobResponse.self) { result, error in
             completion(result, nil)
         }
     }
     
     func updateBookingTime(driverID: Int, bookingId: String, seconds: Int, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.updateBookingTime.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&seconds=\(seconds)"
-        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result in
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             print("")
         }
     }
@@ -211,6 +211,29 @@ class NetworkService {
     func getUpdatedBookingTime(driverID: Int, bookingId: String, completion: @escaping (_ result: TimeResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.getUpdatedBookingTime.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: TimeResponse.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func verifyForgetPasswordCode(verificationCodeConfirmationRequest: VerificationCodeConfirmationRequest, completion: @escaping (_ result: ForgotTimerResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.resetPasswordCode.rawValue)"
+        let encodedURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        if let encodedURL = encodedURL {
+            do {
+                let encodedRequest = try JSONEncoder().encode(verificationCodeConfirmationRequest)
+                httpUtility.postApiData(url: URL(string: encodedURL)!, requestBody: encodedRequest, resultType: ForgotTimerResponse.self) { result, error  in
+                    completion(result, nil)
+                }
+            } catch let error {
+                debugPrint("forgotTimer Request Encoding error : ", error)
+                completion(nil, error.localizedDescription)
+            }
+        }
+    }
+    
+    func resetPassword(email: String, newPassword: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.resetPassword.rawValue)?email=\(email)&newPassword=\(newPassword)" // baseURL + Constants.EndPoints.addDriverDeviceID.rawValue
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             completion(result, error)
         }
     }

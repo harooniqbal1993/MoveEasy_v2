@@ -32,7 +32,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var dropAddressInstructionLabel: UILabel!
     @IBOutlet weak var acceptButton: SpinnerButton!
     @IBOutlet weak var rejectButton: UIButton!
-    @IBOutlet weak var startJobButton: UIButton!
+    @IBOutlet weak var startJobButton: SpinnerButton!
     @IBOutlet weak var connector: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -179,8 +179,9 @@ class TripDetailViewController: UIViewController {
         cancelBooking()
     }
     
-    @IBAction func startJobTapped(_ sender: UIButton) {
-
+    @IBAction func startJobTapped(_ sender: SpinnerButton) {
+        startJobButton.setTitle("")
+        startJobButton.startLoading()
         self.dismiss(animated: false) {
             self.onDismiss?(false)
         }

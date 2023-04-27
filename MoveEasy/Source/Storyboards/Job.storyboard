@@ -946,6 +946,7 @@ Apartment # 123</string>
                         <outlet property="typeLabel" destination="3MS-VH-t2a" id="YOs-tE-l5D"/>
                         <outlet property="videoActivityIndicator" destination="Z5b-xY-Rqp" id="2Dr-eA-9HX"/>
                         <outlet property="viewRouteButton" destination="1wG-JY-h1C" id="0S7-cs-eB0"/>
+                        <outlet property="workTimeLabel" destination="WEk-r1-6aM" id="x7a-ma-hgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfV-6T-fHr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

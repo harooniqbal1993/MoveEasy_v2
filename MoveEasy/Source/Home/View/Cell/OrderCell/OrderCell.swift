@@ -42,6 +42,12 @@ class OrderCell: UITableViewCell, ShimmeringViewProtocol {
         moreDetailButton.round()
         greenView.round(radius: 20.0)
         upperView.roundCorners(corners: [.topLeft, .topRight], radius: 20.0)
+        contentView.addShadow()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by:  UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     }
     
     func configure(viewModel: OrderCellViewModel?) {

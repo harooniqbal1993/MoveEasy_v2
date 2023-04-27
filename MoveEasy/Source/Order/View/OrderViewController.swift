@@ -32,6 +32,7 @@ class OrderViewController: UIViewController {
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.revealViewController().revealToggle(self)
+        self.revealViewController().panGestureRecognizer()
 //        performSegue(withIdentifier: "home_segue", sender: nil)
         
     }

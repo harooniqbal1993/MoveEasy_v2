@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110A38A729EB1D3C00E662D8 /* VerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */; };
+		110A38AB29EB1D9900E662D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */; };
+		1151C4D729EB26EF00FBE786 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */; };
+		119BF3C229EEFC79008B1CDE /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119BF3C129EEFC79008B1CDE /* ResetPasswordViewModel.swift */; };
 		1816D25128840D7B00F1B6FF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D25028840D7B00F1B6FF /* HomeViewModel.swift */; };
 		1816D254288410D100F1B6FF /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D253288410D100F1B6FF /* FilterModel.swift */; };
 		1816D256288411F500F1B6FF /* FilterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D255288411F500F1B6FF /* FilterCellViewModel.swift */; };
@@ -104,6 +108,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeVC.swift; sourceTree = "<group>"; };
+		110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
+		119BF3C129EEFC79008B1CDE /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		1816D25028840D7B00F1B6FF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1816D253288410D100F1B6FF /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		1816D255288411F500F1B6FF /* FilterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCellViewModel.swift; sourceTree = "<group>"; };
@@ -219,6 +227,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110A38A429EB1CC300E662D8 /* VerificationCode */ = {
+			isa = PBXGroup;
+			children = (
+				1151C4D529EB26D400FBE786 /* ViewModel */,
+				110A38A529EB1CEC00E662D8 /* View */,
+			);
+			path = VerificationCode;
+			sourceTree = "<group>";
+		};
+		110A38A529EB1CEC00E662D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		110A38A829EB1D7100E662D8 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				119BF3C029EEFC5B008B1CDE /* ViewModel */,
+				110A38A929EB1D8500E662D8 /* View */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		110A38A929EB1D8500E662D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1151C4D529EB26D400FBE786 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		119BF3C029EEFC5B008B1CDE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				119BF3C129EEFC79008B1CDE /* ResetPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		1816D24F28840D6500F1B6FF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +650,8 @@
 		18C833A82878BB01008C2283 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				110A38A829EB1D7100E662D8 /* ResetPassword */,
+				110A38A429EB1CC300E662D8 /* VerificationCode */,
 				AF17F67829B10733000A31A6 /* AdjustTime */,
 				18599D30291BC3630078DEDB /* Oops */,
 				18599D2C291BB4950078DEDB /* Welldone */,
@@ -1123,6 +1183,7 @@
 				1816D25D2884252200F1B6FF /* LoginRequest.swift in Sources */,
 				18C833992878BAED008C2283 /* ViewController.swift in Sources */,
 				18C833952878BAED008C2283 /* AppDelegate.swift in Sources */,
+				110A38AB29EB1D9900E662D8 /* ResetPasswordVC.swift in Sources */,
 				18599D2F291BB50C0078DEDB /* WelldoneViewController.swift in Sources */,
 				187636F0288B1F2000D90B1E /* HomeModel.swift in Sources */,
 				187636F3288B21E700D90B1E /* DriverSession.swift in Sources */,
@@ -1177,12 +1238,15 @@
 				181F5EE028C9C64E002C94CA /* OrderSession.swift in Sources */,
 				1837C08328C9026700D93A58 /* ForgotMovingViewModel.swift in Sources */,
 				1816D25128840D7B00F1B6FF /* HomeViewModel.swift in Sources */,
+				119BF3C229EEFC79008B1CDE /* ResetPasswordViewModel.swift in Sources */,
 				18C833B22878BEE3008C2283 /* SideMenuViewController.swift in Sources */,
+				1151C4D729EB26EF00FBE786 /* VerificationCodeViewModel.swift in Sources */,
 				18C833AD2878BB34008C2283 /* SWRevealViewController.m in Sources */,
 				18CE66CD28795790002AE9D1 /* HttpUtility.swift in Sources */,
 				1848268028A81B3E00B405C3 /* CustomTabBarController.swift in Sources */,
 				18DE6FBD28846DED0074250D /* SpinnerButton.swift in Sources */,
 				18899A9B287C3F8900931042 /* StopWatch.swift in Sources */,
+				110A38A729EB1D3C00E662D8 /* VerificationCodeVC.swift in Sources */,
 				184E56BA28C35C740079F1E4 /* FileUploader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1346,7 +1410,7 @@
 				DEVELOPMENT_TEAM = 2W6J7HD9TS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Moovez Driver";
+				INFOPLIST_KEY_CFBundleDisplayName = "moovez moover";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera for proof purpose";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App uses current locaton to get package";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App uses microphone with video recording";
@@ -1386,7 +1450,7 @@
 				DEVELOPMENT_TEAM = 2W6J7HD9TS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Moovez Driver";
+				INFOPLIST_KEY_CFBundleDisplayName = "moovez moover";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera for proof purpose";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App uses current locaton to get package";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App uses microphone with video recording";

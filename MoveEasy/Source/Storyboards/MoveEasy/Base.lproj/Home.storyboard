@@ -257,6 +257,7 @@
                         <outlet property="activeLabel" destination="X6D-Zk-3d1" id="Lwp-0C-RQn"/>
                         <outlet property="activeOrderLabel" destination="sbb-wl-WGT" id="Dou-Gs-jV6"/>
                         <outlet property="activeOrderView" destination="RaQ-oH-u8q" id="euq-lD-HOP"/>
+                        <outlet property="completedOrderCountLabel" destination="LgH-fs-zme" id="ULu-Ie-rxq"/>
                         <outlet property="filterCollectionView" destination="jmj-5d-XwK" id="r5d-BX-pfe"/>
                         <outlet property="leftCardView" destination="GYs-05-1wK" id="b6a-EO-EcX"/>
                         <outlet property="orderTable" destination="YTQ-aO-e5c" id="ocK-FQ-FJ6"/>
@@ -1089,7 +1090,7 @@
         <image name="home-tab" width="25" height="25"/>
         <image name="lines.measurement.horizontal" catalog="system" width="128" height="93"/>
         <image name="map-marked-alt" width="10.5" height="9.5"/>
-        <image name="map-marker-alt" width="5" height="7"/>
+        <image name="map-marker-alt" width="24" height="24"/>
         <image name="menu-icon" width="22" height="15"/>
         <image name="move.3d" catalog="system" width="128" height="106"/>
         <image name="network" catalog="system" width="128" height="123"/>

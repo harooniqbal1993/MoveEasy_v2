@@ -16,7 +16,7 @@ class TripDetailViewModel {
     }
     
     var customerName: String? {
-        return (OrderSession.shared.bookingModel?.user?.firstName ?? "") + " " + (OrderSession.shared.bookingModel?.user?.lastName ?? "") // order?.riderName ?? ""
+        return (OrderSession.shared.bookingModel?.user?.firstName ?? "--") + " " + (OrderSession.shared.bookingModel?.user?.lastName ?? "") // order?.riderName ?? ""
     }
     
     var phoneNumber: String? {

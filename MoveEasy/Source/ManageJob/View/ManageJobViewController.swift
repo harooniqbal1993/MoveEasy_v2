@@ -53,6 +53,7 @@ class ManageJobViewController: UIViewController {
     @IBOutlet weak var forgotTimerLabelTop: NSLayoutConstraint!
     @IBOutlet weak var attachmentTimerLabelTop: NSLayoutConstraint!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var workTimeLabel: UILabel!
     
     var jobStatus: JobStatus? = nil {
         didSet {
@@ -134,13 +135,14 @@ class ManageJobViewController: UIViewController {
     }
     
     func hideTimerView() {
+        workTimeLabel.isHidden = true
         timerViewHeight.constant = 0
         startView.isHidden = true
         pauseView.isHidden = true
         stopView.isHidden = true
         forgotStartTimeLabel.isHidden = true
-        attachmentNoteLabel.isHidden = true
-        mediaButtonView.isHidden = true
+//        attachmentNoteLabel.isHidden = true
+//        mediaButtonView.isHidden = true
         continueButton.isHidden = false
         timerTop.constant = 0
         jobButtonViewTop.constant = 0
@@ -203,7 +205,7 @@ class ManageJobViewController: UIViewController {
         viewRouteButton.isHidden = true
         typeLabel.text = OrderSession.shared.bookingModel?.type
         
-        if (OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased() || OrderSession.shared.bookingModel?.type?.lowercased() == "Moovers".lowercased()) {
+        if (OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased()) {
             hideTimerView()
         }
     }

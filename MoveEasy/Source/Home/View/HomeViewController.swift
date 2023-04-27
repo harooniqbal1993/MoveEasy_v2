@@ -117,7 +117,9 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        self.tabBarController?.tabBar.items?[0].isEnabled = false
+        self.tabBarController?.tabBar.items?[2].isEnabled = false
+        self.orderTable.separatorStyle = .none
         profileImage.round()
         leftCardView.round(radius: 15.0)
         rightCardView.round(radius: 15.0)
@@ -131,7 +133,7 @@ class HomeViewController: UIViewController {
     private func updateViews() {
         usernameLabel.text = "Hi, \(homeViewModel.driverName ?? "")"
         upcomingOrderCountLabel.text = "\(homeViewModel.upcomingOrders)"
-//        completedOrderCountLabel.text  = "\(homeViewModel.completedOrder)"
+        completedOrderCountLabel.text  = "\(homeViewModel.completedOrder)"
         if let activeTrip = homeViewModel.activeTrip {
             activeOrderLabel.text = "Order# \(activeTrip.id ?? 0)"
             viewAllOrderButton.isHidden = false
@@ -140,7 +142,7 @@ class HomeViewController: UIViewController {
             viewAllOrderButton.isHidden = true
         }
 //        if let dp = DriverSession.shared.driver?.profileDisplayImageUrl {
-        profileImage.sd_setImage(with: URL(string: DriverSession.shared.driver?.profileDisplayImageUrl ?? ""), placeholderImage: UIImage(named: "user.png"))
+        profileImage.sd_setImage(with: URL(string: DriverSession.shared.driver?.profileDisplayImageUrl ?? ""), placeholderImage: UIImage(named: "user"))
 //        }
         
         orderTable.reloadData()
@@ -197,6 +199,8 @@ class HomeViewController: UIViewController {
     
     @IBAction func sideMenuTapped(_ sender: UIButton) {
         self.revealViewController().revealToggle(self)
+//        self.revealViewController().panGestureRecognizer()
+        self.revealViewController().tapGestureRecognizer()
     }
     
     @IBAction func allOrderTapped(_ sender: UIButton) {

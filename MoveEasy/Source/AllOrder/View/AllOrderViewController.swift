@@ -35,6 +35,9 @@ class AllOrderViewController: UIViewController {
     
     @IBAction func sideMenuTapped(_ sender: UIButton) {
         self.revealViewController().revealToggle(self)
+//        self.revealViewController().tapGestureRecognizer()
+        view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+        
     }
     
     @IBAction func onlineStatusChanged(_ sender: UISwitch) {
