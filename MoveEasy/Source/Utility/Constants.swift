@@ -69,6 +69,7 @@ class Constants {
         case getOrderSummary = "ForgotToStartBooking/GetOrderSummary"
         case addDriverDeviceID = "Notification/AddDriverDeviceID"
         case cancelBooking = "DriverBookingsAPI/cancelBookingByDriver"
+        case rejectBooking = "BookingAssignmentsAPI/RejectBooking"
         case timerLog = "DriverBookingsAPI/TimerLog"
         case decreaseTimer = "DriverBookingsAPI/DecreaseTimer"
         case updateBookingTime = "DriverBookingsAPI/UpdateBookingTime"

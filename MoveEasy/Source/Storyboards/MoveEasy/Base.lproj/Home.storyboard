@@ -697,7 +697,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZV-tL-ORz">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZV-tL-ORz" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="795.5" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -1078,6 +1078,9 @@
     <designables>
         <designable name="SY4-m3-7Qg">
             <size key="intrinsicContentSize" width="47" height="29"/>
+        </designable>
+        <designable name="yZV-tL-ORz">
+            <size key="intrinsicContentSize" width="57" height="29"/>
         </designable>
     </designables>
     <resources>

@@ -117,6 +117,25 @@ class TripDetailViewModel {
         }
     }
     
+    func rejectBooking(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.rejectBooking(bookingID: "\(OrderSession.shared.order?.id ?? 0)", driverID: "\(DriverSession.shared.driver?.id ?? 0)") { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                
+                completion(nil)
+            }
+        }
+        
+//        {
+//          "statusCode": 200,
+//          "message": "Success",
+//          "data": "Trip rejected and Notification sent to all active drivers"
+//        }
+    }
+    
     func vehicleType(id: Int) -> String {
         switch id {
         case 1001:

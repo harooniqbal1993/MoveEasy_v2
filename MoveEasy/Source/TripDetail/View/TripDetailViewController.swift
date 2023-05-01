@@ -146,8 +146,8 @@ class TripDetailViewController: UIViewController {
         }
     }
     
-    func cancelBooking() {
-        tripDetailViewModel.cancelBooking { [weak self] error in
+    func rejectBooking() {
+        tripDetailViewModel.rejectBooking { [weak self] error in
             DispatchQueue.main.async {
                 if let error = error {
                     self?.showAlert(title: "Booking", message: error)
@@ -176,7 +176,7 @@ class TripDetailViewController: UIViewController {
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
-        cancelBooking()
+        rejectBooking()
     }
     
     @IBAction func startJobTapped(_ sender: SpinnerButton) {

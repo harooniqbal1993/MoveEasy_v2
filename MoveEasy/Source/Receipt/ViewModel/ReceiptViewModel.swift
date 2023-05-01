@@ -34,7 +34,7 @@ class ReceiptViewModel {
     }
     
     var workTime: String {
-        return "\(receiptModel?.workTime ?? 0.00)" // "0.00"
+        return receiptModel?.workTime ?? "0.00" // "0.00"
     }
     
     var travelTime: String {

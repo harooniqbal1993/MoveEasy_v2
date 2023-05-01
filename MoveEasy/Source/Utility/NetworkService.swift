@@ -187,6 +187,13 @@ class NetworkService {
         }
     }
     
+    func rejectBooking(bookingID: String, driverID: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(customerURL+Constants.EndPoints.cancelBooking.rawValue)?bookingId=\(bookingID)&driverId=\(driverID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
     func timerLog(driverID: Int, bookingId: String, userId: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.timerLog.rawValue)?driverId=\(driverID)&bookingId=\(bookingId)&userId=\(userId)"
         httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in

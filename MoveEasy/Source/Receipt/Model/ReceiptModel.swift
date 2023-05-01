@@ -71,7 +71,6 @@ struct OrderSummaryModel: Decodable {
     var resumingTime: String? = nil
     var pauseTime: String? = nil
     var bookingTotalModel: BookingTotalModel? = nil
-//    var bookingFiles: []
     var vehicle: VehicleModel? = nil
     var user: User? = nil
     var deliverySlot: DeliverySlot? = nil
