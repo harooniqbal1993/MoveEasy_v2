@@ -489,6 +489,17 @@
                                     <constraint firstAttribute="height" constant="5" id="00s-2L-qqK"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AXo-g0-Klk">
+                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D8i-5O-LR0">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKr-sM-cVh">
                                 <rect key="frame" x="0.0" y="78" width="375" height="589"/>
                                 <subviews>
@@ -974,11 +985,15 @@
                         <viewLayoutGuide key="safeArea" id="leH-lP-QMz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="AXo-g0-Klk" firstAttribute="leading" secondItem="leH-lP-QMz" secondAttribute="leading" id="8WR-1X-GI5"/>
                             <constraint firstItem="uKr-sM-cVh" firstAttribute="bottom" secondItem="leH-lP-QMz" secondAttribute="bottom" id="9OU-NA-Erg"/>
                             <constraint firstItem="NY3-hO-dvv" firstAttribute="top" secondItem="zbQ-dS-ODc" secondAttribute="bottom" id="DcK-U0-UdU"/>
+                            <constraint firstItem="AXo-g0-Klk" firstAttribute="top" secondItem="NY3-hO-dvv" secondAttribute="bottom" constant="15" id="EIE-UR-svi"/>
+                            <constraint firstItem="AXo-g0-Klk" firstAttribute="bottom" secondItem="leH-lP-QMz" secondAttribute="bottom" id="HHi-fR-OpK"/>
                             <constraint firstItem="zbQ-dS-ODc" firstAttribute="top" secondItem="leH-lP-QMz" secondAttribute="top" id="IlH-8O-JTc"/>
                             <constraint firstItem="zbQ-dS-ODc" firstAttribute="leading" secondItem="leH-lP-QMz" secondAttribute="leading" id="M5y-mu-scz"/>
                             <constraint firstItem="NY3-hO-dvv" firstAttribute="trailing" secondItem="leH-lP-QMz" secondAttribute="trailing" id="PZc-x6-Q0d"/>
+                            <constraint firstItem="AXo-g0-Klk" firstAttribute="trailing" secondItem="leH-lP-QMz" secondAttribute="trailing" id="PgJ-uy-hmL"/>
                             <constraint firstItem="TRP-jj-0iT" firstAttribute="height" secondItem="mNp-b1-d3u" secondAttribute="height" priority="250" id="Sdb-15-B4P"/>
                             <constraint firstItem="NY3-hO-dvv" firstAttribute="leading" secondItem="leH-lP-QMz" secondAttribute="leading" id="cWG-rM-skZ"/>
                             <constraint firstItem="zbQ-dS-ODc" firstAttribute="trailing" secondItem="leH-lP-QMz" secondAttribute="trailing" id="cbk-hP-gPc"/>
@@ -986,9 +1001,15 @@
                             <constraint firstItem="uKr-sM-cVh" firstAttribute="leading" secondItem="leH-lP-QMz" secondAttribute="leading" id="fWU-n9-dK6"/>
                             <constraint firstItem="uKr-sM-cVh" firstAttribute="trailing" secondItem="leH-lP-QMz" secondAttribute="trailing" id="fZg-9U-Cav"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="uKr-sM-cVh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="acceptButton" destination="SY4-m3-7Qg" id="UFR-aj-4hY"/>
+                        <outlet property="bookingCollectionView" destination="AXo-g0-Klk" id="5s1-6p-W7X"/>
                         <outlet property="connector" destination="N89-hT-gjc" id="mn7-SR-VNY"/>
                         <outlet property="customerNameLabel" destination="MIi-oQ-jf3" id="25v-Tt-3bj"/>
                         <outlet property="dateLabel" destination="Pk9-nn-SrC" id="jMv-nL-aAT"/>
