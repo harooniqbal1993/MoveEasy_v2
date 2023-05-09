@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		110A38A729EB1D3C00E662D8 /* VerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */; };
 		110A38AB29EB1D9900E662D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */; };
+		1140FBD629FFC8EE00B87C64 /* BookingPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */; };
+		1140FBD729FFC8EE00B87C64 /* BookingPropertyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1140FBD529FFC8EE00B87C64 /* BookingPropertyCell.xib */; };
+		11519C172A003004005D79A5 /* BookingPropertyFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */; };
+		11519C182A003004005D79A5 /* BookingPropertyFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11519C162A003004005D79A5 /* BookingPropertyFooterView.xib */; };
 		1151C4D729EB26EF00FBE786 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */; };
+		1188E91F2A04156400745105 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188E91D2A04156400745105 /* AddressCell.swift */; };
+		1188E9202A04156400745105 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1188E91E2A04156400745105 /* AddressCell.xib */; };
 		119BF3C229EEFC79008B1CDE /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119BF3C129EEFC79008B1CDE /* ResetPasswordViewModel.swift */; };
 		1816D25128840D7B00F1B6FF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D25028840D7B00F1B6FF /* HomeViewModel.swift */; };
 		1816D254288410D100F1B6FF /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D253288410D100F1B6FF /* FilterModel.swift */; };
@@ -110,7 +116,13 @@
 /* Begin PBXFileReference section */
 		110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeVC.swift; sourceTree = "<group>"; };
 		110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyCell.swift; sourceTree = "<group>"; };
+		1140FBD529FFC8EE00B87C64 /* BookingPropertyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingPropertyCell.xib; sourceTree = "<group>"; };
+		11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyFooterView.swift; sourceTree = "<group>"; };
+		11519C162A003004005D79A5 /* BookingPropertyFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingPropertyFooterView.xib; sourceTree = "<group>"; };
 		1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
+		1188E91D2A04156400745105 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		1188E91E2A04156400745105 /* AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
 		119BF3C129EEFC79008B1CDE /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		1816D25028840D7B00F1B6FF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1816D253288410D100F1B6FF /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
@@ -261,12 +273,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1140FBD129FFC86F00B87C64 /* BookingPropertyCell */ = {
+			isa = PBXGroup;
+			children = (
+				1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */,
+				1140FBD529FFC8EE00B87C64 /* BookingPropertyCell.xib */,
+			);
+			path = BookingPropertyCell;
+			sourceTree = "<group>";
+		};
+		11519C192A00302A005D79A5 /* BookingPropertyFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */,
+				11519C162A003004005D79A5 /* BookingPropertyFooterView.xib */,
+			);
+			path = BookingPropertyFooterView;
+			sourceTree = "<group>";
+		};
 		1151C4D529EB26D400FBE786 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1188E91C2A04153900745105 /* AddressCell */ = {
+			isa = PBXGroup;
+			children = (
+				1188E91D2A04156400745105 /* AddressCell.swift */,
+				1188E91E2A04156400745105 /* AddressCell.xib */,
+			);
+			path = AddressCell;
 			sourceTree = "<group>";
 		};
 		119BF3C029EEFC5B008B1CDE /* ViewModel */ = {
@@ -491,7 +530,10 @@
 		1894B264287F2D3A005C1924 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1188E91C2A04153900745105 /* AddressCell */,
+				1140FBD129FFC86F00B87C64 /* BookingPropertyCell */,
 				1894B265287F2D4E005C1924 /* TripDetailViewController.swift */,
+				11519C192A00302A005D79A5 /* BookingPropertyFooterView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1085,14 +1127,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11519C182A003004005D79A5 /* BookingPropertyFooterView.xib in Resources */,
 				18537E6A2893C13600406229 /* Job.storyboard in Resources */,
 				18C833A12878BAEE008C2283 /* LaunchScreen.storyboard in Resources */,
 				AFF25B3A2976694600348BB0 /* GoogleService-Info.plist in Resources */,
 				18C8339E2878BAEE008C2283 /* Assets.xcassets in Resources */,
+				1140FBD729FFC8EE00B87C64 /* BookingPropertyCell.xib in Resources */,
 				18D188BA287AC58C003E8CD1 /* OrderCell.xib in Resources */,
 				18C833C32878D46F008C2283 /* MenuCell.xib in Resources */,
 				18C8339C2878BAED008C2283 /* Main.storyboard in Resources */,
 				18C833BD2878CB6F008C2283 /* Home.storyboard in Resources */,
+				1188E9202A04156400745105 /* AddressCell.xib in Resources */,
 				1899F1CB288323C4002855CA /* FilterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1169,6 +1214,7 @@
 				181F5EDE28C9C205002C94CA /* FeedbackViewModel.swift in Sources */,
 				18CE66D028795790002AE9D1 /* UIColor.swift in Sources */,
 				182BEA522914FA9A00DF3B7A /* ForgotPasswordViewController.swift in Sources */,
+				1140FBD629FFC8EE00B87C64 /* BookingPropertyCell.swift in Sources */,
 				18DE6FB728845C7A0074250D /* RegisterRequest.swift in Sources */,
 				AF17F67E29B109D6000A31A6 /* AdjustTimeViewModel.swift in Sources */,
 				18863FBA287F3EB100A6F752 /* RatingStar.swift in Sources */,
@@ -1228,10 +1274,12 @@
 				18DE6FB428845C4B0074250D /* RegisterViewModel.swift in Sources */,
 				1816D256288411F500F1B6FF /* FilterCellViewModel.swift in Sources */,
 				187636F6288B331500D90B1E /* AcceptBookingModel.swift in Sources */,
+				1188E91F2A04156400745105 /* AddressCell.swift in Sources */,
 				181F5EDB28C9C058002C94CA /* FeedbackRequest.swift in Sources */,
 				18DE6FB1288457AB0074250D /* LoginResponse.swift in Sources */,
 				1899F1CA288323C4002855CA /* FilterCell.swift in Sources */,
 				AF17F67B29B1082A000A31A6 /* AdjustTimeViewController.swift in Sources */,
+				11519C172A003004005D79A5 /* BookingPropertyFooterView.swift in Sources */,
 				18C833B02878BD26008C2283 /* TabViewController.swift in Sources */,
 				181CDD69287C0F4200E955BD /* ManageJobViewController.swift in Sources */,
 				18D188C7287AFC78003E8CD1 /* VideoRecorder.swift in Sources */,

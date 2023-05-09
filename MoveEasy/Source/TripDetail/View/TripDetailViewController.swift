@@ -35,6 +35,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var startJobButton: SpinnerButton!
     @IBOutlet weak var connector: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bookingCollectionView: UICollectionView!
     
     var tripDetailViewModel: TripDetailViewModel!
     var isFullScreen: Bool = false
@@ -50,6 +51,7 @@ class TripDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        loadViews()
+        configure()
         getOrderSummary()
     }
     
@@ -61,6 +63,16 @@ class TripDetailViewController: UIViewController {
 //        let tripDetailViewController =  UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
 //        navigationController?.pushViewController(tripDetailViewController, animated: true)
 //    }
+    
+    func configure() {
+        bookingCollectionView.delegate = self
+        bookingCollectionView.dataSource = self
+        
+        bookingCollectionView.register(UINib(nibName: "BookingPropertyCell", bundle: nil), forCellWithReuseIdentifier: "BookingPropertyCell")
+        bookingCollectionView.register(UINib(nibName: "AddressCell", bundle: nil), forCellWithReuseIdentifier: "AddressCell")
+        bookingCollectionView.register(UINib(nibName: "BookingPropertyFooterView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "BookingPropertyFooterView")
+        
+    }
     
     func loadViews() {
         view.setTemplateWithSubviews(true, viewBackgroundColor: .systemBackground)
@@ -124,6 +136,7 @@ class TripDetailViewController: UIViewController {
                 }
 
                 self?.updateViews()
+                self?.bookingCollectionView.reloadData()
             }
         })
     }
@@ -185,5 +198,83 @@ class TripDetailViewController: UIViewController {
         self.dismiss(animated: false) {
             self.onDismiss?(false)
         }
+    }
+}
+
+
+extension TripDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        section == 0 ? tripDetailViewModel.properties?.count ?? 0 : tripDetailViewModel.stops?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingPropertyCell", for: indexPath) as! BookingPropertyCell
+            if let property = tripDetailViewModel.properties?[indexPath.item] {
+    //            cell.contentView.backgroundColor = (indexPath.item % 2 == 0) ? .red : .blue
+                cell.configure(bookingPropertyModel: property)
+            }
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as! AddressCell
+            if let stop = tripDetailViewModel.stops?[indexPath.item] {
+                cell.configure(stop: stop, stopCount: tripDetailViewModel.stops?.count ?? 0, index: indexPath.row)
+            }
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print(indexPath.section, collectionView.frame.width)
+        return indexPath.section == 0 ? CGSize(width: (collectionView.frame.width - 20) / 2, height: 75) : CGSize(width: collectionView.frame.width, height: 130)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if indexPath.section == 0 {return UICollectionReusableView()}
+        switch kind {
+            
+//        case UICollectionView.elementKindSectionHeader:
+//
+//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+//
+//            headerView.backgroundColor = UIColor.blue
+//            return headerView
+        
+        case UICollectionView.elementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "BookingPropertyFooterView", for: indexPath) as! BookingPropertyFooterView
+            footerView.configure(bookingModel: OrderSession.shared.bookingModel)
+            footerView.onStartJob = { [weak self] in
+                self?.dismiss(animated: false) {
+                    self?.onDismiss?(false)
+                }
+            }
+            footerView.onAcceptJob = { [weak self] in
+//                self?.acceptOrder()
+                self?.dismiss(animated: false) {
+                    self?.onDismiss?(false)
+                }
+            }
+            footerView.onRejectJob = { [weak self] in
+//                self?.cancelBooking()
+                self?.dismiss(animated: false)
+            }
+            return footerView
+            
+        default:
+            
+//            assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        let indexPath = IndexPath(row: 0, section: section)
+        let footerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionFooter, at: indexPath)
+        return footerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
     }
 }
