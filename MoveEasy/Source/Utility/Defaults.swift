@@ -13,6 +13,7 @@ class Defaults {
     private static let AUTH_TOKEN: String = "auth_token"
     private static let USERNAME: String = "username"
     private static let DRIVER_EMAIL: String = "driver_email"
+    private static let PASSWORD: String = "password"
     private static let USER_IMAGE: String = "user_image"
     private static let DRIVER_STATUS: String = "driver_status"
     private static let DEVICE_TOKEN: String = "device_token"
@@ -51,6 +52,19 @@ class Defaults {
                 Defaults.userDefault.set(newValue, forKey: AUTH_TOKEN)
             } else {
                 Defaults.userDefault.removeObject(forKey: AUTH_TOKEN)
+            }
+        }
+    }
+    
+    static var password: String? {
+        get {
+            return Defaults.userDefault.string(forKey: PASSWORD)
+        }
+        set {
+            if let newValue = newValue {
+                Defaults.userDefault.set(newValue, forKey: PASSWORD)
+            } else {
+                Defaults.userDefault.removeObject(forKey: PASSWORD)
             }
         }
     }

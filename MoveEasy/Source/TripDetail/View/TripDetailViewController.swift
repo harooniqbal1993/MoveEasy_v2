@@ -248,23 +248,27 @@ extension TripDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "BookingPropertyFooterView", for: indexPath) as! BookingPropertyFooterView
             footerView.configure(bookingModel: OrderSession.shared.bookingModel)
-            footerView.onStartJob = { [weak self] (startJobButton) in
+            footerView.onStartJob = { [weak self] in
                 self?.dismiss(animated: false) {
                     self?.onDismiss?(false)
-                    startJobButton.stopLoading()
                 }
             }
             footerView.onAcceptJob = { [weak self] in
-                self?.acceptOrder()
+//                self?.acceptOrder()
+                self?.dismiss(animated: false) {
+                    self?.onDismiss?(false)
+                }
             }
             footerView.onRejectJob = { [weak self] in
-                self?.cancelBooking()
+//                self?.cancelBooking()
+                self?.dismiss(animated: false)
             }
             return footerView
             
         default:
             
-            assert(false, "Unexpected element kind")
+//            assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
         }
     }
     

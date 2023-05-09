@@ -51,6 +51,7 @@ class LoginViewModel {
                 Defaults.authToken = result?.token
                 Defaults.driverStatus = result?.data?.status?.lowercased() == "ACTIVE".lowercased()
                 Defaults.driverEmail = loginRequest.email // result?.data?.email
+                Defaults.password = loginRequest.password
                 DriverSession.shared.driver = result?.data
                 if result?.token != nil {
                     self.sendDeviceToken()
