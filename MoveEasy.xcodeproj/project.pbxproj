@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		110A38A729EB1D3C00E662D8 /* VerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */; };
 		110A38AB29EB1D9900E662D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */; };
+		111672492A0C0463002DEE35 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111672482A0C0463002DEE35 /* Interceptor.swift */; };
 		1140FBD629FFC8EE00B87C64 /* BookingPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */; };
 		1140FBD729FFC8EE00B87C64 /* BookingPropertyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1140FBD529FFC8EE00B87C64 /* BookingPropertyCell.xib */; };
 		11519C172A003004005D79A5 /* BookingPropertyFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */; };
@@ -116,6 +117,7 @@
 /* Begin PBXFileReference section */
 		110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeVC.swift; sourceTree = "<group>"; };
 		110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		111672482A0C0463002DEE35 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyCell.swift; sourceTree = "<group>"; };
 		1140FBD529FFC8EE00B87C64 /* BookingPropertyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingPropertyCell.xib; sourceTree = "<group>"; };
 		11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyFooterView.swift; sourceTree = "<group>"; };
@@ -810,6 +812,7 @@
 				1816D25E288430D700F1B6FF /* NetworkService.swift */,
 				18DE6FBA288467630074250D /* Globals.swift */,
 				AF81CCDC296DD0B6007B1ADB /* Enums.swift */,
+				111672482A0C0463002DEE35 /* Interceptor.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1247,6 +1250,7 @@
 				189DABAB290F9B2100965BDE /* FinishJobModel.swift in Sources */,
 				AFFF9AD029995FE000F1582C /* AppleMap.swift in Sources */,
 				18CE66D328795790002AE9D1 /* UIViewController.swift in Sources */,
+				111672492A0C0463002DEE35 /* Interceptor.swift in Sources */,
 				18D188B9287AC58C003E8CD1 /* OrderCell.swift in Sources */,
 				18CE66DA287964A9002AE9D1 /* UILabel.swift in Sources */,
 				18F86235289072D600A3F7A0 /* NotesRequest.swift in Sources */,

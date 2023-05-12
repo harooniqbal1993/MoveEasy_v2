@@ -153,7 +153,7 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 if error != nil {
                     if ((error?.contains("expired")) != nil) {
-                        self.logout()
+//                        self.logout()
                         return
                     }
                     self.showAlert(title: "Error", message: error ?? "Some Error")

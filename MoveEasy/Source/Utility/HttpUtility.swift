@@ -14,6 +14,8 @@ struct ImageStore: Encodable {
 
 class HttpUtility {
     
+    let interceptor: Interceptor = Interceptor()
+    
     func getApiData<T: Decodable>(url: URL, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: String?) -> Void) {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -30,6 +32,21 @@ class HttpUtility {
             if let httpResponse = httpUrlResponse as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
                 if httpResponse.statusCode == 401 {
+                    self.interceptor.refreshToken { result, error in
+                        if let error = error {
+                            completionHandler(nil, error)
+                            return
+                        }
+                        print("After refresh Request")
+                        self.getApiData(url: url, resultType: T.self) { result, error in
+                            if let error = error {
+                                completionHandler(nil, error)
+                                return
+                            }
+                            completionHandler(result, error)
+                        }
+                        return
+                    }
                     completionHandler(nil, "Token has expired!")
                 }
             }
@@ -75,6 +92,21 @@ class HttpUtility {
             if let httpResponse = httpUrlResponse as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
                 if httpResponse.statusCode == 401 {
+                    self.interceptor.refreshToken { result, error in
+                        if let error = error {
+                            completionHandler(nil, error)
+                            return
+                        }
+                        print("After refresh Request")
+                        self.postApiData(url: url, requestBody: requestBody, resultType: T.self) { result, error in
+                            if let error = error {
+                                completionHandler(nil, error)
+                                return
+                            }
+                            completionHandler(result, error)
+                        }
+                        return
+                    }
                     completionHandler(nil, "Token has expired!")
                 }
             }
@@ -168,8 +200,8 @@ class HttpUtility {
         let boundary = UUID().uuidString
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        guard let url = URL(string: url) else { return }
-        var request = URLRequest(url: url)
+        guard let formedUrl = URL(string: url) else { return }
+        var request = URLRequest(url: formedUrl)
         request.httpMethod = "POST"
         request.setValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
@@ -188,6 +220,31 @@ class HttpUtility {
                         print("", str)
                         completion(str, nil)
                     }
+                } else if checkResponse.statusCode == 401 {
+                    self.interceptor.refreshToken { result, error in
+                        if let error = error {
+                            completion(nil, error)
+                            return
+                        }
+                        print("After refresh Request")
+//                        self.postApiData(url: url, requestBody: requestBody, resultType: T.self) { result, error in
+//                            if let error = error {
+//                                completionHandler(nil, error)
+//                                return
+//                            }
+//                            completionHandler(result, error)
+//                        }
+                        
+                        self.postAttachment(fileName: fileName, imageData: imageData, fileKey: fileKey, url: url) { response, error in
+                            if let error = error {
+                                completion(nil, error)
+                                return
+                            }
+                            completion(response, error)
+                        }
+                        return
+                    }
+                    completion(nil, "Token has expired!")
                 }
                 else {
                     guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
@@ -221,6 +278,27 @@ class HttpUtility {
                 let str = String(decoding: json, as: UTF8.self)
                 print("", str)
             }
+            if let checkResponse = httpUrlResponse as? HTTPURLResponse {
+                if checkResponse.statusCode == 401 {
+                    self.interceptor.refreshToken { result, error in
+                        if let error = error {
+                            completionHandler(nil, error)
+                            return
+                        }
+                        print("After refresh Request")
+                        self.postWithQueryStringApiData(url: url, resultType: resultType) { result, error in
+                            if let error = error {
+                                completionHandler(nil, error)
+                                return
+                            }
+                            completionHandler(result, error)
+                        }
+                        return
+                    }
+                    completionHandler(nil, "Token has expired!")
+                }
+            }
+            
             if data != nil && data?.count != 0 {
                 do {
                     let response = try JSONDecoder().decode(T.self, from: data!)
@@ -233,6 +311,45 @@ class HttpUtility {
         }.resume()
     }
 }
+//
+//func postApiData<T: Decodable>(url: URL, requestBody: Data, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: String?) -> Void) {
+//    var urlRequest = URLRequest(url: url)
+//    urlRequest.httpMethod = "POST"
+//    urlRequest.httpBody = requestBody
+//    //        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+//    urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//    urlRequest.addValue("Bearer "+(Defaults.authToken ?? ""), forHTTPHeaderField: "Authorization")
+//
+//    URLSession.shared.dataTask(with: urlRequest) { data, httpUrlResponse, error in
+//        if let data = data {
+//            let str = String(decoding: data, as: UTF8.self)
+//            print(str)
+//        }
+//
+//        if let apiError = error {
+//            debugPrint("API ERROR: ", apiError.localizedDescription)
+//            completionHandler(nil, apiError.localizedDescription)
+//            return
+//        }
+//
+//        if let httpResponse = httpUrlResponse as? HTTPURLResponse {
+//            print("statusCode: \(httpResponse.statusCode)")
+//            if httpResponse.statusCode == 401 {
+//                completionHandler(nil, "Token has expired!")
+//            }
+//        }
+//
+//        if data != nil && data?.count != 0 {
+//            do {
+//                let response = try JSONDecoder().decode(T.self, from: data!)
+//                completionHandler(response, nil)
+//            } catch let error {
+//                debugPrint("POST api error: ", error)
+//                completionHandler(nil, error.localizedDescription)
+//            }
+//        }
+//    }.resume()
+//}
 
 //extension Data {
 //    mutating func append(_ string: String) {
