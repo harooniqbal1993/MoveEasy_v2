@@ -54,9 +54,11 @@ class OrderCellViewModel {
     var typeColor: UIColor {
         switch order?.type {
         case "Delivery":
-            return UIColor(red: 104/255, green: 229/255, blue: 47/255, alpha: 1.0)
+            return UIColor(red: 111/255, green: 222/255, blue: 49/255, alpha: 1.0)
         case "Moovers":
-            return UIColor(red: 212/255, green: 207/255, blue: 255/255, alpha: 1.0)
+            return UIColor(red: 166/255, green: 156/255, blue: 254/255, alpha: 1.0)
+        case "Business":
+            return UIColor(red: 248/255, green: 174/255, blue: 24/255, alpha: 1.0)
         default:
             return UIColor(red: 51/255, green: 42/255, blue: 136/255, alpha: 1.0)
         }

@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "icons8-lock-30.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Icon awesome-lock.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
