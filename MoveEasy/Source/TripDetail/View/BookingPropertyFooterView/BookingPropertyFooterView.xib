@@ -146,11 +146,11 @@
                         </view>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="grh-4A-XcL">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="grh-4A-XcL">
                     <rect key="frame" x="15" y="73" width="453" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaX-oZ-X43" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="201.66666666666666" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="216.66666666666666" height="40"/>
                             <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="NAn-jR-b5u"/>
@@ -165,7 +165,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFO-gg-rRS" customClass="SpinnerButton" customModule="Moovez_Driver" customModuleProvider="target">
-                            <rect key="frame" x="251.66666666666669" y="0.0" width="201.33333333333331" height="40"/>
+                            <rect key="frame" x="236.66666666666663" y="0.0" width="216.33333333333337" height="40"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="BAb-to-Kht"/>
@@ -233,6 +233,17 @@
             <point key="canvasLocation" x="-19.083969465648853" y="-77.112676056338032"/>
         </collectionReusableView>
     </objects>
+    <designables>
+        <designable name="bFO-gg-rRS">
+            <size key="intrinsicContentSize" width="42" height="29"/>
+        </designable>
+        <designable name="jyp-xa-W8W">
+            <size key="intrinsicContentSize" width="57" height="29"/>
+        </designable>
+        <designable name="oaX-oZ-X43">
+            <size key="intrinsicContentSize" width="47" height="29"/>
+        </designable>
+    </designables>
     <resources>
         <image name="map-marked-alt" width="10.5" height="9.5"/>
         <image name="map-marker-alt" width="24" height="24"/>
