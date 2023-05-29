@@ -111,6 +111,7 @@
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-Ei-h71">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <connections>
                                                                     <action selector="takeImageTapped:" destination="q9d-Ut-JH5" eventType="touchUpInside" id="022-60-8ve"/>
@@ -155,6 +156,7 @@
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9V-uC-yXX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <connections>
                                                                     <action selector="takeVideoTapped:" destination="q9d-Ut-JH5" eventType="touchUpInside" id="U9w-TS-1EV"/>
@@ -184,7 +186,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="KfN-v2-vAI"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Click here to add comment">
                                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,7 +237,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="cUE-wq-E05"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Continue to drop off">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -711,6 +713,7 @@ Apartment # 123</string>
                                                                             </stackView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdf-RV-aaT">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="45"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <connections>
                                                                                     <action selector="takeImageTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="wdq-hJ-fMc"/>
@@ -754,6 +757,7 @@ Apartment # 123</string>
                                                                             </stackView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivp-uf-WC3">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="45"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <connections>
                                                                                     <action selector="recordVideoTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="LJw-Ti-kgB"/>
@@ -782,7 +786,7 @@ Apartment # 123</string>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="45" id="set-vJ-ZaH"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="Click here to add comment">
                                                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1056,7 +1060,7 @@ Apartment # 123</string>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="DgS-Vj-Z82"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Submit">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1479,7 +1483,7 @@ Apartment # 123</string>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="ihf-7U-hoi"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Continue">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1494,7 +1498,7 @@ Apartment # 123</string>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="xYx-NO-MXT"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Reject">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1638,7 +1642,7 @@ Apartment # 123</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="mtq-UR-XkR"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Move completed">
                                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1810,7 +1814,7 @@ privacy policy.</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="kfI-06-23a"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Move completed">
                                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1959,7 +1963,7 @@ privacy policy.</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="huk-SU-LKt"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Show payment method">
                                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1981,7 +1985,7 @@ privacy policy.</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="jgk-P6-476"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Return to homepage">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2126,7 +2130,7 @@ privacy policy.</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="1z7-XH-c3W"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Adjust">
                                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -2249,7 +2253,7 @@ privacy policy.</string>
             <size key="intrinsicContentSize" width="253.5" height="31.5"/>
         </designable>
         <designable name="v4W-g4-Wp8">
-            <size key="intrinsicContentSize" width="134" height="29"/>
+            <size key="intrinsicContentSize" width="181" height="36"/>
         </designable>
     </designables>
     <resources>

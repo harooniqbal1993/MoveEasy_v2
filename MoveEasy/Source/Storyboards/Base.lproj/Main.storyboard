@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="vVV-Ky-r7Q"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="45" id="liw-ek-tBg"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="vGG-Wj-FYw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Log in">
                                     <color key="titleColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,27 +228,28 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-F5-o5M">
-                                <rect key="frame" x="20" y="365" width="335" height="2"/>
+                                <rect key="frame" x="20" y="565" width="335" height="2"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="wNd-2M-hoO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afd-Ib-euB">
-                                <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="GYS-ec-IRU">
-                                        <rect key="frame" x="112.5" y="215" width="150" height="50"/>
+                                        <rect key="frame" x="87.5" y="15" width="200" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-1L-Crc">
-                                                <rect key="frame" x="0.0" y="5" width="150" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-1L-Crc">
+                                                <rect key="frame" x="0.0" y="2.5" width="200" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="Nqw-GU-eKf"/>
+                                                    <constraint firstAttribute="height" constant="45" id="Nqw-GU-eKf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Go online">
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <color key="tintColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Go online" image="moovez">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -257,68 +258,16 @@ and start earning</string>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="3dv-Ch-uQZ"/>
+                                            <constraint firstAttribute="width" constant="200" id="3dv-Ch-uQZ"/>
                                             <constraint firstAttribute="height" constant="50" id="byy-0a-MXn"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="HAU-cZ-wbS">
-                                        <rect key="frame" x="40" y="35" width="15" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="g6n-6x-3hy"/>
-                                            <constraint firstAttribute="width" constant="15" id="vnD-Ik-cb3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYo-gs-BEQ">
-                                        <rect key="frame" x="65" y="35.5" width="87" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-Iy-p47">
-                                        <rect key="frame" x="65" y="58" width="290" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="GpN-ZC-xbp">
-                                        <rect key="frame" x="40" y="142" width="15" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="15" id="hNa-ns-RNy"/>
-                                            <constraint firstAttribute="height" constant="15" id="rpm-Mb-P82"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gG1-Ek-oyv">
-                                        <rect key="frame" x="65" y="142" width="92" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2357 Stevensons Rd." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB8-nM-UBt">
-                                        <rect key="frame" x="65" y="164.5" width="290" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="HAU-cZ-wbS" firstAttribute="leading" secondItem="afd-Ib-euB" secondAttribute="leading" constant="40" id="37c-CM-gNs"/>
-                                    <constraint firstItem="GpN-ZC-xbp" firstAttribute="leading" secondItem="HAU-cZ-wbS" secondAttribute="leading" id="7tC-TB-L46"/>
-                                    <constraint firstItem="PB8-nM-UBt" firstAttribute="top" secondItem="gG1-Ek-oyv" secondAttribute="bottom" constant="8" id="9uD-dA-uGl"/>
                                     <constraint firstItem="GYS-ec-IRU" firstAttribute="centerX" secondItem="afd-Ib-euB" secondAttribute="centerX" id="B6c-8h-Erw"/>
-                                    <constraint firstItem="EYo-gs-BEQ" firstAttribute="centerY" secondItem="HAU-cZ-wbS" secondAttribute="centerY" id="FY4-ms-zQd"/>
-                                    <constraint firstItem="EYo-gs-BEQ" firstAttribute="leading" secondItem="HAU-cZ-wbS" secondAttribute="trailing" constant="10" id="K7Q-Vb-BeW"/>
-                                    <constraint firstAttribute="height" constant="300" id="Njp-pn-7h5"/>
-                                    <constraint firstItem="gG1-Ek-oyv" firstAttribute="leading" secondItem="GpN-ZC-xbp" secondAttribute="trailing" constant="10" id="P97-EH-ITt"/>
+                                    <constraint firstAttribute="height" constant="100" id="Njp-pn-7h5"/>
                                     <constraint firstAttribute="bottom" secondItem="GYS-ec-IRU" secondAttribute="bottom" constant="35" id="Sfs-OB-m7k"/>
-                                    <constraint firstItem="GpN-ZC-xbp" firstAttribute="top" secondItem="yUn-Iy-p47" secondAttribute="bottom" constant="66" id="YWF-Hu-TQf"/>
-                                    <constraint firstItem="yUn-Iy-p47" firstAttribute="top" secondItem="EYo-gs-BEQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Ydg-mY-HdP"/>
-                                    <constraint firstAttribute="trailing" secondItem="yUn-Iy-p47" secondAttribute="trailing" constant="20" id="ZgF-hb-sfx"/>
-                                    <constraint firstItem="HAU-cZ-wbS" firstAttribute="top" secondItem="afd-Ib-euB" secondAttribute="top" constant="35" id="jZS-yV-1Rf"/>
-                                    <constraint firstItem="gG1-Ek-oyv" firstAttribute="centerY" secondItem="GpN-ZC-xbp" secondAttribute="centerY" id="o4O-a6-mgL"/>
-                                    <constraint firstItem="yUn-Iy-p47" firstAttribute="leading" secondItem="EYo-gs-BEQ" secondAttribute="leading" id="ocP-XW-dZZ"/>
-                                    <constraint firstItem="PB8-nM-UBt" firstAttribute="leading" secondItem="gG1-Ek-oyv" secondAttribute="leading" id="rX9-Z6-mAj"/>
-                                    <constraint firstAttribute="trailing" secondItem="PB8-nM-UBt" secondAttribute="trailing" constant="20" id="xQF-0V-e88"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vF-WF-x6M">
@@ -335,7 +284,7 @@ and start earning</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0h-QT-czg">
-                                <rect key="frame" x="0.0" y="267" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="467" width="375" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3J9-Eg-Lie">
                                         <rect key="frame" x="75.5" y="25.5" width="224" height="49"/>
@@ -383,13 +332,7 @@ and start earning</string>
                     </view>
                     <connections>
                         <outlet property="addressView" destination="afd-Ib-euB" id="hXu-d0-8sM"/>
-                        <outlet property="dropoffAddressLabel" destination="PB8-nM-UBt" id="uts-gn-wej"/>
-                        <outlet property="dropoffLabel" destination="gG1-Ek-oyv" id="z2t-zu-1lk"/>
-                        <outlet property="dropoffMapIcon" destination="GpN-ZC-xbp" id="lYo-kF-lYe"/>
                         <outlet property="goOnlineButton" destination="Li7-1L-Crc" id="fTh-pq-Hed"/>
-                        <outlet property="pickupAddressLabel" destination="yUn-Iy-p47" id="JIE-Ee-S8p"/>
-                        <outlet property="pickupLabel" destination="EYo-gs-BEQ" id="9b1-VE-bFg"/>
-                        <outlet property="pickupMapIcon" destination="HAU-cZ-wbS" id="ORC-Mk-BcJ"/>
                         <outlet property="sideMenuButton" destination="7vF-WF-x6M" id="56P-H7-E1O"/>
                     </connections>
                 </viewController>
@@ -549,6 +492,7 @@ and start earning</string>
                                                     <constraint firstAttribute="height" constant="45" id="Jke-Bv-kRH"/>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="45" id="y8b-0F-uTF"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Sign in">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -697,21 +641,21 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="j8X-UW-9qx">
-                                <rect key="frame" x="20" y="30" width="65" height="65"/>
+                                <rect key="frame" x="20" y="30" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="9dS-TK-gQl"/>
-                                    <constraint firstAttribute="height" constant="65" id="oO5-sV-oim"/>
+                                    <constraint firstAttribute="width" constant="60" id="9dS-TK-gQl"/>
+                                    <constraint firstAttribute="height" constant="60" id="oO5-sV-oim"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon bullard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pv-0q-DuS">
-                                <rect key="frame" x="100" y="52" width="245" height="21.5"/>
+                                <rect key="frame" x="95" y="49.5" width="250" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZKm-Qo-hgg">
-                                <rect key="frame" x="20" y="115" width="335" height="70"/>
+                                <rect key="frame" x="20" y="110" width="335" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J1d-Ae-bEA">
                                         <rect key="frame" x="0.0" y="15" width="111.5" height="40"/>
@@ -779,14 +723,14 @@ and start earning</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrN-aD-dZT">
-                                <rect key="frame" x="0.0" y="215" width="375" height="5"/>
+                                <rect key="frame" x="0.0" y="210" width="375" height="5"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="IG2-Fm-ye4"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kI3-31-hFf">
-                                <rect key="frame" x="0.0" y="235" width="375" height="432"/>
+                                <rect key="frame" x="0.0" y="230" width="375" height="437"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="4hD-td-o62" id="j6m-uC-kly"/>
@@ -1076,7 +1020,7 @@ and start earning</string>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ys-pG-q2p">
                                                                 <rect key="frame" x="10" y="0.0" width="325" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1254,7 +1198,7 @@ and start earning</string>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.78" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ii-0y-cEN">
-                                                        <rect key="frame" x="127.5" y="3.5" width="30.5" height="18"/>
+                                                        <rect key="frame" x="127.50000000000001" y="3.5" width="30.499999999999986" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.43921568630000002" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1366,7 +1310,7 @@ and start earning</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Jt4-iU-UIy"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Accept">
                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1381,7 +1325,7 @@ and start earning</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="wiu-bx-8Uw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Reject">
                                             <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1545,7 +1489,7 @@ and start earning</string>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="IbM-Zr-mzS"/>
                                                     <constraint firstAttribute="height" constant="40" id="VBl-bE-C8f"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Submit">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1682,7 +1626,7 @@ and start earning</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="NOz-PF-Jgi"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Add a comment here">
                                                             <color key="titleColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -1698,7 +1642,7 @@ and start earning</string>
                                                             <constraint firstAttribute="height" constant="105" id="cv6-0x-9IJ"/>
                                                         </constraints>
                                                         <color key="textColor" systemColor="labelColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                 </subviews>
@@ -2056,6 +2000,7 @@ and start earning</string>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="n8i-PE-jxV"/>
                                                     <constraint firstAttribute="height" constant="45" id="waM-H0-e1o"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Submit">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -2213,6 +2158,7 @@ and start earning</string>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="VbU-U0-RIm"/>
                                                     <constraint firstAttribute="height" constant="45" id="Zgd-4g-x3D"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Confirm">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -2397,6 +2343,7 @@ and start earning</string>
                                                     <constraint firstAttribute="height" constant="45" id="plr-8v-bE7"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="r0E-9q-BFQ"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Confirm">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -2471,23 +2418,6 @@ and start earning</string>
             <point key="canvasLocation" x="-36" y="-621"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="18h-22-hzG">
-            <size key="intrinsicContentSize" width="57" height="34"/>
-        </designable>
-        <designable name="E5h-0j-NPE">
-            <size key="intrinsicContentSize" width="65" height="34"/>
-        </designable>
-        <designable name="ErS-Gw-mMS">
-            <size key="intrinsicContentSize" width="55" height="34"/>
-        </designable>
-        <designable name="RMs-qQ-odn">
-            <size key="intrinsicContentSize" width="65" height="34"/>
-        </designable>
-        <designable name="Ua7-vE-W82">
-            <size key="intrinsicContentSize" width="61" height="34"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="HLb-0g-CiN"/>
     </inferredMetricsTieBreakers>
@@ -2498,6 +2428,7 @@ and start earning</string>
         <image name="lock" width="30" height="30"/>
         <image name="map-marker-alt" width="24" height="24"/>
         <image name="menu-icon" width="22" height="15"/>
+        <image name="moovez" width="25" height="26"/>
         <image name="profile" width="33" height="33"/>
         <image name="side-menu-blue" width="24" height="24"/>
         <image name="star_active" width="39" height="37"/>

@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyB4NBNYT0Lj_wlG0SXNubJsQE16OthSOFg")
+//        GMSServices.provideAPIKey("AIzaSyB4NBNYT0Lj_wlG0SXNubJsQE16OthSOFg")
+        GMSServices.provideAPIKey("AIzaSyDiLSRSAuqG7uV5vF_lkkMs5ORScLB8HYw")
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()

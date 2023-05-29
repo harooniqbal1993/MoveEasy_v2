@@ -129,7 +129,8 @@ extension UIView {
         let background = UIImage(named: image)
         
         var imageView : UIImageView!
-        imageView = UIImageView(frame: self.bounds)
+        imageView = UIImageView(frame: self.frame)
+        print(self.frame.origin.x)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = background

@@ -32,6 +32,7 @@ class SignupViewController: UIViewController {
     }
     
     func configure() {
+        phoneTextField.delegate = self
         registerViewModel = RegisterViewModel()
     }
     
@@ -52,5 +53,11 @@ class SignupViewController: UIViewController {
                 self.showAlert(title: "Register", message: error ?? "Something went wrong")
             }
         }
+    }
+}
+
+extension SignupViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return textField.text?.count ?? 0 <= 10
     }
 }

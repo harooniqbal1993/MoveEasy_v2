@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "map-marked-alt.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Icon awesome-map-marked-alt.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

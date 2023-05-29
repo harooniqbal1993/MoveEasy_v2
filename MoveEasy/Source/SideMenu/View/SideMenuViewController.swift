@@ -62,6 +62,7 @@ class SideMenuViewController: UIViewController {
         case "Earnings":
             performSegue(withIdentifier: "profile_segue", sender: nil)
         case "Logout":
+            Defaults.isLoggedIn = false
             let loginViewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             let nav = UINavigationController(rootViewController: loginViewController)
     //        UIApplication.shared.keyWindow?.rootViewController = nav

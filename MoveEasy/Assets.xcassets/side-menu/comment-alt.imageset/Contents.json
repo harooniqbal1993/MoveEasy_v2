@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "comment-alt.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Icon awesome-comment-alt.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
