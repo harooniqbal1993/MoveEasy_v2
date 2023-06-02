@@ -125,17 +125,14 @@ extension UIView {
         layer.addSublayer(shapeLayer)
     }
     
-    func backgroundImage(image: String){
+    func backgroundImage(image: String) {
         let background = UIImage(named: image)
         
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: self.frame)
-        print(self.frame.origin.x)
+        let imageView : UIImageView! = UIImageView(frame: self.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = background
-        imageView.center = self.center
+//        imageView.center = self.center
         self.insertSubview(imageView, at: 0)
-//        self.sendSubviewToBack(imageView)
     }
 }

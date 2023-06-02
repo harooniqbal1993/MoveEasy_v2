@@ -127,13 +127,28 @@ class HomeViewController: UIViewController {
         activeOrderView.round(radius: 15.0)
         leftCardView.backgroundImage(image: "green-card")
         rightCardView.backgroundImage(image: "purple-card")
+//        backgroundImage(image: "green-card", view: leftCardView)
+//        backgroundImage(image: "purple-card", view: rightCardView)
         switchButton.isOn = Defaults.driverStatus ?? false
+    }
+    
+    func backgroundImage(image: String, view: UIView) {
+        let background = UIImage(named: image)
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.frame)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.insertSubview(imageView, at: 0)
+        rightCardView.insertSubview(imageView, at: 0)
     }
     
     private func updateViews() {
         usernameLabel.text = "Hi, \(homeViewModel.driverName ?? "")"
         upcomingOrderCountLabel.text = "\(homeViewModel.upcomingOrders)"
-        completedOrderCountLabel.text  = "\(homeViewModel.completedOrder)"
+//        completedOrderCountLabel.text  = "\(homeViewModel.completedOrder)"
         if let activeTrip = homeViewModel.activeTrip {
             activeOrderLabel.text = "Order# \(activeTrip.id ?? 0)"
             viewAllOrderButton.isHidden = false
