@@ -207,6 +207,7 @@ and start earning</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerHeightConstraint" destination="1Hw-0d-hPJ" id="hO4-FV-orZ"/>
                         <outlet property="containerView" destination="sdu-oJ-qYj" id="fBP-h9-B22"/>
                         <outlet property="messageLabel" destination="dSZ-yf-ylf" id="G8b-km-nj0"/>
                         <outlet property="noButton" destination="Mti-OE-EI4" id="lsu-e9-8XZ"/>
@@ -1094,6 +1095,9 @@ and start earning</string>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="checkmark.square.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="policyButtonTapped:" destination="LYx-Ii-c8n" eventType="touchUpInside" id="YeE-UH-8aB"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By the clicking sign in you accept our terms &amp; condition and privacy policy." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-cb-RbK">
                                                 <rect key="frame" x="42.5" y="779" width="312.5" height="31.5"/>
@@ -1152,6 +1156,7 @@ and start earning</string>
                         <outlet property="lastnameTextField" destination="7o7-2r-C2G" id="lxc-Zx-AaC"/>
                         <outlet property="passwordTextField" destination="M0c-wk-9j9" id="Wk4-QJ-e84"/>
                         <outlet property="phoneTextField" destination="0Ys-pG-q2p" id="RgU-V1-kTt"/>
+                        <outlet property="policyButton" destination="bIe-ad-25W" id="Bqp-Gg-cAn"/>
                         <outlet property="signupButtonTapped" destination="Ua7-vE-W82" id="Gsf-QZ-YBC"/>
                     </connections>
                 </viewController>

@@ -16,8 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="Kbl-vI-8xL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IJ-l0-YWf">
+                                <rect key="frame" x="118.5" y="320.5" width="138.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EAp-z0-zdk"/>
                         <color key="backgroundColor" red="0.70588235290000001" green="0.69019607839999997" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0IJ-l0-YWf" firstAttribute="centerX" secondItem="Kbl-vI-8xL" secondAttribute="centerX" id="4BL-BN-Ben"/>
+                            <constraint firstItem="0IJ-l0-YWf" firstAttribute="centerY" secondItem="Kbl-vI-8xL" secondAttribute="centerY" id="n6W-M4-PJc"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="headphones" selectedImage="headphones" id="iXi-w5-bfS">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -25,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPk-KU-4ug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676" y="532"/>
+            <point key="canvasLocation" x="2676" y="531.18440779610194"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="epV-JC-Rs8">
@@ -1084,8 +1096,20 @@
                     <view key="view" contentMode="scaleToFill" id="neI-KV-Vks">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlV-bi-2D7">
+                                <rect key="frame" x="118.5" y="320.5" width="138.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4Ii-Cy-ile"/>
                         <color key="backgroundColor" red="0.70588235290000001" green="0.69019607839999997" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="OlV-bi-2D7" firstAttribute="centerY" secondItem="neI-KV-Vks" secondAttribute="centerY" id="a0G-CM-qay"/>
+                            <constraint firstItem="OlV-bi-2D7" firstAttribute="centerX" secondItem="neI-KV-Vks" secondAttribute="centerX" id="e2x-tp-gGm"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="clipboard-list" selectedImage="clipboard-list" id="7T5-PA-PV6">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

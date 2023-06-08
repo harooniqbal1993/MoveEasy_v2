@@ -15,6 +15,11 @@ class RegisterViewModel {
     var lastName: String? = nil
     var password: String? = nil
     var phone: String? = nil
+    var isPolicy: Bool = false
+    
+    func updatePolicy() {
+        self.isPolicy = !self.isPolicy
+    }
     
     func validate(email: String, firstName: String, lastName: String, password: String, phone: String, confirmPassword: String, completion: @escaping (Bool, String?) -> Void) {
         if email.isEmpty {

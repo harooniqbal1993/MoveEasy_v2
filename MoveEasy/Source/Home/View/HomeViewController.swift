@@ -117,8 +117,8 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.tabBarController?.tabBar.items?[0].isEnabled = false
-        self.tabBarController?.tabBar.items?[2].isEnabled = false
+//        self.tabBarController?.tabBar.items?[0].isEnabled = false
+//        self.tabBarController?.tabBar.items?[2].isEnabled = false
         self.orderTable.separatorStyle = .none
         profileImage.round()
         leftCardView.round(radius: 15.0)
@@ -249,8 +249,16 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func openTripDetailVC(bookingID: String) {
+    func openTripDetailVC(bookingID: String, order: OrderModel? = nil) {
         DispatchQueue.main.async {
+            if (order != nil) {
+                let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+//                receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
+                receiptViewController.orderID = bookingID
+                self.navigationController?.pushViewController(receiptViewController, animated: true)
+                return
+            }
+            
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
             let order = OrderModel(id: Int(bookingID ), type: "Mooving", status: "In Progress", pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil)
             OrderSession.shared.order = order
@@ -320,7 +328,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if homeViewModel.isLoading == true { return cell }
         cell.configure(viewModel: OrderCellViewModel(order: homeViewModel.displayedOrders?[indexPath.row]))
         cell.completion = { [weak self] in
-            self?.openTripDetailVC(bookingID: "\(self?.homeViewModel.displayedOrders?[indexPath.row].id ?? 0)")
+            self?.openTripDetailVC(bookingID: "\(self?.homeViewModel.displayedOrders?[indexPath.row].id ?? 0)", order: self?.homeViewModel.displayedOrders?[indexPath.row])
         }
         return cell
     }

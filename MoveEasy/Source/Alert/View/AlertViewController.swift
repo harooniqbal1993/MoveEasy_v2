@@ -15,6 +15,7 @@ class AlertViewController: UIViewController {
         case stopped
         case back
         case adjustTimer
+        case deleteAccount
     }
 
     @IBOutlet weak var warningImageView: UIImageView!
@@ -23,6 +24,7 @@ class AlertViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
+    @IBOutlet weak var containerHeightConstraint: NSLayoutConstraint!
     
     var alertTitle: String? = nil
     var message: String? = nil
@@ -69,6 +71,11 @@ class AlertViewController: UIViewController {
             warningImageView.image = UIImage(named: "warning")
             titleLabel.text = "Adjust time"
             messageLabel.text = "Are you sure you want to adjust time"
+        } else if statusType == .deleteAccount {
+            containerHeightConstraint.constant = 350
+            warningImageView.image = UIImage(named: "red-cross")
+            titleLabel.text = "Delete Account"
+            messageLabel.text = "Are you sure you want to delete your account?\n\nThis action is irreversible and will permanently remove all your data and associated information."
         } else {
             warningImageView.image = UIImage(named: "stop")
             titleLabel.text = "Did you finish the job?"

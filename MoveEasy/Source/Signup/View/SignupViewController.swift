@@ -16,6 +16,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var signupButtonTapped: SpinnerButton!
+    @IBOutlet weak var policyButton: UIButton!
     
     var registerViewModel: RegisterViewModel!
     
@@ -53,6 +54,17 @@ class SignupViewController: UIViewController {
                 self.showAlert(title: "Register", message: error ?? "Something went wrong")
             }
         }
+    }
+    
+    @IBAction func policyButtonTapped(_ sender: UIButton) {
+        if registerViewModel.isPolicy {
+            policyButton.setImage(UIImage(systemName: "checkmark.square.fill"))
+//            checkboxImage.image = UIImage(systemName: "checkmark.square.fill")
+        } else {
+            policyButton.setImage(UIImage(systemName: "checkmark.square"))
+//            checkboxImage.image = UIImage(systemName: "checkmark.square")
+        }
+        registerViewModel.updatePolicy()
     }
 }
 

@@ -31,6 +31,7 @@ class ReceiptViewController: UIViewController {
     @IBOutlet weak var timeView: UIView!
     
     var receiptViewModel: ReceiptViewModel? = nil
+    var orderID: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,8 +107,13 @@ class ReceiptViewController: UIViewController {
 //                self?.updateUI()
 //            }
 //        })
-        
-        receiptViewModel?.getBooking(bookingID: "\(OrderSession.shared.order?.id ?? 0)", completion: { [weak self] error in
+        var id: String? = nil
+        if orderID != nil {
+            id = orderID
+        } else {
+            id = "\(OrderSession.shared.order?.id ?? 0)"
+        }
+        receiptViewModel?.getBooking(bookingID: id, completion: { [weak self] error in
 //        receiptViewModel?.getBooking(bookingID: "1306", completion: { [weak self] error in
             DispatchQueue.main.async {
                 if let error = error {

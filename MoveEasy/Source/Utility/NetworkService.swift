@@ -244,4 +244,11 @@ class NetworkService {
             completion(result, error)
         }
     }
+    
+    func deleteAccount(email: String, completion: @escaping (_ result: LoginResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.deleteAccount.rawValue)?email=\(email)" // baseURL + Constants.EndPoints.addDriverDeviceID.rawValue
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
+            completion(result, error)
+        }
+    }
 }

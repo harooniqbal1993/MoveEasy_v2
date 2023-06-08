@@ -25,7 +25,9 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var ratingStackView: UIStackView!
     @IBOutlet weak var yearStackView: UIStackView!
     
-    var menuItems: [SideMenuModel] = [SideMenuModel(icon: "home", name: "Home"), SideMenuModel(icon: "map-marked-alt", name: "My trips"), SideMenuModel(icon: "earnings", name: "Earnings"), SideMenuModel(icon: "bell", name: "Notification"), SideMenuModel(icon: "calendar-day", name: "Schedule pickup"), SideMenuModel(icon: "user-plus", name: "Refer a driver"), SideMenuModel(icon: "comment-alt", name: "Feedback"), SideMenuModel(icon: "cog", name: "Setting"), SideMenuModel(icon: "sign-in-alt", name: "Logout")]
+//    var menuItems: [SideMenuModel] = [SideMenuModel(icon: "home", name: "Home"), SideMenuModel(icon: "map-marked-alt", name: "My trips"), SideMenuModel(icon: "earnings", name: "Earnings"), SideMenuModel(icon: "bell", name: "Notification"), SideMenuModel(icon: "calendar-day", name: "Schedule pickup"), SideMenuModel(icon: "user-plus", name: "Refer a driver"), SideMenuModel(icon: "comment-alt", name: "Feedback"), SideMenuModel(icon: "cog", name: "Setting"), SideMenuModel(icon: "sign-in-alt", name: "Logout")]
+    
+    var menuItems: [SideMenuModel] = [SideMenuModel(icon: "home", name: "Home"), SideMenuModel(icon: "earnings", name: "Earnings"), SideMenuModel(icon: "sign-in-alt", name: "Logout"), SideMenuModel(icon: "delete-account", name: "Delete Account")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +74,37 @@ class SideMenuViewController: UIViewController {
             let window = windowScene?.windows.first
     //        let rootVC = window?.rootViewController
             window?.rootViewController = nav
+            break
+        case "Delete Account":
+//            showAlert(title: "Delete account", message: "Are you sure you want to delete account?") { status in
+//                print("status: ", status)
+//            }
+            let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+            alertViewController.statusType = .deleteAccount
+            alertViewController.completion = { [weak self] isYes in
+                if isYes {
+                    NetworkService.shared.deleteAccount(email: Defaults.driverEmail ?? "") { [weak self] result, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
+                                self?.showAlert(title: "Error", message: error)
+                                return
+                            }
+                            Defaults.isLoggedIn = false
+                            let loginViewController: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                            let nav = UINavigationController(rootViewController: loginViewController)
+                    //        UIApplication.shared.keyWindow?.rootViewController = nav
+                            
+                            let scenes = UIApplication.shared.connectedScenes
+                            let windowScene = scenes.first as? UIWindowScene
+                            let window = windowScene?.windows.first
+                    //        let rootVC = window?.rootViewController
+                            window?.rootViewController = nav
+                        }
+                    }
+                } else {
+                }
+            }
+            present(alertViewController, animated: true, completion: nil)
             break
         default:
             print("default")

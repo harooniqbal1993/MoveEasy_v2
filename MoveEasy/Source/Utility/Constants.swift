@@ -74,7 +74,7 @@ class Constants {
         case decreaseTimer = "DriverBookingsAPI/DecreaseTimer"
         case updateBookingTime = "DriverBookingsAPI/UpdateBookingTime"
         case getUpdatedBookingTime = "DriverBookingsAPI/GetUpdatedBookingTime"
-//        case getBookingSummary = "BookingsAPI"
+        case deleteAccount = "Auth/DeleteDriver"
     }
     
     enum NotificationObserver: String {

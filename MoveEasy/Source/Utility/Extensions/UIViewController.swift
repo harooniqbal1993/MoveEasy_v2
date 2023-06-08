@@ -18,4 +18,17 @@ extension UIViewController {
         }))
         self.present(alert, animated: true)
     }
+    
+    func showAlert(title: String, message: String, completion: @escaping ((Bool) -> Void)) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+            action in
+            completion(true)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: {
+            action in
+            completion(false)
+        }))
+        self.present(alert, animated: true)
+    }
 }
