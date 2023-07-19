@@ -48,8 +48,13 @@ class SignupViewController: UIViewController {
             if status {
 //                let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
 //                self.navigationController?.pushViewController(mapViewController, animated: true)
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+//                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+//                self.navigationController?.pushViewController(vc, animated: true)
+                
+                if let url = URL(string: "https://moversignup.moovez.ca/driver/mobile/registration/\(self.registerViewModel.driverId ?? 0)?token=\(self.registerViewModel.token ?? "")") {
+                    print(url)
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
             } else {
                 self.showAlert(title: "Register", message: error ?? "Something went wrong")
             }

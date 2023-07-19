@@ -16,6 +16,8 @@ class RegisterViewModel {
     var password: String? = nil
     var phone: String? = nil
     var isPolicy: Bool = false
+    var driverId: Int? = 0
+    var token: String? = nil
     
     func updatePolicy() {
         self.isPolicy = !self.isPolicy
@@ -61,10 +63,12 @@ class RegisterViewModel {
     }
     
     func registerDriver(registerRequest: RegisterRequest, completion: @escaping (Bool, String?) -> Void) {
-        NetworkService.shared.registerDriver(loginRequest: registerRequest) { result, error  in
+        NetworkService.shared.registerDriver(loginRequest: registerRequest) { [weak self] result, error  in
             DispatchQueue.main.async {
                 if result?.statusCode == 201 {
                     Defaults.driverEmail = registerRequest.email
+                    self?.driverId = result?.data?.id
+                    self?.token = result?.token
                     completion(true, nil)
                 } else {
                     completion(false, result?.message)

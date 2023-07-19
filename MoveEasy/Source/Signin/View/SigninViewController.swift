@@ -57,6 +57,20 @@ class SigninViewController: UIViewController {
                 self.showAlert(title: "Validation", message: error ?? "")
                 return
             }
+            
+            if !(DriverSession.shared.driver?.allDocsUploaded ?? false) {
+                if let url = URL(string: "https://moversignup.moovez.ca/driver/mobile/registration/\(DriverSession.shared.driver?.id ?? 0)?token=\(Defaults.authToken ?? "")") {
+                    print(url)
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+                return
+            }
+            
+            if !(DriverSession.shared.driver?.isApproved ?? false) {
+                self.showAlert(title: "Approval", message: "Approval is pending")
+                return
+            }
+            
 //            let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             self.navigationController?.pushViewController(vc, animated: true)
