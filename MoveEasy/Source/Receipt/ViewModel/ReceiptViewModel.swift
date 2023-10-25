@@ -42,7 +42,7 @@ class ReceiptViewModel {
     }
     
     var subTotal: String {
-        return receiptModel?.subtotal ?? "0.00"
+        return receiptModel?.totalChargeBTax ?? "0.00"
     }
     
     var gst: String {
@@ -97,6 +97,25 @@ class ReceiptViewModel {
                 completion(nil)
             }
         }
+    }
+    
+    func chargePayment(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.chargePayment(bookingId: "\(OrderSession.shared.bookingModel?.id ?? 0)", completion: { result, error in
+//        NetworkService.shared.chargePayment(bookingId: "\(1245)", completion: { result, error in
+            DispatchQueue.main.async {
+                if error != nil {
+                    completion(error)
+                    return
+                }
+                if let result = result {
+                    if result.StatusCode == 400 {
+                        completion("Ask your customer to recheck his card details")
+                        return
+                    }
+                }
+                completion(nil)
+            }
+        })
     }
 }
 

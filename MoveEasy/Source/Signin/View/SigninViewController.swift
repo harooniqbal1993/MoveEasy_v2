@@ -58,20 +58,33 @@ class SigninViewController: UIViewController {
                 return
             }
             
-            if !(DriverSession.shared.driver?.allDocsUploaded ?? false) {
-                if let url = URL(string: "https://moversignup.moovez.ca/driver/mobile/registration/\(DriverSession.shared.driver?.id ?? 0)?token=\(Defaults.authToken ?? "")") {
-                    print(url)
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+            if !(DriverSession.shared.driver?.isVerified ?? false) || !(DriverSession.shared.driver?.allDocsUploaded ?? false) || !(DriverSession.shared.driver?.isApproved ?? false) {
+                let customPopup: CustomPopup = CustomPopup()
+                customPopup.appear(sender: self)
                 return
             }
             
-            if !(DriverSession.shared.driver?.isApproved ?? false) {
-                self.showAlert(title: "Approval", message: "Approval is pending")
-                return
-            }
+//            if DriverSession.shared.driver?.isVerified == false {
+//                let verificationCodeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VerificationCodeVC") as! VerificationCodeVC
+//                verificationCodeVC.email = self.emailTextField.text
+//                self.navigationController?.pushViewController(verificationCodeVC, animated: true)
+//                return
+//            }
+//
+//            if !(DriverSession.shared.driver?.allDocsUploaded ?? false) {
+//                if let url = URL(string: "https://moversignup.moovez.ca/driver/mobile/registration/\(DriverSession.shared.driver?.id ?? 0)?token=\(Defaults.authToken ?? "")") {
+//                    print(url)
+//                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                }
+//                return
+//            }
+//
+//            if !(DriverSession.shared.driver?.isApproved ?? false) {
+//                self.showAlert(title: "Approval", message: "Approval is pending")
+//                return
+//            }
             
-//            let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -83,7 +96,10 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
-        let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
-        navigationController?.pushViewController(registerViewController, animated: true)
+        if let url = URL(string: "https://moversignup.moovez.ca/Driver/MooverSignUp") {
+            UIApplication.shared.open(url)
+        }
+//        let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+//        navigationController?.pushViewController(registerViewController, animated: true)
     }
 }

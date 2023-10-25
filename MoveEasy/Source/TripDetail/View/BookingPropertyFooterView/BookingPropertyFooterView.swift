@@ -31,22 +31,30 @@ class BookingPropertyFooterView: UICollectionReusableView {
         pickupInstructionLabel.text = bookingModel?.pickUpInstructions
         dropoffAddressLabel.text = bookingModel?.dropoffLocation
         dropoffInstructionLabel.text = bookingModel?.dropOffInstructions
+        
+        let toggleButton: Bool = (OrderSession.shared.bookingModel?.status == .COMPLETED || OrderSession.shared.bookingModel?.status == .ACTIVE)
+        acceptButton.isHidden = toggleButton
+        rejectButton.isHidden = toggleButton
+        startJobButton.isHidden = !toggleButton
+        startJobButton.setTitle(OrderSession.shared.bookingModel?.status == .COMPLETED ? "View Details" : "Start Job", for: .normal)
     }
     
     func loadViews() {
         startJobButton.round()
         acceptButton.round()
         rejectButton.border(color: Constants.themeColor, width: 1.0)
+        startJobButton.setTitle(OrderSession.shared.bookingModel?.status == .COMPLETED ? "View Details" : "Start Job")
         
-        if OrderSession.shared.bookingModel?.driverId == nil {
-            startJobButton.isHidden = true
-            rejectButton.isHidden = false
-            acceptButton.isHidden = false
-        } else {
-            startJobButton.isHidden = false
-            rejectButton.isHidden = true
-            acceptButton.isHidden = true
-        }
+//        if OrderSession.shared.bookingModel?.driverId == nil {
+//            startJobButton.isHidden = true
+//            rejectButton.isHidden = false
+//            acceptButton.isHidden = false
+//        } else {
+//            startJobButton.isHidden = false
+//            rejectButton.isHidden = true
+//            acceptButton.isHidden = true
+//        }
+        
     }
     
     @IBAction func startJobTapped(_ sender: SpinnerButton) {

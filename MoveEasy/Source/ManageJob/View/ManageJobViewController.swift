@@ -200,7 +200,7 @@ class ManageJobViewController: UIViewController {
         imageActivityIndicator.isHidden = true
         videoActivityIndicator.isHidden = true
         addressLabel.text = OrderSession.shared.bookingModel?.pickupLocation
-        switchView.isOn = Defaults.driverStatus ?? false
+        switchView.isOn = Defaults.driverStatus ?? true
         continueButton.isHidden = true
         viewRouteButton.isHidden = true
         typeLabel.text = OrderSession.shared.bookingModel?.type
@@ -471,7 +471,7 @@ class ManageJobViewController: UIViewController {
     }
     
     @IBAction func takeImageTapped(_ sender: UIButton) {
-        mediaPickerManager.pickImage(viewController: self, mediaType: .gallery) { [weak self] (image, url, error)  in
+        mediaPickerManager.pickImage(viewController: self, mediaType: .camera) { [weak self] (image, url, error)  in
             if error != nil {
                 self?.showAlert(title: "Media Error", message: error ?? "Something went wrong with Camera")
                 return
@@ -482,7 +482,7 @@ class ManageJobViewController: UIViewController {
     }
     
     @IBAction func recordVideoTapped(_ sender: UIButton) {
-        mediaPickerManager.pickImage(viewController: self, mediaType: .gallery) { [weak self] (image, url, error) in
+        mediaPickerManager.pickImage(viewController: self, mediaType: .video) { [weak self] (image, url, error) in
             if error != nil {
                 self?.showAlert(title: "Media Error", message: error ?? "Something went wrong with Camera")
                 return

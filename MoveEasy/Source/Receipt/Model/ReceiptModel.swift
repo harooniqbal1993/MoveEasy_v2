@@ -59,7 +59,8 @@ struct OrderSummaryModel: Decodable {
     var pickupLongitude: String? = nil
     var dropoffLatitude: String? = nil
     var dropoffLongitude: String? = nil
-    var status: String? = nil
+//    var status: String? = nil
+    var status: OrderStatus? = nil
     var exactTime: String? = nil
     var moveTypeId: Int? = nil
     var moveSizeId: Int? = nil
@@ -150,4 +151,10 @@ struct Stop: Decodable {
     var bookingId: Int? = nil
     var lat: String? = nil
     var long: String? = nil
+}
+
+struct ChargePaymentResponse: Decodable {
+    var StatusCode: Int? = nil
+    var Message: String? = nil
+    var Data: Data? = nil
 }

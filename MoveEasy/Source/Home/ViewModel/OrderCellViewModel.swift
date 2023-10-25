@@ -15,8 +15,8 @@ class OrderCellViewModel {
         return order?.type ?? ""
     }
     
-    var status: String {
-        return order?.status ?? ""
+    var status: OrderStatus {
+        return order?.status ?? .INACTIVE
     }
     
     var icon: String {

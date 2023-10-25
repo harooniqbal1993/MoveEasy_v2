@@ -84,7 +84,7 @@ class HomeViewModel {
             DispatchQueue.main.async {
                 self.displayedOrders = result?.data?.active ?? []
                 self.upcomingOrders = result?.data?.totalOrders ?? 0
-                self.completedOrder = result?.data?.completeOrders ?? 0
+                self.completedOrder = result?.data?.completed?.count ?? 0
                 self.activeTrip = result?.data?.activeTrip
                 self.activeOrders = result?.data?.active ?? []
                 self.pendingOrders = result?.data?.pending ?? []

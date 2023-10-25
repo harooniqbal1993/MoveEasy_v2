@@ -38,7 +38,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
-        let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
-        navigationController?.pushViewController(signupViewController, animated: true)
+        if let url = URL(string: "https://moversignup.moovez.ca/Driver/MooverSignUp") {
+            UIApplication.shared.open(url)
+        }
+//        let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+//        navigationController?.pushViewController(signupViewController, animated: true)
     }
 }

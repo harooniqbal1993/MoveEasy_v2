@@ -46,11 +46,6 @@ class SignupViewController: UIViewController {
         registerViewModel.validate(email: emailTextField.text!, firstName: firstnameTextField.text!, lastName: lastnameTextField.text!, password: passwordTextField.text!, phone: phoneTextField.text!, confirmPassword: confirmPasswordTextField.text!) { status, error in
             self.signupButtonTapped.stopLoading()
             if status {
-//                let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-//                self.navigationController?.pushViewController(mapViewController, animated: true)
-//                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//                self.navigationController?.pushViewController(vc, animated: true)
-                
                 if let url = URL(string: "https://moversignup.moovez.ca/driver/mobile/registration/\(self.registerViewModel.driverId ?? 0)?token=\(self.registerViewModel.token ?? "")") {
                     print(url)
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)

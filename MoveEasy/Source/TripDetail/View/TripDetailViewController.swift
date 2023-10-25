@@ -98,8 +98,8 @@ class TripDetailViewController: UIViewController {
         orderNumberLabel.text = "Order # \(tripDetailViewModel.orderNumber ?? 0)"
         customerNameLabel.text = tripDetailViewModel.customerName
         phoneLabel.text = tripDetailViewModel.phoneNumber
-        dateLabel.text = tripDetailViewModel.date
-        timeLabel.text = tripDetailViewModel.time
+        dateLabel.text = tripDetailViewModel.time.0 // tripDetailViewModel.date
+        timeLabel.text = tripDetailViewModel.time.1
         vehicleTypeLabel.text = tripDetailViewModel.vehicleType
         moverCountLabel.text = tripDetailViewModel.numberOfMoovers
         moveTypeLabel.text = tripDetailViewModel.moveType
@@ -113,16 +113,20 @@ class TripDetailViewController: UIViewController {
         dropAddressLabel.text = tripDetailViewModel.dropoffLocation
         dropAddressInstructionLabel.text = tripDetailViewModel.dropoffInstructions
         viewMapButton.isHidden = tripDetailViewModel.mapButtonHidden
-        if OrderSession.shared.bookingModel?.driverId == nil {
-            startJobButton.isHidden = true
-            rejectButton.isHidden = false
-            acceptButton.isHidden = false
-        } else {
-            startJobButton.isHidden = false
-            rejectButton.isHidden = true
-            acceptButton.isHidden = true
-        }
-        
+
+//        if OrderSession.shared.bookingModel?.driverId == nil {
+//            startJobButton.isHidden = true
+//            rejectButton.isHidden = false
+//            acceptButton.isHidden = false
+//        } else {
+//            startJobButton.isHidden = false
+//            rejectButton.isHidden = true
+//            acceptButton.isHidden = true
+//        }
+//        acceptButton.isHidden = OrderSession.shared.bookingModel?.status == .COMPLETED
+//        rejectButton.isHidden = OrderSession.shared.bookingModel?.status == .COMPLETED
+//        startJobButton.isHidden = !(OrderSession.shared.bookingModel?.status == .COMPLETED)
+//        startJobButton.setTitle(OrderSession.shared.bookingModel?.status == .COMPLETED ? "View Details" : "Start Job", for: .normal)
         self.view.setTemplateWithSubviews(false)
     }
     

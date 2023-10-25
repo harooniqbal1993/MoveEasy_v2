@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import SwiftSignatureView
+//import SwiftSignatureView
 import FittedSheets
 
 class SignatureViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var signatureView: SwiftSignatureView!
+//    @IBOutlet weak var signatureView: SwiftSignatureView!
     @IBOutlet weak var completedButton: UIButton!
     @IBOutlet weak var termsConditionButton: UIButton!
     @IBOutlet weak var tcCheckbox: UIButton!

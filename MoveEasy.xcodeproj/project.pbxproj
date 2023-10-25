@@ -10,6 +10,8 @@
 		110A38A729EB1D3C00E662D8 /* VerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */; };
 		110A38AB29EB1D9900E662D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */; };
 		111672492A0C0463002DEE35 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111672482A0C0463002DEE35 /* Interceptor.swift */; };
+		112CEFB42AE0470D0012F94B /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CEFB22AE0470D0012F94B /* CustomPopup.swift */; };
+		112CEFB52AE0470D0012F94B /* CustomPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112CEFB32AE0470D0012F94B /* CustomPopup.xib */; };
 		1140FBD629FFC8EE00B87C64 /* BookingPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */; };
 		1140FBD729FFC8EE00B87C64 /* BookingPropertyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1140FBD529FFC8EE00B87C64 /* BookingPropertyCell.xib */; };
 		11519C172A003004005D79A5 /* BookingPropertyFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */; };
@@ -118,6 +120,8 @@
 		110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeVC.swift; sourceTree = "<group>"; };
 		110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		111672482A0C0463002DEE35 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		112CEFB22AE0470D0012F94B /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
+		112CEFB32AE0470D0012F94B /* CustomPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPopup.xib; sourceTree = "<group>"; };
 		1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyCell.swift; sourceTree = "<group>"; };
 		1140FBD529FFC8EE00B87C64 /* BookingPropertyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingPropertyCell.xib; sourceTree = "<group>"; };
 		11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyFooterView.swift; sourceTree = "<group>"; };
@@ -273,6 +277,15 @@
 				110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		112CEFB12AE046EB0012F94B /* CustomPopup */ = {
+			isa = PBXGroup;
+			children = (
+				112CEFB22AE0470D0012F94B /* CustomPopup.swift */,
+				112CEFB32AE0470D0012F94B /* CustomPopup.xib */,
+			);
+			path = CustomPopup;
 			sourceTree = "<group>";
 		};
 		1140FBD129FFC86F00B87C64 /* BookingPropertyCell */ = {
@@ -694,6 +707,7 @@
 		18C833A82878BB01008C2283 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				112CEFB12AE046EB0012F94B /* CustomPopup */,
 				110A38A829EB1D7100E662D8 /* ResetPassword */,
 				110A38A429EB1CC300E662D8 /* VerificationCode */,
 				AF17F67829B10733000A31A6 /* AdjustTime */,
@@ -1133,6 +1147,7 @@
 				11519C182A003004005D79A5 /* BookingPropertyFooterView.xib in Resources */,
 				18537E6A2893C13600406229 /* Job.storyboard in Resources */,
 				18C833A12878BAEE008C2283 /* LaunchScreen.storyboard in Resources */,
+				112CEFB52AE0470D0012F94B /* CustomPopup.xib in Resources */,
 				AFF25B3A2976694600348BB0 /* GoogleService-Info.plist in Resources */,
 				18C8339E2878BAEE008C2283 /* Assets.xcassets in Resources */,
 				1140FBD729FFC8EE00B87C64 /* BookingPropertyCell.xib in Resources */,
@@ -1288,6 +1303,7 @@
 				181CDD69287C0F4200E955BD /* ManageJobViewController.swift in Sources */,
 				18D188C7287AFC78003E8CD1 /* VideoRecorder.swift in Sources */,
 				181F5EE028C9C64E002C94CA /* OrderSession.swift in Sources */,
+				112CEFB42AE0470D0012F94B /* CustomPopup.swift in Sources */,
 				1837C08328C9026700D93A58 /* ForgotMovingViewModel.swift in Sources */,
 				1816D25128840D7B00F1B6FF /* HomeViewModel.swift in Sources */,
 				119BF3C229EEFC79008B1CDE /* ResetPasswordViewModel.swift in Sources */,
@@ -1458,7 +1474,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2W6J7HD9TS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
@@ -1478,7 +1494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
 				PRODUCT_NAME = "Moovez Driver";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1498,7 +1514,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2W6J7HD9TS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
@@ -1518,7 +1534,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
 				PRODUCT_NAME = "Moovez Driver";
 				SWIFT_EMIT_LOC_STRINGS = YES;

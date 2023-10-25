@@ -148,7 +148,7 @@ class HomeViewController: UIViewController {
     private func updateViews() {
         usernameLabel.text = "Hi, \(homeViewModel.driverName ?? "")"
         upcomingOrderCountLabel.text = "\(homeViewModel.upcomingOrders)"
-//        completedOrderCountLabel.text  = "\(homeViewModel.completedOrder)"
+        completedOrderCountLabel.text  = "\(homeViewModel.completedOrder)"
         if let activeTrip = homeViewModel.activeTrip {
             activeOrderLabel.text = "Order# \(activeTrip.id ?? 0)"
             viewAllOrderButton.isHidden = false
@@ -184,7 +184,7 @@ class HomeViewController: UIViewController {
         homeViewModel.getDriverDetail { [weak self] in
             DispatchQueue.main.async {
                 self?.usernameLabel.text = DriverSession.shared.driver?.firstName
-                if DriverSession.shared.driver?.status == "INACTIVE" {
+                if DriverSession.shared.driver?.status?.uppercased() == OrderStatus.INACTIVE.rawValue {
                     let goOnlineViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoOnlineViewController") as! GoOnlineViewController
 //                    goOnlineViewController.modalPresentationStyle = .fullScreen
 //                    self?.present(goOnlineViewController, animated: false)
@@ -251,21 +251,28 @@ class HomeViewController: UIViewController {
     
     func openTripDetailVC(bookingID: String, order: OrderModel? = nil) {
         DispatchQueue.main.async {
-            if (order != nil) {
-                let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
-//                receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
-                receiptViewController.orderID = bookingID
-                self.navigationController?.pushViewController(receiptViewController, animated: true)
-                return
-            }
+//            if (order != nil && (order?.status == OrderStatus.INPROGRESS || order?.status == OrderStatus.COMPLETED)) {
+//                let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+////                receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
+//                receiptViewController.orderID = bookingID
+//                self.navigationController?.pushViewController(receiptViewController, animated: true)
+//                return
+//            }
             
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-            let order = OrderModel(id: Int(bookingID ), type: "Mooving", status: "In Progress", pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil)
+            let order = OrderModel(id: Int(bookingID ), type: "Mooving", status: OrderStatus.INPROGRESS, pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil)
             OrderSession.shared.order = order
             let tripDetailViewModel = TripDetailViewModel(order: order)
             tripDetailViewController.tripDetailViewModel = tripDetailViewModel
             tripDetailViewController.onDismiss = { [weak self] isMap in
                 if !isMap {
+                    if OrderSession.shared.bookingModel?.status == .COMPLETED {
+                        let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+        //                receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
+                        receiptViewController.orderID = bookingID
+                        self?.navigationController?.pushViewController(receiptViewController, animated: true)
+                        return
+                    }
                     let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
                     manageJobViewController.manageJobViewModel = ManageJobViewModel()
                     OrderSession.shared.order = order

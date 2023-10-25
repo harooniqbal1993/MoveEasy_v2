@@ -7,7 +7,6 @@ target 'MoveEasy' do
 
   pod 'GoogleMaps', '7.0.0'
   pod 'FittedSheets'
-  pod 'SwiftSignatureView'
   pod 'MHLoadingButton'
   pod 'UIView-Shimmer', '~> 1.0'
 #  pod 'SwiftDate', '~> 5.0'

@@ -83,6 +83,8 @@ class ReceiptViewController: UIViewController {
         gstValueLabel.text = "\(receiptViewModel?.gst ?? "0.0")"
         chargesLabel.text = "\(receiptViewModel?.total ?? "0.0")"
         
+        acceptButton.isHidden = OrderSession.shared.bookingModel?.status == .COMPLETED
+        
         if (OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased()) {
             minusTimeButton.isHidden = true
             timeView.isHidden = true
@@ -126,6 +128,17 @@ class ReceiptViewController: UIViewController {
         })
     }
     
+    func chargePayment() {
+        receiptViewModel?.chargePayment(completion: { error in
+            if let error = error {
+                self.showAlert(title: "Card Details", message: error)
+                return
+            }
+            let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+            self.navigationController?.pushViewController(signatureViewController, animated: true)
+        })
+    }
+    
     @IBAction func sideMenuTapped(_ sender: UIButton) {
 //        self.revealViewController().revealToggle(self)
         navigationController?.popViewController(animated: true)
@@ -150,8 +163,7 @@ class ReceiptViewController: UIViewController {
             }
             present(alertViewController, animated: true, completion: nil)
         } else {
-            let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
-            navigationController?.pushViewController(signatureViewController, animated: true)
+            chargePayment()
         }
         
 //        let signatureViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "SignatureViewController") as! SignatureViewController

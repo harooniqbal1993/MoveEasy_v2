@@ -7,6 +7,17 @@
 
 import Foundation
 
+enum OrderStatus: String, Codable {
+    case ACTIVE = "ACTIVE" // If driver accepts the booking
+    case INACTIVE = "INACTIVE" // driver status // should not be here
+    case PENDING = "PENDING" // Booking placed from Customer end, But not accepted by Driver
+    case CONFIRMATION = "CONFIRMATION"
+    case INPROGRESS = "INPROGRESS" // Start moving
+    case COMPLETED = "COMPLETED" // on finishMoving API
+    case INCOMPLETED = "INCOMPLETED" // customer is creating
+    case CANCELLED = "CANCELLED"
+}
+
 struct HomeModel: Decodable {
     var statusCode: Int? = nil
     var message: String? = nil
@@ -30,7 +41,8 @@ struct HomeDataModel: Decodable {
 struct OrderModel: Decodable {
     var id: Int? = nil
     var type: String? = nil
-    var status: String? = nil
+//    var status: String? = nil
+    var status: OrderStatus? = nil
     var pickupLocation: String? = nil
     var dropoffLocation: String? = nil
     var orderTime: String? = nil

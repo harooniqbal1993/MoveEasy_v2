@@ -74,6 +74,7 @@ class Constants {
         case decreaseTimer = "DriverBookingsAPI/DecreaseTimer"
         case updateBookingTime = "DriverBookingsAPI/UpdateBookingTime"
         case getUpdatedBookingTime = "DriverBookingsAPI/GetUpdatedBookingTime"
+        case chargePayment = "DriverBookingsAPI/ChargePayment"
         case deleteAccount = "Auth/DeleteDriver"
     }
     

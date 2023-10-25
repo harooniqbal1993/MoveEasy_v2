@@ -22,7 +22,7 @@ class OrderViewController: UIViewController {
 //        webView.frame = view.bounds
 //        webView.navigationDelegate = self
         
-        let url = URL(string: "https://moversignup.moovez.ca/Driver/myEarningsDriv/\(DriverSession.shared.driver?.id ?? 1116)")!
+        let url = URL(string: "https://moversignup.moovez.ca/Driver/myEarningsDriv/\(DriverSession.shared.driver?.id ?? 1116)?token=\(Defaults.authToken ?? "")")!
         let urlRequest = URLRequest(url: url)
         
         webView.load(urlRequest)

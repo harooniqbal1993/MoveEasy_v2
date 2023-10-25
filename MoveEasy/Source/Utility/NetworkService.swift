@@ -167,9 +167,9 @@ class NetworkService {
     }
     
     func getBookingSummary(bookingID: String, completion: @escaping (_ result: OrderSummaryModel?, _ error: String?) -> Void) {
-        let url = "\(customerURL+Constants.EndPoints.getBooking.rawValue)/\(bookingID)"
-        httpUtility.getApiData(url: URL(string: url)!, resultType: OrderSummaryModel.self) { result, error in
-            completion(result, error)
+        let url = "\(baseURL+Constants.EndPoints.getBooking.rawValue)/\(bookingID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: FinalJobResponse.self) { result, error in
+            completion(result?.data, error)
         }
     }
     
@@ -242,6 +242,13 @@ class NetworkService {
         let url = "\(baseURL+Constants.EndPoints.resetPassword.rawValue)?email=\(email)&newPassword=\(newPassword)" // baseURL + Constants.EndPoints.addDriverDeviceID.rawValue
         httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             completion(result, error)
+        }
+    }
+    
+    func chargePayment(bookingId: String, completion: @escaping (_ result: ChargePaymentResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.chargePayment.rawValue)?bookingId=\(bookingId)"
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: ChargePaymentResponse.self) { result, error in
+            completion(result, nil)
         }
     }
     

@@ -44,10 +44,15 @@ class LoginViewModel {
     func authenticate(loginRequest: LoginRequest, completion: @escaping (Bool, String?) -> Void) {
         NetworkService.shared.loginDriver(loginRequest: loginRequest) { result, error  in
             DispatchQueue.main.async {
+                if result?.statusCode == 400 {
+                    completion(false, error)
+                    return
+                }
                 if let error = error {
                     completion(false, error)
+                    return
                 }
-                Defaults.isLoggedIn = true
+                Defaults.isLoggedIn = (result?.data?.isVerified == true && result?.data?.allDocsUploaded == true && result?.data?.isApproved == true)
                 Defaults.authToken = result?.token
                 Defaults.driverStatus = result?.data?.status?.lowercased() == "ACTIVE".lowercased()
                 Defaults.driverEmail = loginRequest.email // result?.data?.email

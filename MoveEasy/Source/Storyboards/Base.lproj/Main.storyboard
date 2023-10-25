@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aBI-XH-06L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aBI-XH-06L">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -92,7 +92,7 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYs-7C-BFu">
-                                <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                <rect key="frame" x="20" y="40" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bQw-Dd-4u2"/>
                                     <constraint firstAttribute="width" constant="30" id="nH3-Vh-iFe"/>
@@ -272,7 +272,7 @@ and start earning</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vF-WF-x6M">
-                                <rect key="frame" x="16" y="20" width="45" height="45"/>
+                                <rect key="frame" x="16" y="40" width="45" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="jkI-8j-ohF"/>
@@ -399,7 +399,7 @@ and start earning</string>
                                                                     <constraint firstAttribute="height" constant="20" id="eiB-qt-Vig"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="haroon.iqbal@gagamuller.com" placeholder="Email or phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EdQ-PQ-mOL">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email or phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EdQ-PQ-mOL">
                                                                 <rect key="frame" x="50" y="0.0" width="285" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -426,7 +426,7 @@ and start earning</string>
                                                                     <constraint firstAttribute="height" constant="20" id="dUa-ib-bKE"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Awesome123!" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GYg-B6-RsB">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GYg-B6-RsB">
                                                                 <rect key="frame" x="50" y="0.0" width="285" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -642,7 +642,7 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="j8X-UW-9qx">
-                                <rect key="frame" x="20" y="30" width="60" height="60"/>
+                                <rect key="frame" x="20" y="50" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="9dS-TK-gQl"/>
@@ -650,13 +650,13 @@ and start earning</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon bullard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pv-0q-DuS">
-                                <rect key="frame" x="95" y="49.5" width="250" height="21.5"/>
+                                <rect key="frame" x="95" y="69.5" width="250" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZKm-Qo-hgg">
-                                <rect key="frame" x="20" y="110" width="335" height="70"/>
+                                <rect key="frame" x="20" y="130" width="335" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J1d-Ae-bEA">
                                         <rect key="frame" x="0.0" y="15" width="111.5" height="40"/>
@@ -724,14 +724,14 @@ and start earning</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrN-aD-dZT">
-                                <rect key="frame" x="0.0" y="210" width="375" height="5"/>
+                                <rect key="frame" x="0.0" y="230" width="375" height="5"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="IG2-Fm-ye4"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kI3-31-hFf">
-                                <rect key="frame" x="0.0" y="230" width="375" height="437"/>
+                                <rect key="frame" x="0.0" y="250" width="375" height="417"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="4hD-td-o62" id="j6m-uC-kly"/>
@@ -797,7 +797,7 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-30-YWS">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -805,7 +805,7 @@ and start earning</string>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Um-HH-hyP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I39-Sr-GKk">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -907,7 +907,7 @@ and start earning</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aBI-XH-06L" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jg1-Rg-ls8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1173,7 +1173,7 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5g-yq-lxl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="100"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="UdR-wQ-dB2">
                                         <rect key="frame" x="20" y="22.5" width="55" height="55"/>
@@ -1203,7 +1203,7 @@ and start earning</string>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.78" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ii-0y-cEN">
-                                                        <rect key="frame" x="127.50000000000001" y="3.5" width="30.499999999999986" height="18"/>
+                                                        <rect key="frame" x="127.5" y="3.5" width="30.5" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.43921568630000002" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1255,59 +1255,59 @@ and start earning</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7M-uk-YnT">
-                                <rect key="frame" x="0.0" y="100" width="375" height="5"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="5"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="Mfa-Ll-zRT"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="rRU-yS-Wb3">
-                                <rect key="frame" x="40" y="135" width="15" height="15"/>
+                                <rect key="frame" x="40" y="155" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="BSU-CB-dB8"/>
                                     <constraint firstAttribute="width" constant="15" id="k7Z-zs-rdh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imO-T0-FNj">
-                                <rect key="frame" x="65" y="135.5" width="87" height="14.5"/>
+                                <rect key="frame" x="65" y="155.5" width="87" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Ekaf St." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viN-Hj-OF7">
-                                <rect key="frame" x="65" y="158" width="290" height="18"/>
+                                <rect key="frame" x="65" y="178" width="290" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-marker-alt" translatesAutoresizingMaskIntoConstraints="NO" id="bk7-4s-9nT">
-                                <rect key="frame" x="40" y="242" width="15" height="15"/>
+                                <rect key="frame" x="40" y="262" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="d45-6I-ZV0"/>
                                     <constraint firstAttribute="width" constant="15" id="zba-Vx-P7f"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1R-yn-JaX">
-                                <rect key="frame" x="65" y="242" width="92" height="14.5"/>
+                                <rect key="frame" x="65" y="262" width="92" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2357 Stevensons Rd." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfE-kQ-YaJ">
-                                <rect key="frame" x="65" y="264" width="290" height="18"/>
+                                <rect key="frame" x="65" y="284" width="290" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toS-25-h6j">
-                                <rect key="frame" x="47" y="154" width="1" height="84"/>
+                                <rect key="frame" x="47" y="174" width="1" height="84"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="YsP-n9-bIS"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="OQV-JN-QV5">
-                                <rect key="frame" x="40" y="322" width="295" height="40"/>
+                                <rect key="frame" x="40" y="342" width="295" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvO-DN-gKy">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
@@ -1399,7 +1399,7 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJX-Z2-JlF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="880"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZT-Hy-s36" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
@@ -1929,10 +1929,10 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qq-fJ-9Sg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aq0-dg-xC5">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="817"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="797"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truck" translatesAutoresizingMaskIntoConstraints="NO" id="Etw-QJ-kh3">
                                                 <rect key="frame" x="30" y="85" width="315" height="175"/>
@@ -2015,7 +2015,7 @@ and start earning</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xw-QK-Pnm">
-                                                <rect key="frame" x="84" y="737" width="207" height="30"/>
+                                                <rect key="frame" x="84" y="717" width="207" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="apl-hZ-TsG"/>
                                                 </constraints>
@@ -2087,10 +2087,10 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2o-fr-dXw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNr-Ia-dFH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="817"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="797"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truck" translatesAutoresizingMaskIntoConstraints="NO" id="Xiy-gF-YSJ">
                                                 <rect key="frame" x="30" y="85" width="315" height="175"/>
@@ -2173,7 +2173,7 @@ and start earning</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWN-UT-dVh">
-                                                <rect key="frame" x="84" y="737" width="207" height="30"/>
+                                                <rect key="frame" x="84" y="717" width="207" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="jFD-9q-V0o"/>
                                                 </constraints>
@@ -2245,10 +2245,10 @@ and start earning</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNt-PM-teQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNU-3H-nyZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="817"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="797"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truck" translatesAutoresizingMaskIntoConstraints="NO" id="KKS-nn-VYq">
                                                 <rect key="frame" x="30" y="85" width="315" height="175"/>
@@ -2358,7 +2358,7 @@ and start earning</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EH-IW-gDH">
-                                                <rect key="frame" x="84" y="737" width="207" height="30"/>
+                                                <rect key="frame" x="84" y="717" width="207" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Hfw-XH-7Ni"/>
                                                 </constraints>
@@ -2423,6 +2423,23 @@ and start earning</string>
             <point key="canvasLocation" x="-36" y="-621"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="18h-22-hzG">
+            <size key="intrinsicContentSize" width="65" height="36"/>
+        </designable>
+        <designable name="E5h-0j-NPE">
+            <size key="intrinsicContentSize" width="73" height="36"/>
+        </designable>
+        <designable name="ErS-Gw-mMS">
+            <size key="intrinsicContentSize" width="61" height="36"/>
+        </designable>
+        <designable name="RMs-qQ-odn">
+            <size key="intrinsicContentSize" width="73" height="36"/>
+        </designable>
+        <designable name="Ua7-vE-W82">
+            <size key="intrinsicContentSize" width="61" height="34"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="HLb-0g-CiN"/>
     </inferredMetricsTieBreakers>

@@ -61,7 +61,7 @@ class ForgotMovingViewController: UIViewController {
         //        picker.locale = Locale(identifier: "en_GB")
         //        picker.todayButtonTitle = "Today"
         //        picker.is12HourFormat = true
-        picker.dateFormat = "hh:mm:ss aa dd/MM/YYYY"
+        picker.dateFormat = "dd/MM/YYYY hh:mm aa" // "hh:mm:ss aa dd/MM/YYYY"
         picker.includesMonth = true
         picker.includesSecond = true
         picker.highlightColor = Constants.themeColor // UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
@@ -80,15 +80,19 @@ class ForgotMovingViewController: UIViewController {
         //            picker.contentViewBackgroundColor = UIColor.white
         //        }
         picker.completionHandler = { [weak self] date in
+            debugPrint("date: ", date)
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" // 2023-01-31T16:44:58.807Z // "hh:mm:ss aa dd/MM/YYYY"
-//            self?.title = formatter.string(from: date)
+            
+            let stringFormatter: DateFormatter = DateFormatter()
+            stringFormatter.dateFormat = "dd/MM/YYYY hh:mm aa"
+            stringFormatter.string(from: date)
             
             if self?.forgotMovingViewModel?.isStartDateTapped == true {
-                self?.startTimeTextField.text = formatter.string(from: date) // "\(resultDate)"
+                self?.startTimeTextField.text = stringFormatter.string(from: date) // getFormattedDate(rawDate: formatter.dateFormat, formatter: "dd/MM/YYYY hh:mm aa") // formatter.string(from: date) // "\(resultDate)"
                 self?.forgotMovingViewModel?.startTime = formatter.string(from: date)
             } else {
-                self?.endTimeTextField.text = formatter.string(from: date)
+                self?.endTimeTextField.text = stringFormatter.string(from: date) // getFormattedDate(rawDate: formatter.dateFormat, formatter: "dd/MM/YYYY hh:mm aa")
                 self?.forgotMovingViewModel?.endTime = formatter.string(from: date)
             }
         }

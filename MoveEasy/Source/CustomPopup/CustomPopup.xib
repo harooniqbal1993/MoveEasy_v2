@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomPopup" customModule="Moovez_Driver" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="Ynu-Pj-Mrg" id="u8H-iO-vbE"/>
+                <outlet property="statusButton" destination="9J5-44-5gp" id="T8J-p1-Q7s"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynu-Pj-Mrg">
+                    <rect key="frame" x="46.666666666666657" y="286" width="300" height="280"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apologies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXI-zg-0ha">
+                            <rect key="frame" x="98.333333333333343" y="30" width="103" height="26.333333333333329"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjL-O7-hhd">
+                            <rect key="frame" x="30" y="76.333333333333314" width="240" height="101.66666666666669"/>
+                            <string key="text">Your account is not completed or approved. Please click on the link below to check status of your account.
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9J5-44-5gp">
+                            <rect key="frame" x="50" y="205" width="200" height="45"/>
+                            <color key="backgroundColor" red="0.40784313725490196" green="0.89803921568627454" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="Y61-0F-reC"/>
+                                <constraint firstAttribute="height" constant="45" id="pip-mg-ecN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Check status">
+                                <color key="titleColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="statusButtonTapped:" destination="-1" eventType="touchUpInside" id="B7W-7T-ucO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="DXI-zg-0ha" firstAttribute="top" secondItem="Ynu-Pj-Mrg" secondAttribute="top" constant="30" id="0za-zV-bYM"/>
+                        <constraint firstItem="UjL-O7-hhd" firstAttribute="leading" secondItem="Ynu-Pj-Mrg" secondAttribute="leading" constant="30" id="1Q7-c1-hW5"/>
+                        <constraint firstAttribute="height" constant="280" id="2nS-jU-zgP"/>
+                        <constraint firstItem="9J5-44-5gp" firstAttribute="centerX" secondItem="Ynu-Pj-Mrg" secondAttribute="centerX" id="4pv-Cq-75m"/>
+                        <constraint firstItem="UjL-O7-hhd" firstAttribute="top" secondItem="DXI-zg-0ha" secondAttribute="bottom" constant="20" id="GOj-Sm-uBq"/>
+                        <constraint firstItem="DXI-zg-0ha" firstAttribute="centerX" secondItem="Ynu-Pj-Mrg" secondAttribute="centerX" id="m85-OH-Hte"/>
+                        <constraint firstAttribute="bottom" secondItem="9J5-44-5gp" secondAttribute="bottom" constant="30" id="toU-Y8-ExA"/>
+                        <constraint firstAttribute="width" constant="300" id="u74-HE-SpL"/>
+                        <constraint firstAttribute="trailing" secondItem="UjL-O7-hhd" secondAttribute="trailing" constant="30" id="uxC-3e-BmO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.48001700680272108" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Ynu-Pj-Mrg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4Z3-yb-XZJ"/>
+                <constraint firstItem="Ynu-Pj-Mrg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="l5a-Xt-iMM"/>
+            </constraints>
+            <point key="canvasLocation" x="14.503816793893129" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

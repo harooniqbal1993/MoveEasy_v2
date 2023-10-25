@@ -54,7 +54,7 @@ class OrderCell: UITableViewCell, ShimmeringViewProtocol {
         self.orderViewModel = viewModel
         
         orderTypeLabel.text = orderViewModel?.type
-        statusLabel.text = orderViewModel?.status
+        statusLabel.text = orderViewModel?.status.rawValue
         pickupAddressLabel.text = orderViewModel?.pickupLocation
         dropoffAddressLabel.text = orderViewModel?.dropOffLocation
         photo.image = UIImage(named: orderViewModel?.icon ?? "empty-box")
