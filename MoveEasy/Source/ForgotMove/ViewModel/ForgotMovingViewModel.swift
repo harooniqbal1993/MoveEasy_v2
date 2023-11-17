@@ -14,6 +14,8 @@ class ForgotMovingViewModel {
     var email: String? = nil
     var startTime: String? = nil
     var endTime: String? = nil
+    var startDate: Date? = nil
+    var endDate: Date? = nil
     
     func forgotTimer(completion: @escaping (_ error: String?) -> Void) {
         let forgotTimerRequest: ForgotTimerRequest = ForgotTimerRequest(id: 0, driverId: DriverSession.shared.driver?.id, name: name, email: email, startTime: startTime, endTime: endTime, bookingId: OrderSession.shared.bookingModel?.id, userId: OrderSession.shared.bookingModel?.userId, isApproved: true)
@@ -24,5 +26,9 @@ class ForgotMovingViewModel {
             }
             completion(nil)
         }
+    }
+    
+    func compareDates() -> Bool {
+        return startDate?.compare(endDate ?? Date()) == ComparisonResult.orderedAscending
     }
 }

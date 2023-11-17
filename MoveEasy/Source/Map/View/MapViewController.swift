@@ -22,12 +22,12 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if OrderSession.shared.bookingModel?.pickupLatitude == nil || OrderSession.shared.bookingModel?.pickupLongitude == nil || OrderSession.shared.bookingModel?.dropoffLatitude == nil || OrderSession.shared.bookingModel?.dropoffLongitude == nil {
+        if OrderSession.shared.bookingModel?.pickupLatitude == nil || OrderSession.shared.bookingModel?.pickupLongitude == nil || OrderSession.shared.bookingModel?.dropofflatitude == nil || OrderSession.shared.bookingModel?.dropoffLongitude == nil {
             return
         }
         let pickupLat: Double = Double(OrderSession.shared.bookingModel?.pickupLatitude ?? "0.0") ?? 0.0
         let pickupLng: Double = Double(OrderSession.shared.bookingModel?.pickupLongitude ?? "0.0") ?? 0.0
-        let dropoffLat: Double = Double(OrderSession.shared.bookingModel?.dropoffLatitude ?? "0.0") ?? 0.0
+        let dropoffLat: Double = Double(OrderSession.shared.bookingModel?.dropofflatitude ?? "0.0") ?? 0.0
         let dropoffLng: Double = Double(OrderSession.shared.bookingModel?.dropoffLongitude ?? "0.0") ?? 0.0
         
         fetchRoute(from: CLLocationCoordinate2D(latitude: pickupLat, longitude: pickupLng), to: CLLocationCoordinate2D(latitude:dropoffLat, longitude: dropoffLng))
@@ -64,7 +64,7 @@ class MapViewController: UIViewController {
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+//        locationManager.startUpdatingLocation()
     }
     
     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
@@ -144,8 +144,6 @@ class MapViewController: UIViewController {
                 let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())!
                 self.mapView.camera = camera
                 self.drawPath(from: polyLineString)
-//                let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())!
-//                self.mapView.camera = camera
                 
             }
         })

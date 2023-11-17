@@ -91,9 +91,11 @@ class ForgotMovingViewController: UIViewController {
             if self?.forgotMovingViewModel?.isStartDateTapped == true {
                 self?.startTimeTextField.text = stringFormatter.string(from: date) // getFormattedDate(rawDate: formatter.dateFormat, formatter: "dd/MM/YYYY hh:mm aa") // formatter.string(from: date) // "\(resultDate)"
                 self?.forgotMovingViewModel?.startTime = formatter.string(from: date)
+                self?.forgotMovingViewModel?.startDate = date
             } else {
                 self?.endTimeTextField.text = stringFormatter.string(from: date) // getFormattedDate(rawDate: formatter.dateFormat, formatter: "dd/MM/YYYY hh:mm aa")
                 self?.forgotMovingViewModel?.endTime = formatter.string(from: date)
+                self?.forgotMovingViewModel?.endDate = date
             }
         }
         picker.delegate = self
@@ -121,6 +123,10 @@ class ForgotMovingViewController: UIViewController {
         if !(nameTextField.text?.isEmpty ?? false) && !(emailTextField.text?.isEmpty ?? false) && !(startTimeTextField.text?.isEmpty ?? false) && !(endTimeTextField.text?.isEmpty ?? false) {
             forgotMovingViewModel?.name = nameTextField.text
             forgotMovingViewModel?.email = emailTextField.text
+            if !(forgotMovingViewModel?.compareDates() ?? false) {
+                self.showAlert(title: "Forgot moving", message: "End date must be greater than start date.")
+                return
+            }
             forgotMovingViewModel?.forgotTimer(completion: { error in
                 DispatchQueue.main.async { [weak self] in
                     if let error = error {

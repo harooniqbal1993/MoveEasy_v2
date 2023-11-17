@@ -24,10 +24,6 @@ class SigninViewController: UIViewController {
     }
     
     func loadViews() {
-//        signinButton.isLoading = true
-//        signinButton.indicator = MaterialLoadingIndicator(radius: 20, color: Constants.themeColor)
-//        signinButton.showLoader(userInteraction: false)
-//        signinButton.hideLoader()
         navigationController?.setNavigationBarHidden(true, animated: true)
         signinButton.round()
     }

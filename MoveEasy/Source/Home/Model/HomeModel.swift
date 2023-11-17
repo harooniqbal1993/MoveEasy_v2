@@ -13,6 +13,7 @@ enum OrderStatus: String, Codable {
     case PENDING = "PENDING" // Booking placed from Customer end, But not accepted by Driver
     case CONFIRMATION = "CONFIRMATION"
     case INPROGRESS = "INPROGRESS" // Start moving
+    case Inprogress = "Inprogress"
     case COMPLETED = "COMPLETED" // on finishMoving API
     case INCOMPLETED = "INCOMPLETED" // customer is creating
     case CANCELLED = "CANCELLED"

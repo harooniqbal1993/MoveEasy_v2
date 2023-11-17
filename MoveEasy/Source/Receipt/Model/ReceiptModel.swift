@@ -57,7 +57,7 @@ struct OrderSummaryModel: Decodable {
     var pickUpInstructions: String? = nil
     var pickupLatitude: String? = nil
     var pickupLongitude: String? = nil
-    var dropoffLatitude: String? = nil
+    var dropofflatitude: String? = nil
     var dropoffLongitude: String? = nil
 //    var status: String? = nil
     var status: OrderStatus? = nil
