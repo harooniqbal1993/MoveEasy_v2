@@ -76,6 +76,7 @@ struct OrderSummaryModel: Decodable {
     var stops: [Stop]? = nil
     var completionTime: TimeInterval? = 0
     var driverId: String? = nil
+    var isDeliverNow: Bool? = false
 }
 
 struct VehicleModel: Decodable {

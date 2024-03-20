@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import NVActivityIndicatorView
+import FittedSheets
 
 class ManageJobViewController: UIViewController {
     
@@ -218,13 +219,36 @@ class ManageJobViewController: UIViewController {
         manageJobViewModel.pauseMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)")
     }
     
+    func endMovingTimer() {
+        manageJobViewModel.endMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)")
+//        navigateToNextScreen()
+    }
+    
     func stopMoving() {
         manageJobViewModel.stopMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)") { [weak self] error in
             if let error = error {
                 self?.showAlert(title: "Error", message: error)
                 return
             }
+            self?.navigateToNextScreen()
         }
+    }
+    
+    func showStopAlert() {
+        let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+        alertViewController.statusType = .stopped
+        alertViewController.completion = { [weak self] isYes in
+            if isYes {
+                self?.stopTimer()
+                self?.mediaButtonView.isHidden = false
+                self?.additionalInfoView.isHidden = false
+                //                self?.backButton.isHidden = false
+                self?.stopMoving()
+                self?.endMovingTimer()
+            }
+        }
+        present(alertViewController, animated: true, completion: nil)
+        stopWatch?.pause()
     }
     
     private func startAnimation(mediaType: MediaPickerManager.MediaType) {
@@ -302,33 +326,38 @@ class ManageJobViewController: UIViewController {
     }
     
     private func navigateToNextScreen() {
-//        let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
-//        let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
-//
-//        let appleMap = AppleMap(source: source, destination: destination)
-//        appleMap.present(in: self, sourceView: backButton)
-//        return
+//        startNavigation()
+        if OrderSession.shared.bookingModel?.isDeliverNow == true && OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased() {
+            let feedBackViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
+            feedBackViewController.feedbackViewModel = FeedbackViewModel()
+            let sheetController = SheetViewController(controller: feedBackViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
+            sheetController.cornerRadius = 0
+            feedBackViewController.onDismiss = { [weak self] in
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+            self.present(sheetController, animated: true, completion: nil)
+            return
+        }
         OrderSession.shared.bookingModel?.completionTime = stopWatch?.elapsedTime
         let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
         receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
         navigationController?.pushViewController(receiptViewController, animated: true)
         
-        //        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-        //            UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=37.7,-122.4&directionsmode=driving")!)
-        //
-        //        } else {
-        //            NSLog("Can't use comgooglemaps://");
-        //        }
+    }
+    
+    func startNavigation() {
+        let pickupLat = Double(OrderSession.shared.bookingModel?.pickupLatitude ?? "0.0")
+        let pickupLng = Double(OrderSession.shared.bookingModel?.pickupLongitude ?? "0.0")
+        let pickupLocation: CLLocationCoordinate2D? = CLLocationCoordinate2D(latitude: pickupLat ?? 0.0, longitude: pickupLng ?? 0.0)
         
-        //        let url = "https://www.google.com/maps/dir/?api=1&destination=33.5996372406277%2C73.1508795214011" // "comgooglemaps://?saddr=&daddr=33.5996372406277,73.1508795214011&directionsmode=driving" //
-        //        guard let googleUrl = URL.init(string: url) else {
-        //            // handle error
-        //            return
-        //        }
-        //        UIApplication.shared.open(googleUrl)
+        let dropoffLat = Double(OrderSession.shared.bookingModel?.dropofflatitude ?? "0.0")
+        let dropoffLng = Double(OrderSession.shared.bookingModel?.dropoffLongitude ?? "0.0")
+        let dropoffLocation: CLLocationCoordinate2D? = CLLocationCoordinate2D(latitude: dropoffLat ?? 0.0, longitude: dropoffLng ?? 0.0)
         
-        //        let welldoneViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
-        //        navigationController?.pushViewController(welldoneViewController, animated: true)
+        if let pickupLocation = pickupLocation, let dropoffLocation = dropoffLocation {
+            let appleMap = AppleMap(source: pickupLocation, destination: dropoffLocation)
+            appleMap.present(in: self, sourceView: UIView())
+        }
     }
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -371,7 +400,8 @@ class ManageJobViewController: UIViewController {
         alertViewController.completion = { [weak self] isYes in
             if isYes {
                 self?.stopTimer()
-                self?.stopMoving()
+//                self?.stopMoving()
+                self?.pauseMoving()
             }
         }
         present(alertViewController, animated: true, completion: nil)
@@ -379,19 +409,21 @@ class ManageJobViewController: UIViewController {
     
     @IBAction func stopJobTapped(_ sender: UIButton) {
         jobStatus = .stop
-        let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
-        alertViewController.statusType = .stopped
-        alertViewController.completion = { [weak self] isYes in
-            if isYes {
-                self?.stopTimer()
-                self?.mediaButtonView.isHidden = false
-                self?.additionalInfoView.isHidden = false
-                //                self?.backButton.isHidden = false
-                self?.stopMoving()
-            }
-        }
-        present(alertViewController, animated: true, completion: nil)
-        stopWatch?.pause()
+        showStopAlert()
+//        let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+//        alertViewController.statusType = .stopped
+//        alertViewController.completion = { [weak self] isYes in
+//            if isYes {
+//                self?.stopTimer()
+//                self?.mediaButtonView.isHidden = false
+//                self?.additionalInfoView.isHidden = false
+//                //                self?.backButton.isHidden = false
+////                self?.stopMoving()
+//                self?.endMovingTimer()
+//            }
+//        }
+//        present(alertViewController, animated: true, completion: nil)
+//        stopWatch?.pause()
     }
     
     @IBAction func forgotTimerTapped(_ sender: UIButton) {
@@ -406,21 +438,39 @@ class ManageJobViewController: UIViewController {
             return
         }
         
+//        if continueButton.currentTitle?.contains("Navigate") == true {
+//            startNavigation()
+//            continueButton.setTitle("Complete job", for: .normal)
+//        } else {
+//        }
+//        return
+        
+        // Below code is of added stops
         manageJobViewModel.stopCounter += 1
         
         if manageJobViewModel.isLastDestination {
-            stopMoving()
-            navigateToNextScreen()
+            showStopAlert()
+//            stopMoving()
         }
         
         print("\((manageJobViewModel.stops?.count ?? 0)) == \(manageJobViewModel.stopCounter)")
 //        if (manageJobViewModel.stops?.count ?? 0) + 1 == manageJobViewModel.stopCounter {
         if (manageJobViewModel.stops?.count ?? 0) - 1 == manageJobViewModel.stopCounter {
+            
+            let sourceLat = Double(manageJobViewModel.stops?[(manageJobViewModel.stops?.count ?? 0) - 2].lat ?? "0.0")
+            let sourceLng = Double(manageJobViewModel.stops?[(manageJobViewModel.stops?.count ?? 0) - 2].long ?? "0.0")
+            source = CLLocationCoordinate2D(latitude: sourceLat ?? 0.0, longitude: sourceLng ?? 0.0)
+//
+            let destLat = Double(manageJobViewModel.stops?[(manageJobViewModel.stops?.count ?? 0) - 1].lat ?? "0.0")
+            let destLng = Double(manageJobViewModel.stops?[(manageJobViewModel.stops?.count ?? 0) - 1].long ?? "0.0")
+            destination = CLLocationCoordinate2D(latitude: destLat ?? 0.0, longitude: destLng ?? 0.0)
+//
+            let appleMap = AppleMap(source: source, destination: destination)
+            appleMap.present(in: self, sourceView: backButton)
+            
             addressLabel.text = OrderSession.shared.bookingModel?.dropoffLocation
-            continueButton.setTitle("Continue")
+            continueButton.setTitle("Complete job")
             manageJobViewModel.isLastDestination = true
-            return
-            //            navigateToNextScreen()
         } else {
 //            addressLabel.text = manageJobViewModel.stopCounter < (manageJobViewModel.stops?.count ?? 0) ? manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop : OrderSession.shared.bookingModel?.dropoffLocation
             
@@ -454,8 +504,8 @@ class ManageJobViewController: UIViewController {
                 let destLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].long ?? "0.0")
                 destination = CLLocationCoordinate2D(latitude: destLat ?? 0.0, longitude: destLng ?? 0.0)
 //
-//                let appleMap = AppleMap(source: source1, destination: dest1)
-//                appleMap.present(in: self, sourceView: backButton)
+                let appleMap = AppleMap(source: source, destination: destination)
+                appleMap.present(in: self, sourceView: backButton)
             }
         }
     }

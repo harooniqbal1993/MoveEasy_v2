@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyn-m5-sOL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-bz-WWu">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -55,10 +55,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwB-4h-CVd">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8X-hY-fmC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="782"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="762"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfT-nh-eob">
                                                 <rect key="frame" x="20" y="10" width="335" height="165"/>
@@ -318,7 +318,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWk-kv-5Ew">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kj-45-lpD">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -366,13 +366,13 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9v-sg-B9w">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYS-Xp-PTj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1012"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="992"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7d-ul-7uP">
-                                                <rect key="frame" x="20" y="736" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="666" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="8Oo-Ad-hfD"/>
@@ -602,11 +602,11 @@
                                                     <action selector="forgotTimerTapped:" destination="uYg-ly-g9V" eventType="touchUpInside" id="Ohr-7r-UY4"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82J-wr-Mga">
-                                                <rect key="frame" x="20" y="614.5" width="335" height="35"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82J-wr-Mga">
+                                                <rect key="frame" x="20" y="614.5" width="335" height="0.0"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop off Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Vx-7hm">
-                                                        <rect key="frame" x="15" y="7.5" width="305" height="19.5"/>
+                                                        <rect key="frame" x="15" y="-10" width="305" height="19.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -615,13 +615,13 @@
                                                 <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="iwe-Vx-7hm" secondAttribute="trailing" constant="15" id="X3V-bb-dCF"/>
-                                                    <constraint firstAttribute="height" constant="35" id="dqd-KN-5U6"/>
+                                                    <constraint firstAttribute="height" id="dqd-KN-5U6"/>
                                                     <constraint firstItem="iwe-Vx-7hm" firstAttribute="centerY" secondItem="82J-wr-Mga" secondAttribute="centerY" id="fx5-qT-m9L"/>
                                                     <constraint firstItem="iwe-Vx-7hm" firstAttribute="leading" secondItem="82J-wr-Mga" secondAttribute="leading" constant="15" id="uBy-NQ-Rih"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-8n-o9D">
-                                                <rect key="frame" x="20" y="649.5" width="335" height="35"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-8n-o9D">
+                                                <rect key="frame" x="20" y="614.5" width="335" height="0.0"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-Eh-LLD">
                                                         <rect key="frame" x="15" y="10" width="53" height="17"/>
@@ -648,7 +648,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="9LQ-kz-HWE"/>
+                                                    <constraint firstAttribute="height" id="9LQ-kz-HWE"/>
                                                     <constraint firstItem="RpM-Eh-LLD" firstAttribute="leading" secondItem="I7Z-8n-o9D" secondAttribute="leading" constant="15" id="F7a-j5-33e"/>
                                                     <constraint firstItem="1wG-JY-h1C" firstAttribute="centerY" secondItem="RpM-Eh-LLD" secondAttribute="centerY" id="d5o-X4-3kA"/>
                                                     <constraint firstItem="1wG-JY-h1C" firstAttribute="leading" secondItem="RpM-Eh-LLD" secondAttribute="trailing" constant="25" id="pTL-dE-VqK"/>
@@ -656,7 +656,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okc-VD-r0c" customClass="PaddingLabel" customModule="Moovez_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="684.5" width="335" height="31.5"/>
+                                                <rect key="frame" x="20" y="614.5" width="335" height="31.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Stop 1, Full location address...Block # 123, 
 Apartment # 123</string>
@@ -966,10 +966,10 @@ Apartment # 123</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d47-6i-p2a">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agw-IL-s2M">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="712"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="692"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill below form for customer approval" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yg-0Z-pbT">
                                                 <rect key="frame" x="20" y="20" width="335" height="43"/>
@@ -978,7 +978,7 @@ Apartment # 123</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="LPc-t0-Krk">
-                                                <rect key="frame" x="20" y="83" width="335" height="236"/>
+                                                <rect key="frame" x="20" y="83" width="335" height="298"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZjX-Vj-4hv">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -1034,8 +1034,26 @@ Apartment # 123</string>
                                                             <constraint firstAttribute="height" constant="50" id="wjK-cU-1OG"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UA-jA-TUM">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-hk-Dq8">
                                                         <rect key="frame" x="0.0" y="186" width="335" height="50"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Break time (if applicable)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-2d-VDI">
+                                                                <rect key="frame" x="10" y="0.0" width="325" height="50"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="Pgv-2d-VDI" secondAttribute="bottom" id="5EH-0g-52k"/>
+                                                            <constraint firstItem="Pgv-2d-VDI" firstAttribute="leading" secondItem="O2z-hk-Dq8" secondAttribute="leading" constant="10" id="XQL-6h-p3D"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Pgv-2d-VDI" secondAttribute="trailing" id="YdF-fT-NRa"/>
+                                                            <constraint firstItem="Pgv-2d-VDI" firstAttribute="top" secondItem="O2z-hk-Dq8" secondAttribute="top" id="n3c-95-qSF"/>
+                                                            <constraint firstAttribute="height" constant="50" id="z4d-Xy-jHh"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UA-jA-TUM">
+                                                        <rect key="frame" x="0.0" y="248" width="335" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="End time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CDx-d3-UNL">
                                                                 <rect key="frame" x="10" y="0.0" width="325" height="50"/>
@@ -1055,7 +1073,7 @@ Apartment # 123</string>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb5-Pa-pff">
-                                                <rect key="frame" x="20" y="467" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="529" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="DgS-Vj-Z82"/>
@@ -1070,7 +1088,7 @@ Apartment # 123</string>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gIS-IX-fGO">
-                                                <rect key="frame" x="20" y="334" width="335" height="113"/>
+                                                <rect key="frame" x="20" y="396" width="335" height="113"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="113" id="XZs-NA-ZZv"/>
@@ -1107,7 +1125,7 @@ Apartment # 123</string>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2T-9h-1cQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyQ-42-UeU">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -1174,7 +1192,7 @@ Apartment # 123</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-f3-Mo2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePm-u2-c9e">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -1207,10 +1225,10 @@ Apartment # 123</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OG5-sc-6KK">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zY0-GY-iza">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2e-6x-90C">
                                                 <rect key="frame" x="20" y="30" width="335" height="450"/>
@@ -1594,7 +1612,7 @@ Apartment # 123</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0f-e2-yGO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm6-u2-dSF">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -1628,10 +1646,10 @@ Apartment # 123</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDG-Fa-4NQ">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AL1-Uf-xTB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzR-ye-Gf4">
                                                 <rect key="frame" x="20" y="30" width="335" height="470"/>
@@ -1755,7 +1773,7 @@ privacy policy.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iba-Az-8OL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwm-zL-kID">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -1788,10 +1806,10 @@ privacy policy.</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="084-8S-o3s">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPb-wX-IG0">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHb-Qq-Mmc">
                                                 <rect key="frame" x="20" y="30" width="335" height="220"/>
@@ -1904,7 +1922,7 @@ privacy policy.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35P-Wf-K7m">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwI-aX-PV4">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -1937,10 +1955,10 @@ privacy policy.</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8on-6f-jO3">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGN-hB-KLI">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wla-YK-QvP">
                                                 <rect key="frame" x="20" y="30" width="335" height="410"/>
@@ -2071,7 +2089,7 @@ privacy policy.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rv6-zj-inA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfI-La-CL8">
                                         <rect key="frame" x="5" y="13" width="46" height="29"/>
@@ -2104,10 +2122,10 @@ privacy policy.</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uy3-fC-ScK">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOc-Uw-CPc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYc-D0-WJU">
                                                 <rect key="frame" x="20" y="30" width="335" height="250"/>

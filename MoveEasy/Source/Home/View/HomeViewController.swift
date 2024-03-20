@@ -8,6 +8,7 @@
 import UIKit
 import FittedSheets
 import SDWebImage
+import CoreLocation
 
 class HomeViewController: UIViewController {
     
@@ -28,6 +29,7 @@ class HomeViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     var homeViewModel: HomeViewModel!
+    var currentLocationLatLng: CLLocation? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,8 @@ class HomeViewController: UIViewController {
         loadViews()
         
         fromBackgroundPushNotification()
+        
+        getDashboardData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,6 +63,8 @@ class HomeViewController: UIViewController {
         
         refreshControl.addTarget(self, action: #selector(onRefreshTable), for: .valueChanged)
         orderTable.addSubview(refreshControl)
+        
+        locationManager()
     }
     
     func registerNotificationCenter() {
@@ -90,6 +96,14 @@ class HomeViewController: UIViewController {
         
         if Defaults.fromBackgroundNotificationBookingID != nil {
             openTripDetailVC(bookingID: Defaults.fromBackgroundNotificationBookingID ?? "0")
+        }
+    }
+    
+    func locationManager() {
+        LocationManager.shared.locationUpdated = { [weak self] location in
+            debugPrint(location?.coordinate.latitude ?? 0.0)
+            self?.currentLocationLatLng = location
+//            self?.homeViewModel.setCurrentLocation(latitude: Double(location?.coordinate.latitude ?? 0.0), longitude: Double(location?.coordinate.longitude ?? 0.0))
         }
     }
     
@@ -273,10 +287,12 @@ class HomeViewController: UIViewController {
                         self?.navigationController?.pushViewController(receiptViewController, animated: true)
                         return
                     }
+                    self?.startNavigation()
                     let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
                     manageJobViewController.manageJobViewModel = ManageJobViewModel()
                     OrderSession.shared.order = order
                     self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+                    
                 } else {
                     let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
                     mapViewController.modalPresentationStyle = .fullScreen
@@ -293,6 +309,21 @@ class HomeViewController: UIViewController {
             sheetController.cornerRadius = 0
             self.present(sheetController, animated: true, completion: nil)
             Defaults.fromBackgroundNotificationBookingID = nil
+        }
+    }
+    
+    func startNavigation() {
+        let source: CLLocationCoordinate2D? = CLLocationCoordinate2D(latitude: Double(currentLocationLatLng?.coordinate.latitude ?? 0.0), longitude: Double(currentLocationLatLng?.coordinate.longitude ?? 0.0))
+        
+//        let source: CLLocationCoordinate2D? = CLLocationCoordinate2D(latitude: Double(51.15892486803942), longitude: Double(-114.0588176867568))
+        
+        let pickupLat = Double(OrderSession.shared.bookingModel?.pickupLatitude ?? "0.0")
+        let pickupLng = Double(OrderSession.shared.bookingModel?.pickupLongitude ?? "0.0")
+        let pickupLocation = CLLocationCoordinate2D(latitude: pickupLat ?? 0.0, longitude: pickupLng ?? 0.0)
+        
+        if let source = source {
+            let appleMap = AppleMap(source: source, destination: pickupLocation)
+            appleMap.present(in: self, sourceView: UIView())
         }
     }
     

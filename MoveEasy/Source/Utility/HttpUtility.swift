@@ -70,6 +70,7 @@ class HttpUtility {
     }
     
     func postApiData<T: Decodable>(url: URL, requestBody: Data, resultType: T.Type, completionHandler: @escaping(_ result: T?, _ error: String?) -> Void) {
+        print("URL: \(url)")
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.httpBody = requestBody

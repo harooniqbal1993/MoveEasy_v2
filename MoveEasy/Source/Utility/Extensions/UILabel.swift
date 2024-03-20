@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UILabel{
     func setSubTextColor(pSubString : String, pColor : UIColor){
@@ -18,3 +19,12 @@ extension UILabel{
         self.attributedText = attributedString
     }
 }
+
+extension UITextField {
+    func setPlaceholder(text: String, color: UIColor = .black) {
+        self.attributedPlaceholder = NSAttributedString(
+            string: text,
+            attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
+}
+

@@ -60,8 +60,11 @@ class Constants {
         case acceptBooking = "BookingAssignmentsAPI/AcceptBooking"
         case saveNotes = "DriverBookingsAPI/saveNotes"
         case getBooking = "BookingsAPI"
-        case startMoving = "DriverBookingsAPI/startMoving"
-        case pauseMoving = "DriverBookingsAPI/pauseMoving"
+//        case startMoving = "DriverBookingsAPI/startMoving"
+//        case pauseMoving = "DriverBookingsAPI/pauseMoving"
+        case startMoving = "DriverBookingsAPI/StartMovingTimer"
+        case pauseMoving = "DriverBookingsAPI/PauseMovingTimer"
+        case endMovingTimer = "DriverBookingsAPI/EndMovingTimer"
         case finishMoving = "DriverBookingsAPI/finishMoving"
         case pickupFiles = "BookingsAPI/PickupFiles"
         case feedback = "Feedback/FeedbackFromDriver"
@@ -76,6 +79,7 @@ class Constants {
         case getUpdatedBookingTime = "DriverBookingsAPI/GetUpdatedBookingTime"
         case chargePayment = "DriverBookingsAPI/ChargePayment"
         case deleteAccount = "Auth/DeleteDriver"
+        case setCurrentLocation = "DriverDetailAPI/SetCurrentLocation"
     }
     
     enum NotificationObserver: String {

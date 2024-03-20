@@ -17,8 +17,18 @@
 		11519C172A003004005D79A5 /* BookingPropertyFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */; };
 		11519C182A003004005D79A5 /* BookingPropertyFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11519C162A003004005D79A5 /* BookingPropertyFooterView.xib */; };
 		1151C4D729EB26EF00FBE786 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */; };
+		117F412E2B356C3E0044A405 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F41252B356C3D0044A405 /* UITableView.swift */; };
+		117F412F2B356C3E0044A405 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F41262B356C3D0044A405 /* UIViewController.swift */; };
+		117F41302B356C3E0044A405 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F41272B356C3D0044A405 /* Date.swift */; };
+		117F41312B356C3E0044A405 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F41282B356C3D0044A405 /* String.swift */; };
+		117F41322B356C3E0044A405 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F41292B356C3D0044A405 /* UIButton.swift */; };
+		117F41332B356C3E0044A405 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F412A2B356C3D0044A405 /* UIView.swift */; };
+		117F41342B356C3E0044A405 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F412B2B356C3E0044A405 /* PaddingLabel.swift */; };
+		117F41352B356C3E0044A405 /* UIColor in Resources */ = {isa = PBXBuildFile; fileRef = 117F412C2B356C3E0044A405 /* UIColor */; };
+		117F41362B356C3E0044A405 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F412D2B356C3E0044A405 /* UILabel.swift */; };
 		1188E91F2A04156400745105 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188E91D2A04156400745105 /* AddressCell.swift */; };
 		1188E9202A04156400745105 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1188E91E2A04156400745105 /* AddressCell.xib */; };
+		118C7BCE2B273B2300F90552 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C7BCD2B273B2300F90552 /* LocationManager.swift */; };
 		119BF3C229EEFC79008B1CDE /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119BF3C129EEFC79008B1CDE /* ResetPasswordViewModel.swift */; };
 		1816D25128840D7B00F1B6FF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D25028840D7B00F1B6FF /* HomeViewModel.swift */; };
 		1816D254288410D100F1B6FF /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D253288410D100F1B6FF /* FilterModel.swift */; };
@@ -27,7 +37,6 @@
 		1816D25D2884252200F1B6FF /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D25C2884252200F1B6FF /* LoginRequest.swift */; };
 		1816D25F288430D700F1B6FF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816D25E288430D700F1B6FF /* NetworkService.swift */; };
 		181CDD69287C0F4200E955BD /* ManageJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CDD68287C0F4200E955BD /* ManageJobViewController.swift */; };
-		181CDD6D287C26CC00E955BD /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CDD6C287C26CC00E955BD /* PaddingLabel.swift */; };
 		181F5EDB28C9C058002C94CA /* FeedbackRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F5EDA28C9C058002C94CA /* FeedbackRequest.swift */; };
 		181F5EDE28C9C205002C94CA /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F5EDD28C9C205002C94CA /* FeedbackViewModel.swift */; };
 		181F5EE028C9C64E002C94CA /* OrderSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F5EDF28C9C64E002C94CA /* OrderSession.swift */; };
@@ -48,7 +57,6 @@
 		187636F6288B331500D90B1E /* AcceptBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187636F5288B331500D90B1E /* AcceptBookingModel.swift */; };
 		18863FBA287F3EB100A6F752 /* RatingStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18863FB9287F3EB100A6F752 /* RatingStar.swift */; };
 		18899A9B287C3F8900931042 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18899A9A287C3F8900931042 /* StopWatch.swift */; };
-		188C6DA02885C4D300673841 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C6D9F2885C4D200673841 /* String.swift */; };
 		1894B266287F2D4E005C1924 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1894B265287F2D4E005C1924 /* TripDetailViewController.swift */; };
 		1894B26A287F3C43005C1924 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1894B269287F3C43005C1924 /* FeedBackViewController.swift */; };
 		1897D478288BF679003976E3 /* OrderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897D477288BF679003976E3 /* OrderCellViewModel.swift */; };
@@ -76,15 +84,8 @@
 		18C833C32878D46F008C2283 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C833C12878D46E008C2283 /* MenuCell.xib */; };
 		18CE66CC28795790002AE9D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66C128795790002AE9D1 /* Constants.swift */; };
 		18CE66CD28795790002AE9D1 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66C228795790002AE9D1 /* HttpUtility.swift */; };
-		18CE66CE28795790002AE9D1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66C428795790002AE9D1 /* Date.swift */; };
-		18CE66CF28795790002AE9D1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66C528795790002AE9D1 /* UIView.swift */; };
-		18CE66D028795790002AE9D1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66C728795790002AE9D1 /* UIColor.swift */; };
-		18CE66D128795790002AE9D1 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66C828795790002AE9D1 /* UITableView.swift */; };
-		18CE66D228795790002AE9D1 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66C928795790002AE9D1 /* UIButton.swift */; };
-		18CE66D328795790002AE9D1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66CA28795790002AE9D1 /* UIViewController.swift */; };
 		18CE66D428795790002AE9D1 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66CB28795790002AE9D1 /* Defaults.swift */; };
 		18CE66D828795F2F002AE9D1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66D728795F2F002AE9D1 /* LoginViewController.swift */; };
-		18CE66DA287964A9002AE9D1 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66D9287964A9002AE9D1 /* UILabel.swift */; };
 		18CE66DE287974F2002AE9D1 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66DD287974F2002AE9D1 /* SigninViewController.swift */; };
 		18CE66E228797A6D002AE9D1 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE66E128797A6D002AE9D1 /* SignupViewController.swift */; };
 		18D188B9287AC58C003E8CD1 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D188B7287AC58C003E8CD1 /* OrderCell.swift */; };
@@ -127,8 +128,18 @@
 		11519C152A003004005D79A5 /* BookingPropertyFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyFooterView.swift; sourceTree = "<group>"; };
 		11519C162A003004005D79A5 /* BookingPropertyFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingPropertyFooterView.xib; sourceTree = "<group>"; };
 		1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
+		117F41252B356C3D0044A405 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		117F41262B356C3D0044A405 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		117F41272B356C3D0044A405 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		117F41282B356C3D0044A405 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		117F41292B356C3D0044A405 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		117F412A2B356C3D0044A405 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		117F412B2B356C3E0044A405 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		117F412C2B356C3E0044A405 /* UIColor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIColor; sourceTree = "<group>"; };
+		117F412D2B356C3E0044A405 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		1188E91D2A04156400745105 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		1188E91E2A04156400745105 /* AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
+		118C7BCD2B273B2300F90552 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		119BF3C129EEFC79008B1CDE /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		1816D25028840D7B00F1B6FF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1816D253288410D100F1B6FF /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
@@ -137,7 +148,6 @@
 		1816D25C2884252200F1B6FF /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		1816D25E288430D700F1B6FF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		181CDD68287C0F4200E955BD /* ManageJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageJobViewController.swift; sourceTree = "<group>"; };
-		181CDD6C287C26CC00E955BD /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		181F5EDA28C9C058002C94CA /* FeedbackRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRequest.swift; sourceTree = "<group>"; };
 		181F5EDD28C9C205002C94CA /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
 		181F5EDF28C9C64E002C94CA /* OrderSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSession.swift; sourceTree = "<group>"; };
@@ -158,7 +168,6 @@
 		187636F5288B331500D90B1E /* AcceptBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptBookingModel.swift; sourceTree = "<group>"; };
 		18863FB9287F3EB100A6F752 /* RatingStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStar.swift; sourceTree = "<group>"; };
 		18899A9A287C3F8900931042 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
-		188C6D9F2885C4D200673841 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		1894B265287F2D4E005C1924 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		1894B269287F3C43005C1924 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		1897D477288BF679003976E3 /* OrderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellViewModel.swift; sourceTree = "<group>"; };
@@ -190,15 +199,8 @@
 		18C833C12878D46E008C2283 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		18CE66C128795790002AE9D1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18CE66C228795790002AE9D1 /* HttpUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
-		18CE66C428795790002AE9D1 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		18CE66C528795790002AE9D1 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		18CE66C728795790002AE9D1 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		18CE66C828795790002AE9D1 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		18CE66C928795790002AE9D1 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		18CE66CA28795790002AE9D1 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		18CE66CB28795790002AE9D1 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		18CE66D728795F2F002AE9D1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		18CE66D9287964A9002AE9D1 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		18CE66DD287974F2002AE9D1 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		18CE66E128797A6D002AE9D1 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		18D188B7287AC58C003E8CD1 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
@@ -312,6 +314,22 @@
 				1151C4D629EB26EF00FBE786 /* VerificationCodeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		117F41242B356C2A0044A405 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				117F41272B356C3D0044A405 /* Date.swift */,
+				117F412B2B356C3E0044A405 /* PaddingLabel.swift */,
+				117F41282B356C3D0044A405 /* String.swift */,
+				117F41292B356C3D0044A405 /* UIButton.swift */,
+				117F412C2B356C3E0044A405 /* UIColor */,
+				117F412D2B356C3E0044A405 /* UILabel.swift */,
+				117F41252B356C3D0044A405 /* UITableView.swift */,
+				117F412A2B356C3D0044A405 /* UIView.swift */,
+				117F41262B356C3D0044A405 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1188E91C2A04153900745105 /* AddressCell */ = {
@@ -817,11 +835,11 @@
 		18CE66C028795790002AE9D1 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				117F41242B356C2A0044A405 /* Extensions */,
 				187636F1288B21CC00D90B1E /* Sessions */,
 				18D188C3287AEEFC003E8CD1 /* Library */,
 				18CE66C128795790002AE9D1 /* Constants.swift */,
 				18CE66C228795790002AE9D1 /* HttpUtility.swift */,
-				18CE66C328795790002AE9D1 /* Extensions */,
 				18CE66CB28795790002AE9D1 /* Defaults.swift */,
 				1816D25E288430D700F1B6FF /* NetworkService.swift */,
 				18DE6FBA288467630074250D /* Globals.swift */,
@@ -829,30 +847,6 @@
 				111672482A0C0463002DEE35 /* Interceptor.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		18CE66C328795790002AE9D1 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				18CE66C428795790002AE9D1 /* Date.swift */,
-				18CE66C528795790002AE9D1 /* UIView.swift */,
-				18CE66C628795790002AE9D1 /* UIColor */,
-				18CE66C828795790002AE9D1 /* UITableView.swift */,
-				18CE66C928795790002AE9D1 /* UIButton.swift */,
-				18CE66CA28795790002AE9D1 /* UIViewController.swift */,
-				18CE66D9287964A9002AE9D1 /* UILabel.swift */,
-				181CDD6C287C26CC00E955BD /* PaddingLabel.swift */,
-				188C6D9F2885C4D200673841 /* String.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		18CE66C628795790002AE9D1 /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				18CE66C728795790002AE9D1 /* UIColor.swift */,
-			);
-			path = UIColor;
 			sourceTree = "<group>";
 		};
 		18CE66D528795F0E002AE9D1 /* Login */ = {
@@ -960,6 +954,7 @@
 				18DE6FBC28846DED0074250D /* SpinnerButton.swift */,
 				184E56B928C35C740079F1E4 /* FileUploader.swift */,
 				AFFF9ACF29995FE000F1582C /* AppleMap.swift */,
+				118C7BCD2B273B2300F90552 /* LocationManager.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1144,6 +1139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117F41352B356C3E0044A405 /* UIColor in Resources */,
 				11519C182A003004005D79A5 /* BookingPropertyFooterView.xib in Resources */,
 				18537E6A2893C13600406229 /* Job.storyboard in Resources */,
 				18C833A12878BAEE008C2283 /* LaunchScreen.storyboard in Resources */,
@@ -1227,23 +1223,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F58DE628C7C1880062AAF5 /* ReceiptViewModel.swift in Sources */,
-				18CE66CF28795790002AE9D1 /* UIView.swift in Sources */,
 				18F86232289071FC00A3F7A0 /* ProofViewModel.swift in Sources */,
+				117F41312B356C3E0044A405 /* String.swift in Sources */,
 				181F5EDE28C9C205002C94CA /* FeedbackViewModel.swift in Sources */,
-				18CE66D028795790002AE9D1 /* UIColor.swift in Sources */,
 				182BEA522914FA9A00DF3B7A /* ForgotPasswordViewController.swift in Sources */,
 				1140FBD629FFC8EE00B87C64 /* BookingPropertyCell.swift in Sources */,
 				18DE6FB728845C7A0074250D /* RegisterRequest.swift in Sources */,
+				117F41302B356C3E0044A405 /* Date.swift in Sources */,
 				AF17F67E29B109D6000A31A6 /* AdjustTimeViewModel.swift in Sources */,
 				18863FBA287F3EB100A6F752 /* RatingStar.swift in Sources */,
 				18CE66E228797A6D002AE9D1 /* SignupViewController.swift in Sources */,
-				18CE66D128795790002AE9D1 /* UITableView.swift in Sources */,
 				1894B26A287F3C43005C1924 /* FeedBackViewController.swift in Sources */,
-				18CE66D228795790002AE9D1 /* UIButton.swift in Sources */,
 				18F862372890747D00A3F7A0 /* NotesResponse.swift in Sources */,
 				18CE66D828795F2F002AE9D1 /* LoginViewController.swift in Sources */,
 				1816D25A288422FA00F1B6FF /* LoginViewModel.swift in Sources */,
 				18599D33291BC3920078DEDB /* OopsViewController.swift in Sources */,
+				117F412F2B356C3E0044A405 /* UIViewController.swift in Sources */,
 				1816D25D2884252200F1B6FF /* LoginRequest.swift in Sources */,
 				18C833992878BAED008C2283 /* ViewController.swift in Sources */,
 				18C833952878BAED008C2283 /* AppDelegate.swift in Sources */,
@@ -1251,6 +1246,7 @@
 				18599D2F291BB50C0078DEDB /* WelldoneViewController.swift in Sources */,
 				187636F0288B1F2000D90B1E /* HomeModel.swift in Sources */,
 				187636F3288B21E700D90B1E /* DriverSession.swift in Sources */,
+				117F41332B356C3E0044A405 /* UIView.swift in Sources */,
 				18C833C22878D46F008C2283 /* MenuCell.swift in Sources */,
 				1816D25F288430D700F1B6FF /* NetworkService.swift in Sources */,
 				182BEA552914FF2C00DF3B7A /* ForgotPasswordViewModel.swift in Sources */,
@@ -1261,13 +1257,15 @@
 				1875388B287F174A00DA3FC3 /* SignatureViewController.swift in Sources */,
 				18D188BE287AD867003E8CD1 /* AllOrderViewController.swift in Sources */,
 				18BD379C2879B3CA0034D7FA /* AlertViewController.swift in Sources */,
+				117F41342B356C3E0044A405 /* PaddingLabel.swift in Sources */,
 				AF81CCDD296DD0B6007B1ADB /* Enums.swift in Sources */,
 				189DABAB290F9B2100965BDE /* FinishJobModel.swift in Sources */,
 				AFFF9AD029995FE000F1582C /* AppleMap.swift in Sources */,
-				18CE66D328795790002AE9D1 /* UIViewController.swift in Sources */,
+				118C7BCE2B273B2300F90552 /* LocationManager.swift in Sources */,
+				117F41362B356C3E0044A405 /* UILabel.swift in Sources */,
+				117F41322B356C3E0044A405 /* UIButton.swift in Sources */,
 				111672492A0C0463002DEE35 /* Interceptor.swift in Sources */,
 				18D188B9287AC58C003E8CD1 /* OrderCell.swift in Sources */,
-				18CE66DA287964A9002AE9D1 /* UILabel.swift in Sources */,
 				18F86235289072D600A3F7A0 /* NotesRequest.swift in Sources */,
 				18BD3794287992190034D7FA /* JobDetailViewController.swift in Sources */,
 				18D188C5287AEF41003E8CD1 /* MediaPickerManager.swift in Sources */,
@@ -1276,9 +1274,7 @@
 				AF6C1A6B297EFE84007234EE /* ForgotTimer.swift in Sources */,
 				183ACE3C289FA1C600291E22 /* ManageJobViewModel.swift in Sources */,
 				18E427C4287EA87D00EDD0D9 /* ReceiptViewController.swift in Sources */,
-				188C6DA02885C4D300673841 /* String.swift in Sources */,
 				1816D254288410D100F1B6FF /* FilterModel.swift in Sources */,
-				181CDD6D287C26CC00E955BD /* PaddingLabel.swift in Sources */,
 				1897D478288BF679003976E3 /* OrderCellViewModel.swift in Sources */,
 				18DE6FBB288467630074250D /* Globals.swift in Sources */,
 				183B8B51289C0F360013DC06 /* TripDetailViewModel.swift in Sources */,
@@ -1286,10 +1282,10 @@
 				18B758E528B69E7900E7FE96 /* ReceiptModel.swift in Sources */,
 				18DE6FB928845CF40074250D /* RegisterResponse.swift in Sources */,
 				18667D88287C5970000A6F11 /* ForgotMovingViewController.swift in Sources */,
+				117F412E2B356C3E0044A405 /* UITableView.swift in Sources */,
 				18CE66CC28795790002AE9D1 /* Constants.swift in Sources */,
 				18CE66DE287974F2002AE9D1 /* SigninViewController.swift in Sources */,
 				18C833B62878BFF5008C2283 /* OrderViewController.swift in Sources */,
-				18CE66CE28795790002AE9D1 /* Date.swift in Sources */,
 				18DE6FB428845C4B0074250D /* RegisterViewModel.swift in Sources */,
 				1816D256288411F500F1B6FF /* FilterCellViewModel.swift in Sources */,
 				187636F6288B331500D90B1E /* AcceptBookingModel.swift in Sources */,
@@ -1473,13 +1469,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 2W6J7HD9TS;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 9V3LXK79X9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "moovez moover";
+				INFOPLIST_KEY_CFBundleDisplayName = "moovez moovers";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera for proof purpose";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location permission is required for updating driver location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location permission is required for updating driver location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App uses current locaton to get package";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App uses microphone with video recording";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "App uses Photo Library";
@@ -1488,15 +1487,18 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
 				PRODUCT_NAME = "Moovez Driver";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MoveEasy/Source/SideMenu/MoveEasy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1513,13 +1515,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 2W6J7HD9TS;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 9V3LXK79X9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "moovez moover";
+				INFOPLIST_KEY_CFBundleDisplayName = "moovez moovers";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera for proof purpose";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location permission is required for updating driver location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location permission is required for updating driver location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App uses current locaton to get package";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App uses microphone with video recording";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "App uses Photo Library";
@@ -1528,15 +1533,18 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
 				PRODUCT_NAME = "Moovez Driver";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MoveEasy/Source/SideMenu/MoveEasy-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

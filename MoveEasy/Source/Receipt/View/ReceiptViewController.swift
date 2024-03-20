@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FittedSheets
 
 class ReceiptViewController: UIViewController {
 
@@ -134,8 +135,17 @@ class ReceiptViewController: UIViewController {
                 self.showAlert(title: "Card Details", message: error)
                 return
             }
-            let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
-            self.navigationController?.pushViewController(signatureViewController, animated: true)
+//            let signatureViewController = Constants.kJob.instantiateViewController(withIdentifier: "WelldoneViewController") as! WelldoneViewController
+//            self.navigationController?.pushViewController(signatureViewController, animated: true)
+            
+            let feedBackViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
+            feedBackViewController.feedbackViewModel = FeedbackViewModel()
+            let sheetController = SheetViewController(controller: feedBackViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
+            sheetController.cornerRadius = 0
+            feedBackViewController.onDismiss = { [weak self] in
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+            self.present(sheetController, animated: true, completion: nil)
         })
     }
     

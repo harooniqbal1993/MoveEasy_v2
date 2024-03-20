@@ -1410,13 +1410,13 @@ and start earning</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Myl-bS-CZ2">
                                                         <rect key="frame" x="37.5" y="17.5" width="300" height="65.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your trip with Simon?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqC-ni-71S">
-                                                                <rect key="frame" x="12.5" y="0.0" width="275.5" height="24"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your job with Simon?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqC-ni-71S">
+                                                                <rect key="frame" x="14" y="0.0" width="272.5" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You picked up simon from 812 st. Petersburg Ave on June 28th." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY1-Rp-8x8">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your job was from 812 st. Petersburg Ave on June 28th at 10 am." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY1-Rp-8x8">
                                                                 <rect key="frame" x="0.0" y="32" width="300" height="33.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="300" id="8fT-ii-l7N"/>
@@ -1488,10 +1488,9 @@ and start earning</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2N-De-mmn">
-                                                <rect key="frame" x="20" y="618" width="335" height="40"/>
+                                                <rect key="frame" x="20" y="643" width="335" height="40"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="IbM-Zr-mzS"/>
                                                     <constraint firstAttribute="height" constant="40" id="VBl-bE-C8f"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -1510,35 +1509,35 @@ and start earning</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM9-04-acq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="94.5" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="mVk-4g-Nwj"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Excellent service">
+                                                                <state key="normal" title="Friendly">
                                                                     <color key="titleColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulb-F9-Eob">
-                                                                <rect key="frame" x="147" y="0.0" width="109.5" height="30"/>
+                                                                <rect key="frame" x="102.5" y="0.0" width="107.5" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="AA2-T5-QQl"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Hard working">
+                                                                <state key="normal" title="Excellent">
                                                                     <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExE-n2-4bG">
-                                                                <rect key="frame" x="264.5" y="0.0" width="70.5" height="30"/>
+                                                                <rect key="frame" x="218" y="0.0" width="117" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="ogp-aW-dt5"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Friendly">
+                                                                <state key="normal" title="Satisfied">
                                                                     <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
@@ -1548,46 +1547,46 @@ and start earning</string>
                                                         <rect key="frame" x="0.0" y="40" width="335" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cO7-IW-GAj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="78" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="66.5" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="IyK-T7-pbn"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="On time">
+                                                                <state key="normal" title="Good">
                                                                     <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-RB-rFw">
-                                                                <rect key="frame" x="86" y="0.0" width="52" height="30"/>
+                                                                <rect key="frame" x="74.5" y="0.0" width="101" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="TyZ-rZ-TQo"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Rude">
+                                                                <state key="normal" title="Average">
                                                                     <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFb-Zf-rV3">
-                                                                <rect key="frame" x="146" y="0.0" width="121" height="30"/>
+                                                                <rect key="frame" x="183.5" y="0.0" width="57" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="YAJ-Cg-oju"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Bad attitude">
+                                                                <state key="normal" title="Poor">
                                                                     <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWG-93-rbK">
-                                                                <rect key="frame" x="275" y="0.0" width="60" height="30"/>
+                                                                <rect key="frame" x="248.5" y="0.0" width="86.5" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="ahz-Vl-LBQ"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Slow">
+                                                                <state key="normal" title="Rude">
                                                                     <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
@@ -1604,12 +1603,24 @@ and start earning</string>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="Late">
+                                                                <state key="normal" title="On time">
+                                                                    <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-Qv-Zry">
+                                                                <rect key="frame" x="88" y="0.0" width="80" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="80" id="7E0-qB-y3l"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="bQ3-tP-qcA"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Helpful">
                                                                     <color key="titleColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdT-P0-coE">
-                                                                <rect key="frame" x="88" y="0.0" width="247" height="30"/>
+                                                                <rect key="frame" x="176" y="0.0" width="159" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="ndZ-xn-rLm"/>
                                                                 </constraints>
@@ -1624,7 +1635,7 @@ and start earning</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="OSz-U8-AwQ">
-                                                <rect key="frame" x="20" y="465" width="335" height="40"/>
+                                                <rect key="frame" x="20" y="465" width="335" height="148"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf1-nV-egd">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
@@ -1640,8 +1651,8 @@ and start earning</string>
                                                             <action selector="addCommentTapped:" destination="ivK-Xa-O10" eventType="touchUpInside" id="vdL-4Q-8ox"/>
                                                         </connections>
                                                     </button>
-                                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pNr-RF-wsq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="105"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pNr-RF-wsq">
+                                                        <rect key="frame" x="0.0" y="43" width="335" height="105"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="105" id="cv6-0x-9IJ"/>
@@ -1651,9 +1662,6 @@ and start earning</string>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="krw-sL-Rwb"/>
-                                                </constraints>
                                             </stackView>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpL-rH-nKt">
                                                 <rect key="frame" x="176.5" y="252" width="22" height="18"/>
@@ -1840,7 +1848,7 @@ and start earning</string>
                                             <constraint firstItem="cOt-ro-km2" firstAttribute="leading" secondItem="CZT-Hy-s36" secondAttribute="leading" id="35Q-nT-x6V"/>
                                             <constraint firstAttribute="trailing" secondItem="Rhk-Co-FuS" secondAttribute="trailing" constant="20" symbolic="YES" id="3oq-LZ-10x"/>
                                             <constraint firstItem="yyo-Pu-oLV" firstAttribute="top" secondItem="cfd-Jk-wuP" secondAttribute="bottom" constant="40" id="3r6-7x-1UT"/>
-                                            <constraint firstItem="z2N-De-mmn" firstAttribute="top" secondItem="OSz-U8-AwQ" secondAttribute="bottom" constant="113" id="4lw-Q6-Yoe"/>
+                                            <constraint firstItem="z2N-De-mmn" firstAttribute="top" secondItem="OSz-U8-AwQ" secondAttribute="bottom" constant="30" id="4lw-Q6-Yoe"/>
                                             <constraint firstItem="cfd-Jk-wuP" firstAttribute="top" secondItem="4IQ-9T-WwK" secondAttribute="bottom" constant="20" id="5FJ-Nx-oFh"/>
                                             <constraint firstAttribute="trailing" secondItem="ngr-CO-KOM" secondAttribute="trailing" constant="20" symbolic="YES" id="7Tb-JR-ce0"/>
                                             <constraint firstItem="Rhk-Co-FuS" firstAttribute="top" secondItem="EpL-rH-nKt" secondAttribute="bottom" id="9zR-O7-kiS"/>
@@ -1896,6 +1904,7 @@ and start earning</string>
                     <connections>
                         <outlet property="Cad3ButtonView" destination="g8o-G2-PpZ" id="lRP-V3-GhA"/>
                         <outlet property="addCommentButton" destination="Pf1-nV-egd" id="Ttc-ck-F1p"/>
+                        <outlet property="addressLabel" destination="UY1-Rp-8x8" id="hHD-Wb-p0W"/>
                         <outlet property="appreciatiionLabel" destination="4IQ-9T-WwK" id="xjL-x7-r9w"/>
                         <outlet property="cad1ButtonView" destination="XGi-xy-Gnw" id="kAt-vD-pRm"/>
                         <outlet property="commentTextView" destination="pNr-RF-wsq" id="YEv-wB-n71"/>
@@ -1914,11 +1923,12 @@ and start earning</string>
                         <outletCollection property="filterButton" destination="xM9-04-acq" collectionClass="NSMutableArray" id="QqA-G5-7uY"/>
                         <outletCollection property="filterButton" destination="eWG-93-rbK" collectionClass="NSMutableArray" id="ZcT-PK-S9q"/>
                         <outletCollection property="filterButton" destination="Ulb-F9-Eob" collectionClass="NSMutableArray" id="8Oa-pw-Ywx"/>
+                        <outletCollection property="filterButton" destination="JH7-Qv-Zry" collectionClass="NSMutableArray" id="Fiu-7A-Fxb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOa-K2-2P2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-711.20000000000005" y="1026.3868065967017"/>
+            <point key="canvasLocation" x="-2074" y="1627"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="kLm-eJ-eTp">

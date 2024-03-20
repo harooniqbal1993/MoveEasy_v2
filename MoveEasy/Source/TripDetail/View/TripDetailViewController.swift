@@ -132,7 +132,6 @@ class TripDetailViewController: UIViewController {
     
     func getOrderSummary() {
         tripDetailViewModel?.getBooking(bookingID: "\(OrderSession.shared.order?.id ?? 0)", completion: { [weak self] error in
-//        tripDetailViewModel?.getBooking(bookingID: "2269", completion: { [weak self] error in
             DispatchQueue.main.async {
                 if let error = error {
                     self?.showAlert(title: "Error", message: error)

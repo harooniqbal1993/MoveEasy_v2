@@ -9,8 +9,8 @@ import Foundation
 
 class NetworkService {
 //    https://neighbour.anadeemus.ca/swagger/index.html
-    let baseURL: String = "https://driversapi.moovez.ca/api/" // "https://moveasydriver.anadeemus.ca/api/" // https://mov.anadeemus.ca/api/" // "https://moveasydriver.anadeemus.ca/api/"
-    let customerURL: String = "https://admin.moovez.ca/api/" // "https://neighbour.anadeemus.ca/api/"
+    let baseURL: String = "https://movez-prod-driver-api.azurewebsites.net/api/" //"https://driversapidev.moovez.ca/api/"
+    let customerURL: String = "https://admindev.moovez.ca/api/"
     
     var httpUtility: HttpUtility!
     
@@ -111,6 +111,13 @@ class NetworkService {
     
     func pauseMoving(bookingID: String, completion: @escaping (_ result: Bool?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.pauseMoving.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)&bookingId=\(bookingID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: Bool.self) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func endMoving(bookingID: String, completion: @escaping (_ result: Bool?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.endMovingTimer.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)&bookingId=\(bookingID)"
         httpUtility.getApiData(url: URL(string: url)!, resultType: Bool.self) { result, error in
             completion(result, error)
         }
@@ -256,6 +263,13 @@ class NetworkService {
         let url = "\(baseURL+Constants.EndPoints.deleteAccount.rawValue)?email=\(email)" // baseURL + Constants.EndPoints.addDriverDeviceID.rawValue
         httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: LoginResponse.self) { result, error in
             completion(result, error)
+        }
+    }
+    
+    func setCurrentLocation(driverID: Int, latitude: Double, longitude: Double, completion: @escaping (_ result: FinalJobResponse?, _ error: String?) -> Void) {
+        let url = "\(baseURL+Constants.EndPoints.setCurrentLocation.rawValue)?driverId=\(driverID)&latitude=\(latitude)&longitude=\(longitude)"
+        httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: FinalJobResponse.self) { result, error in
+            completion(result, nil)
         }
     }
 }

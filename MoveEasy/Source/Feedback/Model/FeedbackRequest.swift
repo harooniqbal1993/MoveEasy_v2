@@ -11,9 +11,9 @@ struct FeedbackRequest: Encodable {
     
     var id: Int? = nil
     var rating: Int? = nil
-    var feedback: String? = nil
     var comments: String? = nil
     var driverId: Int? = nil
     var userIdD: Int? = nil
     var tip: String? = nil
+    var feedback: [String]? = nil
 }

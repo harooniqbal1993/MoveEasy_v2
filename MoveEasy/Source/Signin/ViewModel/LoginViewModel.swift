@@ -45,7 +45,7 @@ class LoginViewModel {
         NetworkService.shared.loginDriver(loginRequest: loginRequest) { result, error  in
             DispatchQueue.main.async {
                 if result?.statusCode == 400 {
-                    completion(false, error)
+                    completion(false, result?.message)
                     return
                 }
                 if let error = error {

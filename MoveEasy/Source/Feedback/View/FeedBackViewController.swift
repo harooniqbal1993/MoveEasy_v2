@@ -22,6 +22,7 @@ class FeedBackViewController: UIViewController {
     @IBOutlet weak var notThisTimeButtonView: UIView!
     @IBOutlet weak var customDonationTextField: UITextField!
     @IBOutlet weak var howTripLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     let textColor: UIColor = UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1.0)
     
@@ -36,7 +37,10 @@ class FeedBackViewController: UIViewController {
     }
     
     func loadViews() {
-        howTripLabel.text = "How was your trip with \(OrderSession.shared.bookingModel?.user?.firstName ?? "")?"
+        howTripLabel.text = "How was your job with \(OrderSession.shared.bookingModel?.user?.firstName ?? "")?"
+        let formattedDate = getFormattedDate(rawDate: OrderSession.shared.bookingModel?.deliveryDate ?? "", fromFormatter: "M-dd-yyyy hh:mm:ss a", formatter: "MMMM dd") // 3/18/2024 11:40:21 PM
+        let formattedTime = getFormattedDate(rawDate: OrderSession.shared.bookingModel?.deliveryDate ?? "", fromFormatter: "M-dd-yyyy hh:mm:ss a", formatter: "h a")
+        addressLabel.text = "Your job was from \(OrderSession.shared.bookingModel?.pickupLocation ?? "") on \(formattedDate ?? "") at \(formattedTime ?? "")"
         filterButton.forEach { button in
             button.border(color: .systemGray4, radius: 5, width: 2.0)
             button.addTarget(self, action: #selector(filterButtonTapped(_sender:)), for: .touchUpInside)
@@ -48,6 +52,7 @@ class FeedBackViewController: UIViewController {
         addCommentButton.border(color: Constants.themeColor, radius: 6, width: 1.0)
         commentTextView.border(color: textColor, radius: 0.0, width: 1.0)
         customDonationTextField.isHidden = true
+        commentTextView.isHidden = true
         submitButton.round()
         ratingStarListeners()
     }
@@ -79,15 +84,32 @@ class FeedBackViewController: UIViewController {
     }
     
     @objc func filterButtonTapped(_sender: UIButton) {
-        filterButton.forEach { button in
-            button.backgroundColor = .clear
-            button.setTitleColor(textColor, for: .normal)
-            button.border(color: .systemGray4, radius: 5, width: 2.0)
-        }
         
-        _sender.backgroundColor = Constants.themeColor
-        _sender.setTitleColor(.white, for: .normal)
-        _sender.border(color: Constants.themeColor, radius: 5, width: 2.0)
+        if feedbackViewModel?.selectedOptions?.contains(_sender.currentTitle ?? "") ?? false {
+            _sender.backgroundColor = .clear
+            _sender.setTitleColor(textColor, for: .normal)
+            _sender.border(color: .systemGray4, radius: 5, width: 2.0)
+            if let index = feedbackViewModel?.selectedOptions?.firstIndex(where: {$0 == _sender.currentTitle ?? ""}){
+                feedbackViewModel?.selectedOptions?.remove(at: index)
+            }
+        } else {
+            _sender.backgroundColor = Constants.themeColor
+            _sender.setTitleColor(.white, for: .normal)
+            _sender.border(color: Constants.themeColor, radius: 5, width: 2.0)
+            
+            feedbackViewModel?.selectedOptions?.append(_sender.currentTitle ?? "")
+        }
+        debugPrint(feedbackViewModel?.selectedOptions ?? [])
+        
+//        filterButton.forEach { button in
+//            button.backgroundColor = .clear
+//            button.setTitleColor(textColor, for: .normal)
+//            button.border(color: .systemGray4, radius: 5, width: 2.0)
+//        }
+//
+//        _sender.backgroundColor = Constants.themeColor
+//        _sender.setTitleColor(.white, for: .normal)
+//        _sender.border(color: Constants.themeColor, radius: 5, width: 2.0)
         
         self.sheetViewController?.setSizes([.marginFromTop(0.0)])
     }

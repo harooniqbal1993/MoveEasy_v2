@@ -35,6 +35,7 @@ struct DriverModel: Decodable {
     var isVerified: Bool? = nil
     var averageRating: Int? = 0
     var completedBookingCount: Int? = 0
+    var years: String? = "0.0"
 }
 
 //{

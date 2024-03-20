@@ -36,7 +36,21 @@ class BookingPropertyFooterView: UICollectionReusableView {
         acceptButton.isHidden = toggleButton
         rejectButton.isHidden = toggleButton
         startJobButton.isHidden = !toggleButton
+        
+        if OrderSession.shared.bookingModel?.isDeliverNow == true || OrderSession.shared.bookingModel?.status == .COMPLETED || OrderSession.shared.bookingModel?.status == .ACTIVE {
+            startJobButton.isHidden = false
+            rejectButton.isHidden = true
+            acceptButton.isHidden = true
+        } else {
+            startJobButton.isHidden = true
+            rejectButton.isHidden = false
+            acceptButton.isHidden = false
+        }
+        
         startJobButton.setTitle(OrderSession.shared.bookingModel?.status == .COMPLETED ? "View Details" : "Start Job", for: .normal)
+        if OrderSession.shared.bookingModel?.status == .DELIVERY && OrderSession.shared.bookingModel?.isDeliverNow == true {
+            startJobButton.setTitle("Start Job", for: .normal)
+        }
     }
     
     func loadViews() {

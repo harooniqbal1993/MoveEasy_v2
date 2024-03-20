@@ -142,4 +142,15 @@ class HomeViewModel {
             completion()
         }
     }
+    
+    func setCurrentLocation(latitude: Double, longitude: Double) {
+        NetworkService.shared.setCurrentLocation(driverID: DriverSession.shared.driver?.id ?? 0, latitude: latitude, longitude: longitude) { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    debugPrint("location Error", error)
+                    return
+                }
+            }
+        }
+    }
 }

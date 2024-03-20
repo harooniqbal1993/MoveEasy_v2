@@ -9,6 +9,7 @@ import Foundation
 
 enum OrderStatus: String, Codable {
     case ACTIVE = "ACTIVE" // If driver accepts the booking
+    case Active = "Active"
     case INACTIVE = "INACTIVE" // driver status // should not be here
     case PENDING = "PENDING" // Booking placed from Customer end, But not accepted by Driver
     case CONFIRMATION = "CONFIRMATION"
@@ -17,6 +18,7 @@ enum OrderStatus: String, Codable {
     case COMPLETED = "COMPLETED" // on finishMoving API
     case INCOMPLETED = "INCOMPLETED" // customer is creating
     case CANCELLED = "CANCELLED"
+    case DELIVERY = "Delivery"
 }
 
 struct HomeModel: Decodable {

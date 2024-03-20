@@ -44,6 +44,7 @@ class SideMenuViewController: UIViewController {
         sideMenuTableView.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: "MenuCell")
         rideCountLabel.text = "\(DriverSession.shared.driver?.completedBookingCount ?? 0)"
         ratingCountLabel.text = "\(DriverSession.shared.driver?.averageRating ?? 0)"
+        yearsCountLabel.text = DriverSession.shared.driver?.years
     }
     
     func loadViews() {
