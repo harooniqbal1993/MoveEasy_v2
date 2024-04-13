@@ -23,9 +23,10 @@ class HomeViewModel {
     var todayOrders: [OrderModel] = []
     var myOrders: [OrderModel] = []
     var newOrders: [OrderModel] = []
+    var scheduledOrders: [OrderModel] = []
     var isLoading: Bool = false
     
-    var filterArray: [FilterModel] = [FilterModel(name: "New Bookings", isSelected: false), FilterModel(name: "All Bookings", isSelected: true), FilterModel(name: "Cancelled", isSelected: false), FilterModel(name: "Completed", isSelected: false)]
+    var filterArray: [FilterModel] = [FilterModel(name: "New Bookings", isSelected: false), FilterModel(name: "All Bookings", isSelected: true), FilterModel(name: "Scheduled", isSelected: false), FilterModel(name: "Cancelled", isSelected: false), FilterModel(name: "Completed", isSelected: false)]
     
     var appliedFilter: FilterModel!
     
@@ -56,6 +57,10 @@ class HomeViewModel {
             
         case "All Bookings":
             displayedOrders = myOrders
+            break
+            
+        case "Scheduled":
+            displayedOrders = scheduledOrders
             break
             
         case "Today's":
@@ -93,7 +98,8 @@ class HomeViewModel {
                 self.todayOrders = result?.data?.today ?? []
                 self.myOrders = result?.data?.myOrders ?? []
                 self.newOrders = result?.data?.newOrders ?? []
-                self.allOrders = self.activeOrders + self.pendingOrders + self.completedOrders + self.cancelledOrders
+                self.scheduledOrders = result?.data?.scheduledOrders ?? []
+                self.allOrders = self.activeOrders + self.scheduledOrders + self.pendingOrders + self.completedOrders + self.cancelledOrders
                 if let activeTrip = self.activeTrip {
                     self.allOrders.append(activeTrip)
                 }

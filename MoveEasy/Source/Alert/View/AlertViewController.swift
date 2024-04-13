@@ -16,6 +16,8 @@ class AlertViewController: UIViewController {
         case back
         case adjustTimer
         case deleteAccount
+        case scheduledJob
+        case chargePayment
     }
 
     @IBOutlet weak var warningImageView: UIImageView!
@@ -30,6 +32,14 @@ class AlertViewController: UIViewController {
     var message: String? = nil
     var completion: ((Bool) -> Void)?
     var statusType: StatusType = .start
+    
+    var deliveryDate: (String?, String?) {
+        let split = OrderSession.shared.bookingModel?.deliveryDate?.components(separatedBy: " ")
+        if let d = split?[0], let t = split?[1], let m = split?[2] {
+            return (d, t + " " + m) // t + " " + m
+        }
+        return (OrderSession.shared.bookingModel?.exactTime, nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +86,15 @@ class AlertViewController: UIViewController {
             warningImageView.image = UIImage(named: "red-cross")
             titleLabel.text = "Delete Account"
             messageLabel.text = "Are you sure you want to delete your account?\n\nThis action is irreversible and will permanently remove all your data and associated information."
+        } else if statusType == .scheduledJob {
+//            containerHeightConstraint.constant = 350
+            warningImageView.image = UIImage(named: "warning")
+            titleLabel.text = "Are you sure you want to start this job?"
+            messageLabel.text = "This job is schedule for \(deliveryDate.0 ?? "") at \(deliveryDate.1 ?? "")."
+        } else if statusType == .chargePayment {
+            warningImageView.image = UIImage(named: "warning")
+            titleLabel.text = "Is the information correct?"
+            messageLabel.text = "Payment processing will only proceed after customer approval."
         } else {
             warningImageView.image = UIImage(named: "stop")
             titleLabel.text = "Did you finish the job?"

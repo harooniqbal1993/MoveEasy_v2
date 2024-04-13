@@ -175,6 +175,19 @@ class TripDetailViewController: UIViewController {
         }
     }
     
+    func showAlert() {
+        let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+        alertViewController.statusType = .scheduledJob
+        alertViewController.completion = { [weak self] isYes in
+            if isYes {
+                self?.dismiss(animated: false) {
+                    self?.onDismiss?(false)
+                }
+            }
+        }
+        present(alertViewController, animated: true, completion: nil)
+    }
+    
     @IBAction func viewMapTapped(_ sender: UIButton) {
         self.dismiss(animated: false) {
             self.onDismiss?(true)
@@ -251,7 +264,12 @@ extension TripDetailViewController: UICollectionViewDelegate, UICollectionViewDa
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "BookingPropertyFooterView", for: indexPath) as! BookingPropertyFooterView
             footerView.configure(bookingModel: OrderSession.shared.bookingModel)
-            footerView.onStartJob = { [weak self] in
+            footerView.onStartJob = { [weak self] isJobBlocked in
+                if isJobBlocked == true {
+                    self?.showAlert()
+//                    self?.showAlert(title: "Alert", message: "This job is scheduled at \(OrderSession.shared.bookingModel?.deliveryDate)")
+                    return
+                }
                 self?.dismiss(animated: false) {
                     self?.onDismiss?(false)
                 }

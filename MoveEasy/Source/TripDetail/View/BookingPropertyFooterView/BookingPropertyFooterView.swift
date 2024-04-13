@@ -17,9 +17,11 @@ class BookingPropertyFooterView: UICollectionReusableView {
     @IBOutlet weak var dropoffAddressLabel: UILabel!
     @IBOutlet weak var dropoffInstructionLabel: UILabel!
     
-    var onStartJob: (() -> Void)?
+    var onStartJob: ((Bool?) -> Void)?
     var onAcceptJob: (() -> Void)?
     var onRejectJob: (() -> Void)?
+    
+    var isBlockJob: Bool? = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +53,9 @@ class BookingPropertyFooterView: UICollectionReusableView {
         if OrderSession.shared.bookingModel?.status == .DELIVERY && OrderSession.shared.bookingModel?.isDeliverNow == true {
             startJobButton.setTitle("Start Job", for: .normal)
         }
+        
+//        startJobButton.setTitleColor(.gray, for: .disabled)
+//        startJobButton.setTitleColor(Constants.themeColor, for: .normal)
     }
     
     func loadViews() {
@@ -58,6 +63,16 @@ class BookingPropertyFooterView: UICollectionReusableView {
         acceptButton.round()
         rejectButton.border(color: Constants.themeColor, width: 1.0)
         startJobButton.setTitle(OrderSession.shared.bookingModel?.status == .COMPLETED ? "View Details" : "Start Job")
+        
+        if OrderSession.shared.bookingModel?.isDeliverNow == false {
+            if isDatePassed() == false {
+                isBlockJob = true
+//                startJobButton.isEnabled = false
+            } else {
+                isBlockJob = false
+//                startJobButton.isEnabled = true
+            }
+        }
         
 //        if OrderSession.shared.bookingModel?.driverId == nil {
 //            startJobButton.isHidden = true
@@ -71,12 +86,29 @@ class BookingPropertyFooterView: UICollectionReusableView {
         
     }
     
+    private func isDatePassed() -> Bool {
+        let currentDate = Date()
+        if let targetDate = OrderSession.shared.bookingModel?.deliveryDate?.toDate() {
+            if currentDate.compare(targetDate) == .orderedDescending {
+                print("Current date is greater than the target date.")
+                return true
+            } else if currentDate.compare(targetDate) == .orderedAscending {
+                print("Current date is less than the target date.")
+                return false
+            } else {
+                print("Current date is equal to the target date.")
+                return true
+            }
+        }
+        return false
+    }
+    
     @IBAction func startJobTapped(_ sender: SpinnerButton) {
         self.startJobButton.setTitle("")
         self.startJobButton.startLoading()
         let seconds = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.onStartJob?()
+            self.onStartJob?(self.isBlockJob)
         }
     }
     

@@ -119,6 +119,12 @@ class ManageJobViewController: UIViewController {
         manageJobViewModel = ManageJobViewModel()
         proofViewModel = ProofViewModel()
         
+        if manageJobViewModel.stops?.count ?? 0 > 2 {
+            continueButton.setTitle("Next pickup")
+        } else {
+            continueButton.setTitle("Navigate to drop off")
+        }
+        
         source = CLLocationCoordinate2D(latitude: Double(manageJobViewModel.stops?[0].lat ?? "0.0") ?? 0.0, longitude: Double(manageJobViewModel.stops?[0].long ?? "0.0") ?? 0.0)
         destination = CLLocationCoordinate2D(latitude: Double(manageJobViewModel.stops?[1].lat ?? "0.0") ?? 0.0, longitude: Double(manageJobViewModel.stops?[1].long ?? "0.0") ?? 0.0)
         getUpdatedTime()
@@ -220,19 +226,24 @@ class ManageJobViewController: UIViewController {
     }
     
     func endMovingTimer() {
-        manageJobViewModel.endMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)")
-//        navigateToNextScreen()
-    }
-    
-    func stopMoving() {
-        manageJobViewModel.stopMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)") { [weak self] error in
-            if let error = error {
-                self?.showAlert(title: "Error", message: error)
-                return
-            }
+        manageJobViewModel.endMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)"){ [weak self] error in
+//            if let error = error {
+//                self?.showAlert(title: "Error", message: error)
+//                return
+//            }
             self?.navigateToNextScreen()
         }
     }
+    
+//    func stopMoving() {
+//        manageJobViewModel.stopMoving(bookingID: "\(OrderSession.shared.bookingModel?.id ?? 0)") { [weak self] error in
+//            if let error = error {
+//                self?.showAlert(title: "Error", message: error)
+//                return
+//            }
+//            self?.navigateToNextScreen()
+//        }
+//    }
     
     func showStopAlert() {
         let alertViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
@@ -243,7 +254,7 @@ class ManageJobViewController: UIViewController {
                 self?.mediaButtonView.isHidden = false
                 self?.additionalInfoView.isHidden = false
                 //                self?.backButton.isHidden = false
-                self?.stopMoving()
+//                self?.stopMoving()
                 self?.endMovingTimer()
             }
         }
@@ -326,8 +337,8 @@ class ManageJobViewController: UIViewController {
     }
     
     private func navigateToNextScreen() {
-//        startNavigation()
-        if OrderSession.shared.bookingModel?.isDeliverNow == true && OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased() {
+//        OrderSession.shared.bookingModel?.isDeliverNow == true && OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased()
+        if OrderSession.shared.bookingModel?.type?.lowercased() == "Delivery".lowercased() {
             let feedBackViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
             feedBackViewController.feedbackViewModel = FeedbackViewModel()
             let sheetController = SheetViewController(controller: feedBackViewController, sizes:[.marginFromTop(150.0)], options: Constants.fittedSheetOptions)
@@ -427,9 +438,15 @@ class ManageJobViewController: UIViewController {
     }
     
     @IBAction func forgotTimerTapped(_ sender: UIButton) {
-        let forgotViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ForgotMovingViewController") as! ForgotMovingViewController
-        forgotViewController.forgotMovingViewModel = ForgotMovingViewModel()
-        navigationController?.pushViewController(forgotViewController, animated: true)
+        
+        let receiptViewController = Constants.kJob.instantiateViewController(withIdentifier: "ReceiptViewController") as! ReceiptViewController
+        receiptViewController.viewType = .forgotTimer
+//        receiptViewController.receiptViewModel = ReceiptViewModel(receiptModel: manageJobViewModel.receipt)
+        navigationController?.pushViewController(receiptViewController, animated: true)
+        
+//        let forgotViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ForgotMovingViewController") as! ForgotMovingViewController
+//        forgotViewController.forgotMovingViewModel = ForgotMovingViewModel()
+//        navigationController?.pushViewController(forgotViewController, animated: true)
     }
     
     @IBAction func continueTapped(_ sender: UIButton) {
@@ -453,8 +470,8 @@ class ManageJobViewController: UIViewController {
 //            stopMoving()
         }
         
-        print("\((manageJobViewModel.stops?.count ?? 0)) == \(manageJobViewModel.stopCounter)")
-//        if (manageJobViewModel.stops?.count ?? 0) + 1 == manageJobViewModel.stopCounter {
+        var buttonTitle: String = "Complete job"
+        
         if (manageJobViewModel.stops?.count ?? 0) - 1 == manageJobViewModel.stopCounter {
             
             let sourceLat = Double(manageJobViewModel.stops?[(manageJobViewModel.stops?.count ?? 0) - 2].lat ?? "0.0")
@@ -469,32 +486,13 @@ class ManageJobViewController: UIViewController {
             appleMap.present(in: self, sourceView: backButton)
             
             addressLabel.text = OrderSession.shared.bookingModel?.dropoffLocation
-            continueButton.setTitle("Complete job")
+//            continueButton.setTitle("Complete job")
+            buttonTitle = "Complete job"
             manageJobViewModel.isLastDestination = true
         } else {
-//            addressLabel.text = manageJobViewModel.stopCounter < (manageJobViewModel.stops?.count ?? 0) ? manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop : OrderSession.shared.bookingModel?.dropoffLocation
-            
-//            let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
-//            let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
-//
-////            let sourceLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].lat ?? "0.0")
-////            let sourceLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].long ?? "0.0")
-////            let source1 = CLLocationCoordinate2D(latitude: sourceLat ?? 0.0, longitude: sourceLng ?? 0.0)
-////
-////            let destLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].lat ?? "0.0")
-////            let destLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter].long ?? "0.0")
-////            let dest1 = CLLocationCoordinate2D(latitude: destLat ?? 0.0, longitude: destLng ?? 0.0)
-//
-//            let appleMap = AppleMap(source: source, destination: destination)
-//            appleMap.present(in: self, sourceView: backButton)
-            
-//            manageJobViewModel.stopCounter += 1
-            
+            buttonTitle = "Next pickup"
             if manageJobViewModel.stopCounter < manageJobViewModel.stops?.count ?? 0 {
                 addressLabel.text = manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop
-                
-//                let source = CLLocationCoordinate2D(latitude: 51.792014, longitude: -114.105279)
-//                let destination = CLLocationCoordinate2D(latitude: 51.049999, longitude: -114.066666)
                 
                 let sourceLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].lat ?? "0.0")
                 let sourceLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].long ?? "0.0")
@@ -506,8 +504,13 @@ class ManageJobViewController: UIViewController {
 //
                 let appleMap = AppleMap(source: source, destination: destination)
                 appleMap.present(in: self, sourceView: backButton)
+                
+                if (manageJobViewModel.stops?.count ?? 0) - 2 == manageJobViewModel.stopCounter {
+                    buttonTitle = "Navigate to drop off"
+                }
             }
         }
+        continueButton.setTitle(buttonTitle)
     }
     
     @IBAction func viewRouteTapped(_ sender: UIButton) {

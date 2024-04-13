@@ -10,14 +10,33 @@ import Foundation
 struct ForgotTimerRequest: Codable {
     var id: Int? = nil
     var driverId: Int? = nil
-    var name: String? = nil
-    var email: String? = nil
     var startTime: String? = nil
     var endTime: String? = nil
     var bookingId: Int? = nil
     var userId: Int? = nil
     var isApproved: Bool = true
+    var FormType: String? = nil // Edit_Job_Summary, Forgot_To_Start_Timer
+    var notes: String? = nil
+    var totalDuration: String? = nil
+    var breakTime: Float? = nil
 }
+
+//{
+//  "id": 0,
+//  "driverId": 0,
+//  "name": "string",
+//  "phoneNumber": "string",
+//  "email": "string",
+//  "startTime": "2024-04-08T10:48:22.032Z",
+//  "endTime": "2024-04-08T10:48:22.032Z",
+//  "notes": "string",
+//  "bookingId": 0,
+//  "userId": 0,
+//  "isApproved": true,
+//  "totalDuration": "string",
+//  "breakTime": 0,
+//  "formType": "string"
+//}
 
 struct ForgotTimerResponse: Decodable {
     var statusCode: Int? = nil

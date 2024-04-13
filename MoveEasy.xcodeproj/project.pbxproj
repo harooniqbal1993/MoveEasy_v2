@@ -10,6 +10,7 @@
 		110A38A729EB1D3C00E662D8 /* VerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */; };
 		110A38AB29EB1D9900E662D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */; };
 		111672492A0C0463002DEE35 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111672482A0C0463002DEE35 /* Interceptor.swift */; };
+		112647962BBDC03F00365B29 /* RPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112647952BBDC03F00365B29 /* RPicker.swift */; };
 		112CEFB42AE0470D0012F94B /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CEFB22AE0470D0012F94B /* CustomPopup.swift */; };
 		112CEFB52AE0470D0012F94B /* CustomPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112CEFB32AE0470D0012F94B /* CustomPopup.xib */; };
 		1140FBD629FFC8EE00B87C64 /* BookingPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */; };
@@ -121,6 +122,7 @@
 		110A38A629EB1D3C00E662D8 /* VerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeVC.swift; sourceTree = "<group>"; };
 		110A38AA29EB1D9900E662D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		111672482A0C0463002DEE35 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		112647952BBDC03F00365B29 /* RPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPicker.swift; sourceTree = "<group>"; };
 		112CEFB22AE0470D0012F94B /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
 		112CEFB32AE0470D0012F94B /* CustomPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPopup.xib; sourceTree = "<group>"; };
 		1140FBD429FFC8EE00B87C64 /* BookingPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPropertyCell.swift; sourceTree = "<group>"; };
@@ -952,6 +954,7 @@
 				18899A9A287C3F8900931042 /* StopWatch.swift */,
 				18863FB9287F3EB100A6F752 /* RatingStar.swift */,
 				18DE6FBC28846DED0074250D /* SpinnerButton.swift */,
+				112647952BBDC03F00365B29 /* RPicker.swift */,
 				184E56B928C35C740079F1E4 /* FileUploader.swift */,
 				AFFF9ACF29995FE000F1582C /* AppleMap.swift */,
 				118C7BCD2B273B2300F90552 /* LocationManager.swift */,
@@ -1226,6 +1229,7 @@
 				18F86232289071FC00A3F7A0 /* ProofViewModel.swift in Sources */,
 				117F41312B356C3E0044A405 /* String.swift in Sources */,
 				181F5EDE28C9C205002C94CA /* FeedbackViewModel.swift in Sources */,
+				112647962BBDC03F00365B29 /* RPicker.swift in Sources */,
 				182BEA522914FA9A00DF3B7A /* ForgotPasswordViewController.swift in Sources */,
 				1140FBD629FFC8EE00B87C64 /* BookingPropertyCell.swift in Sources */,
 				18DE6FB728845C7A0074250D /* RegisterRequest.swift in Sources */,
@@ -1471,7 +1475,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9V3LXK79X9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
@@ -1517,7 +1521,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9V3LXK79X9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;

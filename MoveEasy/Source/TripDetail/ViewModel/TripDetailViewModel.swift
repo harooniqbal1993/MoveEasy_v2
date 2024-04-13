@@ -35,6 +35,10 @@ class TripDetailViewModel {
         return OrderSession.shared.bookingModel?.deliveryDate
     }
     
+    var dateObj: Date? {
+        return OrderSession.shared.bookingModel?.deliveryDate?.toDate()
+    }
+    
     var time: (String?, String?) {
         let split = OrderSession.shared.bookingModel?.deliveryDate?.components(separatedBy: " ")
         if let d = split?[0], let t = split?[1], let m = split?[2] {
@@ -83,6 +87,10 @@ class TripDetailViewModel {
         return (OrderSession.shared.bookingModel?.pickupLatitude == nil && OrderSession.shared.bookingModel?.pickupLongitude == nil && OrderSession.shared.bookingModel?.dropofflatitude == nil && OrderSession.shared.bookingModel?.dropoffLongitude == nil)
     }
     
+    var incomeTitle: String {
+        return OrderSession.shared.bookingModel?.type?.lowercased() == "delivery" ? "Income" : "Est. income"
+    }
+    
     var estimatedPrice: String {
         return "$\(OrderSession.shared.bookingModel?.bookingTotalModel?.totalCharge ?? "0.0")"
     }
@@ -97,7 +105,7 @@ class TripDetailViewModel {
     
     init(order: OrderModel) {
         self.order = order
-        self.properties = [BookingPropertyModel(image: UIImage(systemName: "person.fill"), name: "Customer name", value: "John doe"), BookingPropertyModel(image: UIImage(systemName: "phone.fill"), name: "Phone name", value: "+1 120101123"), BookingPropertyModel(image: UIImage(systemName: "calendar"), name: "Date", value: "22 June 2022"), BookingPropertyModel(image: UIImage(systemName: "clock"), name: "Time", value: "10:30 PM"), BookingPropertyModel(image: UIImage(systemName: "train.side.rear.car"), name: "Vehicle type", value: "Pickup"), BookingPropertyModel(image: UIImage(systemName: "person.wave.2"), name: "# of movers", value: "1"), BookingPropertyModel(image: UIImage(systemName: "network"), name: "Job type", value: "moovers"), BookingPropertyModel(image: UIImage(systemName: "dollarsign.square"), name: "Est. income", value: "$62.80")]
+        self.properties = [BookingPropertyModel(image: UIImage(systemName: "person.fill"), name: "Customer name", value: "John doe"), BookingPropertyModel(image: UIImage(systemName: "phone.fill"), name: "Phone name", value: "+1 120101123"), BookingPropertyModel(image: UIImage(systemName: "calendar"), name: "Date", value: "22 June 2022"), BookingPropertyModel(image: UIImage(systemName: "clock"), name: "Time", value: "10:30 PM"), BookingPropertyModel(image: UIImage(systemName: "train.side.rear.car"), name: "Vehicle type", value: "Pickup"), BookingPropertyModel(image: UIImage(systemName: "person.wave.2"), name: "# of movers", value: "1"), BookingPropertyModel(image: UIImage(systemName: "network"), name: "Job type", value: "moovers"), BookingPropertyModel(image: UIImage(systemName: "dollarsign.square"), name: incomeTitle, value: "$62.80")]
     }
     
     func getBooking(bookingID: String?, completion: @escaping (_ error: String?) -> Void) {
@@ -108,10 +116,10 @@ class TripDetailViewModel {
             }
             OrderSession.shared.bookingModel = result
             
-            self.properties = [BookingPropertyModel(image: UIImage(systemName: "person.fill"), name: "Customer name", value: self.customerName), BookingPropertyModel(image: UIImage(systemName: "phone.fill"), name: "Phone name", value: self.phoneNumber), BookingPropertyModel(image: UIImage(systemName: "calendar"), name: "Date", value: self.time.0), BookingPropertyModel(image: UIImage(systemName: "clock"), name: "Time", value: self.time.1), BookingPropertyModel(image: UIImage(systemName: "train.side.rear.car"), name: "Vehicle type", value: self.vehicleType), BookingPropertyModel(image: UIImage(systemName: "person.wave.2"), name: "# of movers", value: self.numberOfMoovers), BookingPropertyModel(image: UIImage(systemName: "network"), name: "Job type", value: self.jobType), BookingPropertyModel(image: UIImage(systemName: "dollarsign.square"), name: "Est. income", value: self.estimatedPrice)]
+            self.properties = [BookingPropertyModel(image: UIImage(systemName: "person.fill"), name: "Customer name", value: self.customerName), BookingPropertyModel(image: UIImage(systemName: "phone.fill"), name: "Phone name", value: self.phoneNumber), BookingPropertyModel(image: UIImage(systemName: "calendar"), name: "Date", value: self.time.0), BookingPropertyModel(image: UIImage(systemName: "clock"), name: "Time", value: self.time.1), BookingPropertyModel(image: UIImage(systemName: "train.side.rear.car"), name: "Vehicle type", value: self.vehicleType), BookingPropertyModel(image: UIImage(systemName: "person.wave.2"), name: "# of movers", value: self.numberOfMoovers), BookingPropertyModel(image: UIImage(systemName: "network"), name: "Job type", value: self.jobType), BookingPropertyModel(image: UIImage(systemName: "dollarsign.square"), name: self.incomeTitle, value: self.estimatedPrice)]
             
             if (OrderSession.shared.bookingModel?.type?.lowercased() == "Moovers".lowercased()) {
-                self.properties = [BookingPropertyModel(image: UIImage(systemName: "person.fill"), name: "Customer name", value: self.customerName), BookingPropertyModel(image: UIImage(systemName: "phone.fill"), name: "Phone name", value: self.phoneNumber), BookingPropertyModel(image: UIImage(systemName: "calendar"), name: "Date", value: self.time.0), BookingPropertyModel(image: UIImage(systemName: "clock"), name: "Time", value: self.time.1), BookingPropertyModel(image: UIImage(systemName: "person.wave.2"), name: "# of movers", value: self.numberOfMoovers), BookingPropertyModel(image: UIImage(systemName: "network"), name: "Job type", value: self.jobType), BookingPropertyModel(image: UIImage(systemName: "dollarsign.square"), name: "Est. income", value: self.estimatedPrice)]
+                self.properties = [BookingPropertyModel(image: UIImage(systemName: "person.fill"), name: "Customer name", value: self.customerName), BookingPropertyModel(image: UIImage(systemName: "phone.fill"), name: "Phone name", value: self.phoneNumber), BookingPropertyModel(image: UIImage(systemName: "calendar"), name: "Date", value: self.time.0), BookingPropertyModel(image: UIImage(systemName: "clock"), name: "Time", value: self.time.1), BookingPropertyModel(image: UIImage(systemName: "person.wave.2"), name: "# of movers", value: self.numberOfMoovers), BookingPropertyModel(image: UIImage(systemName: "network"), name: "Job type", value: self.jobType), BookingPropertyModel(image: UIImage(systemName: "dollarsign.square"), name: self.incomeTitle, value: self.estimatedPrice)]
             }
             
             completion(nil)

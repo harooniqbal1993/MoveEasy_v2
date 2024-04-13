@@ -19,4 +19,14 @@ extension Date {
         print("Date",dateFormatterPrint.string(from: date!)) // Feb 01,2018
         return dateFormatterPrint.string(from: date!);
     }
+    
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+    
+    func dateString(_ format: String = "MMM-dd-YYYY, hh:mm a") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 }

@@ -39,6 +39,7 @@ struct HomeDataModel: Decodable {
     var today: [OrderModel]? = nil
     var myOrders: [OrderModel]? = nil
     var newOrders: [OrderModel]? = nil
+    var scheduledOrders: [OrderModel]? = nil
 }
 
 struct OrderModel: Decodable {

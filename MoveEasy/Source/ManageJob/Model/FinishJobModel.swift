@@ -28,7 +28,7 @@ struct BookingTotalModel: Decodable {
     var totalTaxGstpstrate: String? = nil
     var totalDuration: String? = nil
     var workTime: String? = nil
-    var traveltime: String? = nil
+    var travelTime: String? = nil
     var hourlyRate: String? = nil
 }
 

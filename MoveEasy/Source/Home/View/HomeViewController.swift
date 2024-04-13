@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var rightCardView: UIView!
     @IBOutlet weak var activeOrderView: UIView!
     @IBOutlet weak var filterCollectionView: UICollectionView!
+    var timer: Timer? = nil
+    var hitCount = 0
     
     let refreshControl = UIRefreshControl()
     
@@ -43,7 +45,6 @@ class HomeViewController: UIViewController {
         
         fromBackgroundPushNotification()
         
-        getDashboardData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,6 +66,10 @@ class HomeViewController: UIViewController {
         orderTable.addSubview(refreshControl)
         
         locationManager()
+        
+//        calculateTotalJobTime(startTime: "11:12:02.8228509", endTime: "11:12:21.1483947")
+//        let i = stringFromTimeInterval(interval: 82)
+//        print(i)
     }
     
     func registerNotificationCenter() {
@@ -286,12 +291,15 @@ class HomeViewController: UIViewController {
                         receiptViewController.orderID = bookingID
                         self?.navigationController?.pushViewController(receiptViewController, animated: true)
                         return
+                    } else if OrderSession.shared.bookingModel?.status == .ACTIVE {
+                        self?.startNavigation()
+                        let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
+                        manageJobViewController.manageJobViewModel = ManageJobViewModel()
+                        OrderSession.shared.order = order
+                        self?.navigationController?.pushViewController(manageJobViewController, animated: true)
+                    } else {
+                        self?.getDashboardData()
                     }
-                    self?.startNavigation()
-                    let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
-                    manageJobViewController.manageJobViewModel = ManageJobViewModel()
-                    OrderSession.shared.order = order
-                    self?.navigationController?.pushViewController(manageJobViewController, animated: true)
                     
                 } else {
                     let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController

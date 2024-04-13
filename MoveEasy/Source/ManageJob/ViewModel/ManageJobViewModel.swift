@@ -43,12 +43,13 @@ class ManageJobViewModel {
         }
     }
     
-    func endMoving(bookingID: String) {
+    func endMoving(bookingID: String, completion: @escaping (_ error: String?) -> Void) {
         NetworkService.shared.endMoving(bookingID: bookingID) { result, error in
             DispatchQueue.main.async {
-                if error != nil {
-                    return
-                }
+//                if error != nil {
+//                    return
+//                }
+                completion(nil)
             }
         }
     }

@@ -10,7 +10,7 @@ import Foundation
 class NetworkService {
 //    https://neighbour.anadeemus.ca/swagger/index.html
     let baseURL: String = "https://movez-prod-driver-api.azurewebsites.net/api/" //"https://driversapidev.moovez.ca/api/"
-    let customerURL: String = "https://admindev.moovez.ca/api/"
+    let customerURL: String = "https://admin.moovez.ca/api/" // "https://admindev.moovez.ca/api/"
     
     var httpUtility: HttpUtility!
     
@@ -269,6 +269,13 @@ class NetworkService {
     func setCurrentLocation(driverID: Int, latitude: Double, longitude: Double, completion: @escaping (_ result: FinalJobResponse?, _ error: String?) -> Void) {
         let url = "\(baseURL+Constants.EndPoints.setCurrentLocation.rawValue)?driverId=\(driverID)&latitude=\(latitude)&longitude=\(longitude)"
         httpUtility.postWithQueryStringApiData(url: URL(string: url)!, resultType: FinalJobResponse.self) { result, error in
+            completion(result, nil)
+        }
+    }
+    
+    func getCustomerResponse(bookingID: Int, completion: @escaping (_ result: ForgotTimerRequest?, _ error: String?) -> Void) {
+        let url = "\(customerURL+Constants.EndPoints.getCustomerResponse.rawValue)?bookingID=\(bookingID)"
+        httpUtility.getApiData(url: URL(string: url)!, resultType: ForgotTimerRequest.self) { result, error in
             completion(result, nil)
         }
     }

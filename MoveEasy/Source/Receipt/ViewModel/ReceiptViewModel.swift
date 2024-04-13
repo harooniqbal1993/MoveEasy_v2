@@ -9,9 +9,11 @@ import Foundation
 
 class ReceiptViewModel {
     
+    var formType: String? = nil
     var receiptModel: BookingTotalModel? = nil
     var actualTime: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0) / 60 // 20
     var time: Int = Int(OrderSession.shared.bookingModel?.completionTime ?? 0) / 60
+    var isApprovedByCustomer: Bool? = false
     
     init(receiptModel: BookingTotalModel?) {
         self.receiptModel = receiptModel
@@ -33,12 +35,38 @@ class ReceiptViewModel {
         return receiptModel?.hourlyRate ?? "0.00" // "0.00"
     }
     
+//    var startTime: String {
+//        if let startTime = OrderSession.shared.bookingModel?.startTime {
+//            let refined = startTime.components(separatedBy: ".")
+//            return refined[0]
+//        }
+//        return "0.00" // "0.00"
+//    }
+//
+//    var breakTime: String {
+//        return "0.00"
+//    }
+//
+//    var endTime: String {
+//        if let endTime = OrderSession.shared.bookingModel?.endTime {
+//            let refined = endTime.components(separatedBy: ".")
+//            return refined[0]
+//        }
+//        return "0.00" // "0.00"
+//    }
+//
+//    var travelTime: String {
+//        return receiptModel?.travelTime ?? "0.00" // "0.00"
+//    }
+    
+    var startTime: String?
+    var breakTime: Double? = 0.00
+    var endTime: String?
+    var travelTime: Double? = 0.5
+    var totalJobTime: Double? = 0.00
+    
     var workTime: String {
         return receiptModel?.workTime ?? "0.00" // "0.00"
-    }
-    
-    var travelTime: String {
-        return receiptModel?.traveltime ?? "0.00" // "0.00"
     }
     
     var subTotal: String {
@@ -61,15 +89,59 @@ class ReceiptViewModel {
         time = time > 0 ? time - 1 : 0
     }
     
-    func getOrderSummary(completion: @escaping (_ error: String?) -> Void) {
-        NetworkService.shared.getOrderSummary(userID: "123", bookingID: "\(OrderSession.shared.order?.id ?? 0)") { result, error in
-            if let error = error {
-                completion(error)
-                return
-            }
-            
-            completion(nil)
+    func extractTime(jobTime: String?) -> String? {
+        if let jobTime = jobTime {
+            let refined = jobTime.components(separatedBy: ".")
+            return refined[0]
         }
+        return "0.00" // "0.00"
+    }
+    
+    func totalCalculations() {
+        
+        let difference = calculateJobTimeDifference()
+        let diffDouble = hoursStringToDecimal(difference)
+        
+        let total = (diffDouble ?? 0.0) + (travelTime ?? 0.0) + (breakTime ?? 0.0)
+        self.totalJobTime = total
+    }
+    
+    func calculateJobTimeDifference() -> String {
+        let start: Date = startTime?.toDate(withFormat: "HH:mm:ss") ?? Date()
+        let end: Date = endTime?.toDate(withFormat: "HH:mm:ss") ?? Date()
+
+        let delta = (end - start)
+        let finalHours = stringFromTimeInterval(interval: delta)
+        return finalHours as String
+    }
+    
+    func hoursStringToDecimal(_ hoursString: String) -> Double? {
+        let components = hoursString.components(separatedBy: ":")
+        
+        // Check if there are two components
+        guard components.count >= 2,
+              let hours = Double(components[0]),
+              let minutes = Double(components[1]) else {
+            return nil // Invalid format
+        }
+        
+        // Calculate decimal representation
+        let decimalHours = hours + (minutes / 60.0)
+        
+        return decimalHours
+    }
+    
+    func stringFromTimeInterval(interval: TimeInterval) -> NSString {
+        let ti = NSInteger(interval)
+        let ms = Int((interval.truncatingRemainder(dividingBy: 1)) * 1000)
+        
+        let seconds = ti % 60
+        let minutes = (ti / 60) % 60
+        let hours = (ti / 3600)
+        
+        //      return NSString(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
+//        return NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+        return NSString(format: "%0.2d.%0.2d",hours,minutes)
     }
     
     func getBooking(bookingID: String?, completion: @escaping (_ error: String?) -> Void) {
@@ -79,7 +151,12 @@ class ReceiptViewModel {
                 return
             }
             
+            OrderSession.shared.bookingModel?.startTime = result?.startTime
+            OrderSession.shared.bookingModel?.endTime = result?.endTime
             self.receiptModel = result?.bookingTotalModel
+            self.startTime = self.extractTime(jobTime: result?.startTime)
+            self.endTime = self.extractTime(jobTime: result?.endTime)
+            self.totalCalculations()
             completion(nil)
         }
     }
@@ -116,6 +193,34 @@ class ReceiptViewModel {
                 completion(nil)
             }
         })
+    }
+    
+    func forgotTimer(completion: @escaping (_ error: String?) -> Void) {
+        let forgotTimerRequest: ForgotTimerRequest = ForgotTimerRequest(id: 0, driverId: DriverSession.shared.driver?.id, startTime: startTime, endTime: endTime, bookingId: OrderSession.shared.bookingModel?.id, userId: OrderSession.shared.bookingModel?.userId, isApproved: true, FormType: formType)
+        NetworkService.shared.forgotTimer(forgotTimerRequest: forgotTimerRequest) { result, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+    
+    func getCustomerResponse(completion: @escaping (_ error: String?) -> Void) {
+        NetworkService.shared.getCustomerResponse(bookingID: OrderSession.shared.bookingModel?.id ?? 0) { result, error in 
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                self.isApprovedByCustomer = result?.isApproved
+                completion(nil)
+            }
+        }
+    }
+    
+    func compareDates() -> Bool {
+        return startTime?.toDate(withFormat: "HH:mm:ss")?.compare(endTime?.toDate(withFormat: "HH:mm:ss") ?? Date()) == ComparisonResult.orderedAscending
     }
 }
 
