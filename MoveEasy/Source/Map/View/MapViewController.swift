@@ -53,8 +53,8 @@ class MapViewController: UIViewController {
         mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         mapView.settings.myLocationButton = true
         mapView.isMyLocationEnabled = true
-        //        self.view.addSubview(mapView)
-        self.view.insertSubview(mapView, at: 0)
+                self.view.addSubview(mapView)
+//        self.view.insertSubview(mapView, at: 0)
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
@@ -138,19 +138,33 @@ class MapViewController: UIViewController {
             
             //Call this method to draw path on map
             DispatchQueue.main.async {
+                self.mapView.clear()
                 let startPoint = CLLocationCoordinate2D(latitude: startLat, longitude: startLng)
                 let endPoint = CLLocationCoordinate2D(latitude: endLat,longitude: endLng)
+                self.addMarker(position: startPoint)
+                self.addMarker(position: endPoint)
                 let bounds = GMSCoordinateBounds(coordinate: startPoint, coordinate: endPoint)
                 let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())!
                 self.mapView.camera = camera
                 self.drawPath(from: polyLineString)
-                
+//                self.addMarker(position: startPoint)
+//                self.addMarker(position: endPoint)
             }
         })
         task.resume()
     }
     
-    func drawPath(from polyStr: String){
+    func addMarker(position: CLLocationCoordinate2D) {
+        let marker = GMSMarker()
+        marker.position = position // CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+//        marker.title = "Sydney"
+//        marker.snippet = "Australia"
+//        marker.anch
+        marker.groundAnchor = CGPoint(x: -0.5, y: 0.5)
+        marker.map = mapView
+    }
+    
+    func drawPath(from polyStr: String) {
         let path = GMSPath(fromEncodedPath: polyStr)
         let polyline = GMSPolyline(path: path)
         polyline.strokeWidth = 3.0

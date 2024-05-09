@@ -54,6 +54,7 @@ struct OrderModel: Decodable {
     var stops: Int? = nil
     var riderName: String? = nil
     var riderPhone: String? = nil
+    var createdDate: String? = nil
 }
 
 struct DriverStatusModel: Decodable {

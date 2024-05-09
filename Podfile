@@ -10,7 +10,7 @@ target 'MoveEasy' do
   pod 'MHLoadingButton'
   pod 'UIView-Shimmer', '~> 1.0'
 #  pod 'SwiftDate', '~> 5.0'
-  pod 'Fastis', '~> 2.0'
+#  pod 'Fastis', '~> 2.0'
   pod 'IQKeyboardManagerSwift'
   pod 'DateTimePicker'
   pod 'NVActivityIndicatorView'
