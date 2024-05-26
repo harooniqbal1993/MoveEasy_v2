@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var mapView: GMSMapView!
+    @IBOutlet weak var backButton: UIButton!
     
     var onAccept: (() -> Void)?
     
@@ -22,6 +23,7 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.view.bringSubviewToFront(backButton)
         if OrderSession.shared.bookingModel?.pickupLatitude == nil || OrderSession.shared.bookingModel?.pickupLongitude == nil || OrderSession.shared.bookingModel?.dropofflatitude == nil || OrderSession.shared.bookingModel?.dropoffLongitude == nil {
             return
         }
@@ -53,7 +55,7 @@ class MapViewController: UIViewController {
         mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         mapView.settings.myLocationButton = true
         mapView.isMyLocationEnabled = true
-                self.view.addSubview(mapView)
+        self.view.addSubview(mapView)
 //        self.view.insertSubview(mapView, at: 0)
         
         let marker = GMSMarker()
@@ -139,16 +141,14 @@ class MapViewController: UIViewController {
             //Call this method to draw path on map
             DispatchQueue.main.async {
                 self.mapView.clear()
-                let startPoint = CLLocationCoordinate2D(latitude: startLat, longitude: startLng)
-                let endPoint = CLLocationCoordinate2D(latitude: endLat,longitude: endLng)
+                let startPoint = CLLocationCoordinate2D(latitude: source.latitude, longitude: source.longitude)
+                let endPoint = CLLocationCoordinate2D(latitude: destination.latitude,longitude: destination.longitude)
                 self.addMarker(position: startPoint)
                 self.addMarker(position: endPoint)
                 let bounds = GMSCoordinateBounds(coordinate: startPoint, coordinate: endPoint)
                 let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())!
                 self.mapView.camera = camera
                 self.drawPath(from: polyLineString)
-//                self.addMarker(position: startPoint)
-//                self.addMarker(position: endPoint)
             }
         })
         task.resume()
@@ -160,7 +160,7 @@ class MapViewController: UIViewController {
 //        marker.title = "Sydney"
 //        marker.snippet = "Australia"
 //        marker.anch
-        marker.groundAnchor = CGPoint(x: -0.5, y: 0.5)
+//        marker.groundAnchor = CGPoint(x: -0.5, y: 0.5)
         marker.map = mapView
     }
     
@@ -186,4 +186,6 @@ extension MapViewController: CLLocationManagerDelegate {
         let location = locationManager.location?.coordinate
         cameraMoveToLocation(toLocation: location)
     }
+    
+    
 }

@@ -19,6 +19,7 @@ enum OrderStatus: String, Codable {
     case INCOMPLETED = "INCOMPLETED" // customer is creating
     case CANCELLED = "CANCELLED"
     case DELIVERY = "Delivery"
+    case PAIRED = "PAIRED"
 }
 
 struct HomeModel: Decodable {
@@ -55,6 +56,8 @@ struct OrderModel: Decodable {
     var riderName: String? = nil
     var riderPhone: String? = nil
     var createdDate: String? = nil
+    var createdTime: String? = nil
+    var isDeliverNow: Bool? = false
 }
 
 struct DriverStatusModel: Decodable {

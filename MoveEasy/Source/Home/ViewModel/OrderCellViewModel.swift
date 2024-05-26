@@ -44,11 +44,11 @@ class OrderCellViewModel {
 //    }
     
     var date: String {
-        return order?.orderDate ?? ""
+        return order?.isDeliverNow == true ? "Now" : order?.createdDate ?? "" // order?.orderDate ?? ""
     }
     
     var time: String {
-        return order?.orderTime ?? ""
+        return order?.isDeliverNow == true ? "Now" : order?.createdTime ?? ""
     }
     
     var typeColor: UIColor {

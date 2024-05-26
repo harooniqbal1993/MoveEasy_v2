@@ -87,7 +87,7 @@ and start earning</string>
         <scene sceneID="dmh-cF-hE0">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="Wqm-kR-VdM" customClass="MapViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gSH-5y-h2z">
+                    <view key="view" contentMode="scaleToFill" id="gSH-5y-h2z" customClass="GMSMapView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -114,6 +114,9 @@ and start earning</string>
                             <constraint firstItem="hYs-7C-BFu" firstAttribute="top" secondItem="DFW-vp-juE" secondAttribute="top" constant="20" id="k5U-6d-M8t"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="hYs-7C-BFu" id="6Dv-fN-tNW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUP-uW-dig" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -750,6 +753,10 @@ and start earning</string>
                                     <action selector="buttonTapped:" destination="4hD-td-o62" eventType="touchUpInside" id="JDQ-Ly-QmE"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3Pi-xp-rRV">
+                                <rect key="frame" x="40" y="70" width="20" height="20"/>
+                                <color key="color" systemColor="systemBackgroundColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bjS-Me-TOu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -762,8 +769,10 @@ and start earning</string>
                             <constraint firstItem="kI3-31-hFf" firstAttribute="bottom" secondItem="bjS-Me-TOu" secondAttribute="bottom" id="GbT-xi-5Ot"/>
                             <constraint firstItem="j8X-UW-9qx" firstAttribute="top" secondItem="bjS-Me-TOu" secondAttribute="top" constant="30" id="HBz-64-dsO"/>
                             <constraint firstItem="kI3-31-hFf" firstAttribute="leading" secondItem="bjS-Me-TOu" secondAttribute="leading" id="Rgj-rZ-e3o"/>
+                            <constraint firstItem="3Pi-xp-rRV" firstAttribute="centerX" secondItem="j8X-UW-9qx" secondAttribute="centerX" id="Soa-D6-nzj"/>
                             <constraint firstItem="j8X-UW-9qx" firstAttribute="leading" secondItem="bjS-Me-TOu" secondAttribute="leading" constant="20" id="Spm-PW-6Vw"/>
                             <constraint firstItem="QrN-aD-dZT" firstAttribute="trailing" secondItem="bjS-Me-TOu" secondAttribute="trailing" id="V7s-fN-gPd"/>
+                            <constraint firstItem="3Pi-xp-rRV" firstAttribute="centerY" secondItem="j8X-UW-9qx" secondAttribute="centerY" id="lC5-bm-nTX"/>
                             <constraint firstItem="kI3-31-hFf" firstAttribute="top" secondItem="QrN-aD-dZT" secondAttribute="bottom" constant="15" id="mPm-3t-eye"/>
                             <constraint firstItem="QrN-aD-dZT" firstAttribute="leading" secondItem="bjS-Me-TOu" secondAttribute="leading" id="ocB-M6-Dps"/>
                             <constraint firstItem="ZKm-Qo-hgg" firstAttribute="top" secondItem="j8X-UW-9qx" secondAttribute="bottom" constant="20" id="ptL-9f-GCQ"/>
@@ -774,6 +783,7 @@ and start earning</string>
                     <navigationItem key="navigationItem" id="bDg-kl-toU"/>
                     <connections>
                         <outlet property="profileImage" destination="j8X-UW-9qx" id="TXY-QV-AjV"/>
+                        <outlet property="profileImageLoader" destination="3Pi-xp-rRV" id="Atk-3J-V5a"/>
                         <outlet property="ratingCountLabel" destination="hj6-AN-YdZ" id="OPp-Nc-YJt"/>
                         <outlet property="ratingStackView" destination="lhr-jE-Wa7" id="fpm-AJ-5Ip"/>
                         <outlet property="rideCountLabel" destination="wOh-wO-Gin" id="ow2-Tx-gji"/>

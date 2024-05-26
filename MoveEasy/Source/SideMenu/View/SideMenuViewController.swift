@@ -14,6 +14,7 @@ class SideMenuViewController: UIViewController {
         var name: String?
     }
     
+    @IBOutlet weak var profileImageLoader: UIActivityIndicatorView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var sideMenuTableView: UITableView!
@@ -29,6 +30,9 @@ class SideMenuViewController: UIViewController {
     
     var menuItems: [SideMenuModel] = [SideMenuModel(icon: "home", name: "Home"), SideMenuModel(icon: "earnings", name: "Earnings"), SideMenuModel(icon: "sign-in-alt", name: "Logout"), SideMenuModel(icon: "delete-account", name: "Delete Account")]
     
+    var mediaPickerManager: MediaPickerManager!
+    lazy var fileUploader: FileUploader? = FileUploader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +45,13 @@ class SideMenuViewController: UIViewController {
     }
     
     func configure() {
+        
+        mediaPickerManager = MediaPickerManager()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped(_:)))
+        profileImage.isUserInteractionEnabled = true
+        profileImage.addGestureRecognizer(tapGestureRecognizer)
+        
         sideMenuTableView.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: "MenuCell")
         rideCountLabel.text = "\(DriverSession.shared.driver?.completedBookingCount ?? 0)"
         ratingCountLabel.text = "\(DriverSession.shared.driver?.averageRating ?? 0)"
@@ -48,6 +59,7 @@ class SideMenuViewController: UIViewController {
     }
     
     func loadViews() {
+        profileImageLoader.isHidden = true
         profileImage.round()
         statsOuterStackView.border(color: .systemGray4, radius: 0.0, width: 1.0)
         rideStackView.addRightBorderWithColor(color: .systemGray4, width: 1.0)
@@ -109,6 +121,48 @@ class SideMenuViewController: UIViewController {
             break
         default:
             print("default")
+        }
+    }
+    
+    private func animateLoader(animate: Bool = true) {
+        profileImage.isUserInteractionEnabled = !animate
+        profileImageLoader.isHidden = !animate
+        if animate {
+            profileImageLoader.startAnimating()
+        } else {
+            profileImageLoader.stopAnimating()
+        }
+    }
+    
+    private func uploadProfilePicture(data: Data, mediaType: MediaPickerManager.MediaType) {
+        animateLoader()
+        let parameters = [
+                "driverId": "\(DriverSession.shared.driver?.id ?? 0)"
+        ] as? [String : Any]
+        let media: [FileUploader.Media]? = [FileUploader.Media(withImage: data, forKey: "profilePhoto")] as? [FileUploader.Media]
+        self.fileUploader?.formDataUpload(url: URL(string: "\(NetworkService.shared.baseURL)\(Constants.EndPoints.updateProfilePicture.rawValue)?driverId=\(DriverSession.shared.driver?.id ?? 0)")!, parameters: parameters, media: media ?? [], resultType: String.self, completion: { [weak self] str, error in
+            DispatchQueue.main.async {
+                self?.animateLoader(animate: false)
+                
+                if let error = error {
+                    self?.showAlert(title: "Error", message: error)
+                    return
+                }
+                self?.profileImage.image = UIImage(data: data)
+            }
+        })
+    }
+    
+    @objc func profileImageTapped(_ sender:AnyObject) {
+        mediaPickerManager.pickImage(viewController: self, mediaType: .gallery) { [weak self] (image, url, error)  in
+            if error != nil {
+                self?.showAlert(title: "Media Error", message: error ?? "Something went wrong with Camera")
+                return
+            }
+            
+            if let photo = image?.pngData() {
+                self?.uploadProfilePicture(data: photo, mediaType: .gallery)
+            }
         }
     }
     
