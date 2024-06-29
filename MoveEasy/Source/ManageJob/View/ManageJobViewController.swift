@@ -197,6 +197,7 @@ class ManageJobViewController: UIViewController {
         startView.round(radius: 15)
         pauseView.round(radius: 15)
         stopView.round(radius: 15)
+        forgotStartTimeLabel.underline()
         viewRouteButton.round()
         continueButton.round()
         takeImageView.border(color: Constants.themeColor, width: 1.0)
@@ -206,7 +207,7 @@ class ManageJobViewController: UIViewController {
         additionalInfoView.isHidden = true
         imageActivityIndicator.isHidden = true
         videoActivityIndicator.isHidden = true
-        addressLabel.text = OrderSession.shared.bookingModel?.pickupLocation
+        addressLabel.text = "Pickup: \(OrderSession.shared.bookingModel?.pickupLocation ?? "")"
         switchView.isOn = Defaults.driverStatus ?? true
         continueButton.isHidden = true
         viewRouteButton.isHidden = true
@@ -485,14 +486,14 @@ class ManageJobViewController: UIViewController {
             let appleMap = AppleMap(source: source, destination: destination)
             appleMap.present(in: self, sourceView: backButton)
             
-            addressLabel.text = OrderSession.shared.bookingModel?.dropoffLocation
+            addressLabel.text = "Drop off: \(OrderSession.shared.bookingModel?.dropoffLocation ?? "")"
 //            continueButton.setTitle("Complete job")
             buttonTitle = "Complete job"
             manageJobViewModel.isLastDestination = true
         } else {
             buttonTitle = "Next pickup"
             if manageJobViewModel.stopCounter < manageJobViewModel.stops?.count ?? 0 {
-                addressLabel.text = manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop
+                addressLabel.text = "Pickup: \(manageJobViewModel.stops?[manageJobViewModel.stopCounter].stop ?? "")"
                 
                 let sourceLat = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].lat ?? "0.0")
                 let sourceLng = Double(manageJobViewModel.stops?[manageJobViewModel.stopCounter - 1].long ?? "0.0")

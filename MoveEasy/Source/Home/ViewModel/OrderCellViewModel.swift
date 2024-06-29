@@ -31,11 +31,11 @@ class OrderCellViewModel {
         return order?.dropoffLocation ?? ""
     }
     
-//    var date: String {
-//        let dateParts = order?.orderDate?.components(separatedBy: "-")
-//        guard let date = dateParts?[0] else { return ""}
-//        return getFormattedDate(rawDate: date, formatter: "dd MMM yyyy") ?? "" // order?.orderDate ?? ""
-//    }
+    var date: String {
+        let dateParts = order?.orderDate?.components(separatedBy: "-")
+        guard let date = dateParts?[0] else { return ""}
+        return getFormattedDate(rawDate: date, formatter: "dd MMM yyyy") ?? "" // order?.orderDate ?? ""
+    }
 //
 //    var time: String {
 //        let dateParts = order?.orderDate?.components(separatedBy: "-")
@@ -43,12 +43,12 @@ class OrderCellViewModel {
 //        return timePart
 //    }
     
-    var date: String {
-        return order?.orderDate ?? ""
-    }
+//    var date: String {
+//        return order?.isDeliverNow == true ? "Now" : order?.createdDate ?? "" // order?.orderDate ?? ""
+//    }
     
     var time: String {
-        return order?.orderTime ?? ""
+        return order?.isDeliverNow == true ? "Now" : order?.createdTime ?? ""
     }
     
     var typeColor: UIColor {

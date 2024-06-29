@@ -30,7 +30,7 @@ class FileUploader {
     
     // filename: String?, file: [Data]?, fileKey: String? = "file"
     
-    func formDataUpload<T: Decodable>(url: URL, parameters: [String : Any]? = nil, media: [Media] = [], authToken: String? = nil, resultType: T.Type, completion: @escaping (_ result: T?, _ error: String?) -> Void) {
+    func formDataUpload<T: Decodable>(url: URL, parameters: [String : Any]? = nil, media: [Media] = [], authToken: String? = Defaults.authToken, resultType: T.Type, completion: @escaping (_ result: T?, _ error: String?) -> Void) {
         let boundary = generateBoundary()
         var request = URLRequest(url: url)
         
@@ -51,6 +51,11 @@ class FileUploader {
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                let str = String(decoding: data, as: UTF8.self)
+                print(url.absoluteString)
+                print(str)
+            }
             if let apiError = error {
                 debugPrint("API ERROR: ", apiError.localizedDescription)
                 completion(nil, apiError.localizedDescription)
@@ -66,6 +71,8 @@ class FileUploader {
                     debugPrint("POST api error: ", error)
                     completion(nil, error.localizedDescription)
                 }
+            } else {
+                completion(nil, nil)
             }
         }.resume()
     }

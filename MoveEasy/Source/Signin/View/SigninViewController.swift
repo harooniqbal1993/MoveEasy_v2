@@ -14,6 +14,7 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var checkboxImage: UIImageView!
     @IBOutlet weak var signinButton: SpinnerButton!
+    @IBOutlet weak var forgotButton: UIButton!
     
     var loginViewModel: LoginViewModel!
     
@@ -24,6 +25,7 @@ class SigninViewController: UIViewController {
     }
     
     func loadViews() {
+        forgotButton.underline()
         navigationController?.setNavigationBarHidden(true, animated: true)
         signinButton.round()
     }

@@ -279,7 +279,7 @@ class HomeViewController: UIViewController {
 //            }
             
             let tripDetailViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as! TripDetailViewController
-            let order = OrderModel(id: Int(bookingID ), type: "Mooving", status: OrderStatus.INPROGRESS, pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil)
+            let order = OrderModel(id: Int(bookingID ), type: "Moving", status: OrderStatus.INPROGRESS, pickupLocation: "Lahore", dropoffLocation: "Islamabad", orderTime: "10:23:44", orderDate: "12/12/2022", stops: 1, riderName: nil, riderPhone: nil)
             OrderSession.shared.order = order
             let tripDetailViewModel = TripDetailViewModel(order: order)
             tripDetailViewController.tripDetailViewModel = tripDetailViewModel
@@ -291,7 +291,7 @@ class HomeViewController: UIViewController {
                         receiptViewController.orderID = bookingID
                         self?.navigationController?.pushViewController(receiptViewController, animated: true)
                         return
-                    } else if OrderSession.shared.bookingModel?.status == .ACTIVE {
+                    } else if OrderSession.shared.bookingModel?.status == .ACTIVE || OrderSession.shared.bookingModel?.status == .PENDING || OrderSession.shared.bookingModel?.status == .PAIRED {
                         self?.startNavigation()
                         let manageJobViewController = UIStoryboard(name: "Job", bundle: nil).instantiateViewController(withIdentifier: "ManageJobViewController") as! ManageJobViewController
                         manageJobViewController.manageJobViewModel = ManageJobViewModel()

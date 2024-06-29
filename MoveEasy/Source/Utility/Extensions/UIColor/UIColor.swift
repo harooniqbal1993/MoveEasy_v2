@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public extension UIColor {
+extension UIColor {
     
     static func from(hexString: String) -> UIColor {
         var cleanString = hexString.replacingOccurrences(of: "#", with: "")

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -372,7 +372,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="992"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7d-ul-7uP">
-                                                <rect key="frame" x="20" y="666" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="687.5" width="335" height="45"/>
                                                 <color key="backgroundColor" red="0.40784313729999999" green="0.8980392157" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="8Oo-Ad-hfD"/>
@@ -534,6 +534,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="osG-7Y-XYd" firstAttribute="leading" secondItem="2ID-XK-fmA" secondAttribute="leading" id="DCF-Ju-VSC"/>
+                                                            <constraint firstAttribute="width" secondItem="2ID-XK-fmA" secondAttribute="height" multiplier="1:1" id="EsG-g1-yAS"/>
                                                             <constraint firstItem="ZUV-ku-4cq" firstAttribute="centerX" secondItem="2ID-XK-fmA" secondAttribute="centerX" id="NdZ-7C-GSS"/>
                                                             <constraint firstItem="ZUV-ku-4cq" firstAttribute="centerY" secondItem="2ID-XK-fmA" secondAttribute="centerY" id="QDW-Ia-o85"/>
                                                             <constraint firstAttribute="trailing" secondItem="osG-7Y-XYd" secondAttribute="trailing" id="fIT-6B-Rud"/>
@@ -578,15 +579,12 @@
                                                             <constraint firstAttribute="trailing" secondItem="89k-Jy-etu" secondAttribute="trailing" id="Cnj-b4-dTS"/>
                                                             <constraint firstItem="89k-Jy-etu" firstAttribute="top" secondItem="UpD-Xt-4qf" secondAttribute="top" id="Ha9-7M-l29"/>
                                                             <constraint firstAttribute="width" secondItem="UpD-Xt-4qf" secondAttribute="height" multiplier="1:1" id="MEo-zl-w0P"/>
+                                                            <constraint firstAttribute="width" secondItem="UpD-Xt-4qf" secondAttribute="height" multiplier="1:1" id="WRa-vq-SIw"/>
                                                             <constraint firstAttribute="bottom" secondItem="89k-Jy-etu" secondAttribute="bottom" id="dly-Yr-tEe"/>
                                                             <constraint firstItem="89k-Jy-etu" firstAttribute="leading" secondItem="UpD-Xt-4qf" secondAttribute="leading" id="lwA-oR-knv"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="2ID-XK-fmA" firstAttribute="width" secondItem="2ID-XK-fmA" secondAttribute="height" multiplier="1:1" id="EsG-g1-yAS"/>
-                                                    <constraint firstItem="UpD-Xt-4qf" firstAttribute="width" secondItem="UpD-Xt-4qf" secondAttribute="height" multiplier="1:1" id="WRa-vq-SIw"/>
-                                                </constraints>
                                             </stackView>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dau-CD-xQq">
                                                 <rect key="frame" x="20" y="338.5" width="335" height="20"/>
@@ -603,7 +601,7 @@
                                                 </connections>
                                             </button>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82J-wr-Mga">
-                                                <rect key="frame" x="20" y="614.5" width="335" height="0.0"/>
+                                                <rect key="frame" x="20" y="636" width="335" height="0.0"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop off Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Vx-7hm">
                                                         <rect key="frame" x="15" y="-10" width="305" height="19.5"/>
@@ -621,7 +619,7 @@
                                                 </constraints>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-8n-o9D">
-                                                <rect key="frame" x="20" y="614.5" width="335" height="0.0"/>
+                                                <rect key="frame" x="20" y="636" width="335" height="0.0"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-Eh-LLD">
                                                         <rect key="frame" x="15" y="10" width="53" height="17"/>
@@ -656,7 +654,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okc-VD-r0c" customClass="PaddingLabel" customModule="Moovez_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="614.5" width="335" height="31.5"/>
+                                                <rect key="frame" x="20" y="636" width="335" height="31.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Stop 1, Full location address...Block # 123, 
 Apartment # 123</string>
@@ -679,7 +677,7 @@ Apartment # 123</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="afF-AT-SRg">
-                                                <rect key="frame" x="20" y="461.5" width="335" height="125"/>
+                                                <rect key="frame" x="20" y="483" width="335" height="125"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-EY-luw">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="125"/>
@@ -812,7 +810,7 @@ Apartment # 123</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bAt-ZA-kU1">
-                                                <rect key="frame" x="20" y="594.5" width="335" height="0.0"/>
+                                                <rect key="frame" x="20" y="616" width="335" height="0.0"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQP-WU-EUm">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="133"/>
@@ -846,10 +844,10 @@ Apartment # 123</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oAh-Wm-ra6">
-                                                <rect key="frame" x="30" y="388.5" width="315" height="64.5"/>
+                                                <rect key="frame" x="30" y="388.5" width="315" height="86"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload photos/videos of the items including any noticeable damage) and / or proof of risky deliveries." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="um1-0q-CTM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="64.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please upload photos or videos of the items, including any noticeable damage, and proof related to risky deliveries." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="um1-0q-CTM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="86"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -2250,6 +2248,9 @@ privacy policy.</string>
         <designable name="okc-VD-r0c">
             <size key="intrinsicContentSize" width="253.5" height="31.5"/>
         </designable>
+        <designable name="v4W-g4-Wp8">
+            <size key="intrinsicContentSize" width="181" height="36"/>
+        </designable>
     </designables>
     <resources>
         <image name="arrow-left" width="22" height="22"/>
@@ -2261,13 +2262,13 @@ privacy policy.</string>
         <image name="stop" width="12.5" height="14.5"/>
         <image name="video" width="23" height="17"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

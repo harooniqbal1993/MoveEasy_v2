@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -87,7 +87,7 @@ and start earning</string>
         <scene sceneID="dmh-cF-hE0">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="Wqm-kR-VdM" customClass="MapViewController" customModule="Moovez_Driver" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gSH-5y-h2z">
+                    <view key="view" contentMode="scaleToFill" id="gSH-5y-h2z" customClass="GMSMapView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -114,6 +114,9 @@ and start earning</string>
                             <constraint firstItem="hYs-7C-BFu" firstAttribute="top" secondItem="DFW-vp-juE" secondAttribute="top" constant="20" id="k5U-6d-M8t"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="hYs-7C-BFu" id="6Dv-fN-tNW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUP-uW-dig" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -507,6 +510,9 @@ and start earning</string>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLh-bM-V6G">
                                                 <rect key="frame" x="130.5" y="589" width="114" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="Nii-p5-iE4"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Forgot password?">
@@ -581,6 +587,7 @@ and start earning</string>
                     <connections>
                         <outlet property="checkboxImage" destination="k1Y-qk-0eu" id="DkB-of-tCQ"/>
                         <outlet property="emailTextField" destination="EdQ-PQ-mOL" id="xdx-4I-sOe"/>
+                        <outlet property="forgotButton" destination="rLh-bM-V6G" id="LKO-OB-wcV"/>
                         <outlet property="passwordTextField" destination="GYg-B6-RsB" id="ziV-rF-QxE"/>
                         <outlet property="signinButton" destination="ErS-Gw-mMS" id="KiV-J7-A09"/>
                     </connections>
@@ -750,6 +757,10 @@ and start earning</string>
                                     <action selector="buttonTapped:" destination="4hD-td-o62" eventType="touchUpInside" id="JDQ-Ly-QmE"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3Pi-xp-rRV">
+                                <rect key="frame" x="40" y="70" width="20" height="20"/>
+                                <color key="color" systemColor="systemBackgroundColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bjS-Me-TOu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -762,8 +773,10 @@ and start earning</string>
                             <constraint firstItem="kI3-31-hFf" firstAttribute="bottom" secondItem="bjS-Me-TOu" secondAttribute="bottom" id="GbT-xi-5Ot"/>
                             <constraint firstItem="j8X-UW-9qx" firstAttribute="top" secondItem="bjS-Me-TOu" secondAttribute="top" constant="30" id="HBz-64-dsO"/>
                             <constraint firstItem="kI3-31-hFf" firstAttribute="leading" secondItem="bjS-Me-TOu" secondAttribute="leading" id="Rgj-rZ-e3o"/>
+                            <constraint firstItem="3Pi-xp-rRV" firstAttribute="centerX" secondItem="j8X-UW-9qx" secondAttribute="centerX" id="Soa-D6-nzj"/>
                             <constraint firstItem="j8X-UW-9qx" firstAttribute="leading" secondItem="bjS-Me-TOu" secondAttribute="leading" constant="20" id="Spm-PW-6Vw"/>
                             <constraint firstItem="QrN-aD-dZT" firstAttribute="trailing" secondItem="bjS-Me-TOu" secondAttribute="trailing" id="V7s-fN-gPd"/>
+                            <constraint firstItem="3Pi-xp-rRV" firstAttribute="centerY" secondItem="j8X-UW-9qx" secondAttribute="centerY" id="lC5-bm-nTX"/>
                             <constraint firstItem="kI3-31-hFf" firstAttribute="top" secondItem="QrN-aD-dZT" secondAttribute="bottom" constant="15" id="mPm-3t-eye"/>
                             <constraint firstItem="QrN-aD-dZT" firstAttribute="leading" secondItem="bjS-Me-TOu" secondAttribute="leading" id="ocB-M6-Dps"/>
                             <constraint firstItem="ZKm-Qo-hgg" firstAttribute="top" secondItem="j8X-UW-9qx" secondAttribute="bottom" constant="20" id="ptL-9f-GCQ"/>
@@ -774,6 +787,7 @@ and start earning</string>
                     <navigationItem key="navigationItem" id="bDg-kl-toU"/>
                     <connections>
                         <outlet property="profileImage" destination="j8X-UW-9qx" id="TXY-QV-AjV"/>
+                        <outlet property="profileImageLoader" destination="3Pi-xp-rRV" id="Atk-3J-V5a"/>
                         <outlet property="ratingCountLabel" destination="hj6-AN-YdZ" id="OPp-Nc-YJt"/>
                         <outlet property="ratingStackView" destination="lhr-jE-Wa7" id="fpm-AJ-5Ip"/>
                         <outlet property="rideCountLabel" destination="wOh-wO-Gin" id="ow2-Tx-gji"/>
@@ -2480,10 +2494,10 @@ and start earning</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

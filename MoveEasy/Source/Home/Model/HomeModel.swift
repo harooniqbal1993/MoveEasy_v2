@@ -19,6 +19,22 @@ enum OrderStatus: String, Codable {
     case INCOMPLETED = "INCOMPLETED" // customer is creating
     case CANCELLED = "CANCELLED"
     case DELIVERY = "Delivery"
+    case PAIRED = "PAIRED"
+    
+    func getBackgroundColor() -> UIColor? {
+        switch self {
+        case .PENDING:
+            return UIColor(red: 246/255, green: 191/255, blue: 79/255, alpha: 1.0)
+        case .ACTIVE, .Active, .Inprogress, .INPROGRESS:
+            return UIColor(red: 111/255, green: 222/255, blue: 49/255, alpha: 1.0)
+        case .CANCELLED:
+            return UIColor(red: 255/255, green: 49/255, blue: 49/255, alpha: 1.0)
+        case .COMPLETED, .DELIVERY:
+            return UIColor(red: 50/255, green: 42/255, blue: 136/255, alpha: 1.0)
+        default:
+            return UIColor(red: 50/255, green: 42/255, blue: 136/255, alpha: 1.0)
+        }
+    }
 }
 
 struct HomeModel: Decodable {
@@ -55,6 +71,8 @@ struct OrderModel: Decodable {
     var riderName: String? = nil
     var riderPhone: String? = nil
     var createdDate: String? = nil
+    var createdTime: String? = nil
+    var isDeliverNow: Bool? = false
 }
 
 struct DriverStatusModel: Decodable {

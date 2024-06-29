@@ -34,12 +34,12 @@ class BookingPropertyFooterView: UICollectionReusableView {
         dropoffAddressLabel.text = bookingModel?.dropoffLocation
         dropoffInstructionLabel.text = bookingModel?.dropOffInstructions
         
-        let toggleButton: Bool = (OrderSession.shared.bookingModel?.status == .COMPLETED || OrderSession.shared.bookingModel?.status == .ACTIVE)
+        let toggleButton: Bool = (OrderSession.shared.bookingModel?.status == .COMPLETED || OrderSession.shared.bookingModel?.status == .ACTIVE || OrderSession.shared.bookingModel?.status == .PAIRED)
         acceptButton.isHidden = toggleButton
         rejectButton.isHidden = toggleButton
         startJobButton.isHidden = !toggleButton
         
-        if OrderSession.shared.bookingModel?.isDeliverNow == true || OrderSession.shared.bookingModel?.status == .COMPLETED || OrderSession.shared.bookingModel?.status == .ACTIVE {
+        if OrderSession.shared.bookingModel?.isDeliverNow == true || OrderSession.shared.bookingModel?.status == .COMPLETED || OrderSession.shared.bookingModel?.status == .ACTIVE || OrderSession.shared.bookingModel?.status == .PAIRED {
             startJobButton.isHidden = false
             rejectButton.isHidden = true
             acceptButton.isHidden = true

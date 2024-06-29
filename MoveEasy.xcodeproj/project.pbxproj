@@ -106,12 +106,12 @@
 		18F86232289071FC00A3F7A0 /* ProofViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86231289071FC00A3F7A0 /* ProofViewModel.swift */; };
 		18F86235289072D600A3F7A0 /* NotesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F86234289072D600A3F7A0 /* NotesRequest.swift */; };
 		18F862372890747D00A3F7A0 /* NotesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F862362890747D00A3F7A0 /* NotesResponse.swift */; };
+		430644BB2BF7891400ACFAA6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 430644BA2BF7891400ACFAA6 /* FirebaseAnalytics */; };
+		430644BD2BF7891E00ACFAA6 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 430644BC2BF7891E00ACFAA6 /* FirebaseCrashlytics */; };
+		430644BF2BF7895700ACFAA6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 430644BE2BF7895700ACFAA6 /* FirebaseMessaging */; };
 		AF17F67B29B1082A000A31A6 /* AdjustTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF17F67A29B10829000A31A6 /* AdjustTimeViewController.swift */; };
 		AF17F67E29B109D6000A31A6 /* AdjustTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF17F67D29B109D6000A31A6 /* AdjustTimeViewModel.swift */; };
 		AF6C1A6B297EFE84007234EE /* ForgotTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6C1A6A297EFE84007234EE /* ForgotTimer.swift */; };
-		AF7C08512970818500099E77 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08502970818500099E77 /* FirebaseAnalytics */; };
-		AF7C08532970818500099E77 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08522970818500099E77 /* FirebaseCrashlytics */; };
-		AF7C08552970818500099E77 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AF7C08542970818500099E77 /* FirebaseMessaging */; };
 		AF81CCDD296DD0B6007B1ADB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81CCDC296DD0B6007B1ADB /* Enums.swift */; };
 		AFF25B3A2976694600348BB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFF25B392976694600348BB0 /* GoogleService-Info.plist */; };
 		AFFF9AD029995FE000F1582C /* AppleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF9ACF29995FE000F1582C /* AppleMap.swift */; };
@@ -239,9 +239,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF7C08552970818500099E77 /* FirebaseMessaging in Frameworks */,
-				AF7C08532970818500099E77 /* FirebaseCrashlytics in Frameworks */,
-				AF7C08512970818500099E77 /* FirebaseAnalytics in Frameworks */,
+				430644BF2BF7895700ACFAA6 /* FirebaseMessaging in Frameworks */,
+				430644BD2BF7891E00ACFAA6 /* FirebaseCrashlytics in Frameworks */,
+				430644BB2BF7891400ACFAA6 /* FirebaseAnalytics in Frameworks */,
 				EBE57E5A30D49E80232ECF71 /* Pods_MoveEasy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1092,9 +1092,9 @@
 			);
 			name = MoveEasy;
 			packageProductDependencies = (
-				AF7C08502970818500099E77 /* FirebaseAnalytics */,
-				AF7C08522970818500099E77 /* FirebaseCrashlytics */,
-				AF7C08542970818500099E77 /* FirebaseMessaging */,
+				430644BA2BF7891400ACFAA6 /* FirebaseAnalytics */,
+				430644BC2BF7891E00ACFAA6 /* FirebaseCrashlytics */,
+				430644BE2BF7895700ACFAA6 /* FirebaseMessaging */,
 			);
 			productName = MoveEasy;
 			productReference = 18C833912878BAED008C2283 /* Moovez Driver.app */;
@@ -1126,7 +1126,7 @@
 			);
 			mainGroup = 18C833882878BAED008C2283;
 			packageReferences = (
-				AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				430644B92BF788B900ACFAA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 18C833922878BAED008C2283 /* Products */;
 			projectDirPath = "";
@@ -1476,7 +1476,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 9V3LXK79X9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
@@ -1500,7 +1500,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 2.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
 				PRODUCT_NAME = "Moovez Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1522,7 +1523,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoveEasy/MoveEasy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 9V3LXK79X9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveEasy/Info.plist;
@@ -1546,7 +1547,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 2.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MoveEasy.driver;
 				PRODUCT_NAME = "Moovez Driver";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1581,30 +1583,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		430644B92BF788B900ACFAA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 10.22.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AF7C08502970818500099E77 /* FirebaseAnalytics */ = {
+		430644BA2BF7891400ACFAA6 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 430644B92BF788B900ACFAA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
-		AF7C08522970818500099E77 /* FirebaseCrashlytics */ = {
+		430644BC2BF7891E00ACFAA6 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 430644B92BF788B900ACFAA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
-		AF7C08542970818500099E77 /* FirebaseMessaging */ = {
+		430644BE2BF7895700ACFAA6 /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AF7C084F2970818500099E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 430644B92BF788B900ACFAA6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */

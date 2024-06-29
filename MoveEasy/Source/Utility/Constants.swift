@@ -81,6 +81,7 @@ class Constants {
         case deleteAccount = "Auth/DeleteDriver"
         case setCurrentLocation = "DriverDetailAPI/SetCurrentLocation"
         case getCustomerResponse = "ForgotToStartBooking/GetCustomerResponse"
+        case updateProfilePicture = "RegisterPageAPI/UpdateProfilePicture"
     }
     
     enum NotificationObserver: String {
