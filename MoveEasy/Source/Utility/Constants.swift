@@ -49,7 +49,7 @@ class Constants {
         case login = "Auth/loginDriver"
         case registerDriver = "Auth/signupDriver"
         case forgotPassword = "Auth/forgotPassword"
-        case emailConfirmationCode = "Auth/ResetPasswordCode"
+//        case emailConfirmationCode = "Auth/ResetPasswordCode"
         case resetPasswordCode = "Auth/resetPasswordCode"
         case resetPassword = "Auth/resetPassword"
         case getDriverStatus = "DriverDashboardAPI/getDriverStatus"
